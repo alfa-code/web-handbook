@@ -1,0 +1,19 @@
+{
+  "name": "alfa-code-platform",
+  "version": "1.0.0",
+  "description": "Сервис для подготовки IT специалистов (Основная платформа для пользователей)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/alfa-code-space/alfa-code-platform.git"
+  },
+  "author": "hydrock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/alfa-code-space/alfa-code-platform/issues"
+  },
+  "homepage": "https://gitlab.com/alfa-code-space/alfa-code-platform#readme"
+}
