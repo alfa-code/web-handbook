@@ -12,7 +12,8 @@
             "Src/*": ["src/*"],
             "App/*": ["src/client/app/*"],
             "Components/*": ["src/client/components/*"],
-            "Server/*": ["src/server/*"]
+            "Server/*": ["src/server/*"],
+            "Assets/*": ["src/assets/*"]
         }
     }
 }

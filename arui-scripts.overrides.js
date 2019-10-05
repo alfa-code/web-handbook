@@ -4,7 +4,8 @@ module.exports = {
         config.resolve.alias = {
             Src: path.join(__dirname, 'src/'),
             Components: path.join(__dirname, 'src/client/components'),
-            Server: path.join(__dirname, 'src/server/')
+            Server: path.join(__dirname, 'src/server/'),
+            Assets: path.join(__dirname, 'src/assets/')
         };
         return config;
     }
