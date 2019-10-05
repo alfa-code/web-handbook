@@ -4,7 +4,9 @@
   "description": "Сервис для подготовки IT специалистов (Основная платформа для пользователей)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx arui-scripts build",
+    "start": "npx arui-scripts start"
   },
   "repository": {
     "type": "git",
@@ -21,10 +23,15 @@
   },
   "dependencies": {
     "@hapi/hapi": "^18.4.0",
+    "@types/react": "^16.9.5",
+    "arui-feather": "^14.5.0",
     "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "typescript": "^3.6.3"
   },
   "aruiScripts": {
-    "clientServerPort": 8080
+    "clientServerPort": 8080,
+    "clientEntry": "./src/client/index",
+    "useTscLoader": true
   }
 }

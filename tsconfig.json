@@ -1,0 +1,12 @@
+{
+    "extends": "./node_modules/arui-scripts/configs/tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": "./",
+        "noImplicitAny": false,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "strictNullChecks": false,
+        "skipLibCheck": true
+    }
+}

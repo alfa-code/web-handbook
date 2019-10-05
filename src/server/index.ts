@@ -1,5 +1,6 @@
-'use strict';
-const Hapi = require('@hapi/hapi');
+import Hapi from '@hapi/hapi';
+
+import { getContent } from './content';
 
 const server = Hapi.server({
     port: 3000,
@@ -10,8 +11,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-
-        return 'Hello World!';
+        return getContent();
     }
 });
 
