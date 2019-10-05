@@ -6,14 +6,6 @@ interface State {}
 import styles from './logo-style.pcss';
 
 class Logo extends PureComponent<Props, State> {
-    constructor(props: Props) {
-        super(props)
-
-        this.state = {
-            
-        }
-    }
-
     render(): ReactNode {
         return (
             <span className={ styles.logo }>
@@ -23,4 +15,4 @@ class Logo extends PureComponent<Props, State> {
     }
 }
 
-export default Logo
+export default Logo;

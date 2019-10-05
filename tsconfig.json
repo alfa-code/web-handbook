@@ -7,6 +7,12 @@
         "resolveJsonModule": true,
         "esModuleInterop": true,
         "strictNullChecks": false,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "paths": {
+            "Src/*": ["src/*"],
+            "App/*": ["src/client/app/*"],
+            "Components/*": ["src/client/components/*"],
+            "Server/*": ["src/server/*"]
+        }
     }
 }
