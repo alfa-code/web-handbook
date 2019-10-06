@@ -1,5 +1,10 @@
 {
     "extends": "./node_modules/arui-scripts/configs/tsconfig.json",
+    "exclude": [
+        "./build",
+        "./arui-scripts.overrides.js",
+        "./stylelint.config.js"
+    ],
     "compilerOptions": {
         "baseUrl": "./",
         "noImplicitAny": false,
