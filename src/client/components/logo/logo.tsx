@@ -7,7 +7,7 @@ interface State {}
 
 import styles from './logo-style.pcss';
 
-class Logo extends PureComponent<Props, State> {
+export class Logo extends PureComponent<Props, State> {
     render(): ReactNode {
         return (
             <img
@@ -19,4 +19,3 @@ class Logo extends PureComponent<Props, State> {
     }
 }
 
-export default Logo;
