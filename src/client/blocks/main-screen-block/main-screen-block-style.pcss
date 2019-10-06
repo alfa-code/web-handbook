@@ -1,0 +1,29 @@
+.mainScreenBlock {
+    display: flex;
+    align-items: center;
+    height: 608px;
+    background-image: url('Src/assets/images/main-illustration.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.infoBlock {
+    display: inline-flex;
+    flex-direction: column;
+    max-width: 688px;
+
+    h1 {
+        font-family: Rubik, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 48px;
+    }
+}
+
+.subscribeBlock {
+    display: flex;
+
+    & > *:first-child {
+        margin-right: 16px;
+    }
+}

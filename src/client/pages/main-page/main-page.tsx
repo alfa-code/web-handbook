@@ -5,6 +5,7 @@ import { Header } from 'Components/common/header';
 import { HeaderNavigation } from 'Components/common/header-navigation';
 import { PageContainer } from 'Components/common/page-container';
 import { Button } from 'Components/common/button';
+import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
 
 import * as userIcon from 'Assets/icons/other/user.svg';
 
@@ -25,8 +26,12 @@ export class MainPage extends PureComponent<Props, State> {
                             text='Вход'
                             className={ styles.marginLeftAuto }
                             icon={ userIcon }
+                            viewType='secondary'
                         />
                     </Header>
+                </PageContainer>
+                <PageContainer>
+                    <MainScreenBlock />
                 </PageContainer>
             </div>
         );

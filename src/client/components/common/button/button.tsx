@@ -3,9 +3,11 @@ import React, { PureComponent, ReactNode } from 'react';
 import styles from './button-style.pcss';
 
 type Props = {
-    text: string,
+    text?: string,
+    viewType?: string;
     className?: string,
-    icon?: string
+    icon?: string,
+    children?: any
 }
 
 export class Button extends PureComponent<Props> {
@@ -25,22 +27,34 @@ export class Button extends PureComponent<Props> {
         );
     }
 
+    getButtonClassNames = () => {
+        const { viewType } = this.props;
+
+        switch (viewType) {
+            case 'primary':
+                return styles.buttonPrimary;
+            case 'secondary':
+                return styles.buttonSecondary;
+            default:
+                return styles.buttonSecondary;
+        }
+    }
+
     render(): ReactNode {
-        const { text } = this.props;
+        const { text, children } = this.props;
 
         return (
             <button
                 type='button'
                 className={
                     `${styles.button}
-                    ${styles.buttonSecondary}
+                    ${this.getButtonClassNames()}
                     ${this.props.className ? this.props.className : ''}`
                 }
             >
                 { this.renderIcon() }
-                { text }
+                { text || children }
             </button>
         );
     }
 }
-
