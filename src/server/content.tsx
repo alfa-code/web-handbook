@@ -1,15 +1,15 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import readAssetsManifest from './utils/read-assets-manifest';
+import AppHtml from 'Components/app-html/index';
 
-import AppHtml from '../client/components/app-html/index';
+import readAssetsManifest from './utils/read-assets-manifest';
 
 // Превращаем контент в строку HTML
 export function getContent() {
     const assets = readAssetsManifest();
-    let content = renderToString(
+
+    return renderToString(
         <AppHtml jsFiles={ assets.js } />
     );
-    return content;
 }

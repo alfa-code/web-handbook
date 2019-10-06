@@ -1,15 +1,17 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
+
+import styles from './page-container.pcss';
 
 type Props = {
     children: ReactNode
 }
 
-import styles from './page-container.pcss';
-
 export function PageContainer(props: Props) {
+    const { children } = props;
+
     return (
         <div className={ styles.pageContainer }>
-            { props.children }
+            { children }
         </div>
-    )
+    );
 }

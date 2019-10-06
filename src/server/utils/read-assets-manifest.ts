@@ -22,4 +22,4 @@ export default function readAssetsManifest() {
     return {
         js, css
     };
-};
+}

@@ -1,4 +1,6 @@
-import React, { PureComponent, ReactNode } from 'react'
+import React, { PureComponent, ReactNode } from 'react';
+
+import styles from './button-style.pcss';
 
 type Props = {
     text: string,
@@ -6,26 +8,29 @@ type Props = {
     icon?: string
 }
 
-import styles from './button-style.pcss';
-
 export class Button extends PureComponent<Props> {
     renderIcon = () => {
         const { icon } = this.props;
 
-        if (!icon) return null;
+        if (!icon) {
+            return null;
+        }
 
         return (
             <img
                 src={ icon }
-                alt="Иконка на кнопке"
+                alt='Иконка на кнопке'
                 className={ styles.buttonIcon }
             />
-        )
+        );
     }
 
     render(): ReactNode {
+        const { text } = this.props;
+
         return (
             <button
+                type='button'
                 className={
                     `${styles.button}
                     ${styles.buttonSecondary}
@@ -33,9 +38,9 @@ export class Button extends PureComponent<Props> {
                 }
             >
                 { this.renderIcon() }
-                { this.props.text }
+                { text }
             </button>
-        )
+        );
     }
 }
 

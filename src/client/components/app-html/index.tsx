@@ -1,7 +1,7 @@
 import React from 'react';
 
 type Props = {
-    children?: any
+    children?: any,
     jsFiles: string[]
 }
 
@@ -10,6 +10,11 @@ type Props = {
  */
 export default class AppHtml extends React.PureComponent<Props> {
     render() {
+        const {
+            children,
+            jsFiles = []
+        } = this.props;
+
         return (
             <html lang='ru'>
                 <head>
@@ -19,13 +24,15 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <meta httpEquiv='Expires' content='0' />
                 </head>
                 <body>
-                    <div id='react-app'></div>
-                    { this.props.children }
-                    { this.props.jsFiles && this.props.jsFiles
-                        .map(link => <script type='text/javascript' defer={ true } src={ link } key={ link } />)
+                    <div id='react-app' />
+                    { children }
+                    {
+                        jsFiles.map(
+                            (link) => <script type='text/javascript' defer={ true } src={ link } key={ link } />
+                        )
                     }
                 </body>
             </html>
-        )
+        );
     }
 }

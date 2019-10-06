@@ -2,10 +2,10 @@ import React, { PureComponent, ReactNode } from 'react';
 
 import * as logoImage from 'Assets/icons/logo/logo.svg';
 
+import styles from './logo-style.pcss';
+
 interface Props {}
 interface State {}
-
-import styles from './logo-style.pcss';
 
 export class Logo extends PureComponent<Props, State> {
     render(): ReactNode {
@@ -15,7 +15,6 @@ export class Logo extends PureComponent<Props, State> {
                 alt='Логотип "Альфа Код"'
                 className={ styles.logo }
             />
-        )
+        );
     }
 }
-

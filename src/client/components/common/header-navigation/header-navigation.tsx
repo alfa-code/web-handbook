@@ -1,9 +1,9 @@
-import React, { PureComponent, ReactNode } from 'react'
+import React, { PureComponent, ReactNode } from 'react';
+
+import styles from './header-navigation.pcss';
 
 interface Props {}
 interface State {}
-
-import styles from './header-navigation.pcss';
 
 export class HeaderNavigation extends PureComponent<Props, State> {
     render(): ReactNode {
@@ -24,6 +24,6 @@ export class HeaderNavigation extends PureComponent<Props, State> {
                     </li>
                 </ul>
             </nav>
-        )
+        );
     }
 }

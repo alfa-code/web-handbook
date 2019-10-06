@@ -31,7 +31,9 @@ module.exports = {
         'import/order': ['error', {
             'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
             'newlines-between': 'always-and-inside-groups'
-        }]
+        }],
+        'react/jsx-filename-extension': [1, { 'extensions': ['.jsx', '.tsx'] }],
+        'react/destructuring-assignment': 'off'
     },
     settings: {
         'import/resolver': {
