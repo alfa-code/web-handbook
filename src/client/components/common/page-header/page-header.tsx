@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 
-import styles from './header-style.pcss';
+import styles from './page-header-style.pcss';
 
 interface Props {}
 interface State {}
 
-export class Header extends React.Component<Props, State> {
+export class PageHeader extends React.Component<Props, State> {
     render(): ReactNode {
         const { children } = this.props;
 

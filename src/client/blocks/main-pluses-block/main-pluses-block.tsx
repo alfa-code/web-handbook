@@ -4,6 +4,8 @@ import * as webTechnologyImage from 'Assets/images/web-technology.svg';
 import * as upToExpertLevelImage from 'Assets/images/up-to-expert-level.svg';
 import * as practicalTrainingImage from 'Assets/images/practical-training.svg';
 
+import uuidv1 from 'uuid/v1';
+
 import styles from './main-pluses-block.pcss';
 
 const texts = [
@@ -29,7 +31,7 @@ export class MainPlusesBlock extends React.PureComponent {
         return (
             texts.map((item) => {
                 return (
-                    <div className={ styles.cell }>
+                    <div className={ styles.cell } key={ uuidv1() }>
                         { this.renderCellContent(item) }
                     </div>
                 );

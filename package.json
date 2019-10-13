@@ -44,7 +44,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "uuid": "^3.3.3"
   },
   "aruiScripts": {
     "clientServerPort": 8080,

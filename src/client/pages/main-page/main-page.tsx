@@ -1,7 +1,7 @@
 import React, { PureComponent, ReactNode } from 'react';
 
 import { Logo } from 'Components/logo/logo';
-import { Header } from 'Components/common/header';
+import { PageHeader } from 'Components/common/page-header';
 import { HeaderNavigation } from 'Components/common/header-navigation';
 import { PageContainer } from 'Components/common/page-container';
 import { Button } from 'Components/common/button';
@@ -20,7 +20,7 @@ export class MainPage extends PureComponent<Props, State> {
         return (
             <div className={ styles.mainPage }>
                 <PageContainer>
-                    <Header>
+                    <PageHeader>
                         <Logo />
                         <HeaderNavigation />
                         <Button
@@ -29,7 +29,7 @@ export class MainPage extends PureComponent<Props, State> {
                             icon={ userIcon }
                             viewType='secondary'
                         />
-                    </Header>
+                    </PageHeader>
                 </PageContainer>
                 <PageContainer>
                     <MainScreenBlock />
