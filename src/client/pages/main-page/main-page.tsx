@@ -6,6 +6,7 @@ import { HeaderNavigation } from 'Components/common/header-navigation';
 import { PageContainer } from 'Components/common/page-container';
 import { Button } from 'Components/common/button';
 import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
+import { MainPlusesBlock } from 'Src/client/blocks/main-pluses-block';
 
 import * as userIcon from 'Assets/icons/other/user.svg';
 
@@ -32,6 +33,9 @@ export class MainPage extends PureComponent<Props, State> {
                 </PageContainer>
                 <PageContainer>
                     <MainScreenBlock />
+                </PageContainer>
+                <PageContainer>
+                    <MainPlusesBlock />
                 </PageContainer>
             </div>
         );
