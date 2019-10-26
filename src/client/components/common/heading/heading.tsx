@@ -12,6 +12,7 @@ interface Props {
 export class Heading extends PureComponent<Props> {
     render(): ReactNode {
         const { size, children, className } = this.props;
+
         switch (size) {
             case 1:
                 return (
