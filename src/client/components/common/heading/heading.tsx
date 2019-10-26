@@ -6,7 +6,7 @@ import styles from './heading.pcss';
 interface Props {
     size: number;
     children: any;
-    className: string;
+    className?: string;
 }
 
 export class Heading extends PureComponent<Props> {

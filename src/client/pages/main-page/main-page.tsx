@@ -5,6 +5,8 @@ import { PageHeader } from 'Components/common/page-header';
 import { HeaderNavigation } from 'Components/common/header-navigation';
 import { PageContainer } from 'Components/common/page-container';
 import { Button } from 'Components/common/button';
+import { PageFooter } from 'Components/common/page-footer';
+
 import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
 import { MainPlusesBlock } from 'Src/client/blocks/main-pluses-block';
 import { MainSecondPlusesBlock } from 'Src/client/blocks/main-second-pluses';
@@ -41,6 +43,7 @@ export class MainPage extends PureComponent<Props, State> {
                 <PageContainer>
                     <MainSecondPlusesBlock />
                 </PageContainer>
+                <PageFooter />
             </div>
         );
     }

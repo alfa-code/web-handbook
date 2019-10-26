@@ -4,7 +4,7 @@ import styles from './button-style.pcss';
 
 type Props = {
     text?: string,
-    viewType?: string;
+    viewType?: 'primary' | 'secondary';
     className?: string,
     icon?: string,
     children?: any
