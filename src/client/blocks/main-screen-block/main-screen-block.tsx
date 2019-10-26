@@ -3,6 +3,8 @@ import React, { ReactNode } from 'react';
 import { Button } from 'Components/common/button';
 import { InputSimple } from 'Components/common/input-simple';
 
+import { Heading } from 'Components/common/heading';
+
 import styles from './main-screen-block-style.pcss';
 
 interface Props {}
@@ -13,11 +15,11 @@ export class MainScreenBlock extends React.PureComponent<Props, State> {
         return (
             <div className={ styles.mainScreenBlock }>
                 <div className={ styles.infoBlock }>
-                    <h1>
+                    <Heading size={ 1 } className={ styles.mainHeader }>
                         Бесплатная платформа
                         для обучения и подготовки
                         IT специалистов
-                    </h1>
+                    </Heading>
                     <p className={ styles.subheader }>
                         Получите доступ к грамотной и структурированной информации для обучения.
                     </p>

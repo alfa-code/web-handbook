@@ -41,6 +41,7 @@
     "@types/react": "^16.9.5",
     "arui-feather": "^14.5.0",
     "arui-presets-lint": "^1.2.1",
+    "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

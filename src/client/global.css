@@ -34,4 +34,13 @@ html {
 
     /* Elevation */
     --elevation: 0px 10px 24px rgba(23, 42, 63, 0.1);
+
+    /* Text Styles */
+
+    --text-heading-1: 48px;
+    --text-heading-2: 40px;
+    --text-heading-3: 30px;
+    --text-heading-4: 22px;
+    --text-heading-5: 16px;
+    --text-heading-6: 12px;
 }
