@@ -27,7 +27,8 @@ module.exports = {
             'svg': 'always',
             'json': 'always',
             'css': 'never',
-            'pcss': 'ignorePackages'
+            'pcss': 'ignorePackages',
+            'png': 'ignorePackages'
         }],
         'import/order': ['error', {
             'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],

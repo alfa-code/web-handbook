@@ -12,6 +12,7 @@ import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
 import { MainPlusesBlock } from 'Src/client/blocks/main-pluses-block';
 import { MainSecondPlusesBlock } from 'Src/client/blocks/main-second-pluses';
 import { BannerBlock } from 'Src/client/blocks/banner-block';
+import { Technologies } from 'Src/client/blocks/technologies';
 
 import * as htmlReferenceImage from 'Assets/images/html-reference.svg';
 import * as subscriptionImage from 'Assets/images/subscription.svg';
@@ -68,6 +69,9 @@ export class MainPage extends PureComponent<Props, State> {
                 </BannerBlock>
                 <PageContainer>
                     <MainSecondPlusesBlock />
+                </PageContainer>
+                <PageContainer>
+                    <Technologies />
                 </PageContainer>
                 <PageFooter />
             </div>
