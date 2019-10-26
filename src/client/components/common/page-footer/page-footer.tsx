@@ -1,4 +1,5 @@
 import React, { PureComponent, ReactNode } from 'react';
+import classNames from 'classnames';
 
 import { Logo } from 'Components/logo/logo';
 import { PageContainer } from 'Components/common/page-container';
@@ -6,6 +7,8 @@ import { Heading } from 'Components/common/heading';
 import { Link, LINK_TYPES } from 'Components/common/link';
 import { InputSimple } from 'Components/common/input-simple';
 import { Button } from 'Components/common/button';
+
+import globalStyles from 'Src/client/global.pcss';
 
 import styles from './page-footer.pcss';
 
@@ -59,7 +62,7 @@ export class PageFooter extends PureComponent<Props> {
 
     render(): ReactNode {
         return (
-            <div className={ styles.footer }>
+            <div className={ classNames(styles.footer, globalStyles.verticalNeighbors) }>
                 <div className={ styles.topBlock }>
                     <PageContainer>
                         <div className={ styles.footerConent }>
