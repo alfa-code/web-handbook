@@ -2,5 +2,36 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap&subset=cyrillic');
 
 html {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'roboto', sans-serif;
+
+    /* Colors */
+    --text-primary: #172a3f;
+    --text-paragraphs: #546271;
+    --text-secondary: #6d7986;
+    --text-tetriary: #b5bbc2;
+    --text-inverse: #ffffff;
+
+    --brand-red: #ef3124;
+    --brand-primary: #172a3f;
+    --brand-secondary: #858f9a;
+    --brand-gray: #b6bcc3;
+
+    --background-main: #f3f4f5;
+    --background-light: #f9fafa;
+    --background-1: #fef9d2;
+    --background-2: #dae6ff;
+    --background-3: #d6f5f2;
+
+    --illustrations-blue: #4480ff;
+    --illustration-yellow: #ffb96f;
+    --illustration-green: #40b198;
+    --illustration-red: #ff5c5c;
+
+    --hover-brand-red: #d92c21;
+    --hover-primary: #000000;
+
+    --disabled: #d3d4d8;
+
+    /* Elevation */
+    --elevation: 0px 10px 24px rgba(23, 42, 63, 0.1);
 }

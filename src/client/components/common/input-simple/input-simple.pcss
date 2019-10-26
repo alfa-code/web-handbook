@@ -9,7 +9,7 @@
     height: 100%;
     border: none;
     outline: none;
-    border-bottom: 1px solid #858f9a;
+    border-bottom: 1px solid var(--brand-secondary);
     transition: all linear 0.1s;
 }
 
@@ -26,11 +26,11 @@
     transition: all linear 0.1s;
     user-select: none;
     pointer-events: none;
-    color: #546271;
+    color: var(--text-paragraphs);
 
     .input:focus + &, &Filled {
         font-size: 0.8em;
-        color: #b5bbc2;
+        color: var(--text-tetriary);
         top: 0%;
     }
 }
