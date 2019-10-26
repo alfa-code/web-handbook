@@ -7,6 +7,7 @@ import { PageContainer } from 'Components/common/page-container';
 import { Button } from 'Components/common/button';
 import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
 import { MainPlusesBlock } from 'Src/client/blocks/main-pluses-block';
+import { MainSecondPlusesBlock } from 'Src/client/blocks/main-second-pluses';
 
 import * as userIcon from 'Assets/icons/other/user.svg';
 
@@ -36,6 +37,9 @@ export class MainPage extends PureComponent<Props, State> {
                 </PageContainer>
                 <PageContainer>
                     <MainPlusesBlock />
+                </PageContainer>
+                <PageContainer>
+                    <MainSecondPlusesBlock />
                 </PageContainer>
             </div>
         );

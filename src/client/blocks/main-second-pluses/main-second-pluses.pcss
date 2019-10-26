@@ -1,0 +1,56 @@
+.mainPlusesBlock {
+    display: flex;
+}
+
+.cell {
+    flex-grow: 1;
+
+    & + & {
+        margin-left: 32px;
+    }
+}
+
+.subcell {
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    & + & {
+        margin-left: 24px;
+    }
+}
+
+.plusesBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: 448px;
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+.header {
+    font-size: 22px;
+}
+
+.text {
+    font-size: 16px;
+    color: #546271;
+}
+
+.imageWrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    background-color: #f3f4f5;
+    border-radius: 50%;
+}
+
+.image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
