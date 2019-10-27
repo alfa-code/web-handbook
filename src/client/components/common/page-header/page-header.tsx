@@ -10,9 +10,9 @@ export class PageHeader extends React.Component<Props, State> {
         const { children } = this.props;
 
         return (
-            <div className={ styles.header }>
+            <header className={ styles.header }>
                 { children }
-            </div>
+            </header>
         );
     }
 }

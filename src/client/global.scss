@@ -1,1 +1,89 @@
-body {}
+@import "include-media/dist/_include-media.scss";
+
+html {
+    font-family: 'roboto', sans-serif;
+
+    /* Colors */
+    --text-primary: #172a3f;
+    --text-paragraphs: #546271;
+    --text-secondary: #6d7986;
+    --text-tetriary: #b5bbc2;
+    --text-inverse: #ffffff;
+
+    --brand-red: #ef3124;
+    --brand-primary: #172a3f;
+    --brand-secondary: #858f9a;
+    --brand-gray: #b6bcc3;
+
+    --background-main: #f3f4f5;
+    --background-light: #f9fafa;
+    --background-1: #fef9d2;
+    --background-2: #dae6ff;
+    --background-3: #d6f5f2;
+
+    --illustrations-blue: #4480ff;
+    --illustration-yellow: #ffb96f;
+    --illustration-green: #40b198;
+    --illustration-red: #ff5c5c;
+
+    --hover-brand-red: #d92c21;
+    --hover-primary: #000000;
+
+    --disabled: #d3d4d8;
+
+    /* Elevation */
+    --elevation: 0px 10px 24px rgba(23, 42, 63, 0.1);
+
+    /* Text Styles */
+    --text-heading-1: 48px;
+    --text-heading-2: 40px;
+    --text-heading-3: 30px;
+    --text-heading-4: 22px;
+    --text-heading-5: 16px;
+    --text-heading-6: 12px;
+
+    /* Sizes */
+    --width-base-container: 1648px;
+
+    /* Gaps */
+    --gap-1: 10px;
+    --gap-2: 20px;
+    --gap-3: 40px;
+    --gap-4: 80px;
+}
+
+
+$breakpoints: (
+  'phone-1': 320px,
+  'tablet-1': 768px,
+  'desktop-1': 1024px,
+  'desktop-2': 1280px,
+  'desktop-3': 1680px,
+  'desktop-4': 1920px
+);
+
+html {
+    @include media(">desktop-2", "<desktop-4") {
+        --text-heading-1: 40px;
+        --text-heading-2: 30px;
+        --text-heading-3: 22px;
+        --text-heading-4: 16px;
+        --text-heading-5: 12px;
+        --text-heading-6: 10px;
+
+        --width-base-container: 1400px;
+    }
+
+    @include media(">desktop-1", "<desktop-3") {
+        --text-heading-1: 30px;
+        --text-heading-2: 22px;
+        --text-heading-3: 16px;
+        --text-heading-4: 12px;
+        --text-heading-5: 10px;
+        --text-heading-6: 8px;
+    }
+
+    @include media("<desktop-3") {
+        --width-base-container: 90%;
+    }
+}

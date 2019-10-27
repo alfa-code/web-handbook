@@ -3,6 +3,8 @@ import React, { ReactNode } from 'react';
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 import { Heading } from 'Components/common/heading';
 
+import * as mainImage from 'Assets/images/main-illustration.svg';
+
 import styles from './main-screen-block-style.pcss';
 
 export class MainScreenBlock extends React.PureComponent {
@@ -10,7 +12,7 @@ export class MainScreenBlock extends React.PureComponent {
         return (
             <div className={ styles.mainScreenBlock }>
                 <div className={ styles.infoBlock }>
-                    <Heading size={ 1 } className={ styles.mainHeader }>
+                    <Heading size={ 1 }>
                         Бесплатная платформа
                         для обучения и подготовки
                         IT специалистов
@@ -31,6 +33,7 @@ export class MainScreenBlock extends React.PureComponent {
                             Войдите
                         </a>
                     </div>
+                    <img src={ mainImage } alt='Главная иллюстрация' className={ styles.image } />
                 </div>
             </div>
         );

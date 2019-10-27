@@ -4,6 +4,8 @@ import * as webTechnologyImage from 'Assets/images/web-technology.svg';
 import * as upToExpertLevelImage from 'Assets/images/up-to-expert-level.svg';
 import * as practicalTrainingImage from 'Assets/images/practical-training.svg';
 
+import { Heading } from 'Components/common/heading';
+
 import uuidv1 from 'uuid/v1';
 
 import styles from './main-pluses-block.pcss';
@@ -47,9 +49,9 @@ export class MainPlusesBlock extends React.PureComponent {
                     src={ item.img }
                     alt='О плюсах платформы'
                 />
-                <h1>
+                <Heading size={ 3 }>
                     { item.title }
-                </h1>
+                </Heading>
                 <p>
                     { item.text }
                 </p>

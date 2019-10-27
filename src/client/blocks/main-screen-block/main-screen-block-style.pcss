@@ -1,24 +1,15 @@
 .mainScreenBlock {
     display: flex;
     align-items: center;
-    height: 608px;
-    background-image: url('Src/assets/images/main-illustration.svg');
-    background-repeat: no-repeat;
-    background-position: right center;
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .infoBlock {
     display: inline-flex;
     flex-direction: column;
     max-width: 688px;
-
-    .mainHeader {
-        font-family: Rubik, sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 48px;
-        margin: 0 0 24px;
-    }
 }
 
 .subheader {
@@ -39,4 +30,11 @@
 
 .link {
     color: var(--text-primary);
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
 }

@@ -61,8 +61,10 @@ export class PageFooter extends PureComponent<Props> {
     }
 
     render(): ReactNode {
+        const currentYear = new Date().getFullYear();
+
         return (
-            <div className={ classNames(styles.footer, globalStyles.verticalNeighbors) }>
+            <footer className={ classNames(styles.footer, globalStyles.verticalNeighbors) }>
                 <div className={ styles.topBlock }>
                     <PageContainer>
                         <div className={ styles.footerConent }>
@@ -89,9 +91,12 @@ export class PageFooter extends PureComponent<Props> {
                     </PageContainer>
                 </div>
                 <div className={ styles.bottomBlock }>
-                    <span className={ styles.copyright }>© «Alfa Code» 2019</span>
+                    <span className={ styles.copyright }>
+                        © «Alfa Code»
+                        { currentYear }
+                    </span>
                 </div>
-            </div>
+            </footer>
         );
     }
 }
