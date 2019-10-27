@@ -18,7 +18,7 @@ export class PageFooter extends PureComponent<Props> {
     renderList = (headerText, itemsArray = []) => {
         const mapItem = function (item: any) {
             return (
-                <li>
+                <li key={ Math.random() }>
                     { item }
                 </li>
             );
