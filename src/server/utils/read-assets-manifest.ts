@@ -7,7 +7,7 @@ export default function readAssetsManifest() {
     const js: string[] = [];
     const css: string[] = [];
 
-    ['vendor', 'main'].forEach((key) => {
+    ['vendor', 'main'].forEach(key => {
         if (!manifest[key]) {
             return;
         }
@@ -20,6 +20,7 @@ export default function readAssetsManifest() {
     });
 
     return {
-        js, css
+        js,
+        css,
     };
 }

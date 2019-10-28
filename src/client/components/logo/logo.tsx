@@ -11,9 +11,9 @@ export class Logo extends PureComponent<Props, State> {
     render(): ReactNode {
         return (
             <img
-                src={ logoImage }
+                src={logoImage}
                 alt='Логотип "Альфа Код"'
-                className={ styles.logo }
+                className={styles.logo}
             />
         );
     }

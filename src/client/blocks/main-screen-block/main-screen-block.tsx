@@ -33,7 +33,11 @@ export class MainScreenBlock extends React.PureComponent {
                             Войдите
                         </a>
                     </div>
-                    <img src={ mainImage } alt='Главная иллюстрация' className={ styles.image } />
+                    <img
+                        src={ mainImage }
+                        alt='Главная иллюстрация'
+                        className={ styles.image }
+                    />
                 </div>
             </div>
         );

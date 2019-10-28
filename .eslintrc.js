@@ -35,7 +35,8 @@ module.exports = {
             'newlines-between': 'always-and-inside-groups'
         }],
         'react/jsx-filename-extension': [1, { 'extensions': ['.jsx', '.tsx'] }],
-        'react/destructuring-assignment': 'off'
+        'react/destructuring-assignment': 'off',
+        'comma-dangle': 'off'
     },
     settings: {
         'import/resolver': {
