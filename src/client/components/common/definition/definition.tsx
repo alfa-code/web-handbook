@@ -14,6 +14,10 @@ interface Props {
     upTitle?: string;
     text?: string;
     position: Position;
+    containerClassName?: string;
+    uptitleClassName?: string;
+    headingClassName?: string;
+    paragraphClassName?: string;
 }
 
 export class Definition extends Component<Props> {
@@ -24,14 +28,26 @@ export class Definition extends Component<Props> {
             text,
             upTitle,
             position = 'left',
+            containerClassName,
+            uptitleClassName,
+            headingClassName,
+            paragraphClassName
         } = this.props;
 
         return (
-            <div className={ classNames(styles.definition, styles[position]) }>
-                { upTitle && <span className={ styles.upTitle }>{ upTitle }</span> }
-                <Heading size={ titleSize }>{ title }</Heading>
+            <div className={ classNames(styles.definition, styles[position], containerClassName) }>
+                { upTitle && (
+                    <span className={ classNames(styles.upTitle, uptitleClassName) }>
+                        { upTitle }
+                    </span>
+                ) }
+                <Heading size={ titleSize } className={ headingClassName }>
+                    { title }
+                </Heading>
                 { text && (
-                    <Paragraph className={ styles.paragraph }>{ text }</Paragraph>
+                    <Paragraph className={ classNames(styles.paragraph, paragraphClassName) }>
+                        { text }
+                    </Paragraph>
                 ) }
             </div>
         );
