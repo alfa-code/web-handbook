@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+
 import styles from './paragraph.pcss';
 
 interface Props {
@@ -12,7 +13,7 @@ export class Paragraph extends Component<Props> {
         const { text, children, className } = this.props;
 
         return (
-            <p className={ classNames(styles.paragraph, className ) }>
+            <p className={ classNames(styles.paragraph, className) }>
                 { text || children }
             </p>
         );

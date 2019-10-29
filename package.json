@@ -1,61 +1,62 @@
 {
-  "name": "alfa-code-platform",
-  "version": "1.0.0",
-  "description": "Сервис для подготовки IT специалистов (Основная платформа для пользователей)",
-  "main": "index.js",
-  "scripts": {
-    "test": "arui-scripts test",
-    "build": "arui-scripts build",
-    "start": "arui-scripts start",
-    "lint-css": "stylelint ./src/**/*.[p]css",
-    "lint-js": "eslint ./src/ --ext .js,.jsx,.ts,.tsx",
-    "lint": "npm run lint-css && npm run lint-js",
-    "precommit": "yarn lint"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/alfa-code-space/alfa-code-platform.git"
-  },
-  "author": "hydrock",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/alfa-code-space/alfa-code-platform/issues"
-  },
-  "homepage": "https://gitlab.com/alfa-code-space/alfa-code-platform#readme",
-  "devDependencies": {
-    "arui-presets": "^5.1.0",
-    "arui-scripts": "^5.6.1",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.5.0",
-    "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-class-methods-use-this-regexp": "^0.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsdoc": "^15.9.10",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-sort-class-members": "^1.6.0",
-    "husky": "^3.0.8",
-    "node-sass": "^4.13.0",
-    "sass-loader": "^7.3.1",
-    "webpack": "4.40.2"
-  },
-  "dependencies": {
-    "@hapi/hapi": "^18.4.0",
-    "@types/react": "^16.9.5",
-    "arui-feather": "^14.5.0",
-    "arui-presets-lint": "^1.2.1",
-    "classnames": "^2.2.6",
-    "include-media": "^1.4.9",
-    "normalize.css": "^8.0.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "typescript": "^3.6.3",
-    "uuid": "^3.3.3"
-  },
-  "aruiScripts": {
-    "clientServerPort": 8080,
-    "clientEntry": "./src/client/index",
-    "useTscLoader": true
-  }
+    "name": "alfa-code-platform",
+    "version": "1.0.0",
+    "description": "Сервис для подготовки IT специалистов (Основная платформа для пользователей)",
+    "main": "index.js",
+    "scripts": {
+        "test": "arui-scripts test",
+        "build": "arui-scripts build",
+        "start": "arui-scripts start",
+        "lint-css": "stylelint ./src/**/*.[p]css",
+        "lint-js": "eslint ./src/ --ext .js,.jsx,.ts,.tsx",
+        "lint-js-fix": "eslint ./src/ --ext .js,.jsx,.ts,.tsx --fix",
+        "lint": "npm run lint-css && npm run lint-js",
+        "precommit": "yarn lint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@gitlab.com/alfa-code-space/alfa-code-platform.git"
+    },
+    "author": "hydrock",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://gitlab.com/alfa-code-space/alfa-code-platform/issues"
+    },
+    "homepage": "https://gitlab.com/alfa-code-space/alfa-code-platform#readme",
+    "devDependencies": {
+        "arui-presets": "^5.1.0",
+        "arui-scripts": "^5.6.1",
+        "eslint": "^6.5.1",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-prettier": "^6.5.0",
+        "eslint-plugin-chai-friendly": "^0.4.1",
+        "eslint-plugin-class-methods-use-this-regexp": "^0.1.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jsdoc": "^15.9.10",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.16.0",
+        "eslint-plugin-sort-class-members": "^1.6.0",
+        "husky": "^3.0.8",
+        "node-sass": "^4.13.0",
+        "sass-loader": "^7.3.1",
+        "webpack": "4.40.2"
+    },
+    "dependencies": {
+        "@hapi/hapi": "^18.4.0",
+        "@types/react": "^16.9.5",
+        "arui-feather": "^14.5.0",
+        "arui-presets-lint": "^1.2.1",
+        "classnames": "^2.2.6",
+        "include-media": "^1.4.9",
+        "normalize.css": "^8.0.1",
+        "react": "^16.10.2",
+        "react-dom": "^16.10.2",
+        "typescript": "^3.6.3",
+        "uuid": "^3.3.3"
+    },
+    "aruiScripts": {
+        "clientServerPort": 8080,
+        "clientEntry": "./src/client/index",
+        "useTscLoader": true
+    }
 }
