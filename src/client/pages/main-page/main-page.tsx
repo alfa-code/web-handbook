@@ -14,6 +14,7 @@ import { MainSecondPlusesBlock } from 'Src/client/blocks/main-second-pluses';
 import { BannerBlock } from 'Src/client/blocks/banner-block';
 import { Technologies } from 'Src/client/blocks/technologies';
 import { OurCursesBlock } from 'Src/client/blocks/our-curses-block';
+import { OurBlogBlock } from 'Src/client/blocks/our-blog-block';
 
 import * as htmlReferenceImage from 'Assets/images/html-reference.svg';
 import * as subscriptionImage from 'Assets/images/subscription.svg';
@@ -48,6 +49,9 @@ export class MainPage extends PureComponent<Props, State> {
                 <PageContainer>
                     <MainPlusesBlock />
                 </PageContainer>
+                <PageContainer>
+                    <OurCursesBlock />
+                </PageContainer>
                 <BannerBlock
                     imageUrl={ htmlReferenceImage }
                     direction='right'
@@ -59,6 +63,9 @@ export class MainPage extends PureComponent<Props, State> {
                         Смотреть справочник
                     </Button>
                 </BannerBlock>
+                <PageContainer>
+                    <OurBlogBlock />
+                </PageContainer>
                 <BannerBlock
                     imageUrl={ subscriptionImage }
                     direction='left'
@@ -70,9 +77,6 @@ export class MainPage extends PureComponent<Props, State> {
                 </BannerBlock>
                 <PageContainer>
                     <MainSecondPlusesBlock />
-                </PageContainer>
-                <PageContainer>
-                    <OurCursesBlock />
                 </PageContainer>
                 <PageContainer>
                     <Technologies />

@@ -3,12 +3,13 @@ import React from 'react';
 import clockIcon from 'Assets/icons/info-icons/clock.svg';
 import videoIcon from 'Assets/icons/info-icons/video.svg';
 import fireIcon from 'Assets/icons/info-icons/fire.svg';
+import calendarIcon from 'Assets/icons/info-icons/calendar.svg';
 
 import styles from './info-label.pcss';
 
 interface Props {
     text: string;
-    iconType: 'camera' | 'clock';
+    iconType: 'camera' | 'clock' | 'calendar';
 }
 
 export class InfoLabel extends React.Component<Props> {
@@ -20,6 +21,8 @@ export class InfoLabel extends React.Component<Props> {
                 return videoIcon;
             case 'clock':
                 return clockIcon;
+            case 'calendar':
+                return calendarIcon;
             default:
                 return fireIcon;
         }
