@@ -4,6 +4,7 @@ import { Definition } from 'Src/client/components/definition';
 import { Grid } from 'Src/client/components/grid';
 import { Card } from 'Src/client/components/card';
 import { InfoLabel } from 'Src/client/components/info-label';
+import { UserLabel } from 'Src/client/components/user-label';
 
 import * as htmlCssImage from 'Assets/images/other/html-css.png';
 import * as jsImage from 'Assets/images/other/java-script.png';
@@ -11,7 +12,17 @@ import * as jsImage from 'Assets/images/other/java-script.png';
 import styles from './our-curses-block.pcss';
 
 const customSection = (
-    <InfoLabel text='sdgsdg' iconType='eye' />
+    <div className={ styles.firstCustomSection }>
+        <InfoLabel text='10 видео-уроков' iconType='camera' />
+        <InfoLabel text='3 часа' iconType='clock' />
+    </div>
+);
+
+const customSection2 = (
+    <div className={ styles.firstCustomSection }>
+        <InfoLabel text='12 видео-уроков' iconType='camera' />
+        <InfoLabel text='4.5 часа' iconType='clock' />
+    </div>
 );
 
 const data = [
@@ -21,13 +32,16 @@ const data = [
         text: 'Изучаем основы HTML и CSS. На практике разбираемся с семантической разметкой и базовыми механизмами стилизации на примере небольшого сайта.',
         color: 'blue',
         firstCustomSection: customSection,
-        secondCustomSection: 'sdgsdg',
+        secondCustomSection: (
+            <UserLabel name='Алексей Вечканов' extra='Веб-разработчик в Alfa-bank' />
+        )
     },
     {
         image: jsImage,
         header: 'Основы JavaScript',
         text: 'Знакомимся с синтаксисом JavaScript, тренируемся использовать базовые концепции и пишем свои первые программы.',
-        color: 'yellow'
+        color: 'yellow',
+        firstCustomSection: customSection2
     }
 ];
 

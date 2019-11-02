@@ -1,12 +1,14 @@
 import React from 'react';
 
-import eyeIcon from 'Assets/icons/info-icons/eye.svg';
+import clockIcon from 'Assets/icons/info-icons/clock.svg';
+import videoIcon from 'Assets/icons/info-icons/video.svg';
+import fireIcon from 'Assets/icons/info-icons/fire.svg';
 
 import styles from './info-label.pcss';
 
 interface Props {
     text: string;
-    iconType: 'eye';
+    iconType: 'camera' | 'clock';
 }
 
 export class InfoLabel extends React.Component<Props> {
@@ -14,10 +16,12 @@ export class InfoLabel extends React.Component<Props> {
         const { iconType } = this.props;
 
         switch (iconType) {
-            case 'eye':
-                return eyeIcon;
+            case 'camera':
+                return videoIcon;
+            case 'clock':
+                return clockIcon;
             default:
-                return eyeIcon;
+                return fireIcon;
         }
     }
 
