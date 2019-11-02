@@ -16,7 +16,7 @@ interface Props {
 }
 
 export class Card extends Component<Props> {
-    renderCusomSection = (section) => {
+    renderCusomSection = (section: any) => {
         if (!section) {
             return null;
         }

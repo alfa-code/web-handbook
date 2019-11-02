@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Definition } from 'Src/client/components/definition';
 import { Grid } from 'Src/client/components/grid';
 import { Card } from 'Src/client/components/card';
+import { InfoLabel } from 'Src/client/components/info-label';
 
 import * as htmlCssImage from 'Assets/images/other/html-css.png';
 import * as jsImage from 'Assets/images/other/java-script.png';
@@ -10,9 +11,7 @@ import * as jsImage from 'Assets/images/other/java-script.png';
 import styles from './our-curses-block.pcss';
 
 const customSection = (
-    <div>
-        11111
-    </div>
+    <InfoLabel text='sdgsdg' iconType='eye' />
 );
 
 const data = [
@@ -37,6 +36,7 @@ export class OurCursesBlock extends Component {
         return (
             <Card
                 image={ item.image }
+                key={ item.header }
                 header={ item.header }
                 text={ item.text }
                 color={ item.color }
