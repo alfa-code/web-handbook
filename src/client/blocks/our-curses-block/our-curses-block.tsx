@@ -33,7 +33,13 @@ const data = [
         color: 'blue',
         firstCustomSection: customSection,
         secondCustomSection: (
-            <UserLabel name='Алексей Вечканов' extra='Веб-разработчик в Alfa-bank' />
+            <div style={ { marginTop: 46 } }>
+                <UserLabel
+                    image='https://avatars2.githubusercontent.com/u/20814779?s=400&u=be55b21208858e6abe2db857658668eba61174d6&v=4'
+                    name='Алексей Вечканов'
+                    extra='Веб-разработчик в Alfa-bank'
+                />
+            </div>
         )
     },
     {

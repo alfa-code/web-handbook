@@ -5,18 +5,19 @@ import userIcon from 'Assets/icons/info-icons/user.svg';
 import styles from './user-label.pcss';
 
 interface Props {
+    image: string;
     name: string;
     extra: string;
 }
 
 export class UserLabel extends React.Component<Props> {
     render() {
-        const { name, extra } = this.props;
+        const { name, extra, image } = this.props;
 
         return (
             <div className={ styles.userLabel }>
                 <img
-                    src={ userIcon }
+                    src={ image || userIcon }
                     alt='Иконка пользователя'
                     className={ styles.image }
                 />
