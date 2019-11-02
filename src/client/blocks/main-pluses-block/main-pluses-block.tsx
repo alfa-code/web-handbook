@@ -4,7 +4,7 @@ import * as webTechnologyImage from 'Assets/images/web-technology.svg';
 import * as upToExpertLevelImage from 'Assets/images/up-to-expert-level.svg';
 import * as practicalTrainingImage from 'Assets/images/practical-training.svg';
 
-import { Heading } from 'Components/common/heading';
+import { Heading } from 'Components/heading';
 
 import uuidv1 from 'uuid/v1';
 

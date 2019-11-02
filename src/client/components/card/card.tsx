@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-import { Heading } from 'Components/common/heading';
-import { Paragraph } from 'Components/common/paragraph';
+import { Heading } from 'Components/heading';
+import { Paragraph } from 'Components/paragraph';
 
 import styles from './card.pcss';
 

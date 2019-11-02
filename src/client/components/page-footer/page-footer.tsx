@@ -2,11 +2,11 @@ import React, { PureComponent, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { Logo } from 'Components/logo/logo';
-import { PageContainer } from 'Components/common/page-container';
-import { Heading } from 'Components/common/heading';
-import { Link, LINK_TYPES } from 'Components/common/link';
-import { InputSimple } from 'Components/common/input-simple';
-import { Button } from 'Components/common/button';
+import { PageContainer } from 'Components/page-container';
+import { Heading } from 'Components/heading';
+import { Link, LINK_TYPES } from 'Components/link';
+import { InputSimple } from 'Components/input-simple';
+import { Button } from 'Components/button';
 
 import globalStyles from 'Src/client/global.pcss';
 

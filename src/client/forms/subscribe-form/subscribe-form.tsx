@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Button } from 'Components/common/button';
-import { InputSimple } from 'Components/common/input-simple';
+import { Button } from 'Components/button';
+import { InputSimple } from 'Components/input-simple';
 
 import styles from './subscribe-form.pcss';
 

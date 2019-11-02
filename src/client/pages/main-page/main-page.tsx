@@ -1,10 +1,10 @@
 import React, { PureComponent, ReactNode } from 'react';
 
 import { Logo } from 'Components/logo/logo';
-import { PageHeader } from 'Components/common/page-header';
-import { HeaderNavigation } from 'Components/common/header-navigation';
-import { PageContainer } from 'Components/common/page-container';
-import { PageFooter } from 'Components/common/page-footer';
+import { PageHeader } from 'Components/page-header';
+import { HeaderNavigation } from 'Components/header-navigation';
+import { PageContainer } from 'Components/page-container';
+import { PageFooter } from 'Components/page-footer';
 
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 
@@ -19,7 +19,7 @@ import * as htmlReferenceImage from 'Assets/images/html-reference.svg';
 import * as subscriptionImage from 'Assets/images/subscription.svg';
 import * as userIcon from 'Assets/icons/other/user.svg';
 
-import { Button } from 'Components/common/button';
+import { Button } from 'Components/button';
 
 import styles from './main-page-style.pcss';
 

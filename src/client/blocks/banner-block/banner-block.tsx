@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { Definition } from 'Components/common/definition';
+import { Definition } from 'Components/definition';
 
 import globalStyles from 'Src/client/global.pcss';
 

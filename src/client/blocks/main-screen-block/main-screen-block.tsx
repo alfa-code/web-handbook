@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
-import { Heading } from 'Components/common/heading';
+import { Heading } from 'Src/client/components/heading';
 
 import * as mainImage from 'Assets/images/main-illustration.svg';
 
