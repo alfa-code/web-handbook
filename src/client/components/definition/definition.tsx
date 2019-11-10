@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 import { Heading } from 'Src/client/components/heading';
 import { Paragraph } from 'Src/client/components/paragraph';
+import { HeaderLabel } from 'Src/client/components/header-label';
 
 import styles from './definition.pcss';
 
@@ -37,9 +38,9 @@ export class Definition extends Component<Props> {
         return (
             <div className={ classNames(styles.definition, styles[position], containerClassName) }>
                 { upTitle && (
-                    <span className={ classNames(styles.upTitle, uptitleClassName) }>
+                    <HeaderLabel className={ uptitleClassName }>
                         { upTitle }
-                    </span>
+                    </HeaderLabel>
                 ) }
                 <Heading size={ titleSize } className={ headingClassName }>
                     { title }
