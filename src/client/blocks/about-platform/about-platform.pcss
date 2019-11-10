@@ -1,0 +1,53 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    margin-bottom: 160px;
+}
+
+.textBlock {
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+    display: flex;
+    align-items: center;
+}
+
+.textWrapper {
+
+}
+
+.videoBlock {
+    grid-column-start: 5;
+    grid-column-end: 12;
+
+    display: flex;
+    align-items: center;
+}
+
+.videoWrapper {
+    position: relative;
+    width: 810px;
+    height: 456px;
+}
+
+.img1, .img2 {
+    position: absolute;
+}
+
+.img1 {
+    z-index: 1;
+    right: -150px;
+    bottom: -150px;
+}
+
+.iframe {
+    position: relative;
+    z-index: 2;
+}
+
+.img2 {
+    right: -150px;
+    bottom: -150px;
+    z-index: 3;
+}
