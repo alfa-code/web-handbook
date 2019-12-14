@@ -44,15 +44,17 @@ export class MainPlusesBlock extends React.PureComponent {
     renderCellContent = (item) => {
         return (
             <div className={ styles.plusesBlock }>
-                <img
-                    className={ styles.image }
-                    src={ item.img }
-                    alt='О плюсах платформы'
-                />
-                <Heading size={ 3 }>
+                <div className={ styles.imageWrapper }>
+                    <img
+                        className={ styles.image }
+                        src={ item.img }
+                        alt='О плюсах платформы'
+                    />
+                </div>
+                <Heading size={ 4 }>
                     { item.title }
                 </Heading>
-                <p>
+                <p className={ styles.text }>
                     { item.text }
                 </p>
             </div>

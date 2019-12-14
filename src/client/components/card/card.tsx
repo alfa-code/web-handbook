@@ -44,13 +44,15 @@ export class Card extends Component<Props> {
                     />
                 </div>
                 <div className={ styles.body }>
-                    { this.renderCusomSection(firstCustomSection) }
-                    <Heading size={ 4 }>
-                        { header }
-                    </Heading>
-                    <Paragraph className={ styles.text }>
-                        { text }
-                    </Paragraph>
+                    <div>
+                        { this.renderCusomSection(firstCustomSection) }
+                        <Heading size={ 4 } className={ styles.heading }>
+                            { header }
+                        </Heading>
+                        <Paragraph className={ styles.text }>
+                            { text }
+                        </Paragraph>
+                    </div>
                     { this.renderCusomSection(secondCustomSection) }
                 </div>
             </div>

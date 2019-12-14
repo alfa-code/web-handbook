@@ -27,13 +27,13 @@ const customSection2 = (
 
 const data = [
     {
-        image: htmlCssImage,
-        header: 'HTML и CSS для начинающих',
-        text: 'Изучаем основы HTML и CSS. На практике разбираемся с семантической разметкой и базовыми механизмами стилизации на примере небольшого сайта.',
-        color: 'blue',
-        firstCustomSection: customSection,
+        image: jsImage,
+        header: 'Основы JavaScript',
+        text: 'Знакомимся с синтаксисом JavaScript, тренируемся использовать базовые концепции и пишем свои первые программы.',
+        color: 'yellow',
+        firstCustomSection: customSection2,
         secondCustomSection: (
-            <div style={ { marginTop: 46 } }>
+            <div>
                 <UserLabel
                     image='https://avatars2.githubusercontent.com/u/20814779?s=400&u=be55b21208858e6abe2db857658668eba61174d6&v=4'
                     name='Алексей Вечканов'
@@ -43,11 +43,20 @@ const data = [
         )
     },
     {
-        image: jsImage,
-        header: 'Основы JavaScript',
-        text: 'Знакомимся с синтаксисом JavaScript, тренируемся использовать базовые концепции и пишем свои первые программы.',
-        color: 'yellow',
-        firstCustomSection: customSection2
+        image: htmlCssImage,
+        header: 'HTML и CSS для начинающих',
+        text: 'Изучаем основы HTML и CSS. На практике разбираемся с семантической разметкой и базовыми механизмами стилизации на примере небольшого сайта.',
+        color: 'blue',
+        firstCustomSection: customSection,
+        secondCustomSection: (
+            <div>
+                <UserLabel
+                    image='https://avatars2.githubusercontent.com/u/20814779?s=400&u=be55b21208858e6abe2db857658668eba61174d6&v=4'
+                    name='Алексей Вечканов'
+                    extra='Веб-разработчик в Alfa-bank'
+                />
+            </div>
+        )
     }
 ];
 

@@ -10,17 +10,17 @@ import styles from './main-second-pluses.pcss';
 
 const texts = [
     {
-        img: graduationCapIcon,
+        img: thumbsUpIcon,
         title: 'Бесплатные материалы',
         text: 'Десятки курсов — бесплатные. После их прохождения вы сможете создать свой сайт.'
     },
     {
-        img: thumbsUpIcon,
+        img: videoIcon,
         title: 'Видео-курсы',
         text: 'Покажем суть и дадим знания, которые вы сможете использовать уже сегодня.'
     },
     {
-        img: videoIcon,
+        img: graduationCapIcon,
         title: 'Практические задания',
         text: 'Мы учим работать с живым кодом и самостоятельно решать задачи.'
     }
