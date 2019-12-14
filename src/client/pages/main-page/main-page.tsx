@@ -54,6 +54,9 @@ export class MainPage extends PureComponent<Props, State> {
                     <AboutPlatform />
                 </PageContainer>
                 <PageContainer>
+                    <MainSecondPlusesBlock />
+                </PageContainer>
+                <PageContainer>
                     <OurCursesBlock />
                 </PageContainer>
                 <BannerBlock
@@ -79,9 +82,6 @@ export class MainPage extends PureComponent<Props, State> {
                 >
                     <SubscribeForm />
                 </BannerBlock>
-                <PageContainer>
-                    <MainSecondPlusesBlock />
-                </PageContainer>
                 <PageContainer>
                     <Technologies />
                 </PageContainer>

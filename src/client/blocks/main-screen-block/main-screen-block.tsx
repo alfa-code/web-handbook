@@ -13,9 +13,11 @@ export class MainScreenBlock extends React.PureComponent {
             <div className={ styles.mainScreenBlock }>
                 <div className={ styles.infoBlock }>
                     <Heading size={ 1 }>
-                        Бесплатная платформа
-                        для обучения и подготовки
-                        IT специалистов
+                        <span>Бесплатная платформа</span>
+                        <br />
+                        <span>для обучения и подготовки</span>
+                        <br />
+                        <span> IT специалистов</span>
                     </Heading>
                     <p className={ styles.subheader }>
                         Получите доступ к грамотной и структурированной информации для обучения.
