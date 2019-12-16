@@ -41,7 +41,7 @@ export class PageFooter extends PureComponent<Props> {
     getEmailLink = () => {
         return (
             <Link type={ LINK_TYPES.email } href='alfa.info@alfa-code.ru'>
-                asfasfaf
+                alfa.info@alfacode.ru
             </Link>
         );
     }

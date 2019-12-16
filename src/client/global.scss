@@ -56,7 +56,7 @@ html {
     --gap-1: 10px;
     --gap-2: 20px;
     --gap-3: 40px;
-    --gap-4: 80px;
+    --gap-4: 128px;
 }
 
 
@@ -70,18 +70,16 @@ $breakpoints: (
 );
 
 html {
-    @include media(">desktop-2", "<desktop-4") {
+    @include media(">desktop-1", "<desktop-3") {
         --text-heading-1: 40px;
         --text-heading-2: 30px;
         --text-heading-3: 22px;
         --text-heading-4: 16px;
         --text-heading-5: 12px;
-        --text-heading-6: 10px;
-
-        --width-base-container: 1400px;
+        --text-heading-6: 10px
     }
 
-    @include media(">desktop-1", "<desktop-3") {
+    @include media(">desktop-1", "<desktop-2") {
         --text-heading-1: 30px;
         --text-heading-2: 22px;
         --text-heading-3: 16px;
@@ -91,6 +89,6 @@ html {
     }
 
     @include media("<desktop-3") {
-        --width-base-container: 90%;
+        --width-base-container: 80%;
     }
 }
