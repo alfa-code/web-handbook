@@ -51,6 +51,7 @@ html {
 
     /* Sizes */
     --width-base-container: 1408px;
+    --width-base-container-additional: 240px;
 
     /* Gaps */
     --gap-1: 10px;
@@ -89,6 +90,12 @@ html {
     }
 
     @include media("<desktop-3") {
-        --width-base-container: 80%;
+        --width-base-container: 1240px;
+        --width-base-container-additional: 120px;
+    }
+
+    @include media("<desktop-2") {
+        --width-base-container: 100%;
+        --width-base-container-additional: 0;
     }
 }
