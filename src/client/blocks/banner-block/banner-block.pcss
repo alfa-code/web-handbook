@@ -1,25 +1,27 @@
 .block {
-    display: flex;
     position: relative;
     width: calc(var(--width-base-container) + var(--width-base-container-additional));
     margin: 0 auto;
     background-color: var(--background-light);
-    padding: 76px 120px;
 }
 
 .rightDirection {
-    flex-direction: row;
+    .description {
+        grid-column: 1 / 7;
+    }
 
     .image {
-        right: 8%;
+        grid-column: 7 / 13;
     }
 }
 
 .leftDirection {
-    flex-direction: row-reverse;
+    .description {
+        grid-column: 7 / 13;
+    }
 
     .image {
-        left: 8%;
+        grid-column: 1 / 6;
     }
 }
 
@@ -47,14 +49,19 @@
 }
 
 .contentBlock {
-    max-width: 656px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 32px;
+    width: 100%;
 }
 
 .image {
-    position: absolute;
     touch-action: none;
     user-select: none;
     pointer-events: none;
-    bottom: 0;
-    width: 38%;
+}
+
+.description {
+    align-self: center;
 }
