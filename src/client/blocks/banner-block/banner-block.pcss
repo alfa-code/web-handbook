@@ -1,7 +1,7 @@
 .block {
     display: flex;
     position: relative;
-    width: var(--width-base-container);
+    width: calc(var(--width-base-container) + var(--width-base-container-additional));
     margin: 0 auto;
     background-color: var(--background-light);
     padding: 76px 120px;
@@ -11,7 +11,7 @@
     flex-direction: row;
 
     .image {
-        right: 100px;
+        right: 8%;
     }
 }
 
@@ -19,7 +19,7 @@
     flex-direction: row-reverse;
 
     .image {
-        left: 100px;
+        left: 8%;
     }
 }
 
@@ -43,6 +43,7 @@
     font-weight: normal;
     font-size: var(--text-heading-5);
     color: var(--text-paragraphs);
+    padding-bottom: 30px;
 }
 
 .contentBlock {
@@ -55,6 +56,5 @@
     user-select: none;
     pointer-events: none;
     bottom: 0;
-
-    width: 400px;
+    width: 38%;
 }

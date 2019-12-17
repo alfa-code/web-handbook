@@ -92,8 +92,7 @@ export class PageFooter extends PureComponent<Props> {
                 </div>
                 <div className={ styles.bottomBlock }>
                     <span className={ styles.copyright }>
-                        © «Alfa Code»
-                        { currentYear }
+                        { `© «Alfa Code» ${currentYear}` }
                     </span>
                 </div>
             </footer>
