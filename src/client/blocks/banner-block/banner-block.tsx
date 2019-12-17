@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { Definition } from 'Components/definition';
+import { PageContainer } from 'Components/page-container';
 
 import globalStyles from 'Src/client/global.pcss';
 
@@ -36,26 +37,30 @@ export class BannerBlock extends Component<Props, State> {
         const { undertitle, text, title } = this.props;
 
         return (
-            <div className={ classNames(styles.block, this.getDirectionClassName(), globalStyles.verticalNeighbors) }>
-                <div className={ styles.contentBlock }>
-                    <Definition
-                        upTitle={ undertitle }
-                        title={ title }
-                        titleSize={ 2 }
-                        text={ text }
-                        position='left'
-                        uptitleClassName={ styles.subtitle }
-                        paragraphClassName={ styles.text }
-                    />
-                    { children }
-                    { imageUrl && (
-                        <img
-                            src={ imageUrl }
-                            className={ styles.image }
-                            alt='Иллюстрация'
-                        />
-                    ) }
-                </div>
+            <div className={ classNames(styles.block, globalStyles.verticalNeighbors) }>
+                <PageContainer>
+                    <div className={ classNames(styles.contentBlock, this.getDirectionClassName()) }>
+                        <div className={ styles.description }>
+                            <Definition
+                                upTitle={ undertitle }
+                                title={ title }
+                                titleSize={ 2 }
+                                text={ text }
+                                position='left'
+                                uptitleClassName={ styles.subtitle }
+                                paragraphClassName={ styles.text }
+                            />
+                            { children }
+                        </div>
+                        { imageUrl && (
+                            <img
+                                src={ imageUrl }
+                                className={ styles.image }
+                                alt='Иллюстрация'
+                            />
+                        ) }
+                    </div>
+                </PageContainer>
             </div>
         );
     }
