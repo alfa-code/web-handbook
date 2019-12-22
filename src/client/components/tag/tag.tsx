@@ -1,17 +1,17 @@
 import React from 'react';
 
-import styles from './tag.pcss';
+import styles from './tag.module.scss';
 
 interface Props {
     tagName: string;
 }
 
 export function Tag(props: Props) {
-    const { tagName } = props;
+  const { tagName } = props;
 
-    return (
-        <span className={ styles.tag }>
-            { tagName }
-        </span>
-    );
+  return (
+    <span className={styles.tag}>
+      { tagName }
+    </span>
+  );
 }

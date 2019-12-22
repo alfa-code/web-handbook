@@ -1,20 +1,20 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import * as logoImage from 'Assets/icons/logo/logo.svg';
+import logoImage from 'Assets/icons/logo/logo.svg';
 
-import styles from './logo-style.pcss';
+import styles from './logo-style.module.scss';
 
 interface Props {}
 interface State {}
 
 export class Logo extends PureComponent<Props, State> {
-    render(): ReactNode {
-        return (
-            <img
-                src={ logoImage }
-                alt='Логотип "Альфа Код"'
-                className={ styles.logo }
-            />
-        );
-    }
+  render(): ReactNode {
+    return (
+      <img
+        src={logoImage}
+        alt='Логотип "Альфа Код"'
+        className={styles.logo}
+      />
+    );
+  }
 }

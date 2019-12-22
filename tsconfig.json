@@ -1,24 +1,28 @@
 {
-    "extends": "./node_modules/arui-scripts/configs/tsconfig.json",
-    "exclude": [
-        "./build",
-        "./arui-scripts.overrides.js",
-        "./stylelint.config.js"
+    "include": [
+        "src/client/index.tsx"
     ],
     "compilerOptions": {
-        "baseUrl": "./",
+        "outDir": "./dist/",
+        "sourceMap": true,
         "noImplicitAny": false,
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
+        "module": "es2015",
+        "target": "es2017",
+        "jsx": "react",
+        "allowJs": true,
         "esModuleInterop": true,
-        "strictNullChecks": false,
+        "allowSyntheticDefaultImports": true,
         "skipLibCheck": true,
+        "baseUrl": "./",
+        "moduleResolution": "node",
         "paths": {
             "Src/*": ["src/*"],
-            "App/*": ["src/client/app/*"],
             "Components/*": ["src/client/components/*"],
-            "Server/*": ["src/server/*"],
-            "Assets/*": ["src/assets/*"]
+            "Assets/*": ["src/assets/*"],
+            "Fonts/*": ["src/assets/fonts/*"],
         }
-    }
+    },
+    "files": [
+        "typings/declarations.d.ts"
+    ]
 }

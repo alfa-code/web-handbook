@@ -1,101 +1,188 @@
-@import "include-media/dist/_include-media.scss";
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700&display=swap&subset=cyrillic');
-
-
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* roboto-regular - cyrillic_latin */
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
+	src: local("Roboto"), local("Roboto-Regular"),
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot?#iefix") format("embedded-opentype"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff2") format("woff2"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff") format("woff"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.ttf") format("truetype"); /* Safari, Android, iOS */
+	// url('~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* roboto-700 - cyrillic_latin */
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 700;
+	src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
+	src: local("Roboto Bold"), local("Roboto-Bold"),
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot?#iefix") format("embedded-opentype"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff2") format("woff2"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff") format("woff"), 
+		url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.ttf") format("truetype"); /* Safari, Android, iOS */
+	// url('~Fonts/Roboto/roboto-v20-cyrillic_latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
+/* rubik-regular - cyrillic_latin */
+@font-face {
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 400;
+	src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
+	src: local("Rubik"), local("Rubik-Regular"),
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot?#iefix") format("embedded-opentype"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff2") format("woff2"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff") format("woff"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.ttf") format("truetype"); /* Safari, Android, iOS */
+	// url('~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.svg#Rubik') format('svg'); /* Legacy iOS */
+}
+
+/* rubik-500 - cyrillic_latin */
+@font-face {
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 500;
+	src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot"); /* IE9 Compat Modes */
+	src: local("Rubik Medium"), local("Rubik-Medium"),
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot?#iefix") format("embedded-opentype"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff2") format("woff2"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff") format("woff"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.ttf") format("truetype"); /* Safari, Android, iOS */
+	// url('~Fonts/Rubik/rubik-v9-cyrillic_latin-500.svg#Rubik') format('svg'); /* Legacy iOS */
+}
+
+/* rubik-700 - cyrillic_latin */
+@font-face {
+	font-family: "Rubik";
+	font-style: normal;
+	font-weight: 700;
+	src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
+	src: local("Rubik Bold"), local("Rubik-Bold"),
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot?#iefix") format("embedded-opentype"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff2") format("woff2"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff") format("woff"), 
+		url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.ttf") format("truetype"); /* Safari, Android, iOS */
+	// url('~Fonts/Rubik/rubik-v9-cyrillic_latin-700.svg#Rubik') format('svg'); /* Legacy iOS */
 }
 
 html {
-    font-family: 'roboto', sans-serif;
+	font-family: "roboto", sans-serif;
 
-    /* Colors */
-    --text-primary: #172a3f;
-    --text-paragraphs: #546271;
-    --text-secondary: #6d7986;
-    --text-tetriary: #b5bbc2;
-    --text-inverse: #ffffff;
+	/* Colors */
+	--text-primary: #172a3f;
+	--text-paragraphs: #546271;
+	--text-secondary: #6d7986;
+	--text-tetriary: #b5bbc2;
+	--text-inverse: #ffffff;
 
-    --brand-red: #ef3124;
-    --brand-primary: #172a3f;
-    --brand-secondary: #858f9a;
-    --brand-gray: #b6bcc3;
+	--brand-red: #ef3124;
+	--brand-primary: #172a3f;
+	--brand-secondary: #858f9a;
+	--brand-gray: #b6bcc3;
 
-    --background-main: #f3f4f5;
-    --background-light: #f9fafa;
-    --background-1: #fef9d2;
-    --background-2: #dae6ff;
-    --background-3: #d6f5f2;
+	--background-main: #f3f4f5;
+	--background-light: #f9fafa;
+	--background-1: #fef9d2;
+	--background-2: #dae6ff;
+	--background-3: #d6f5f2;
 
-    --illustrations-blue: #4480ff;
-    --illustration-yellow: #ffb96f;
-    --illustration-green: #40b198;
-    --illustration-red: #ff5c5c;
+	--illustrations-blue: #4480ff;
+	--illustration-yellow: #ffb96f;
+	--illustration-green: #40b198;
+	--illustration-red: #ff5c5c;
 
-    --hover-brand-red: #d92c21;
-    --hover-primary: #000000;
+	--hover-brand-red: #d92c21;
+	--hover-primary: #000000;
 
-    --disabled: #d3d4d8;
+	--disabled: #d3d4d8;
 
-    /* Elevation */
-    --elevation: 0px 10px 24px rgba(23, 42, 63, 0.1);
+	/* Elevation */
+	--elevation: 0px 10px 24px rgba(23, 42, 63, .1);
 
-    /* Text Styles */
-    --text-heading-1: 48px;
-    --text-heading-2: 40px;
-    --text-heading-3: 30px;
-    --text-heading-4: 22px;
-    --text-heading-5: 16px;
-    --text-heading-6: 12px;
+	/* Text Styles */
+	--text-heading-1: 48px;
+	--text-heading-2: 40px;
+	--text-heading-3: 30px;
+	--text-heading-4: 22px;
+	--text-heading-5: 16px;
+	--text-heading-6: 12px;
 
-    /* Sizes */
-    --width-base-container: 1408px;
-    --width-base-container-additional: 240px;
+	/* Sizes */
+	--width-base-container: 1408px;
+	--width-base-container-additional: 240px;
 
-    /* Gaps */
-    --gap-1: 10px;
-    --gap-2: 20px;
-    --gap-3: 40px;
-    --gap-4: 128px;
+	/* Gaps */
+	--gap-1: 10px;
+	--gap-2: 20px;
+	--gap-3: 40px;
+	--gap-4: 128px;
 }
 
-
 $breakpoints: (
-  'phone-1': 320px,
-  'tablet-1': 768px,
-  'desktop-1': 1024px,
-  'desktop-2': 1280px,
-  'desktop-3': 1680px,
-  'desktop-4': 1920px
+	"phone-1": 320px,
+	"tablet-1": 768px,
+	"desktop-1": 1024px,
+	"desktop-2": 1280px,
+	"desktop-3": 1680px,
+	"desktop-4": 1920px
 );
 
 html {
-    @include media(">desktop-1", "<desktop-3") {
-        --text-heading-1: 40px;
-        --text-heading-2: 30px;
-        --text-heading-3: 22px;
-        --text-heading-4: 16px;
-        --text-heading-5: 12px;
-        --text-heading-6: 10px
-    }
+	// @include media(">desktop-1", "<desktop-3") {
+	//     --text-heading-1: 40px;
+	//     --text-heading-2: 30px;
+	//     --text-heading-3: 22px;
+	//     --text-heading-4: 16px;
+	//     --text-heading-5: 12px;
+	//     --text-heading-6: 10px
+	// }
 
-    @include media(">desktop-1", "<desktop-2") {
-        --text-heading-1: 30px;
-        --text-heading-2: 22px;
-        --text-heading-3: 16px;
-        --text-heading-4: 12px;
-        --text-heading-5: 10px;
-        --text-heading-6: 8px;
-    }
+	// @include media(">desktop-1", "<desktop-2") {
+	//     --text-heading-1: 30px;
+	//     --text-heading-2: 22px;
+	//     --text-heading-3: 16px;
+	//     --text-heading-4: 12px;
+	//     --text-heading-5: 10px;
+	//     --text-heading-6: 8px;
+	// }
 
-    @include media("<desktop-3") {
-        --width-base-container: 1240px;
-        --width-base-container-additional: 120px;
-    }
+	// @include media("<desktop-3") {
+	//     --width-base-container: 1240px;
+	//     --width-base-container-additional: 120px;
+	// }
 
-    @include media("<desktop-2") {
-        --width-base-container: 100%;
-        --width-base-container-additional: 0;
-    }
+	// @include media("<desktop-2") {
+	//     --width-base-container: 100%;
+	//     --width-base-container-additional: 0;
+	// }
+}
+
+
+// from arui-feather
+html {
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	--font-size-m: 16px;
+
+	/**
+     * Система отступов
+     */
+	--gap-2xs: 4px;
+	--gap-xs: 8px;
+	--gap-s: 12px;
+	--gap-m: 16px;
+	--gap-l: 20px;
+	--gap-xl: 24px;
+	--gap-2xl: 32px;
+	--gap-3xl: 40px;
+	--gap-4xl: 48px;
+	--gap-5xl: 72px;
 }
