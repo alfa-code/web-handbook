@@ -12,7 +12,7 @@ const server = new Hapi.Server({
   host: 'localhost',
   routes: {
     files: {
-      relativeTo: path.join(rootPath, '.dist/', 'assets/'),
+      relativeTo: path.join(rootPath, '.build/', 'assets/'),
     },
   },
 });

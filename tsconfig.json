@@ -3,7 +3,7 @@
         "src/client/index.tsx"
     ],
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./build/",
         "sourceMap": true,
         "noImplicitAny": false,
         "module": "es2015",

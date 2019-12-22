@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-export default function readAssetsManifest() {
+export default function readAssetsManifest(): any {
   try {
-    const manifestPath = path.join(process.cwd(), '.dist/assets.client.json');
+    const manifestPath = path.join(process.cwd(), '.build/assets.client.json');
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     const js: string[] = [];
     const css: string[] = [];
