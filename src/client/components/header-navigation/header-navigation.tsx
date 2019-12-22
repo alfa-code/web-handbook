@@ -1,29 +1,29 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import styles from './header-navigation.pcss';
+import styles from './header-navigation.module.scss';
 
 interface Props {}
 interface State {}
 
 export class HeaderNavigation extends PureComponent<Props, State> {
-    render(): ReactNode {
-        return (
-            <nav className={ styles.headerNavigation }>
-                <ul>
-                    <li>
+  render(): ReactNode {
+    return (
+      <nav className={styles.headerNavigation}>
+        <ul>
+          <li>
                         Курсы
-                    </li>
-                    <li>
+          </li>
+          <li>
                         Блог
-                    </li>
-                    <li>
+          </li>
+          <li>
                         Html справочник
-                    </li>
-                    <li>
+          </li>
+          <li>
                         О нас
-                    </li>
-                </ul>
-            </nav>
-        );
-    }
+          </li>
+        </ul>
+      </nav>
+    );
+  }
 }

@@ -1,6 +1,6 @@
 module.exports = {
-    extends: 'arui-presets/stylelint',
+    extends: 'stylelint-config-airbnb',
     rules: {
-        'arui-cssvars/use-variables': false
+        indentation: 'tab'
     }
 };

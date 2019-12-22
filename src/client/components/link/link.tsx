@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './link.pcss';
+import styles from './link.module.scss';
 
 interface Props {
     children?: any;
@@ -9,33 +9,33 @@ interface Props {
 }
 
 export const LINK_TYPES = {
-    text: 'text',
-    phone: 'phone',
-    email: 'email'
+  text: 'text',
+  phone: 'phone',
+  email: 'email',
 };
 
 export function Link(props: Props) {
-    const { children, href = '#', type = LINK_TYPES.text } = props;
+  const { children, href = '#', type = LINK_TYPES.text } = props;
 
-    let prefix: string;
+  let prefix: string;
 
-    switch (type) {
-        case LINK_TYPES.text:
-            prefix = '';
-            break;
-        case LINK_TYPES.phone:
-            prefix = 'tel:';
-            break;
-        case LINK_TYPES.email:
-            prefix = 'mailto:';
-            break;
-        default:
-            prefix = '';
-    }
+  switch (type) {
+    case LINK_TYPES.text:
+      prefix = '';
+      break;
+    case LINK_TYPES.phone:
+      prefix = 'tel:';
+      break;
+    case LINK_TYPES.email:
+      prefix = 'mailto:';
+      break;
+    default:
+      prefix = '';
+  }
 
-    return (
-        <a href={ prefix + href } className={ styles.link }>
-            { children }
-        </a>
-    );
+  return (
+    <a href={prefix + href} className={styles.link}>
+      { children }
+    </a>
+  );
 }

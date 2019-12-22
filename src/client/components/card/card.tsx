@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Heading } from 'Components/heading';
 import { Paragraph } from 'Components/paragraph';
 
-import styles from './card.pcss';
+import styles from './card.module.scss';
 
 interface Props {
     image?: string;
@@ -17,46 +17,45 @@ interface Props {
 
 export class Card extends Component<Props> {
     renderCusomSection = (section: any) => {
-        if (!section) {
-            return null;
-        }
+      if (!section) {
+        return null;
+      }
 
-        return section;
+      return section;
     }
 
     render() {
-        const {
-            image,
-            text,
-            header,
-            color,
-            firstCustomSection,
-            secondCustomSection
-        } = this.props;
+      const {
+        image,
+        text,
+        header,
+        color,
+        firstCustomSection,
+        secondCustomSection,
+      } = this.props;
 
-        return (
-            <div className={ styles.card }>
-                <div className={ classNames(styles.header, styles[color]) }>
-                    <img
-                        src={ image }
-                        alt={ header }
-                        className={ styles.image }
-                    />
-                </div>
-                <div className={ styles.body }>
-                    <div>
-                        { this.renderCusomSection(firstCustomSection) }
-                        <Heading size={ 4 } className={ styles.heading }>
-                            { header }
-                        </Heading>
-                        <Paragraph className={ styles.text }>
-                            { text }
-                        </Paragraph>
-                    </div>
-                    { this.renderCusomSection(secondCustomSection) }
-                </div>
+      return (
+        <div className={styles.card}>
+          <div className={classNames(styles.header, styles[color])}>
+            <img
+              src={image}
+              alt={header}
+              className={styles.image}
+            />
+          </div>
+          <div className={styles.body}>
+            <div>
+              { this.renderCusomSection(firstCustomSection) }
+              <Heading size={4} className={styles.heading}>
+                { header }
+              </Heading>
+              <Paragraph className={styles.text}>
+                { text }
+              </Paragraph>
             </div>
-        );
+            { this.renderCusomSection(secondCustomSection) }
+          </div>
+        </div>
+      );
     }
 }
-
