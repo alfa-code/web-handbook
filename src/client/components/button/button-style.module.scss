@@ -1,41 +1,41 @@
 .button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-width: 112px;
-	height: 48px;
-	font-weight: var(--font-weight-medium);
-	font-size: var(--font-size-m);
-	box-sizing: border-box;
-	border-radius: 4px;
-	padding: 0 var(--gap-2xl);
-	cursor: pointer;
-	border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 112px;
+  height: 48px;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-m);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 var(--gap-2xl);
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
 .buttonPrimary {
-	background-color: var(--brand-red);
-	color: #fff;
+  background-color: var(--brand-red);
+  color: #fff;
 
-	&:hover,
-	&:active {
-		background-color: var(--hover-brand-red);
-	}
+  &:hover,
+  &:active {
+    background-color: var(--hover-brand-red);
+  }
 }
 
 .buttonSecondary {
-	background-color: transparent;
-	border: 1px solid var(--brand-gray);
-	color: #0b1f35;
+  background-color: transparent;
+  border: 1px solid var(--brand-gray);
+  color: #0b1f35;
 
-	&:hover,
-	&:active {
-		border: 1px solid var(--brand-primary);
-	}
+  &:hover,
+  &:active {
+    border: 1px solid var(--brand-primary);
+  }
 }
 
 .buttonIcon {
-	width: 24px;
-	height: 24px;
-	margin-right: var(--gap-m);
+  width: 24px;
+  height: 24px;
+  margin-right: var(--gap-m);
 }
