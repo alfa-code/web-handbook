@@ -1,32 +1,32 @@
 .userLabel {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .image {
-	width: 40px;
-	height: 40px;
-	object-fit: cover;
-	border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .info {
-	margin-left: 8px;
+  margin-left: 8px;
 }
 
 .name {
-	color: var(--text-primary);
-	font-family: Rubik;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
+  color: var(--text-primary);
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .extra {
-	font-family: Roboto;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 12px;
-	color: var(--text-tetriary);
-	margin-top: 4px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-tetriary);
+  margin-top: 4px;
 }

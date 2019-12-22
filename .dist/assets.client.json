@@ -1,7 +1,7 @@
 {
   "main": {
     "css": "main.css",
-    "js": "app.eee775c8293c245e6bba.js"
+    "js": "app.3401eab04a41fadae9d3.js"
   },
   "": {
     "eot": [
@@ -32,39 +32,11 @@
       "assets/fonts/rubik-v9-cyrillic_latin-700.woff2",
       "assets/fonts/rubik-v9-cyrillic_latin-regular.woff2"
     ],
-    "png": [
-      "images/css.png",
-      "images/html-css.png",
-      "images/html.png",
-      "images/java-script.png",
-      "images/js.png",
-      "images/py.png"
-    ],
-    "jpg": [
-      "images/image-1.jpg",
-      "images/image-2.jpg",
-      "images/image-3.jpg"
-    ],
     "html": "index.html",
     "svg": [
-      "svg/calendar.svg",
-      "svg/clock.svg",
-      "svg/dots.svg",
-      "svg/fire.svg",
-      "svg/girl.svg",
-      "svg/graduation-cap.svg",
-      "svg/html-reference.svg",
-      "svg/logo.svg",
-      "svg/mail.svg",
-      "svg/main-illustration.svg",
-      "svg/practical-training.svg",
-      "svg/subscription.svg",
-      "svg/thumbs-up.svg",
-      "svg/up-to-expert-level.svg",
-      "svg/user.svg",
-      "svg/video.svg",
-      "svg/web-technology.svg",
-      "svg/what-is-alfa-code.svg"
+      "svg/eye-hide.svg",
+      "svg/eye-show.svg",
+      "svg/logo.svg"
     ]
   }
 }
