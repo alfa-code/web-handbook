@@ -1,32 +1,26 @@
 const path = require('path');
-
 const AssetsPlugin = require('assets-webpack-plugin');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const WebpackBar = require('webpackbar');
 const rootPath = process.cwd();
+
+const { NODE_ENV } = process.env;
+const isProduction = NODE_ENV === 'production';
 
 const assetsPluginInstance = new AssetsPlugin({
     filename: 'assets.client.json',
-    path: path.join(rootPath, '.dist/'),
+    path: path.join(rootPath, '.build/'),
     prettyPrint: true
 });
 
 const cssRegex = /\.css$/;
-// const cssModuleRegex = /\.pcss$/;
-// const cssModuleRegex = /\.module.pcss$/;
 const cssModuleRegex = /\.module\.scss$/;
-// const cssModuleRegex = /^((?!\.module).)*scss$/;
-
-// const scssRegex = /\.s[ac]ss$/i;
 const scssRegex = /^((?!\.module).)*scss$/i;
 
 module.exports = {
-    mode: 'development',
+    mode: NODE_ENV || 'development',
     entry: './src/client/index.tsx',
-    // devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -111,7 +105,6 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            // outputPath: 'fonts/'
                             outputPath: (url, resourcePath, context) => {
                                 return `assets/fonts/${url}`;
                             }
@@ -123,7 +116,7 @@ module.exports = {
     },
     output: {
         filename: 'app.[hash].js',
-        path: path.join(rootPath, '.dist/assets/')
+        path: path.join(rootPath, '.build/assets/')
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass', '.pcss', '.module.scss', '.svg'],
@@ -140,10 +133,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
-        })
+        }),
+        new WebpackBar()
     ],
     devServer: {
-        // contentBase: path.join(rootPath, '.dist'),
+        // contentBase: path.join(rootPath, '.build'),
         compress: true,
         port: 8080,
         open: true,

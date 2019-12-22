@@ -1,17 +1,18 @@
 const path = require('path');
-
 const rootPath = process.cwd();
+const buildPath = path.join(rootPath, '.build');
+const WebpackBar = require('webpackbar');
 
-const buildPath = path.join(rootPath, '.dist');
+const { NODE_ENV } = process.env;
+
 
 module.exports = {
+    mode: NODE_ENV || 'development',
     target: 'node',
     stats: {
         outputPath: true
     },
-    mode: 'development',
     entry: './src/server/index.ts',
-    // devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -37,9 +38,5 @@ module.exports = {
             Components: path.join(rootPath, './src/client/components/'),
         }
     },
-    // plugins: [assetsPluginInstance]
-    // node: {
-    //     fs: 'empty',
-    //     net: 'empty',
-    // }
+    plugins: [new WebpackBar({ color: 'red' })]
 };
