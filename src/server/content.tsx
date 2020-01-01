@@ -6,10 +6,12 @@ import AppHtml from './app-html';
 import readAssetsManifest from './utils/read-assets-manifest';
 
 // Превращаем контент в строку HTML
-export function getContent() {
+export function getContent(): string {
   const assets = readAssetsManifest();
 
-  return renderToString(
-    <AppHtml jsFiles={assets.js} />,
+  const stringContent = renderToString(
+    <AppHtml jsFiles={assets.js} cssFiles={assets.css} />,
   );
+
+  return stringContent;
 }

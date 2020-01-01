@@ -13,9 +13,10 @@
         "clear": "rm -rf ./.build",
         "build:client": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.client.js",
         "build:server": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.js",
-        "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && build:server",
+        "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "node ./.build/server.js",
-        "start:dev": "webpack-dev-server --config ./configs/webpack.config.client.js"
+        "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
+        "docker:build": "docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v1"
     },
     "repository": {
         "type": "git",
@@ -34,6 +35,7 @@
         "@typescript-eslint/parser": "^2.12.0",
         "assets-webpack-plugin": "^3.9.10",
         "cross-env": "^6.0.3",
+        "cross-spawn": "^7.0.1",
         "css-loader": "^3.4.0",
         "css-modules-typescript-loader": "^4.0.0",
         "eslint": "^6.5.1",
@@ -50,6 +52,7 @@
         "husky": "^3.0.8",
         "mini-css-extract-plugin": "^0.9.0",
         "node-sass": "^4.13.0",
+        "nodemon": "^2.0.2",
         "sass-loader": "^8.0.0",
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.1.1",
@@ -79,10 +82,5 @@
         "react-dom": "^16.10.2",
         "uuid": "^3.3.3",
         "yarn": "^1.21.1"
-    },
-    "aruiScripts": {
-        "clientServerPort": 8080,
-        "clientEntry": "./src/client/index",
-        "useTscLoader": true
     }
 }
