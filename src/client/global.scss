@@ -134,36 +134,6 @@ $breakpoints: (
   "desktop-4": 1920px
 );
 
-html {
-  // @include media(">desktop-1", "<desktop-3") {
-  //     --text-heading-1: 40px;
-  //     --text-heading-2: 30px;
-  //     --text-heading-3: 22px;
-  //     --text-heading-4: 16px;
-  //     --text-heading-5: 12px;
-  //     --text-heading-6: 10px
-  // }
-
-  // @include media(">desktop-1", "<desktop-2") {
-  //     --text-heading-1: 30px;
-  //     --text-heading-2: 22px;
-  //     --text-heading-3: 16px;
-  //     --text-heading-4: 12px;
-  //     --text-heading-5: 10px;
-  //     --text-heading-6: 8px;
-  // }
-
-  // @include media("<desktop-3") {
-  //     --width-base-container: 1240px;
-  //     --width-base-container-additional: 120px;
-  // }
-
-  // @include media("<desktop-2") {
-  //     --width-base-container: 100%;
-  //     --width-base-container-additional: 0;
-  // }
-}
-
 
 // from arui-feather
 html {

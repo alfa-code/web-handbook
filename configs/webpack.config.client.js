@@ -18,7 +18,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.scss$/;
 const scssRegex = /^((?!\.module).)*scss$/i;
 
-module.exports = {
+const webpackConfig = {
     mode: NODE_ENV || 'development',
     entry: './src/client/index.tsx',
     module: {
@@ -105,8 +105,8 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: (url, resourcePath, context) => {
-                                return `assets/fonts/${url}`;
+                            outputPath: (url) => {
+                                return `fonts/${url}`;
                             }
                         }
                     }
@@ -116,7 +116,8 @@ module.exports = {
     },
     output: {
         filename: 'app.[hash].js',
-        path: path.join(rootPath, '.build/assets/')
+        path: path.join(rootPath, '.build/assets/'),
+        publicPath: '/assets/'
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass', '.pcss', '.module.scss', '.svg'],
@@ -129,7 +130,6 @@ module.exports = {
     },
     plugins: [
         assetsPluginInstance,
-        new HtmlWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
@@ -137,10 +137,16 @@ module.exports = {
         new WebpackBar()
     ],
     devServer: {
-        // contentBase: path.join(rootPath, '.build'),
+        contentBase: path.join(rootPath, '.build'),
         compress: true,
         port: 8080,
         open: true,
         overlay: true,
     }
 };
+
+if (!isProduction) {
+    webpackConfig.plugins.push(new HtmlWebpackPlugin());
+}
+
+module.exports = webpackConfig;

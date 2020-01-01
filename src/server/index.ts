@@ -7,9 +7,11 @@ const Inert = require('@hapi/inert');
 
 const rootPath = process.cwd();
 
+const PORT = 80;
+
 const server = new Hapi.Server({
-  port: 3000,
-  host: 'localhost',
+  port: PORT,
+  host: '0.0.0.0',
   routes: {
     files: {
       relativeTo: path.join(rootPath, '.build/', 'assets/'),
@@ -29,7 +31,9 @@ const init = async () => {
   server.route({
     method: 'GET',
     path: '/',
-    handler: () => getContent(),
+    handler: () => {
+        return getContent();
+    },
   });
 
   server.route({
@@ -46,7 +50,7 @@ const init = async () => {
 
   await server.start();
   // eslint-disable-next-line no-console
-  console.log('Server running on %s', server.info.uri);
+  console.log('Server running on %s', server.info.uri, `development (http://localhost:${PORT})`);
 };
 
 process.on('unhandledRejection', (err) => {
