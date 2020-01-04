@@ -7,6 +7,9 @@ const rootPath = process.cwd();
 
 const { NODE_ENV } = process.env;
 const isProduction = NODE_ENV === 'production';
+const isDevelopment = NODE_ENV === 'development';
+
+const commonWebpackConfig = require('./webpack.config.common');
 
 const assetsPluginInstance = new AssetsPlugin({
     filename: 'assets.client.json',
@@ -30,14 +33,28 @@ const webpackConfig = {
             },
             {
                 test: cssRegex,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    // 'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: isDevelopment
+                        },
+                    },
+                    'css-loader'
+                ],
             },
             {
                 test: scssRegex,
                 use: [
                     // Creates `style` nodes from JS strings
                     // 'style-loader',
-                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: isDevelopment
+                        },
+                    },
                     // Translates CSS into CommonJS
                     'css-loader',
                     // Compiles Sass to CSS
@@ -47,7 +64,12 @@ const webpackConfig = {
             {
                 test: cssModuleRegex,
                 use: [
-                    { loader: 'style-loader' }, // to inject the result into the DOM as a style block
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            hmr: isDevelopment
+                        },
+                    },
                     { loader: 'css-modules-typescript-loader' }, // to generate a .d.ts module next to the .scss file (also requires a declaration.d.ts with 'declare modules '*.scss';' in it to tell TypeScript that 'import styles from './styles.scss';' means to load the module './styles.scss.d.td')
                     {
                         loader: 'css-loader',
@@ -61,22 +83,6 @@ const webpackConfig = {
                     // NOTE: The first build after adding/removing/renaming CSS classes fails, since the newly generated .d.ts typescript module is picked up only later
                 ]
             },
-            // {
-            //     test: cssModuleRegex,
-            //     use: [
-            //         'style-loader',
-            //         // MiniCssExtractPlugin.loader,
-            //         {
-            //             loader: 'css-loader',
-            //             options: {
-            //                 // importLoaders: 1,
-            //                 modules: true,
-            //                 // localIdentName: '[name]__[local]___[hash:base64:5]'
-            //             },
-            //         },
-            //         'sass-loader'
-            //     ],
-            // },
             {
                 test: /\.svg/,
                 use: {
@@ -120,19 +126,11 @@ const webpackConfig = {
         path: path.join(rootPath, '.build/assets/'),
         publicPath: '/assets/'
     },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.css', '.scss', '.sass', '.pcss', '.module.scss', '.svg'],
-        alias: {
-            Src: path.join(rootPath, './src/'),
-            Components: path.join(rootPath, './src/client/components/'),
-            Assets: path.join(rootPath, './src/assets/'),
-            Fonts: path.join(rootPath, './src/assets/fonts/'),
-        }
-    },
+    resolve: commonWebpackConfig.resolve,
     plugins: [
         assetsPluginInstance,
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].style.css',
             chunkFilename: '[id].css'
         }),
         new WebpackBar()

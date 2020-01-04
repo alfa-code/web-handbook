@@ -33,7 +33,7 @@ export class LoginPage extends PureComponent<Props, State> {
         }
     }
 
-    render() {
+    render(): any {
         const { isRegistartion } = this.state;
 
         return (

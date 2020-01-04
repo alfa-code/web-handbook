@@ -16,7 +16,7 @@
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v1"
+        "docker:build": "docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v21"
     },
     "repository": {
         "type": "git",
