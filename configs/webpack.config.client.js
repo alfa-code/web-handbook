@@ -52,8 +52,9 @@ const webpackConfig = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            // localIdentName: '[name]__[local]___[hash:base64:5]'
+                            modules: {
+                                localIdentName: "[name]__[local]___[hash:base64:5]",
+                            },
                         }
                     }, // to convert the resulting CSS to Javascript to be bundled (modules:true to rename CSS classes in output to cryptic identifiers, except if wrapped in a :global(...) pseudo class)
                     { loader: 'sass-loader' } // to convert SASS to CSS
