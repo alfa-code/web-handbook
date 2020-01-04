@@ -1,7 +1,7 @@
 import React from 'react';
 
 import clockIcon from 'Assets/icons/info-icons/clock.svg';
-import videoIcon from 'Assets/icons/info-icons/video.svg';
+import videoIcon from 'Assets/icons/info-icons/video-icon.svg';
 import fireIcon from 'Assets/icons/info-icons/fire.svg';
 import calendarIcon from 'Assets/icons/info-icons/calendar.svg';
 

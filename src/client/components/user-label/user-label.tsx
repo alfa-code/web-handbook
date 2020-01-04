@@ -1,6 +1,6 @@
 import React from 'react';
 
-import userIcon from 'Assets/icons/info-icons/user.svg';
+import userIcon from 'Assets/icons/info-icons/user-icon.svg';
 
 import styles from './user-label.module.scss';
 

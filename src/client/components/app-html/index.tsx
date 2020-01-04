@@ -32,8 +32,10 @@ export default class AppHtml extends React.PureComponent<Props> {
                     }
                 </head>
                 <body>
-                    <div id="react-app" />
-                    {children}
+                    <div id="react-app">
+                        {children}
+                    </div>
+
                     {
                         jsFiles.map(
                             (link) => <script type="text/javascript" defer src={`${link}`} key={link} />,
