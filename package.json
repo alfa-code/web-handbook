@@ -16,7 +16,7 @@
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v21"
+        "docker:build": "docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v22"
     },
     "repository": {
         "type": "git",
@@ -50,11 +50,13 @@
         "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-react": "^7.16.0",
         "eslint-plugin-sort-class-members": "^1.6.0",
+        "favicons-webpack-plugin": "^3.0.0",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^3.0.8",
         "mini-css-extract-plugin": "^0.9.0",
         "node-sass": "^4.13.0",
         "nodemon": "^2.0.2",
+        "optimize-css-assets-webpack-plugin": "^5.0.3",
         "sass-loader": "^8.0.0",
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.1.1",
@@ -64,6 +66,7 @@
         "stylelint-scss": "^3.13.0",
         "svg-inline-loader": "^0.8.0",
         "svg-url-loader": "^3.0.3",
+        "terser-webpack-plugin": "^2.3.1",
         "ts-loader": "^6.2.1",
         "typescript": "^3.7.4",
         "typescript-eslint": "^0.0.1-alpha.0",
