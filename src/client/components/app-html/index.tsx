@@ -25,6 +25,8 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <meta httpEquiv="Pragma" content="no-cache" />
                     <meta httpEquiv="Expires" content="0" />
                     <meta content="width=device-width, initial-scale=1" name="viewport" />
+                    <link rel="icon" href="/assets/favicons/favicon.ico" type="image/x-icon" />
+                    <link rel="manifest" href="/assets/favicons/manifest.json" />
                     {
                         cssFiles.map(
                             (link) => <link rel='stylesheet' type='text/css' href={`${link}`} key={link} />

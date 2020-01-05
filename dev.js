@@ -1,7 +1,7 @@
 const spawn = require('cross-spawn');
 
 const env = Object.create( process.env );
-env.NODE_ENV = 'development';
+env.NODE_ENV = 'production';
 
 function bindToLogs(programm) {
     programm.stdout.on('data', (data) => {
@@ -27,7 +27,6 @@ const clientProcess = spawn(
     { env: env }
 );
 bindToLogs(clientProcess);
-
 
 // Сборка сервера
 const serverProcess = spawn(
@@ -56,6 +55,6 @@ const startServerProcess = spawn(
 
 setTimeout(() => {
     bindToLogs(startServerProcess);
-}, 5000);
+}, 10000);
 
 

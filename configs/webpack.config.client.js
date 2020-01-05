@@ -3,6 +3,9 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const rootPath = process.cwd();
 
 const { NODE_ENV } = process.env;
@@ -24,6 +27,9 @@ const scssRegex = /^((?!\.module).)*scss$/i;
 const webpackConfig = {
     mode: NODE_ENV || 'development',
     entry: './src/client/index.tsx',
+    optimization: {
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    },
     module: {
         rules: [
             {
@@ -38,7 +44,8 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hmr: isDevelopment
+                            hmr: isDevelopment,
+                            reloadAll: true,
                         },
                     },
                     'css-loader'
@@ -52,7 +59,8 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hmr: isDevelopment
+                            hmr: isDevelopment,
+                            reloadAll: true,
                         },
                     },
                     // Translates CSS into CommonJS
@@ -67,7 +75,8 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hmr: isDevelopment
+                            hmr: isDevelopment,
+                            reloadAll: true,
                         },
                     },
                     { loader: 'css-modules-typescript-loader' }, // to generate a .d.ts module next to the .scss file (also requires a declaration.d.ts with 'declare modules '*.scss';' in it to tell TypeScript that 'import styles from './styles.scss';' means to load the module './styles.scss.d.td')
@@ -130,7 +139,7 @@ const webpackConfig = {
     plugins: [
         assetsPluginInstance,
         new MiniCssExtractPlugin({
-            filename: '[name].style.css',
+            filename: '[name].css',
             chunkFilename: '[id].css'
         }),
         new WebpackBar()
@@ -147,5 +156,15 @@ const webpackConfig = {
 if (!isProduction) {
     webpackConfig.plugins.push(new HtmlWebpackPlugin());
 }
+
+if (isProduction) {
+    const pathToLogo = path.join(rootPath, 'src/assets/icons/logo/logo-without-name.svg');
+    webpackConfig.plugins.push(new FaviconsWebpackPlugin({
+        logo: pathToLogo,
+        prefix: 'favicons/'
+    }));
+}
+
+path.join(rootPath, '.build/assets/'),
 
 module.exports = webpackConfig;
