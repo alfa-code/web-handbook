@@ -25,69 +25,69 @@ import { Button } from 'Components/button';
 
 import styles from './style.module.scss';
 
-interface Props {}
-interface State {}
+interface Props { }
+interface State { }
 
 export class MainPage extends PureComponent<Props, State> {
-  render(): ReactNode {
-    return (
-      <div className={styles.mainPage}>
-        <PageContainer>
-          <PageHeader>
-            <Logo />
-            <HeaderNavigation />
-            <Button
-              text="Вход"
-              className={styles.marginLeftAuto}
-              icon={userIcon}
-              viewType="secondary"
-            />
-          </PageHeader>
-        </PageContainer>
-        <PageContainer>
-          <MainScreenBlock />
-        </PageContainer>
-
-        <PageContainer>
-          <MainPlusesBlock />
-        </PageContainer>
-        <PageContainer>
-          <AboutPlatform />
-        </PageContainer>
-        <PageContainer>
-          <MainSecondPlusesBlock />
-        </PageContainer>
-        <PageContainer>
-          <OurCursesBlock />
-        </PageContainer>
-        <BannerBlock
-          imageUrl={htmlReferenceImage}
-          direction="right"
-          undertitle="Html  справочник"
-          title="Список HTML тегов определенных в спецификации HTML 5"
-          text="Для удобства все HTML теги разбиты на категории, согласно их назначению. Если вам нужен какой-то конкретный тег, то в левом меню теги отсортированы."
-        >
-          <Button viewType="primary">
+    render(): ReactNode {
+        return (
+            <div className={styles.mainPage}>
+                <PageContainer>
+                    <PageHeader>
+                        <Logo />
+                        <HeaderNavigation />
+                        <Button
+                            text="Вход"
+                            className={styles.marginLeftAuto}
+                            icon={userIcon}
+                            viewType="secondary"
+                            href="/auth"
+                        />
+                    </PageHeader>
+                </PageContainer>
+                <PageContainer>
+                    <MainScreenBlock />
+                </PageContainer>
+                <PageContainer>
+                    <MainPlusesBlock />
+                </PageContainer>
+                <PageContainer>
+                    <AboutPlatform />
+                </PageContainer>
+                <PageContainer>
+                    <MainSecondPlusesBlock />
+                </PageContainer>
+                <PageContainer>
+                    <OurCursesBlock />
+                </PageContainer>
+                <BannerBlock
+                    imageUrl={htmlReferenceImage}
+                    direction="right"
+                    undertitle="Html  справочник"
+                    title="Список HTML тегов определенных в спецификации HTML 5"
+                    text="Для удобства все HTML теги разбиты на категории, согласно их назначению. Если вам нужен какой-то конкретный тег, то в левом меню теги отсортированы."
+                >
+                    <Button viewType="primary">
                         Смотреть справочник
           </Button>
-        </BannerBlock>
-        <PageContainer>
-          <OurBlogBlock />
-        </PageContainer>
-        <BannerBlock
-          imageUrl={subscriptionImage}
-          direction="left"
-          undertitle="обновления"
-          title="Мы будем присылать вам новости о новых курсах"
-          text="Для удобства все HTML теги разбиты на категории, согласно их назначению. Если вам нужен како-то конкретный тег, то в левом меню теги отсортированы."
-        >
-          <SubscribeForm />
-        </BannerBlock>
-        <PageContainer>
-          <Technologies />
-        </PageContainer>
-        <PageFooter />
-      </div>
-    );
-  }
+                </BannerBlock>
+                <PageContainer>
+                    <OurBlogBlock />
+                </PageContainer>
+                <BannerBlock
+                    imageUrl={subscriptionImage}
+                    direction="left"
+                    undertitle="обновления"
+                    title="Мы будем присылать вам новости о новых курсах"
+                    text="Для удобства все HTML теги разбиты на категории, согласно их назначению. Если вам нужен како-то конкретный тег, то в левом меню теги отсортированы."
+                >
+                    <SubscribeForm />
+                </BannerBlock>
+                <PageContainer>
+                    <Technologies />
+                </PageContainer>
+                <PageFooter />
+            </div>
+        );
+    }
 }
