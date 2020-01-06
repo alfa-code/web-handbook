@@ -57,7 +57,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
                 >
                     <img
                         src={ isHide ? eyeImage : eyeHideImage }
-                        alt='Главная иллюстрация'
+                        alt='иконка статуса пароля (скрыт или показан)'
                     />
                 </button>
             </span>

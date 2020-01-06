@@ -1,55 +1,55 @@
 .loginPage {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  /* Light background */
-  background-color: var(--background-light);
+    /* Light background */
+    background-color: var(--background-light);
 
-  [class*="modalForm"] {
-    margin-top: 25px;
-  }
+    [class*="modalForm"] {
+        margin-top: 25px;
+    }
 }
 
 .loginSwitchButton {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-
-  padding: 8px;
-
-  border: 1px solid #b6bcc350;
-  border-radius: 4px;
-
-  button {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 48px;
 
-    border: 0;
-    outline: none;
+    padding: 8px;
 
-    cursor: pointer;
+    border: 1px solid #b6bcc350;
+    border-radius: 4px;
 
-    background: transparent;
-    color: var(--text-secondary);
-    line-height: 19px;
+    button {
+        width: 100%;
+        height: 48px;
 
-    &.active {
-      background: var(--brand-primary);
-      border-radius: 4px;
-      color: var(--text-inverse)
+        border: 0;
+        outline: none;
+
+        cursor: pointer;
+
+        background: transparent;
+        color: var(--text-secondary);
+        line-height: 19px;
+
+        &.active {
+            background: var(--brand-primary);
+            border-radius: 4px;
+            color: var(--text-inverse)
+        }
     }
-  }
 }
 
 .loginForm {
 
-  > * {
-    width: 100%;
-    margin-top: 32px;
-  }
+    > * {
+        width: 100%;
+        margin-top: 32px;
+    }
 }

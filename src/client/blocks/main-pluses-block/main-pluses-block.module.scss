@@ -1,38 +1,52 @@
+@import "Src/client/breakpoints.scss";
+
 .mainPlusesBlock {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 128px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 128px;
+
+    @include media("<tablet-2") {
+        flex-wrap: wrap;
+    }
 }
 
 .cell {
-  flex-grow: 1;
+    flex-grow: 1;
 
-  & + & {
-    margin-left: 32px;
-  }
+    & + & {
+        margin-left: 32px;
+
+        @include media("<tablet-2") {
+            margin-left: 0;
+        }
+    }
 }
 
 .plusesBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: cener;
-  text-align: center;
-  max-width: 448px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 448px;
+
+    @include media("<tablet-2") {
+        max-width: none;
+    }
 }
 
 .imageWrapper {
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .image {
-  width: 208px;
-  height: 186px;
-  object-fit: contain;
+    width: 208px;
+    height: 186px;
+    object-fit: contain;
 }
 
 .text {
-  line-height: 1.4;
-  margin: 14px 0;
+    line-height: 1.4;
+    margin: 14px 0;
 }
 

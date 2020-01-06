@@ -1,7 +1,13 @@
+@import "Src/client/breakpoints.scss";
+
 .mainPage {
-  width: 100%;
+    width: 100%;
 }
 
 .marginLeftAuto {
-  margin-left: auto;
+    margin-left: auto;
+
+    @include media("<tablet-2") {
+        margin-left: 0;
+    }
 }

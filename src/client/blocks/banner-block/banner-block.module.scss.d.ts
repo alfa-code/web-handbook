@@ -5,6 +5,7 @@ interface CssExports {
   'contentBlock': string;
   'description': string;
   'image': string;
+  'imageContainer': string;
   'leftDirection': string;
   'rightDirection': string;
   'subtitle': string;

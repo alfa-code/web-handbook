@@ -1,5 +1,12 @@
+@import "Src/client/breakpoints.scss";
+
 .header {
-  display: flex;
-  align-items: center;
-  height: 128px;
+    display: flex;
+    align-items: center;
+    height: 128px;
+
+    @include media("<tablet-2") {
+        height: auto;
+        flex-direction: column;
+    }
 }
