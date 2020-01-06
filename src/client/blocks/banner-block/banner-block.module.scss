@@ -1,69 +1,71 @@
 .block {
-  position: relative;
-  width: calc(var(--width-base-container) + var(--width-base-container-additional));
-  margin: 0 auto;
-  background-color: var(--background-light);
+    position: relative;
+    width: calc(var(--width-base-container) + var(--width-base-container-additional));
+    margin: 0 auto;
+    background-color: var(--background-light);
 }
 
 .rightDirection {
 
-  .description {
-    grid-column: 1 / 7;
-  }
+    .description {
+        grid-column: 1 / 7;
+    }
 
-  .image {
-    grid-column: 7 / 13;
-  }
+    .imageContainer {
+        grid-column: 7 / 13;
+    }
 }
 
 .leftDirection {
 
-  .description {
-    grid-column: 7 / 13;
-  }
+    .description {
+        grid-column: 7 / 13;
+    }
 
-  .image {
-    grid-column: 1 / 6;
-  }
+    .imageContainer {
+        grid-column: 1 / 6;
+    }
 }
 
-.subtitle {
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: 500;
-  font-size: var(--text-heading-5);
-  letter-spacing: .01em;
-  text-transform: uppercase;
-  color: var(--text-tetriary);
+.image { width: 100%; }
 
-  & + * {
-    margin-top: 20px;
-  }
+.subtitle {
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: var(--text-heading-5);
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    color: var(--text-tetriary);
+
+    & + * {
+        margin-top: 20px;
+    }
 }
 
 .text {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: normal;
-  font-size: var(--text-heading-5);
-  color: var(--text-paragraphs);
-  padding-bottom: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--text-heading-5);
+    color: var(--text-paragraphs);
+    padding-bottom: 30px;
 }
 
 .contentBlock {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 32px;
-  width: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 32px;
+    width: 100%;
 }
 
 .image {
-  touch-action: none;
-  user-select: none;
-  pointer-events: none;
+    touch-action: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .description {
-  align-self: center;
+    align-self: center;
 }

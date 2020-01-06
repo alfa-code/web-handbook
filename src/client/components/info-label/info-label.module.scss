@@ -1,17 +1,17 @@
 .label {
-  display: inline-flex;
-  align-items: center;
+    display: inline-flex;
+    align-items: center;
 
-  img + span {
-    margin-left: 10px;
-  }
+    img + span {
+        margin-left: 10px;
+    }
 
-  & + & {
-    margin-left: 16px;
-  }
+    & + & {
+        margin-left: 16px;
+    }
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
+    width: 16px;
+    height: 16px;
 }

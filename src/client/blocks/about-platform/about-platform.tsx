@@ -34,8 +34,8 @@ export class AboutPlatform extends React.PureComponent<Props> {
         </div>
         <div className={styles.videoBlock}>
           <div className={styles.videoWrapper}>
-            <img src={whatIsAlfaCodeImage} className={styles.img1} alt="иллюстрация" />
-            <img src={dotsImage} className={styles.img2} alt="иллюстрация" />
+            <img src={whatIsAlfaCodeImage} className={styles.bgFormImg} alt="иллюстрация" />
+            <img src={dotsImage} className={styles.dotsImg} alt="иллюстрация" />
             <iframe
               title="Видео о нас"
               src="https://player.vimeo.com/video/132471949"
@@ -46,7 +46,7 @@ export class AboutPlatform extends React.PureComponent<Props> {
               allowFullScreen
               className={styles.iframe}
             />
-            <img src={girlImage} className={styles.img3} alt="иллюстрация" />
+            <img src={girlImage} className={styles.girlImg} alt="Иллюстрация девушки указывающая на видео" />
           </div>
         </div>
       </div>

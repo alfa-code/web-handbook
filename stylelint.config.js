@@ -1,6 +1,7 @@
 module.exports = {
     extends: 'stylelint-config-airbnb',
     rules: {
-        indentation: 2
+        indentation: 4,
+        'max-nesting-depth': 3
     }
 };

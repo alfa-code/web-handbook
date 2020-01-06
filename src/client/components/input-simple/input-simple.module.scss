@@ -1,39 +1,39 @@
 .inputSimple {
-  display: inline-block;
-  width: 328px;
-  height: 48px;
-  position: relative;
+    display: inline-block;
+    width: 328px;
+    height: 48px;
+    position: relative;
 }
 
 .input {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  outline: none;
-  border-bottom: 1px solid var(--brand-secondary);
-  transition: all linear .1s;
-  background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: none;
+    border-bottom: 1px solid var(--brand-secondary);
+    transition: all linear .1s;
+    background-color: transparent;
 }
 
 .input:focus {
-  border-bottom: 2px solid black;
+    border-bottom: 2px solid black;
 }
 
 .label {
-  position: absolute;
-  white-space: nowrap;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all linear .1s;
-  user-select: none;
-  pointer-events: none;
-  color: var(--text-paragraphs);
+    position: absolute;
+    white-space: nowrap;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all linear .1s;
+    user-select: none;
+    pointer-events: none;
+    color: var(--text-paragraphs);
 
-  .input:focus + &,
-  &Filled {
-    font-size: .8em;
-    color: var(--text-tetriary);
-    top: 0%;
-  }
+    .input:focus + &,
+    &Filled {
+        font-size: .8em;
+        color: var(--text-tetriary);
+        top: 0%;
+    }
 }

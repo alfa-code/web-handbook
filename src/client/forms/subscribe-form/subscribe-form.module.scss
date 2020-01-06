@@ -1,7 +1,7 @@
 .block {
-  display: flex;
+    display: flex;
 
-  & > *:first-child {
-    margin-right: 15px;
-  }
+    & > *:first-child {
+        margin-right: 15px;
+    }
 }
