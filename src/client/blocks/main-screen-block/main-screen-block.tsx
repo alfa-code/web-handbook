@@ -12,7 +12,7 @@ export class MainScreenBlock extends React.PureComponent {
         return (
             <div className={styles.mainScreenBlock}>
                 <div className={styles.infoBlock}>
-                    <Heading size={1}>
+                    <Heading size={1} className={styles.heading} >
                         <span>Бесплатная платформа</span>
                         <br />
                         <span>для обучения и подготовки</span>

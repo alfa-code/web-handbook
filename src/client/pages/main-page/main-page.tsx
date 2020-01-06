@@ -45,33 +45,33 @@ export class MainPage extends PureComponent<Props, State> {
                         />
                     </PageHeader>
                 </PageContainer>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <MainScreenBlock />
                 </PageContainer>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <MainPlusesBlock />
                 </PageContainer>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <AboutPlatform />
                 </PageContainer>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <MainSecondPlusesBlock />
                 </PageContainer>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <OurCursesBlock />
                 </PageContainer>
                 <BannerBlock
                     imageUrl={htmlReferenceImage}
                     direction="right"
                     undertitle="Html  справочник"
-                    title="Список HTML тегов определенных в спецификации HTML 5"
+                    title="Список HTML тегов определенных в спецификации HTML&nbsp;5"
                     text="Для удобства все HTML теги разбиты на категории, согласно их назначению. Если вам нужен какой-то конкретный тег, то в левом меню теги отсортированы."
                 >
                     <Button viewType="primary">
                         Смотреть справочник
-          </Button>
+                    </Button>
                 </BannerBlock>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <OurBlogBlock />
                 </PageContainer>
                 <BannerBlock
@@ -83,7 +83,7 @@ export class MainPage extends PureComponent<Props, State> {
                 >
                     <SubscribeForm />
                 </BannerBlock>
-                <PageContainer>
+                <PageContainer paddingsOnPhone={ true }>
                     <Technologies />
                 </PageContainer>
                 <PageFooter />

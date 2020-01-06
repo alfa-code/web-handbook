@@ -1,3 +1,5 @@
+@import "Src/client/breakpoints.scss";
+
 .mainPlusesBlock {
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +12,10 @@
 
     & + & {
         margin-left: 32px;
+
+        @include media("<desktop-3") {
+            margin-left: 0;
+        }
     }
 }
 

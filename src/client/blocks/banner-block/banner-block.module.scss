@@ -1,33 +1,67 @@
+@import "Src/client/breakpoints.scss";
+
 .block {
     position: relative;
     width: calc(var(--width-base-container) + var(--width-base-container-additional));
     margin: 0 auto;
     background-color: var(--background-light);
+
+    @include media("<desktop-1") {
+        padding: 20px;
+    }
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .rightDirection {
 
     .description {
         grid-column: 1 / 7;
+
+        @include media("<desktop-1") {
+            order: 2;
+            grid-column-start: 1;
+            grid-column-end: none;
+        }
     }
 
     .imageContainer {
         grid-column: 7 / 13;
+
+        @include media("<desktop-1") {
+            order: 1;
+            grid-column-start: 1;
+            grid-column-end: none;
+        }
     }
 }
+
 
 .leftDirection {
 
     .description {
         grid-column: 7 / 13;
+
+        @include media("<desktop-1") {
+            order: 2;
+            grid-column-start: 1;
+            grid-column-end: none;
+        }
     }
 
     .imageContainer {
         grid-column: 1 / 6;
+
+        @include media("<desktop-1") {
+            order: 1;
+            grid-column-start: 1;
+            grid-column-end: none;
+        }
     }
 }
-
-.image { width: 100%; }
 
 .subtitle {
     font-family: Rubik;
@@ -58,12 +92,27 @@
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 32px;
     width: 100%;
+
+    @include media("<desktop-1") {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+    }
 }
 
 .image {
-    touch-action: none;
-    user-select: none;
-    pointer-events: none;
+    object-fit: contain;
+    width: 100%;
+    // touch-action: none;
+    // user-select: none;
+    // pointer-events: none;
+
+    @include media("<desktop-1") {
+        // width: 60%;
+        justify-self: center;
+        // max-width: 400px;
+
+        max-height: 200px;
+    }
 }
 
 .description {

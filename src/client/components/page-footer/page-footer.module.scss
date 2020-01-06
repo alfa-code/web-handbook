@@ -22,6 +22,10 @@
         grid-template-columns: 1fr;
     }
 
+    @include media("<desktop-1") {
+        padding: 0 20px 20px;
+    }
+
     .sectionOne {
         display: flex;
         flex-direction: column;

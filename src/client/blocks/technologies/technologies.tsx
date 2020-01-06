@@ -26,7 +26,7 @@ export function Technologies() {
   return (
     <div className={styles.block}>
       <div className={styles.cell}>
-        { TechPlate(htmlIcon, 'html 5') }
+        { TechPlate(htmlIcon, 'html&nbsp;5') }
       </div>
       <div className={styles.cell}>
         { TechPlate(cssIcon, 'css') }
