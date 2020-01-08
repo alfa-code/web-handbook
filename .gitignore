@@ -2,3 +2,5 @@ node_modules
 .build/
 .cache-loader
 yarn-error.log
+.well-known
+tls/

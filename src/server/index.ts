@@ -28,15 +28,40 @@ const httpsServer = new Hapi.Server({
     },
     tls: {
         /* tslint:disable-next-line */
-        key: fs.readFileSync(path.join(rootPath,  'tls/', 'server.key')),
+        key: fs.readFileSync(path.join(rootPath,  '.build/tls/', 'private.key')),
         /* tslint:disable-next-line */
-        cert: fs.readFileSync(path.join(rootPath,  'tls/', 'server.cert'))
+        cert: fs.readFileSync(path.join(rootPath,  '.build/tls/', 'certificate.crt'))
     }
 });
 
 const init = async () => {
     await httpsServer.register(Inert);
 
+    // Two temporary responses for checking Domain owner (Let's Encrypt)
+
+    // httpServer.route({
+    //     method: 'GET',
+    //     path: '/.well-known/acme-challenge/iweHfm-OuizKLNNWvMSII9k2bj2Kf7NhW2KNOrvsTR4',
+    //     handler: function (request, reply) {
+    //         const data = fs.readFileSync(path.join(rootPath,  '/.build/.well-known/acme-challenge/iweHfm-OuizKLNNWvMSII9k2bj2Kf7NhW2KNOrvsTR4'));
+    //         const response = reply.response(data);
+    //         response.type('text/plain');
+    //         return response;
+    //     }
+    // });
+
+    // httpServer.route({
+    //     method: 'GET',
+    //     path: '/.well-known/acme-challenge/3P-jCiUGv8kcDUX7u4mmN56BKfoDcL6zd4vFcJbVYlI',
+    //     handler: function (request, reply) {
+    //         const data = fs.readFileSync(path.join(rootPath,  '/.build/.well-known/acme-challenge/3P-jCiUGv8kcDUX7u4mmN56BKfoDcL6zd4vFcJbVYlI'));
+    //         const response = reply.response(data);
+    //         response.type('text/plain');
+    //         return response;
+    //     }
+    // });
+
+    // Redirect all requests from port 80 to port 443
     httpServer.route({
         method: '*',
         path: '/{any*}',
