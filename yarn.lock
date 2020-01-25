@@ -5343,11 +5343,6 @@ handle-thing@^2.0.0:
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
   integrity sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
 
-hapi-require-https@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/hapi-require-https/-/hapi-require-https-4.0.0.tgz#5e10b2358b7a56643e2f96fecea69c3e95f1c0aa"
-  integrity sha512-dT5nLoFtro3ltCMmwkt29VnZRDrKgPfQN5ZOKdukrIxKMh3aZ1f4LR7dbDHfIVIBMmQiZoMFqunDv5t1oLKERw==
-
 har-schema@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/har-schema/-/har-schema-2.0.0.tgz#a94c2224ebcac04782a0d9035521f24735b7ec92"
