@@ -5,6 +5,8 @@ import styles from './input-simple.module.scss';
 interface Props {
     placeholder?: string;
     children?: any;
+    onChange?: Function;
+    value?: any;
 }
 interface State {
     value: string;
@@ -19,11 +21,14 @@ export class InputSimple extends React.PureComponent<Props, State> {
   }
 
     inputOnChange = (e) => {
-      this.setState({ value: e.target.value });
+        const { onChange } = this.props;
+        const { value } = e.target;
+        if (onChange) { onChange(value) }
+        this.setState({ value });
     }
 
     render(): ReactNode {
-      const { placeholder } = this.props;
+      const { placeholder, value: propsValue } = this.props;
       const { value } = this.state;
 
       return (
@@ -31,7 +36,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
           <input
             type="text"
             onChange={this.inputOnChange}
-            value={value}
+            value={ propsValue || value }
             className={styles.input}
           />
           <span className={`${styles.label} ${(value ? styles.labelFilled : '')}`}>

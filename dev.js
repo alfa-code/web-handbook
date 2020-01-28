@@ -1,19 +1,23 @@
 const spawn = require('cross-spawn');
 
 const env = Object.create( process.env );
-env.NODE_ENV = 'production';
+env.NODE_ENV = 'development';
 
-function bindToLogs(programm) {
+function bindToLogs(programm, color, deviceType = '') {
+    if (!color) {
+        color = '\x1b[33m%s\x1b[0m';
+    }
+
     programm.stdout.on('data', (data) => {
-        console.log(`stdout: ${data}`);
+        console.log(color, `stdout ${deviceType}: ${data}`);
     });
 
     programm.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
+        console.error(color, `stderr ${deviceType}: ${data}`);
     });
 
     programm.on('close', (code) => {
-        console.log(`child process exited with code ${code}`);
+        console.log(color, `${deviceType}: child process exited with code ${code}`);
     });
 }
 
@@ -26,7 +30,7 @@ const clientProcess = spawn(
     ],
     { env: env }
 );
-bindToLogs(clientProcess);
+bindToLogs(clientProcess, '\x1b[36m%s\x1b[0m', 'client build'); // cyan
 
 // Сборка сервера
 const serverProcess = spawn(
@@ -37,7 +41,7 @@ const serverProcess = spawn(
     ],
     { env: env }
 );
-bindToLogs(serverProcess);
+bindToLogs(serverProcess, '\x1b[35m%s\x1b[0m', 'server build'); // magenta
 
 // Старт сервера
 const startServerProcess = spawn(

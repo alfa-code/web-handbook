@@ -1,4 +1,4 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React, { Component, ReactNode } from 'react';
 
 import styles from './button-style.module.scss';
 
@@ -11,9 +11,11 @@ type Props = {
     icon?: string;
     children?: any;
     href?: string;
+    onClick?: any;
+    type?: any;
 }
 
-export class Button extends PureComponent<Props> {
+export class Button extends Component<Props> {
     renderIcon = () => {
         const { icon } = this.props;
 
@@ -44,7 +46,7 @@ export class Button extends PureComponent<Props> {
     }
 
     render(): ReactNode {
-        const { text, children, href } = this.props;
+        const { text, children, href, onClick, className = '', type = 'button' } = this.props;
 
         if (href) {
 
@@ -60,8 +62,8 @@ export class Button extends PureComponent<Props> {
                     to={href}
                     className={
                         `${styles.button}
-                    ${this.getButtonClassNames()}
-                    ${this.props.className ? this.props.className : ''}`
+                        ${this.getButtonClassNames()}
+                        ${className}`
                     }
                 >
                     {linkContent}
@@ -71,12 +73,13 @@ export class Button extends PureComponent<Props> {
 
         return (
             <button
-                type="button"
+                type={ type }
                 className={
                     `${styles.button}
-            ${this.getButtonClassNames()}
-            ${this.props.className ? this.props.className : ''}`
+                    ${this.getButtonClassNames()}
+                    ${className}`
                 }
+                onClick={ onClick }
             >
                 {this.renderIcon()}
                 {text || children}
