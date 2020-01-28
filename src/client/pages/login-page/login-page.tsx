@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, ReactElement } from 'react';
+
+import { Form, Field } from 'react-final-form'
 
 import { Button } from 'Src/client/components/button';
 import { InputSimple } from 'Src/client/components/input-simple';
@@ -8,7 +10,87 @@ import { ModalForm } from 'Src/client/components/modal-form';
 
 import styles from './login-page-style.module.scss';
 
-interface Props {}
+type FormValues = {
+    login?: string;
+    password?: string;
+}
+
+function authForm(buttonText: string): ReactElement {
+    const onSubmit = async (values: FormValues): Promise<void> => {
+        const response = await fetch('/auth/validate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values), // test 1234
+            redirect: 'follow'
+        });
+
+        if (response.ok && response.redirected) {
+            alert('Вы успешно аутентифицированы');
+            window.location.href = response.url;
+        } else {
+            // alert("Ошибка HTTP: " + response.status);
+            alert('Форма введена неверно');
+        }
+    }
+
+    const validate = (): any => {
+        const errors = {};
+        return errors;
+    }
+
+    return (
+        <div >
+            <Form
+                onSubmit={onSubmit}
+                validate={validate}
+                render={({ handleSubmit }): ReactElement => (
+                    <form onSubmit={handleSubmit} className={styles.loginForm}>
+                        <Field name='login'>
+                            {
+                                (props: any): ReactElement => {
+                                    return (
+                                        <div>
+                                            <InputSimple
+                                                value={props.input.value}
+                                                onChange={props.input.onChange}
+                                                placeholder='Введите ваш email'
+                                            />
+                                        </div>
+                                    )
+                                }
+                            }
+                        </Field>
+                        <Field name='password'>
+                            {
+                                (props: any): ReactElement => {
+                                    return (
+                                        <div>
+                                            <InputPassword
+                                                value={props.input.value}
+                                                onChange={props.input.onChange}
+                                                placeholder='Введите ваш email'
+                                            />
+                                        </div>
+                                    )
+                                }
+                            }
+                        </Field>
+                        <Button
+                            viewType='primary'
+                            text={ buttonText }
+                            type='submit'
+                        />
+                    </form>
+                )}
+            />
+        </div>
+    );
+}
+
+
+interface Props { }
 interface State {
     isRegistartion: boolean;
 }
@@ -17,11 +99,11 @@ export class LoginPage extends PureComponent<Props, State> {
     constructor(props) {
         super(props);
         this.state = {
-            isRegistartion: true
+            isRegistartion: true,
         };
     }
 
-    handleSwitchButton = (e) => {
+    handleSwitchButton = (e): void => {
         const { isRegistartion } = this.state;
 
         if (e.target.id === 'registartion') {
@@ -37,42 +119,30 @@ export class LoginPage extends PureComponent<Props, State> {
         const { isRegistartion } = this.state;
 
         return (
-            <div className={ styles.loginPage }>
+            <div className={styles.loginPage}>
                 <Logo />
                 <ModalForm>
-                    <div className={ styles.loginSwitchButton }>
+                    <div className={styles.loginSwitchButton}>
                         <button
                             type='button'
                             id='registartion'
-                            className={ isRegistartion && styles.active }
-                            onClick={ this.handleSwitchButton }
+                            className={isRegistartion && styles.active}
+                            onClick={this.handleSwitchButton}
                         >
                             Регистрация
                         </button>
                         <button
                             type='button'
                             id='login'
-                            className={ !isRegistartion && styles.active }
-                            onClick={ this.handleSwitchButton }
+                            className={!isRegistartion && styles.active}
+                            onClick={this.handleSwitchButton}
                         >
                             Вход
                         </button>
                     </div>
-                    <div className={ styles.loginForm }>
-                        <InputSimple
-                            placeholder='Введите ваш email'
-                        />
-                        <InputPassword
-                            placeholder='Придумайте пароль'
-                        />
-                        <Button
-                            viewType='primary'
-                            text={ isRegistartion ? 'Зерегистрироваться' : 'Вход' }
-                        />
-                    </div>
+                    {isRegistartion ? authForm('Зерегистрироваться') : authForm('Вход')}
                 </ModalForm>
             </div>
         );
     }
 }
-

@@ -16,7 +16,7 @@
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v76"
+        "docker:build": "cp -r ./tls ./.build/tls && cp ./.jwt-secret ./.build/ && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v76"
     },
     "repository": {
         "type": "git",
@@ -81,12 +81,18 @@
         "@hapi/inert": "^5.2.2",
         "@types/react": "^16.9.5",
         "add": "^2.0.6",
+        "bcryptjs": "^2.4.3",
         "classnames": "^2.2.6",
         "eslint-plugin-react-hooks": "^2.3.0",
+        "final-form": "^4.18.7",
+        "hapi-auth-jwt2": "^8.8.1",
+        "hapi-error": "^2.2.0",
         "include-media": "^1.4.9",
+        "jsonwebtoken": "^8.5.1",
         "normalize.css": "^8.0.1",
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
+        "react-final-form": "^6.3.5",
         "react-router-dom": "^5.1.2",
         "uuid": "^3.3.3",
         "yarn": "^1.21.1"
