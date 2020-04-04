@@ -1,6 +1,6 @@
 import React, { PureComponent, ReactElement } from 'react';
 
-import { Form, Field } from 'react-final-form'
+import { Form, Field } from 'react-final-form';
 
 import { Button } from 'Src/client/components/button';
 import { InputSimple } from 'Src/client/components/input-simple';
@@ -15,14 +15,19 @@ type FormValues = {
     password?: string;
 }
 
-function authForm(buttonText: string): ReactElement {
+function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
     const onSubmit = async (values: FormValues): Promise<void> => {
+        if (isRegistartion) {
+            alert('Регистрация на данный момент не доступна!');
+            return;
+        }
+
         const response = await fetch('/auth/validate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(values), // test 1234
+            body: JSON.stringify(values),
             redirect: 'follow'
         });
 
@@ -30,8 +35,7 @@ function authForm(buttonText: string): ReactElement {
             alert('Вы успешно аутентифицированы');
             window.location.href = response.url;
         } else {
-            // alert("Ошибка HTTP: " + response.status);
-            alert('Форма введена неверно');
+            alert('Некорректные данные пользователя');
         }
     }
 
@@ -140,7 +144,7 @@ export class LoginPage extends PureComponent<Props, State> {
                             Вход
                         </button>
                     </div>
-                    {isRegistartion ? authForm('Зерегистрироваться') : authForm('Вход')}
+                    {isRegistartion ? authForm('Зерегистрироваться', isRegistartion) : authForm('Вход', isRegistartion)}
                 </ModalForm>
             </div>
         );

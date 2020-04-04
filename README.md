@@ -10,6 +10,19 @@
 yarn
 ```
 
+Для разработки приложения используется скрипт dev.js в корне проекта
+Запустите `node ./dev.js`
+Скприпт запускает два вызова:
+    `yarn build:client --watch`
+    `yarn build:server --watch`
+
+Эти команды запускают сборки клиента и сервера в режиме --watch
+Так же скрипт запускает сам сервер после его сбоки через nodemon если сервер пересобираля - демон его рестартует
+Это я делал для того что бы не использовать webpackdevserver
+
+Логи сборки клиента выводятся спефиксом `stdout server build` - в фиолетовом цвете
+Логи сборки клиента выводятся спефиксом `stdout client build:` - в синем цвете
+
 Запуск сборки и дев сервера
 
 ```javascript
@@ -39,6 +52,17 @@ yarn lint
 
 Мы работаем с платформой Яндекс.Облако
 
+## ENVIROMENT VARIABLES
+
+Для корректной работы приложения необходимо установить обязательные ENV переменные
+
+JWT_SECRET_KEY - секретный ключ для jwt токена.
+PGHOST - хочт postgresql
+PGPORT - порт сервера postgresql
+PGDATABASE - имя базы данных postgresql
+PGUSER - имя пользователя базы данных postgresql
+PGPASSWORD - пароль пользователя базы данных postgresql
+
 ### Репозиторий для практики
 
-https://github.com/nar3k/yc-public-tasks
+<https://github.com/nar3k/yc-public-tasks/>
