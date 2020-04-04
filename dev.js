@@ -1,7 +1,15 @@
 const spawn = require('cross-spawn');
 
 const env = Object.create( process.env );
+
 env.NODE_ENV = 'development';
+
+env.JWT_SECRET_KEY = 'secret';
+env.PGHOST = 'localhost';
+env.PGPORT = 5432;
+env.PGDATABASE = 'postgres';
+env.PGUSER = 'postgres';
+env.PGPASSWORD = 'postgres';
 
 function bindToLogs(programm, color, deviceType = '') {
     if (!color) {
@@ -49,10 +57,10 @@ const startServerProcess = spawn(
     [
         'nodemon',
         './.build/server.js',
-        '--inspect',
-        '--watch',
-        './.build/server.js',
-        '-L'
+        // '--inspect=0.0.0.0:7000',
+        '--watch', // следим только за изменением этого файла
+        './.build/server.js', // следим только за изменением этого файла
+        // '-L'
     ],
     { env: env }
 );

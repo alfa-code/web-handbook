@@ -16,7 +16,10 @@ export function getContent(request: any): string {
 
   const stringContent = renderToString(
     <AppHtml jsFiles={ assets.js } cssFiles={ assets.css }>
-        <StaticRouter location={ { pathname: request.url.pathname, hash: request.url.pathname  }  } context={ context }>
+        <StaticRouter
+            location={ { pathname: request.url.pathname, hash: request.url.pathname  }  }
+            context={ context }
+        >
             <App />
         </StaticRouter>
     </AppHtml>,

@@ -1,56 +1,56 @@
+import jwt from 'jsonwebtoken';
+
+import Hapi from '@hapi/hapi'
+import Inert from '@hapi/inert';
+import HapiAuthJWT2 from 'hapi-auth-jwt2';
+import HapiErrorPlugin from 'hapi-error';
+
 import { getContent } from './content';
+import { createPGClient } from './db/postgresql';
 
-const path = require('path');
+import { JWT_SECRET_KEY } from '../constants/env-variables';
 
-const Hapi = require('@hapi/hapi');
-const Inert = require('@hapi/inert');
-const HapiErrorPlugin = require('hapi-error');
-const HapiAuthJWT2 = require('hapi-auth-jwt2');
+import path from 'path';
+// const path = require('path');
 
-const jwt = require('jsonwebtoken');
+// jwt info
 const algorithm = 'HS256';
-const privateKey = 'secret'; // just for test
+const jwtPrivateKey = process.env[JWT_SECRET_KEY]
 
+// app root path
 const rootPath = process.cwd();
 
+// server info
 const SERVER_PORT = 3000;
-const HOST = '0.0.0.0';
+const SERVER_HOST = '0.0.0.0';
 
-const peopleDB = { // our "users database"
-    1: {
-        id: 1,
-        login: 'test',
-        password: '1234'
-    },
-    2: {
-        id: 2,
-        login: 'test2',
-        password: '1234'
-    }
-};
-
-function checkUser(login, password): any {
-    const usersArray = Object.values(peopleDB);
-    const foundUser = usersArray.find((item: any) => {
-        return (item.login === login) && (item.password && password);
+// eslint-disable-next-line
+async function createSQLRequest(pgClient, sqlCommand: string) {
+    const result = await new Promise((resolve, reject) => {
+        try {
+            pgClient.query(sqlCommand, (err, respons) => {
+                if (err) {
+                    throw err;
+                }
+                resolve(respons);
+            })
+        } catch(e) {
+            const errorMessage = 'Не удалось выпольнить SQL запрос.';
+            console.log(errorMessage, 'Error: ', e);
+            reject(errorMessage);
+        }
     });
-    return foundUser;
+    return result;
 }
 
-// bring your own validation function
-const validateJwtData = async function (decoded): Promise<{ isValid: boolean }>  {
-    // do your checks to see if the person is valid
-    if (!peopleDB[decoded.id]) {
-        // return h(new Error('500'));
-        return { isValid: false };
-    } else {
-        return { isValid: true };
-    }
+const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
+    // If token is correct - is not necessary
+    return { isValid: true };
 };
 
 const httpServer = new Hapi.Server({
     port: SERVER_PORT,
-    host: HOST,
+    host: SERVER_HOST,
     routes: {
         files: {
             relativeTo: path.join(rootPath, '.build/', 'assets/'),
@@ -60,6 +60,9 @@ const httpServer = new Hapi.Server({
 
 const init = async (): Promise<any> => {
     await httpServer.register(Inert);
+
+    const pgClient = createPGClient();
+    pgClient.connect();
 
     await httpServer.register({
         plugin: HapiErrorPlugin,
@@ -76,7 +79,7 @@ const init = async (): Promise<any> => {
 
     await httpServer.register(HapiAuthJWT2);
     httpServer.auth.strategy('jwt', 'jwt', {
-        key: privateKey, // 'NeverShareYourSecret'
+        key: jwtPrivateKey,
         validate: validateJwtData,
         verifyOptions: {
             algorithm,
@@ -107,49 +110,25 @@ const init = async (): Promise<any> => {
         },
     });
 
-    // user login validation endpoint
-    httpServer.route({
-        method: 'POST',
-        path: '/auth/validate',
-        options: {
-            auth: false,
-        },
-        handler: (request, h) => {
-            // без проверки логина и пароля
-            const { login, password } = request.payload;
-            let foundUser;
-            if (login && password) {
-                foundUser = checkUser(login, password);
-            }
-            if (!foundUser) {
-                return h.response('Ошибка ввода данных или такого пользователя не существует!');
-            }
-
-            // generate jwt token by user data
-            const token = jwt.sign({ id: foundUser.id, login: foundUser.login }, privateKey, { algorithm });
-
-            // set the jwt token cookie
-            h.state('token', token, {
-                SameSite: 'None',
-                isSecure: false,
-                isHttpOnly: false,
-                ttl: 1000 * 60 * 60, // one hour
-                path: '/',
-            });
-
-            // send response
-            return h.redirect('/cabinet');
-        }
-    });
-
     httpServer.route({
         method: 'GET',
         path: '/cabinet',
         options: {
             auth: 'jwt',
         },
-        handler: (request, h) => {
-            return h.response('Личный кабинет');
+        handler: (request) => {
+            return getContent(request);
+        }
+    });
+
+    httpServer.route({
+        method: 'GET',
+        path: '/postgre',
+        options: {
+            auth: 'jwt',
+        },
+        handler: (request) => {
+            return getContent(request);
         }
     });
 
@@ -168,8 +147,62 @@ const init = async (): Promise<any> => {
         },
     });
 
+    // user login validation endpoint
+    httpServer.route({
+        method: 'POST',
+        path: '/auth/validate',
+        options: {
+            auth: false,
+        },
+        handler: async (request, h) => {
+            const { login, password } = request.payload;
+
+            //let foundUser;
+            if (login && password) {
+                const sql = `SELECT accounts FROM accounts WHERE username = '${login}' AND password = '${password}'`;
+                const result: any = await createSQLRequest(pgClient, sql);
+
+                if (result.rowCount === 1) {
+                    console.log('result', result)
+
+                    // generate jwt token by user data
+                    const token = jwt.sign({ login: login }, jwtPrivateKey, { algorithm });
+
+                    // set the jwt token cookie
+                    h.state('token', token, {
+                        SameSite: 'None',
+                        isSecure: false,
+                        isHttpOnly: false,
+                        ttl: 1000 * 60 * 60, // one hour
+                        path: '/',
+                    });
+
+                    // send response
+                    return h.redirect('/cabinet');
+                } else {
+                    return h.response('Ошибка ввода данных или такого пользователя не существует!');
+                }
+            }
+        }
+    });
+
+    httpServer.route({
+        method: 'POST',
+        path: '/api/postgre/request',
+        options: {
+            auth: 'jwt',
+        },
+        handler: async (request, h) => {
+            const { sql = '' } = request.payload;
+
+            const result = await createSQLRequest(pgClient, sql);
+
+            return h.response(JSON.stringify(result));
+        }
+    });
+
     await httpServer.start();
-    // eslint-disable-next-line no-console
+
     return httpServer;
 };
 

@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const rootPath = process.cwd();
 const buildPath = path.join(rootPath, '.build');
@@ -91,6 +92,9 @@ module.exports = {
     },
     resolve: commonWebpackConfig.resolve,
     plugins: [
-        new WebpackBar({ color: 'red' })
+        new WebpackBar({ color: 'red' }),
+        // ignore the error: Error: Can't resolve 'pg-native'
+        // solution from here - https://github.com/serverless-heaven/serverless-webpack/issues/78#issuecomment-405646040
+        new webpack.IgnorePlugin(/^pg-native$/)
     ]
 };

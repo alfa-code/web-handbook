@@ -14,9 +14,10 @@
         "build:client": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.client.js",
         "build:server": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.js",
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
-        "start:server": "node ./.build/server.js",
+        "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret PGHOST=localhost PGPORT=5432 PGDATABASE=postgres PGUSER=postgres PGPASSWORD=postgres node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "cp -r ./tls ./.build/tls && cp ./.jwt-secret ./.build/ && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v76"
+        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v77",
+        "docker:push": "docker push cr.yandex/crpgchanq5ana2um4jph/platform:v77"
     },
     "repository": {
         "type": "git",
@@ -90,6 +91,7 @@
         "include-media": "^1.4.9",
         "jsonwebtoken": "^8.5.1",
         "normalize.css": "^8.0.1",
+        "pg": "^7.18.2",
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-final-form": "^6.3.5",
