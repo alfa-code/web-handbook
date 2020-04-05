@@ -1,11 +1,8 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import { Logo } from 'Components/logo/logo';
-import { PageHeader } from 'Components/page-header';
-import { HeaderNavigation } from 'Components/header-navigation';
-import { PageContainer } from 'Components/page-container';
-import { PageFooter } from 'Components/page-footer';
+import { PageFrame } from 'Components/page-frame';
 
+import { PageContainer } from 'Components/page-container';
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 
 import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
@@ -19,11 +16,8 @@ import { AboutPlatform } from 'Src/client/blocks/about-platform';
 
 import htmlReferenceImage from 'Assets/images/html-reference.svg';
 import subscriptionImage from 'Assets/images/subscription.svg';
-import userIcon from 'Assets/icons/other/user.svg';
 
 import { Button } from 'Components/button';
-
-import styles from './style.module.scss';
 
 interface Props { }
 interface State { }
@@ -31,20 +25,7 @@ interface State { }
 export class MainPage extends PureComponent<Props, State> {
     render(): ReactNode {
         return (
-            <div className={styles.mainPage}>
-                <PageContainer>
-                    <PageHeader>
-                        <Logo />
-                        <HeaderNavigation />
-                        <Button
-                            text="Вход"
-                            className={styles.marginLeftAuto}
-                            icon={userIcon}
-                            viewType="secondary"
-                            href="/auth"
-                        />
-                    </PageHeader>
-                </PageContainer>
+            <PageFrame>
                 <PageContainer paddingsOnPhone={ true }>
                     <MainScreenBlock />
                 </PageContainer>
@@ -86,8 +67,7 @@ export class MainPage extends PureComponent<Props, State> {
                 <PageContainer paddingsOnPhone={ true }>
                     <Technologies />
                 </PageContainer>
-                <PageFooter />
-            </div>
+            </PageFrame>
         );
     }
 }

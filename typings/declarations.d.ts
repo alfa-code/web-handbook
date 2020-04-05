@@ -3,7 +3,6 @@ declare module '*.module.scss' {
     export = content;
 }
 
-
 declare module "*.png";
 declare module "*.jpg";
 declare module "*.svg";
