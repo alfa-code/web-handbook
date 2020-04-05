@@ -1,7 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import { ToastContainer } from 'react-toastify';
 
 import { MainPage } from 'Src/client/pages/main-page';
 import { LoginPage } from 'Src/client/pages/login-page';
@@ -31,7 +33,7 @@ try {
 const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers()
+    composeEnhancers(applyMiddleware(logger))
 );
 
 export default class App extends React.Component {
@@ -45,6 +47,7 @@ export default class App extends React.Component {
                     <Route exact path='/postgre' component={ PostgrePanel } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
+                <ToastContainer />
             </Provider>
         );
     }

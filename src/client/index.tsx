@@ -6,6 +6,7 @@ import App from 'Src/client/app/app';
 import { BrowserRouter } from 'react-router-dom';
 
 import 'normalize.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './global.scss';
 
 const AppWithRouter = (
