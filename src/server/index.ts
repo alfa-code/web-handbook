@@ -55,6 +55,14 @@ const httpServer = new Hapi.Server({
         files: {
             relativeTo: path.join(rootPath, '.build/', 'assets/'),
         },
+    },
+    state: {
+        strictHeader: true,
+        ignoreErrors: false,
+        isSecure: false,
+        isHttpOnly: true,
+        isSameSite: 'Lax',
+        encoding: 'none'
     }
 });
 
@@ -112,7 +120,7 @@ const init = async (): Promise<any> => {
 
     httpServer.route({
         method: 'GET',
-        path: '/cabinet',
+        path: '/settings',
         options: {
             auth: 'jwt',
         },
@@ -129,6 +137,17 @@ const init = async (): Promise<any> => {
         },
         handler: (request) => {
             return getContent(request);
+        }
+    });
+
+    httpServer.route({
+        method: 'GET',
+        path: '/logout',
+        options: {
+            auth: false,
+        },
+        handler: (request, h) => {
+            return h.redirect('/').state('token', '');
         }
     });
 
@@ -159,14 +178,14 @@ const init = async (): Promise<any> => {
 
             //let foundUser;
             if (login && password) {
-                const sql = `SELECT accounts FROM accounts WHERE username = '${login}' AND password = '${password}'`;
+                const sql = `SELECT user_id, username, rights FROM accounts WHERE username = '${login}' AND password = '${password}'`;
                 const result: any = await createSQLRequest(pgClient, sql);
 
                 if (result.rowCount === 1) {
-                    console.log('result', result)
+                    const { user_id: userId, username, rights } = result.rows[0]
 
                     // generate jwt token by user data
-                    const token = jwt.sign({ login: login }, jwtPrivateKey, { algorithm });
+                    const token = jwt.sign({ userId, username, rights }, jwtPrivateKey, { algorithm });
 
                     // set the jwt token cookie
                     h.state('token', token, {
@@ -178,7 +197,7 @@ const init = async (): Promise<any> => {
                     });
 
                     // send response
-                    return h.redirect('/cabinet');
+                    return h.redirect('/settings');
                 } else {
                     return h.response('Ошибка ввода данных или такого пользователя не существует!');
                 }

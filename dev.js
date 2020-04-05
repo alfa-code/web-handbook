@@ -51,7 +51,7 @@ const serverProcess = spawn(
 );
 bindToLogs(serverProcess, '\x1b[35m%s\x1b[0m', 'server build'); // magenta
 
-// Старт сервера
+// Старт собранного сервера
 const startServerProcess = spawn(
     'yarn',
     [

@@ -1,18 +1,40 @@
 import React, { ReactNode } from 'react';
 
+import { Logo } from 'Components/logo/logo';
+import { HeaderNavigation } from 'Components/header-navigation';
+import { HeaderUserContainer } from 'Src/client/containers/header-user-container';
+
 import styles from './page-header-style.module.scss';
 
-interface Props {}
-interface State {}
+interface Props { }
+interface State { }
 
 export class PageHeader extends React.Component<Props, State> {
-  render(): ReactNode {
-    const { children } = this.props;
+    getContent = () => {
+        const { children } = this.props;
 
-    return (
-      <header className={styles.header}>
-        { children }
-      </header>
-    );
-  }
+        if (children) {
+            return children;
+        }
+
+        return (
+            <>
+                <Logo />
+                <HeaderNavigation />
+                <div className={styles.marginLeftAuto}>
+                    <HeaderUserContainer />
+                </div>
+            </>
+        )
+    }
+
+    render(): ReactNode {
+
+
+        return (
+            <header className={styles.header}>
+                {this.getContent()}
+            </header>
+        );
+    }
 }

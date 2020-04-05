@@ -14,3 +14,11 @@
         padding: 0 10px;
     }
 }
+
+.marginLeftAuto {
+    margin-left: auto;
+
+    @include media("<tablet-2") {
+        margin-left: 0;
+    }
+}

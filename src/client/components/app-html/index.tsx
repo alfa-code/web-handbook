@@ -4,17 +4,25 @@ type Props = {
     children?: any;
     jsFiles: string[];
     cssFiles: string[];
+    initialReduxState: any;
 }
 
 /**
  * Компонент html кода приложения. Нужен для server-side-rendering.
  */
 export default class AppHtml extends React.PureComponent<Props> {
+
+    getStoreScriptMarkup = () => {
+        const { initialReduxState = {} } = this.props;
+        // eslint-disable-next-line
+        return `if (window) { window.__PRELOADED_STATE__ = ${JSON.stringify(initialReduxState || {}).replace(/</g, '\\u003c')}}`;
+    }
+
     render() {
         const {
             children,
             jsFiles = [],
-            cssFiles = [],
+            cssFiles = []
         } = this.props;
 
         return (
@@ -37,13 +45,12 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <div id="react-app">
                         {children}
                     </div>
-
+                    <script dangerouslySetInnerHTML={{ __html: this.getStoreScriptMarkup() }} />
                     {
                         jsFiles.map(
                             (link) => <script type="text/javascript" defer src={`${link}`} key={link} />,
                         )
                     }
-
                 </body>
             </html>
         );

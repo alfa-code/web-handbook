@@ -7,14 +7,21 @@ import styles from './postgre-form.module.scss';
 
 export function PostgreForm() {
     const [sqlResponse, setSqlResponse] = useState();
+    const [sqlHistory, setSqlHistory] = useState([]);
+    const history = [...sqlHistory];
 
     const onSubmit = async (values): Promise<void> => {
+        const stringValues = JSON.stringify(values)
+
+        history.push(stringValues)
+        setSqlHistory(history);
+
         const response = await fetch('/api/postgre/request', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(values),
+            body: stringValues,
         });
 
         const result = await response.json();
@@ -31,6 +38,17 @@ export function PostgreForm() {
 
     return (
         <div className={ styles.block }>
+            <div>
+                {
+                    sqlHistory.map((item) => {
+                        return (
+                            <div key={ item.toString() }>
+                                { item }
+                            </div>
+                        )
+                    })
+                }
+            </div>
             <Form
                 onSubmit={onSubmit}
                 validate={validate}

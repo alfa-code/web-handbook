@@ -1,5 +1,10 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
+// import jwtDecode from 'jwt-decode';
+
+import jwt from 'jsonwebtoken';
+
+import get from 'lodash/get';
 
 import AppHtml from 'Components/app-html';
 import App from 'Src/client/app/app';
@@ -8,22 +13,53 @@ import { StaticRouter } from 'react-router-dom';
 
 import readAssetsManifest from './utils/read-assets-manifest';
 
+import { JWT_SECRET_KEY } from '../constants/env-variables';
+
 // Превращаем контент в строку HTML
 export function getContent(request: any): string {
-  const assets = readAssetsManifest();
+    const assets = readAssetsManifest();
 
-  const context = {};
+    // Verify token and generate default redux state
+    const token = get(request, 'state.token');
+    let isAuthenticated = false;
+    let userTokenInfo = {};
+    if (token) {
+        jwt.verify(token, process.env[JWT_SECRET_KEY], function(err, decoded) {
+            if (err) {
+                console.log('token verify err: ', err);
+            } else {
+                if (decoded) {
+                    isAuthenticated = true;
+                    userTokenInfo = {...decoded};
+                }
+            }
+        });
+    }
 
-  const stringContent = renderToString(
-    <AppHtml jsFiles={ assets.js } cssFiles={ assets.css }>
-        <StaticRouter
-            location={ { pathname: request.url.pathname, hash: request.url.pathname  }  }
-            context={ context }
+    const context = {};
+
+    const stringContent = renderToString(
+        <AppHtml
+            jsFiles={assets.js}
+            cssFiles={assets.css}
+            initialReduxState={
+                {
+                    counter: 10,
+                    auth: {
+                        isAuthenticated,
+                        ...userTokenInfo
+                    }
+                }
+            }
         >
-            <App />
-        </StaticRouter>
-    </AppHtml>,
-  );
+            <StaticRouter
+                location={{ pathname: request.url.pathname, hash: request.url.pathname }}
+                context={context}
+            >
+                <App />
+            </StaticRouter>
+        </AppHtml>,
+    );
 
-  return stringContent;
+    return stringContent;
 }
