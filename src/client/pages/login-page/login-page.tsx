@@ -1,6 +1,7 @@
 import React, { PureComponent, ReactElement } from 'react';
 
 import { Form, Field } from 'react-final-form';
+import { toast } from 'react-toastify';
 
 import { Button } from 'Src/client/components/button';
 import { InputSimple } from 'Src/client/components/input-simple';
@@ -10,33 +11,83 @@ import { ModalForm } from 'Src/client/components/modal-form';
 
 import styles from './login-page-style.module.scss';
 
+
 type FormValues = {
     login?: string;
     password?: string;
 }
 
+async function LogIn(values) {
+    const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+        redirect: 'manual'
+    });
+
+    const jsonResponseData = await response.json();
+
+    if (response.ok && jsonResponseData.redirectTo) {
+        toast.success(jsonResponseData.message);
+
+        setTimeout(() => {
+            window.location.href = jsonResponseData.redirectTo;
+        }, 2000);
+    } else {
+        toast.error(jsonResponseData.message);
+    }
+}
+
+async function registration(values) {
+    const response = await fetch('/api/auth/registration', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+        redirect: 'follow'
+    });
+
+    const jsonResponseData = await response.json();
+
+    if (response.ok && jsonResponseData.redirectTo) {
+        toast.success(jsonResponseData.message);
+        setTimeout(() => {
+            window.location.href = jsonResponseData.redirectTo;
+        }, 2000);
+    } else {
+        toast.error(jsonResponseData.message);
+    }
+}
+
 function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
     const onSubmit = async (values: FormValues): Promise<void> => {
         if (isRegistartion) {
-            alert('Регистрация на данный момент не доступна!');
-            return;
-        }
-
-        const response = await fetch('/auth/validate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(values),
-            redirect: 'follow'
-        });
-
-        if (response.ok && response.redirected) {
-            alert('Вы успешно аутентифицированы');
-            window.location.href = response.url;
+            // alert('Регистрация на данный момент не доступна!');
+            registration(values);
+            // return;
         } else {
-            alert('Некорректные данные пользователя');
+            LogIn(values);
         }
+
+
+        // const response = await fetch('/auth/validate', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(values),
+        //     redirect: 'follow'
+        // });
+
+        // if (response.ok && response.redirected) {
+        //     alert('Вы успешно аутентифицированы');
+        //     window.location.href = response.url;
+        // } else {
+        //     alert('Некорректные данные пользователя');
+        // }
     }
 
     const validate = (): any => {
@@ -45,7 +96,7 @@ function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
     }
 
     return (
-        <div >
+        <div>
             <Form
                 onSubmit={onSubmit}
                 validate={validate}
@@ -59,7 +110,7 @@ function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
                                             <InputSimple
                                                 value={props.input.value}
                                                 onChange={props.input.onChange}
-                                                placeholder='Введите ваш email'
+                                                placeholder='Введите email'
                                             />
                                         </div>
                                     )
@@ -74,7 +125,7 @@ function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
                                             <InputPassword
                                                 value={props.input.value}
                                                 onChange={props.input.onChange}
-                                                placeholder='Введите ваш email'
+                                                placeholder='Введите пароль'
                                             />
                                         </div>
                                     )

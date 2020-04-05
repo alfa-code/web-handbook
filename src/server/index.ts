@@ -166,10 +166,86 @@ const init = async (): Promise<any> => {
         },
     });
 
+    // user registration endpoint
+    httpServer.route({
+        method: 'POST',
+        path: '/api/auth/registration',
+        options: {
+            auth: false,
+        },
+        handler: async (request, h) => {
+            const { login, password } = request.payload;
+
+            //let foundUser;
+            if (login && password) {
+                const checkUserSQL = `SELECT user_id, username, rights FROM accounts WHERE username = '${login}'`;
+                const result: any = await createSQLRequest(pgClient, checkUserSQL);
+
+                if (result.rowCount === 0) {
+                    const addUserSQL = `INSERT INTO accounts(username, password, rights) VALUES (${login}, ${password}, 'user');`;
+                    await createSQLRequest(pgClient, addUserSQL);
+
+                    const resultAfterRegistration: any = await createSQLRequest(pgClient, checkUserSQL);
+
+                    if (resultAfterRegistration.rowCount === 1) {
+                        const { user_id: userId, username, rights } = resultAfterRegistration.rows[0];
+
+                            // generate jwt token by user data
+                            const token = jwt.sign({ userId, username, rights }, jwtPrivateKey, { algorithm });
+
+                            // set the jwt token cookie
+                            h.state('token', token, {
+                                SameSite: 'Lax',
+                                isSecure: false,
+                                isHttpOnly: false,
+                                ttl: 1000 * 60 * 60, // one hour
+                                path: '/',
+                            });
+
+                            // send response
+                            // return h.redirect('/settings');
+
+                            return h.response({
+                                type: 'success',
+                                message: 'Вы успешно зарегистрированы!',
+                                redirectTo: '/settings'
+                            })
+                    }
+                } else {
+                    return h.response({
+                        type: 'error',
+                        message: 'Пользователь с таким логином уже существует!'
+                    });
+                }
+
+                // if (result.rowCount === 1) {
+                //     const { user_id: userId, username, rights } = result.rows[0]
+
+                //     // generate jwt token by user data
+                //     const token = jwt.sign({ userId, username, rights }, jwtPrivateKey, { algorithm });
+
+                //     // set the jwt token cookie
+                //     h.state('token', token, {
+                //         SameSite: 'None',
+                //         isSecure: false,
+                //         isHttpOnly: false,
+                //         ttl: 1000 * 60 * 60, // one hour
+                //         path: '/',
+                //     });
+
+                //     // send response
+                //     return h.redirect('/settings');
+                // } else {
+                //     return h.response('Ошибка ввода данных или такого пользователя не существует!');
+                // }
+            }
+        }
+    });
+
     // user login validation endpoint
     httpServer.route({
         method: 'POST',
-        path: '/auth/validate',
+        path: '/api/auth/login',
         options: {
             auth: false,
         },
@@ -189,17 +265,26 @@ const init = async (): Promise<any> => {
 
                     // set the jwt token cookie
                     h.state('token', token, {
-                        SameSite: 'None',
+                        SameSite: 'Lax',
                         isSecure: false,
                         isHttpOnly: false,
                         ttl: 1000 * 60 * 60, // one hour
                         path: '/',
                     });
 
+                    return h.response({
+                        type: 'success',
+                        message: 'Вы успешно аутентифицированы!',
+                        redirectTo: '/settings'
+                    })
+
                     // send response
-                    return h.redirect('/settings');
+                    // return h.redirect('/settings');
                 } else {
-                    return h.response('Ошибка ввода данных или такого пользователя не существует!');
+                    return h.response({
+                        type: 'error',
+                        message: 'Ошибка ввода данных или такого пользователя не существует!'
+                    });
                 }
             }
         }

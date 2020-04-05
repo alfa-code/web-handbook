@@ -16,8 +16,8 @@
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret PGHOST=localhost PGPORT=5432 PGDATABASE=postgres PGUSER=postgres PGPASSWORD=postgres node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v78",
-        "docker:push": "docker push cr.yandex/crpgchanq5ana2um4jph/platform:v78"
+        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v79",
+        "docker:push": "docker push cr.yandex/crpgchanq5ana2um4jph/platform:v79"
     },
     "repository": {
         "type": "git",
@@ -60,6 +60,7 @@
         "nodemon": "^2.0.2",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "redux-devtools-extension": "^2.13.8",
+        "redux-logger": "^3.0.6",
         "sass-loader": "^8.0.0",
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.1.1",
@@ -100,6 +101,7 @@
         "react-final-form": "^6.3.5",
         "react-redux": "^7.2.0",
         "react-router-dom": "^5.1.2",
+        "react-toastify": "^5.5.0",
         "redux": "^4.0.5",
         "uuid": "^3.3.3",
         "yarn": "^1.21.1"
