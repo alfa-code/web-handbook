@@ -38,7 +38,7 @@ export class AboutPlatform extends React.PureComponent<Props> {
             <img src={dotsImage} className={styles.dotsImg} alt="иллюстрация" />
             <iframe
               title="Видео о нас"
-              src="https://player.vimeo.com/video/132471949"
+              src="https://player.vimeo.com/video/110256895"
               width="810"
               height="456"
               frameBorder="0"
