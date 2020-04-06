@@ -2,6 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   'input': string;
+  'inputError': string;
+  'inputErrorLabel': string;
   'inputSimple': string;
   'label': string;
   'labelFilled': string;

@@ -10,6 +10,10 @@ interface Props {
     children?: any;
     onChange?: Function;
     value?: any;
+    touched?: boolean;
+    error?: string;
+    onBlur?: () => void;
+    className?: string;
 }
 interface State {
     value: string;
@@ -41,16 +45,27 @@ export class InputPassword extends React.PureComponent<Props, State> {
     }
 
     render(): ReactNode {
-        const { placeholder, value: propsValue } = this.props;
+        const {
+            placeholder,
+            value: propsValue,
+            error,
+            touched,
+            onBlur,
+            className
+        } = this.props;
+
         const { value, isHide } = this.state;
 
+        const isError = error && touched;
+
         return (
-            <span className={ styles.inputSimple }>
+            <span className={ `${styles.inputSimple} ${className ? className : ''}` }>
                 <input
                     type={ isHide ? 'password' : 'text' }
                     onChange={ this.inputOnChange }
                     value={ propsValue || value }
-                    className={ styles.input }
+                    className={ `${styles.input} ${isError ? styles.inputError : ''}` }
+                    onBlur={ onBlur }
                 />
                 <span className={ `${styles.label} ${(value ? styles.labelFilled : '')}` }>
                     { placeholder }
@@ -65,6 +80,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
                         alt='иконка статуса пароля (скрыт или показан)'
                     />
                 </button>
+                {isError && <span className={ styles.inputErrorLabel }>{error}</span>}
             </span>
         );
     }
