@@ -1,3 +1,3 @@
-FOLDER=$(yc config get folder-id)
+REGISTRY=$(yc container registry get --name=main --format=json | jq -r .id)
 
-docker build . -t cr.yandex/${FOLDER}/platform:v81
+docker build . -t cr.yandex/${REGISTRY}/platform:v81

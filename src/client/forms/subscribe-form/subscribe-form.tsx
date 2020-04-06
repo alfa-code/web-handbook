@@ -13,7 +13,7 @@ export function SubscribeForm() {
             />
             <Button viewType="primary">
                 Получить доступ
-      </Button>
+            </Button>
         </div>
     );
 }

@@ -65,52 +65,46 @@ async function registration(values) {
 function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
     const onSubmit = async (values: FormValues): Promise<void> => {
         if (isRegistartion) {
-            // alert('Регистрация на данный момент не доступна!');
             registration(values);
-            // return;
         } else {
             LogIn(values);
         }
-
-
-        // const response = await fetch('/auth/validate', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(values),
-        //     redirect: 'follow'
-        // });
-
-        // if (response.ok && response.redirected) {
-        //     alert('Вы успешно аутентифицированы');
-        //     window.location.href = response.url;
-        // } else {
-        //     alert('Некорректные данные пользователя');
-        // }
     }
 
-    const validate = (): any => {
-        const errors = {};
+    const validateForm = (values): any => {
+        const { login, password } = values;
+        const emailRegExp = new RegExp('[^@]+@[^.]+..+');
+        const passwordRegExp = new RegExp('[0-9a-zA-Z]{6,}');
+
+        const errors = {
+            login: !login ? 'Поле обязательное' : (emailRegExp.test(login) ? undefined : 'Введите корректный Email'),
+            password: !password ? 'Поле обязательное' : (passwordRegExp.test(password) ? undefined : 'Пароль должен состоять минимум из 6 знаков')
+        };
+
         return errors;
     }
 
     return (
         <div>
             <Form
-                onSubmit={onSubmit}
-                validate={validate}
+                onSubmit={ onSubmit }
+                validate={ validateForm }
                 render={({ handleSubmit }): ReactElement => (
                     <form onSubmit={handleSubmit} className={styles.loginForm}>
                         <Field name='login'>
                             {
                                 (props: any): ReactElement => {
+                                    const { input, meta } = props;
                                     return (
                                         <div>
                                             <InputSimple
-                                                value={props.input.value}
-                                                onChange={props.input.onChange}
+                                                value={input.value}
+                                                onChange={input.onChange}
                                                 placeholder='Введите email'
+                                                touched={ meta.touched }
+                                                error={ meta.error }
+                                                onBlur={input.onBlur}
+                                                className={ styles.inputAvailableWidth }
                                             />
                                         </div>
                                     )
@@ -120,12 +114,17 @@ function authForm(buttonText: string, isRegistartion: boolean): ReactElement {
                         <Field name='password'>
                             {
                                 (props: any): ReactElement => {
+                                    const { input, meta } = props;
                                     return (
                                         <div>
                                             <InputPassword
                                                 value={props.input.value}
                                                 onChange={props.input.onChange}
                                                 placeholder='Введите пароль'
+                                                touched={ meta.touched }
+                                                error={ meta.error }
+                                                onBlur={input.onBlur}
+                                                className={ styles.inputAvailableWidth }
                                             />
                                         </div>
                                     )

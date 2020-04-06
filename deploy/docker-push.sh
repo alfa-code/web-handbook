@@ -1,3 +1,3 @@
-FOLDER=$(yc config get folder-id)
+REGISTRY=$(yc container registry get --name=main --format=json | jq -r .id)
 
-docker push cr.yandex/${FOLDER}/platform:v80
+docker push cr.yandex/${REGISTRY}/platform:v81

@@ -2,6 +2,7 @@
 // Please do not change this file!
 interface CssExports {
   'active': string;
+  'inputAvailableWidth': string;
   'loginForm': string;
   'loginPage': string;
   'loginSwitchButton': string;

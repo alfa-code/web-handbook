@@ -3,6 +3,8 @@
 interface CssExports {
   'eye': string;
   'input': string;
+  'inputError': string;
+  'inputErrorLabel': string;
   'inputSimple': string;
   'label': string;
   'labelFilled': string;
