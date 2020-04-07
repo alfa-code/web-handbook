@@ -16,8 +16,8 @@
         "build": "cross-env NODE_ENV=production yarn clear && yarn build:client && yarn build:server",
         "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret PGHOST=localhost PGPORT=5432 PGDATABASE=postgres PGUSER=postgres PGPASSWORD=postgres node ./.build/server.js",
         "start:dev-server": "cross-env NODE_ENV=development webpack-dev-server --config ./configs/webpack.config.client.js",
-        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v80",
-        "docker:push": "docker push cr.yandex/crpgchanq5ana2um4jph/platform:v80"
+        "docker:build": "cp -r ./tls ./.build/tls && docker build . -t cr.yandex/crpgchanq5ana2um4jph/platform:v82",
+        "docker:push": "docker push cr.yandex/crpgchanq5ana2um4jph/platform:v82"
     },
     "repository": {
         "type": "git",
