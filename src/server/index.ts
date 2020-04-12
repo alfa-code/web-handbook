@@ -48,6 +48,8 @@ const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
     return { isValid: true };
 };
 
+
+// @ts-ignore
 const httpServer = new Hapi.Server({
     port: SERVER_PORT,
     host: SERVER_HOST,
@@ -120,7 +122,7 @@ const init = async (): Promise<any> => {
 
     httpServer.route({
         method: 'GET',
-        path: '/settings',
+        path: '/settings/{subpage?}',
         options: {
             auth: 'jwt',
         },
@@ -182,7 +184,8 @@ const init = async (): Promise<any> => {
                 const result: any = await createSQLRequest(pgClient, checkUserSQL);
 
                 if (result.rowCount === 0) {
-                    const addUserSQL = `INSERT INTO accounts(username, password, rights) VALUES (${login}, ${password}, 'user');`;
+                    const addUserSQL =
+                        `INSERT INTO accounts(username, password, rights) VALUES (${login}, ${password}, 'user');`;
                     await createSQLRequest(pgClient, addUserSQL);
 
                     const resultAfterRegistration: any = await createSQLRequest(pgClient, checkUserSQL);

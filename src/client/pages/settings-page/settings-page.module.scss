@@ -1,0 +1,39 @@
+.rootContainer {
+    display: grid;
+    grid-template-columns: 328px auto;
+    gap: 0 32px;
+}
+
+.menuList {
+    padding: 16px 0;
+    margin: 0;
+    list-style: none;
+
+    background: #FFFFFF;
+    border: 1px solid #F3F4F5;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.menuLink {
+    width: 100%;
+    display: inline-block;
+
+    padding: 16px 24px;
+
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    &:hover {
+        background: rgba(243, 244, 245, 0.5);
+        color: #172a3f;
+    }
+}
+
