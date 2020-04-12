@@ -2,6 +2,7 @@
 // Please do not change this file!
 interface CssExports {
   'menuLink': string;
+  'menuLinkSelected': string;
   'menuList': string;
   'rootContainer': string;
 }
