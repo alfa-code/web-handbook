@@ -22,22 +22,38 @@ export class SettingsPage extends PureComponent<Props, State> {
                     <div className={ styles.rootContainer }>
                         <ul className={ styles.menuList }>
                             <li>
-                                <NavLink to='/settings/cabinet' className={ styles.menuLink }>
+                                <NavLink
+                                    to='/settings/cabinet'
+                                    className={ styles.menuLink }
+                                    activeClassName={ styles.menuLinkSelected }
+                                >
                                     Личный кабинет
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/settings/tools' className={ styles.menuLink }>
+                                <NavLink
+                                    to='/settings/tools'
+                                    className={ styles.menuLink }
+                                    activeClassName={ styles.menuLinkSelected }
+                                >
                                     Настройки
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/settings/password' className={ styles.menuLink }>
+                                <NavLink
+                                    to='/settings/password'
+                                    className={ styles.menuLink }
+                                    activeClassName={ styles.menuLinkSelected }
+                                >
                                     Сменить пароль
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to='/settings/email' className={ styles.menuLink }>
+                                <NavLink
+                                    to='/settings/email'
+                                    className={ styles.menuLink }
+                                    activeClassName={ styles.menuLinkSelected }
+                                >
                                     Сменить email
                                 </NavLink>
                             </li>

@@ -122,7 +122,7 @@ const init = async (): Promise<any> => {
 
     httpServer.route({
         method: 'GET',
-        path: '/settings/{subpage?}',
+        path: '/settings/{subpage*}',
         options: {
             auth: 'jwt',
         },
