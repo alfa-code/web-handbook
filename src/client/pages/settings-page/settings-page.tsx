@@ -1,32 +1,72 @@
 import React, { PureComponent, ReactNode } from 'react';
+import { NavLink, Redirect } from 'react-router-dom';
+import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 
 import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 
-interface Props { }
+import { SettingsBlock } from 'Blocks/settings-block';
+
+interface Props extends RouteComponentProps { }
 interface State { }
+
+import styles from './settings-page.module.scss';
 
 export class SettingsPage extends PureComponent<Props, State> {
     render(): ReactNode {
+        const matchUrl = this.props.match.url;
+
         return (
             <PageFrame>
                 <PageContainer paddingsOnPhone={ true }>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
+                    <div className={ styles.rootContainer }>
+                        <ul className={ styles.menuList }>
+                            <li>
+                                <NavLink to='/settings/cabinet' className={ styles.menuLink }>
+                                    Личный кабинет
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/settings/tools' className={ styles.menuLink }>
+                                    Настройки
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/settings/password' className={ styles.menuLink }>
+                                    Сменить пароль
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/settings/email' className={ styles.menuLink }>
+                                    Сменить email
+                                </NavLink>
+                            </li>
+                        </ul>
+                        <div>
+                        <Switch>
+                            <Route exact path={ matchUrl }>
+                                <Redirect to={ `${matchUrl}/cabinet` } />
+                            </Route>
+                            <Route
+                                path={ `${matchUrl}/cabinet` }
+                                component={ SettingsBlock }
+                            />
+                            <Route
+                                path={ `${matchUrl}/tools` }
+                                component={ SettingsBlock }
+                            />
+                            <Route
+                                path={ `${matchUrl}/password` }
+                                component={ SettingsBlock }
+
+                            />
+                            <Route
+                                path={ `${matchUrl}/email` }
+                                component={ SettingsBlock }
+                            />
+                        </Switch>
+                        </div>
+                    </div>
                 </PageContainer>
             </PageFrame>
         );

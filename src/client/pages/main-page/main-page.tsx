@@ -1,4 +1,5 @@
 import React, { PureComponent, ReactNode } from 'react';
+import { RouteProps } from "react-router-dom";
 
 import { PageFrame } from 'Components/page-frame';
 
@@ -19,7 +20,7 @@ import subscriptionImage from 'Assets/images/subscription.svg';
 
 import { Button } from 'Components/button';
 
-interface Props { }
+interface Props extends RouteProps {}
 interface State { }
 
 export class MainPage extends PureComponent<Props, State> {

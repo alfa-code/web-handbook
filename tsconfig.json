@@ -20,6 +20,8 @@
             "Components/*": ["src/client/components/*"],
             "Assets/*": ["src/assets/*"],
             "Fonts/*": ["src/assets/fonts/*"],
+            "Blocks/*": ["src/client/blocks/*"],
+            "Forms/*": ["src/client/forms/*"]
         }
     },
     "files": [

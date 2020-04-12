@@ -11,6 +11,8 @@ module.exports = {
             Components: path.join(rootPath, './src/client/components/'),
             Assets: path.join(rootPath, './src/assets/'),
             Fonts: path.join(rootPath, './src/assets/fonts/'),
+            Blocks: path.join(rootPath, './src/client/blocks/'),
+            Forms: path.join(rootPath, './src/client/forms/'),
         }
     }
 }
