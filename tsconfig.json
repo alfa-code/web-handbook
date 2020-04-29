@@ -1,6 +1,14 @@
 {
     "include": [
-        "src/client/index.tsx"
+        "src/client/index.tsx",
+        "src/server/index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "config",
+        ".build",
+        "deploy",
+        "tls",
     ],
     "compilerOptions": {
         "outDir": "./build/",

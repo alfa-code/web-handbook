@@ -11,9 +11,9 @@ import App from 'Src/client/app/app';
 
 import { StaticRouter } from 'react-router-dom';
 
-import readAssetsManifest from './utils/read-assets-manifest';
+import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 
-import { JWT_SECRET_KEY } from '../constants/env-variables';
+import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 
 // Превращаем контент в строку HTML
 export function getContent(request: any): string {

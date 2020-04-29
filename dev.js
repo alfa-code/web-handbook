@@ -11,6 +11,8 @@ env.PGDATABASE = 'postgres';
 env.PGUSER = 'postgres';
 env.PGPASSWORD = 'postgres';
 
+env.DATABASE_URL = `postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`;
+
 function bindToLogs(programm, color, deviceType = '') {
     if (!color) {
         color = '\x1b[33m%s\x1b[0m';
