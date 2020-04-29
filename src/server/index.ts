@@ -1,17 +1,15 @@
 import jwt from 'jsonwebtoken';
-
+import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert';
-import HapiAuthJWT2 from 'hapi-auth-jwt2';
-import HapiErrorPlugin from 'hapi-error';
-
-import { getContent } from './content';
-import { createPGClient } from './db/postgresql';
-
-import { JWT_SECRET_KEY } from '../constants/env-variables';
 
 import path from 'path';
-// const path = require('path');
+
+import HapiPostgresConnection from 'hapi-postgres-connection';
+
+// import { createPGClient } from 'Src/server/db/postgresql';
+import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
+import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
 
 // jwt info
 const algorithm = 'HS256';
@@ -24,25 +22,6 @@ const rootPath = process.cwd();
 const SERVER_PORT = 3000;
 const SERVER_HOST = '0.0.0.0';
 
-// eslint-disable-next-line
-async function createSQLRequest(pgClient, sqlCommand: string) {
-    const result = await new Promise((resolve, reject) => {
-        try {
-            pgClient.query(sqlCommand, (err, respons) => {
-                if (err) {
-                    throw err;
-                }
-                resolve(respons);
-            })
-        } catch(e) {
-            const errorMessage = 'Не удалось выпольнить SQL запрос.';
-            console.log(errorMessage, 'Error: ', e);
-            reject(errorMessage);
-        }
-    });
-    return result;
-}
-
 const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
     // If token is correct - is not necessary
     return { isValid: true };
@@ -50,7 +29,7 @@ const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
 
 
 // @ts-ignore
-const httpServer = new Hapi.Server({
+const server = new Hapi.Server({
     port: SERVER_PORT,
     host: SERVER_HOST,
     routes: {
@@ -69,26 +48,15 @@ const httpServer = new Hapi.Server({
 });
 
 const init = async (): Promise<any> => {
-    await httpServer.register(Inert);
+    await server.register(Inert);
 
-    const pgClient = createPGClient();
-    pgClient.connect();
+    await server.register(HapiAuthJWT2);
 
-    await httpServer.register({
-        plugin: HapiErrorPlugin,
-        options: {
-            statusCodes: {
-                '401': {
-                    'redirect': function (): string {
-                        return '/auth'
-                    }
-                }
-            }
-        }
+    await server.register({
+        plugin: HapiPostgresConnection
     });
 
-    await httpServer.register(HapiAuthJWT2);
-    httpServer.auth.strategy('jwt', 'jwt', {
+    server.auth.strategy('jwt', 'jwt', {
         key: jwtPrivateKey,
         validate: validateJwtData,
         verifyOptions: {
@@ -96,80 +64,13 @@ const init = async (): Promise<any> => {
             cookieKey: 'token'
         }
     });
-    httpServer.auth.default('jwt');
+    server.auth.default('jwt');
 
-    httpServer.route({
-        method: '*',
-        path: '/{any*}',
-        options: {
-            auth: false
-        },
-        handler: (request) => {
-            return getContent(request);
-        }
-    });
-
-    httpServer.route({
-        method: 'GET',
-        path: '/auth',
-        options: {
-            auth: false,
-        },
-        handler: (request) => {
-            return getContent(request);
-        },
-    });
-
-    httpServer.route({
-        method: 'GET',
-        path: '/settings/{subpage*}',
-        options: {
-            auth: 'jwt',
-        },
-        handler: (request) => {
-            return getContent(request);
-        }
-    });
-
-    httpServer.route({
-        method: 'GET',
-        path: '/postgre',
-        options: {
-            auth: 'jwt',
-        },
-        handler: (request) => {
-            return getContent(request);
-        }
-    });
-
-    httpServer.route({
-        method: 'GET',
-        path: '/logout',
-        options: {
-            auth: false,
-        },
-        handler: (request, h) => {
-            return h.redirect('/').state('token', '');
-        }
-    });
-
-    httpServer.route({
-        method: 'GET',
-        path: '/assets/{param*}',
-        options: {
-            auth: false
-        },
-        handler: {
-            directory: {
-                path: '.',
-                redirectToSlash: true,
-                index: true,
-            },
-        },
-    });
+    const plugins = getServerPlugins();
+    await server.register(plugins);
 
     // user registration endpoint
-    httpServer.route({
+    server.route({
         method: 'POST',
         path: '/api/auth/registration',
         options: {
@@ -181,14 +82,17 @@ const init = async (): Promise<any> => {
             //let foundUser;
             if (login && password) {
                 const checkUserSQL = `SELECT user_id, username, rights FROM accounts WHERE username = '${login}'`;
-                const result: any = await createSQLRequest(pgClient, checkUserSQL);
+                const result: any = await request.pg.client.query(checkUserSQL);
+
 
                 if (result.rowCount === 0) {
                     const addUserSQL =
                         `INSERT INTO accounts(username, password, rights) VALUES (${login}, ${password}, 'user');`;
-                    await createSQLRequest(pgClient, addUserSQL);
 
-                    const resultAfterRegistration: any = await createSQLRequest(pgClient, checkUserSQL);
+                    await request.pg.client.query(addUserSQL);
+
+                    // const resultAfterRegistration: any = await createSQLRequest(pgClient, checkUserSQL);
+                    const resultAfterRegistration: any = await request.pg.client.query(checkUserSQL);
 
                     if (resultAfterRegistration.rowCount === 1) {
                         const { user_id: userId, username, rights } = resultAfterRegistration.rows[0];
@@ -205,9 +109,6 @@ const init = async (): Promise<any> => {
                                 path: '/',
                             });
 
-                            // send response
-                            // return h.redirect('/settings');
-
                             return h.response({
                                 type: 'success',
                                 message: 'Вы успешно зарегистрированы!',
@@ -220,33 +121,12 @@ const init = async (): Promise<any> => {
                         message: 'Пользователь с таким логином уже существует!'
                     });
                 }
-
-                // if (result.rowCount === 1) {
-                //     const { user_id: userId, username, rights } = result.rows[0]
-
-                //     // generate jwt token by user data
-                //     const token = jwt.sign({ userId, username, rights }, jwtPrivateKey, { algorithm });
-
-                //     // set the jwt token cookie
-                //     h.state('token', token, {
-                //         SameSite: 'None',
-                //         isSecure: false,
-                //         isHttpOnly: false,
-                //         ttl: 1000 * 60 * 60, // one hour
-                //         path: '/',
-                //     });
-
-                //     // send response
-                //     return h.redirect('/settings');
-                // } else {
-                //     return h.response('Ошибка ввода данных или такого пользователя не существует!');
-                // }
             }
         }
     });
 
     // user login validation endpoint
-    httpServer.route({
+    server.route({
         method: 'POST',
         path: '/api/auth/login',
         options: {
@@ -257,8 +137,10 @@ const init = async (): Promise<any> => {
 
             //let foundUser;
             if (login && password) {
+                // eslint-disable-next-line
                 const sql = `SELECT user_id, username, rights FROM accounts WHERE username = '${login}' AND password = '${password}'`;
-                const result: any = await createSQLRequest(pgClient, sql);
+                // const result: any = await createSQLRequest(pgClient, sql);
+                const result = await request.pg.client.query(sql);
 
                 if (result.rowCount === 1) {
                     const { user_id: userId, username, rights } = result.rows[0]
@@ -280,9 +162,6 @@ const init = async (): Promise<any> => {
                         message: 'Вы успешно аутентифицированы!',
                         redirectTo: '/settings'
                     })
-
-                    // send response
-                    // return h.redirect('/settings');
                 } else {
                     return h.response({
                         type: 'error',
@@ -293,7 +172,7 @@ const init = async (): Promise<any> => {
         }
     });
 
-    httpServer.route({
+    server.route({
         method: 'POST',
         path: '/api/postgre/request',
         options: {
@@ -302,15 +181,15 @@ const init = async (): Promise<any> => {
         handler: async (request, h) => {
             const { sql = '' } = request.payload;
 
-            const result = await createSQLRequest(pgClient, sql);
+            const result = await request.pg.client.query(sql);
 
             return h.response(JSON.stringify(result));
         }
     });
 
-    await httpServer.start();
+    await server.start();
 
-    return httpServer;
+    return server;
 };
 
 process.on('unhandledRejection', (err) => {

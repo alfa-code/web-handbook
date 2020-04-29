@@ -14,7 +14,7 @@ import styles from './settings-page.module.scss';
 
 export class SettingsPage extends PureComponent<Props, State> {
     render(): ReactNode {
-        const matchUrl = this.props.match.url;
+        const matchUrl = this.props.match.path;
 
         return (
             <PageFrame>
