@@ -7,7 +7,6 @@ import path from 'path';
 
 import HapiPostgresConnection from 'hapi-postgres-connection';
 
-// import { createPGClient } from 'Src/server/db/postgresql';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
 
@@ -26,7 +25,6 @@ const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
     // If token is correct - is not necessary
     return { isValid: true };
 };
-
 
 // @ts-ignore
 const server = new Hapi.Server({

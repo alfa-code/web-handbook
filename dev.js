@@ -11,7 +11,11 @@ env.PGDATABASE = 'postgres';
 env.PGUSER = 'postgres';
 env.PGPASSWORD = 'postgres';
 
-env.DATABASE_URL = `postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`;
+// postgres://postgres:postgres@localhost/postgres
+// env.DATABASE_URL = `postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`;
+// env.DATABASE_URL = `postgres://${env.PGUSER}:${env.PGPASSWORD}@${env.PGHOST}/${env.PGDATABASE}`;
+env.DATABASE_URL = `postgres://postgres:postgres@localhost:5432/postgres`;
+// DATABASE_URL=`postgres://user1:4WA4EzaZ@rc1c-cqzc0hkaqkczaifv.mdb.yandexcloud.net/db1`;
 
 function bindToLogs(programm, color, deviceType = '') {
     if (!color) {
