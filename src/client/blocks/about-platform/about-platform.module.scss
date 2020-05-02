@@ -59,12 +59,17 @@
     position: relative;
     width: 810px;
     height: 456px;
+
+    &:hover .girlImg {
+        opacity: 0;
+    }
 }
 
 .bgFormImg,
 .dotsImg,
 .girlImg {
     position: absolute;
+    transition: opacity 0.5s linear;
 
     @include media("<desktop-1") {
         display: none;

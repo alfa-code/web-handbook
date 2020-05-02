@@ -9,7 +9,7 @@ interface State { }
 export class HeaderNavigation extends PureComponent<Props, State> {
     render(): ReactNode {
         return (
-            <nav className={styles.headerNavigation}>
+            <nav className={ `${styles.headerNavigation} disabled` }>
                 <ul>
                     <li>
                         <Link to='/'>

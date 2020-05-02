@@ -74,13 +74,13 @@ export class PageFooter extends PureComponent<Props> {
                                     Наши условия использования и конфиденциальности
                   </p>
                 </div>
-                <div className={styles.sectionTwo}>
+                <div className={ `${styles.sectionTwo} disabled` }>
                   { this.renderList('Платформа', ['Курсы', 'Html справочник', 'Блог']) }
                 </div>
-                <div className={styles.sectionThree}>
+                <div className={ `${styles.sectionThree} disabled`}>
                   { this.renderList('Контакты', [this.getEmailLink()]) }
                 </div>
-                <div className={styles.sectionFour}>
+                <div className={ `${styles.sectionFour} disabled` }>
                   { this.renderList('Рассылка', [this.getEmailBlock()]) }
                 </div>
               </div>

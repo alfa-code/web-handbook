@@ -72,7 +72,7 @@ export class OurBlogBlock extends React.Component {
 
     render() {
       return (
-        <div className={styles.blogBlock}>
+        <div className={ `${styles.blogBlock} disabled` }>
           <div className={styles.header}>
             <Definition
               title="Полезный блог"

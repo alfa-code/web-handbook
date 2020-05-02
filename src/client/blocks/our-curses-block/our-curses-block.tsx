@@ -79,7 +79,7 @@ export class OurCursesBlock extends Component {
 
     render() {
       return (
-        <div className={styles.ourCurses}>
+        <div className={ `${styles.ourCurses} disabled` }>
           <div className={styles.header}>
             <Definition
               title="Наши курсы"

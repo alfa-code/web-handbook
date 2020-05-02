@@ -37,7 +37,7 @@ export class BannerBlock extends Component<Props, State> {
         const { undertitle, text, title } = this.props;
 
         return (
-            <div className={classNames(styles.block, globalStyles.verticalNeighbors)}>
+            <div className={classNames(styles.block, globalStyles.verticalNeighbors, 'disabled')}>
                 <PageContainer>
                     <div className={classNames(styles.contentBlock, this.getDirectionClassName())}>
                         <div className={styles.description}>

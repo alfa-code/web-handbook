@@ -169,3 +169,11 @@ html {
         --width-base-container: 100%;
     }
 }
+
+.disabled {
+    user-select: none;
+    pointer-events: none;
+    touch-action: none;
+    filter: grayscale(100%);
+    opacity: 0.3;
+}
