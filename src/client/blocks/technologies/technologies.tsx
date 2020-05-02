@@ -3,7 +3,6 @@ import React from 'react';
 import * as htmlIcon from 'Assets/icons/technologies/html.png';
 import * as cssIcon from 'Assets/icons/technologies/css.png';
 import * as jsIcon from 'Assets/icons/technologies/js.png';
-import * as pyIcon from 'Assets/icons/technologies/py.png';
 
 import styles from './technologies.module.scss';
 
@@ -26,16 +25,13 @@ export function Technologies() {
   return (
     <div className={styles.block}>
       <div className={styles.cell}>
-        { TechPlate(htmlIcon, 'html&nbsp;5') }
+        { TechPlate(htmlIcon, 'html 5') }
       </div>
       <div className={styles.cell}>
         { TechPlate(cssIcon, 'css') }
       </div>
       <div className={styles.cell}>
         { TechPlate(jsIcon, 'Java Script') }
-      </div>
-      <div className={styles.cell}>
-        { TechPlate(pyIcon, 'Python') }
       </div>
     </div>
   );
