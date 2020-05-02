@@ -19,23 +19,24 @@ export class MainScreenBlock extends React.PureComponent {
                         <br />
                         <span> IT специалистов</span>
                     </Heading>
-                    <p className={styles.subheader}>
-                        Получите доступ к грамотной и структурированной информации для обучения.
-                    </p>
-                    <SubscribeForm />
-                    <div className={styles.subtextContainer}>
-                        <span className={styles.subtext}>
-                            Уже пользуетесь Alfa Code?
-                        </span>
-                        {' '}
-                        <a
-                            href="/"
-                            className={styles.link}
-                        >
-                            Войдите
-                    </a>
+                    <div className="disabled">
+                        <p className={styles.subheader}>
+                            Получите доступ к грамотной и структурированной информации для обучения.
+                        </p>
+                        <SubscribeForm />
+                        <div className={styles.subtextContainer}>
+                            <span className={styles.subtext}>
+                                Уже пользуетесь Alfa Code?
+                            </span>
+                            {' '}
+                            <a
+                                href="/"
+                                className={styles.link}
+                            >
+                                Войдите
+                            </a>
+                        </div>
                     </div>
-
                 </div>
                 <img
                     src={mainImage}
