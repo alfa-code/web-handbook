@@ -10,6 +10,23 @@ const commonWebpackConfig = require('./webpack.config.common');
 
 const cssModuleRegex = /\.module\.scss$/;
 
+function excludeNodeModulesExcept (modules)
+{
+    let pathSep = path.sep;
+    if (pathSep == '\\') // must be quoted for use in a regexp:
+        pathSep = '\\\\';
+        const moduleRegExps = modules.map (function (modName) { return new RegExp("node_modules" + pathSep + modName)})
+
+    return function (modulePath) {
+        if (/node_modules/.test(modulePath)) {
+            for (let i = 0; i < moduleRegExps.length; i ++)
+                if (moduleRegExps[i].test(modulePath)) return false;
+            return true;
+        }
+        return false;
+    };
+}
+
 module.exports = {
     mode: NODE_ENV || 'development',
     target: 'node',
@@ -27,7 +44,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: excludeNodeModulesExcept(["@hapi"])
             },
             {
                 test: cssModuleRegex,
