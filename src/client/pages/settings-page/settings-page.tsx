@@ -23,7 +23,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                         <ul className={ styles.menuList }>
                             <li>
                                 <NavLink
-                                    to='/settings/cabinet'
+                                    to='/profile/cabinet'
                                     className={ styles.menuLink }
                                     activeClassName={ styles.menuLinkSelected }
                                 >
@@ -32,7 +32,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/settings/tools'
+                                    to='/profile/tools'
                                     className={ styles.menuLink }
                                     activeClassName={ styles.menuLinkSelected }
                                 >
@@ -41,7 +41,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/settings/password'
+                                    to='/profile/password'
                                     className={ styles.menuLink }
                                     activeClassName={ styles.menuLinkSelected }
                                 >
@@ -50,7 +50,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/settings/email'
+                                    to='/profile/email'
                                     className={ styles.menuLink }
                                     activeClassName={ styles.menuLinkSelected }
                                 >

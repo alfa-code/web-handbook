@@ -6,7 +6,7 @@ export const settingsSubpageRoutePlugin = {
     register: async function (server, options) {
         server.route({
             method: 'GET',
-            path: '/settings/{subpage*}',
+            path: '/profile/{subpage*}',
             options,
             handler: function (request) {
                 return getContent(request);

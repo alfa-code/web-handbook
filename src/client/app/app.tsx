@@ -43,7 +43,7 @@ export default class App extends React.Component {
                 <Switch>
                     <Route exact path='/' component={ MainPage } />
                     <Route exact path='/auth' component={ LoginPage } />
-                    <Route path='/settings' component={ SettingsPage } />
+                    <Route path='/profile' component={ SettingsPage } />
                     <Route exact path='/postgre' component={ PostgrePanel } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>

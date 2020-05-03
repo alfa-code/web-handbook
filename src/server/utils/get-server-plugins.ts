@@ -6,7 +6,7 @@ import { authRoutePlugin } from 'Src/server/plugins/routes/auth-route';
 import { settingsSubpageRoutePlugin } from 'Src/server/plugins/routes/settings-subpage-route';
 import { postgreRoutePlugin } from 'Src/server/plugins/routes/postgre-route';
 import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
-import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin/';
+import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
 
 export function getServerPlugins() {
     const plugins = [];

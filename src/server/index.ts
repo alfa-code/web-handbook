@@ -110,7 +110,7 @@ const init = async (): Promise<any> => {
                             return h.response({
                                 type: 'success',
                                 message: 'Вы успешно зарегистрированы!',
-                                redirectTo: '/settings'
+                                redirectTo: '/profile'
                             })
                     }
                 } else {
@@ -158,7 +158,7 @@ const init = async (): Promise<any> => {
                     return h.response({
                         type: 'success',
                         message: 'Вы успешно аутентифицированы!',
-                        redirectTo: '/settings'
+                        redirectTo: '/profile'
                     })
                 } else {
                     return h.response({

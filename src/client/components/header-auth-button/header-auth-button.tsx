@@ -26,7 +26,7 @@ export const HeaderAuthButton: React.FC<Props> = (props: Props) => {
                 </div>
                 <ul className={ styles.hiddenPart }>
                     <li>
-                        <Link to='/settings'>
+                        <Link to='/profile'>
                             Настройки
                         </Link>
                     </li>
