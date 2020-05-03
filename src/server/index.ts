@@ -2,13 +2,13 @@ import jwt from 'jsonwebtoken';
 import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert';
-
 import path from 'path';
-
 import HapiPostgresConnection from 'hapi-postgres-connection';
 
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
+
+// import './mocks/index.ts';
 
 // jwt info
 const algorithm = 'HS256';
