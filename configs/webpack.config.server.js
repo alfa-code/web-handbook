@@ -3,29 +3,12 @@ const path = require('path');
 const rootPath = process.cwd();
 const buildPath = path.join(rootPath, '.build');
 const WebpackBar = require('webpackbar');
+const nodeExternals = require('webpack-node-externals');
+const commonWebpackConfig = require('./webpack.config.common');
 
 const { NODE_ENV } = process.env;
 
-const commonWebpackConfig = require('./webpack.config.common');
-
 const cssModuleRegex = /\.module\.scss$/;
-
-function excludeNodeModulesExcept (modules)
-{
-    let pathSep = path.sep;
-    if (pathSep == '\\') // must be quoted for use in a regexp:
-        pathSep = '\\\\';
-        const moduleRegExps = modules.map (function (modName) { return new RegExp("node_modules" + pathSep + modName)})
-
-    return function (modulePath) {
-        if (/node_modules/.test(modulePath)) {
-            for (let i = 0; i < moduleRegExps.length; i ++)
-                if (moduleRegExps[i].test(modulePath)) return false;
-            return true;
-        }
-        return false;
-    };
-}
 
 module.exports = {
     mode: NODE_ENV || 'development',
@@ -44,7 +27,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'ts-loader',
-                exclude: excludeNodeModulesExcept(["@hapi"])
+                exclude: /node_modules/,
             },
             {
                 test: cssModuleRegex,
@@ -113,5 +96,9 @@ module.exports = {
         // ignore the error: Error: Can't resolve 'pg-native'
         // solution from here - https://github.com/serverless-heaven/serverless-webpack/issues/78#issuecomment-405646040
         new webpack.IgnorePlugin(/^pg-native$/)
-    ]
+    ],
+    externals: [nodeExternals({
+        // this WILL include `jquery` and `webpack/hot/dev-server` in the bundle, as well as `lodash/*`
+        whitelist: []
+    })],
 };
