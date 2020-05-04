@@ -8,8 +8,6 @@ import HapiPostgresConnection from 'hapi-postgres-connection';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
 
-// import './mocks/index.ts';
-
 // jwt info
 const algorithm = 'HS256';
 const jwtPrivateKey = process.env[JWT_SECRET_KEY]
