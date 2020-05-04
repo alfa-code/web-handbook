@@ -59,12 +59,9 @@ yarn lint
 
 Для корректной работы приложения необходимо установить обязательные ENV переменные
 
-JWT_SECRET_KEY - секретный ключ для jwt токена.
-PGHOST - хочт postgresql
-PGPORT - порт сервера postgresql
-PGDATABASE - имя базы данных postgresql
-PGUSER - имя пользователя базы данных postgresql
-PGPASSWORD - пароль пользователя базы данных postgresql
+NODE_ENV = development | production - тип сборки проекта (сборка)
+JWT_SECRET_KEY - секретный ключ для jwt токена (сборка | старт)
+DATABASE_URL - адрес базы данных postgresql (сборка | старт) - например postgres://postgres:postgres@localhost/postgres
 
 ### Репозиторий для практики
 
