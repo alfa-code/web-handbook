@@ -26,7 +26,7 @@ const scssRegex = /^((?!\.module).)*scss$/i;
 
 const webpackConfig = {
     mode: NODE_ENV || 'development',
-    entry: './src/client/index.tsx',
+    entry: ['./src/client/index.tsx'],
     optimization: {
         minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },
@@ -44,7 +44,7 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            hmr: isDevelopment,
+                            hmr: true,
                             reloadAll: true,
                         },
                     },
@@ -150,6 +150,11 @@ const webpackConfig = {
         port: 8080,
         open: true,
         overlay: true,
+        proxy: {
+            '*': 'http://localhost:3000'
+        },
+        historyApiFallback: true,
+        hot: true
     }
 };
 
