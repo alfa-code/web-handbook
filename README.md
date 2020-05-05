@@ -1,5 +1,7 @@
 # alfa-code-platform
 
+![Image of Alfa Code](https://github.com/organizations/alfa-code/settings/profile)
+
 Сервис для подготовки IT специалистов (Основная платформа для пользователей);
 
 ## Запуск и сборка
