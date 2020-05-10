@@ -10,6 +10,9 @@ COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 # Скопировать исходники приложения
 COPY ./.build /app/.build
 
+# Скопировать зависимости
+COPY ./node_modules /app/node_modules
+
 # контейнер должен слушать эти порты
 EXPOSE 443/tcp 80/tcp
 
