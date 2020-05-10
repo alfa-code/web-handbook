@@ -13,15 +13,15 @@ export class CourseProgressBlock extends React.PureComponent<Props> {
 
         return (
             <div>
-                <div className={ styles.body }>
-                    <div className={ styles.progressCount }>
-                        Просмотрено { percent }%
+                <div className={styles.body}>
+                    <div className={styles.progressCount}>
+                        Просмотрено {percent}%
                     </div>
-                    <Link to='/' className={ styles.continueLink }>
+                    <Link to='/' className={styles.continueLink}>
                         Продолжить смотреть
                     </Link>
                 </div>
-                <ProgressBar percent={15}/>
+                <ProgressBar percent={percent}/>
             </div>
         );
     }

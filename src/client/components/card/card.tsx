@@ -17,7 +17,7 @@ interface Props {
 }
 
 export class Card extends Component<Props> {
-    renderCusomSection = (section: any) => {
+    renderCustomSection(section: any) {
       if (!section) {
         return null;
       }
@@ -47,15 +47,15 @@ export class Card extends Component<Props> {
           </div>
           <div className={styles.body}>
             <div>
-              { this.renderCusomSection(firstCustomSection) }
-              <Heading size={4} className={styles.heading}>
+              { this.renderCustomSection(firstCustomSection) }
+              <Heading size={3} className={styles.heading}>
                 { header }
               </Heading>
               <Paragraph className={styles.text}>
                 { text }
               </Paragraph>
             </div>
-            { this.renderCusomSection(secondCustomSection) }
+            { this.renderCustomSection(secondCustomSection) }
           </div>
         </div>
       );

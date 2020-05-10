@@ -1,0 +1,32 @@
+.root {
+    background-color: var(--background-light);
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.body {
+    width: 808px;
+    display: inline-grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.item {
+    width: 40.594%;
+    text-align: left;
+    min-width: 328px;
+}
+
+.count {
+    font-family: "Rubik";
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.desc {
+    margin-top: 8px;
+    color: var(--text-paragraphs);
+    font-size: 18px;
+    line-height: 1.38;
+}
