@@ -86,6 +86,7 @@ html {
     --text-paragraphs: #546271;
     --text-secondary: #6d7986;
     --text-tetriary: #b5bbc2;
+    --text-green: #13A463;
     --text-inverse: #ffffff;
 
     --brand-red: #ef3124;
@@ -98,6 +99,7 @@ html {
     --background-1: #fef9d2;
     --background-2: #dae6ff;
     --background-3: #d6f5f2;
+    --background-green: #13A463;
 
     --illustrations-blue: #4480ff;
     --illustration-yellow: #ffb96f;
@@ -118,7 +120,7 @@ html {
     --text-heading-3: 30px;
     --text-heading-4: 22px;
     --text-heading-5: 16px;
-    --text-heading-6: 12px;
+    --text-heading-6: 16px;
 
     @include media("<desktop-3") {
         --text-heading-1: 40px;
@@ -126,7 +128,7 @@ html {
         --text-heading-3: 22px;
         --text-heading-4: 16px;
         --text-heading-5: 12px;
-        --text-heading-6: 10px;
+        --text-heading-6: 16px;
     }
 
     /* Sizes */

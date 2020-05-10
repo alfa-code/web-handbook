@@ -48,9 +48,9 @@ const init = async (): Promise<any> => {
 
     await server.register(HapiAuthJWT2);
 
-    await server.register({
+/*    await server.register({
         plugin: HapiPostgresConnection
-    });
+    });*/
 
     server.auth.strategy('jwt', 'jwt', {
         key: jwtPrivateKey,
@@ -172,7 +172,7 @@ const init = async (): Promise<any> => {
         method: 'POST',
         path: '/api/postgre/request',
         options: {
-            auth: 'jwt',
+            auth: false,
         },
         handler: async (request, h) => {
             const { sql = '' } = request.payload;

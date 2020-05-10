@@ -13,6 +13,7 @@ interface Props {
     color?: string;
     firstCustomSection?: any;
     secondCustomSection?: any;
+    type?: 'horizontal' | 'default';
 }
 
 export class Card extends Component<Props> {
@@ -32,10 +33,11 @@ export class Card extends Component<Props> {
         color,
         firstCustomSection,
         secondCustomSection,
+        type = 'default'
       } = this.props;
 
       return (
-        <div className={styles.card}>
+        <div className={classNames(styles.card, styles[type])}>
           <div className={classNames(styles.header, styles[color])}>
             <img
               src={image}
@@ -58,4 +60,19 @@ export class Card extends Component<Props> {
         </div>
       );
     }
+}
+
+export function getCardItem(item) {
+    return (
+        <Card
+            image={item.image}
+            key={item.header}
+            header={item.header}
+            text={item.text}
+            color={item.color}
+            firstCustomSection={item.firstCustomSection}
+            secondCustomSection={item.secondCustomSection}
+            type={item.type}
+        />
+    )
 }
