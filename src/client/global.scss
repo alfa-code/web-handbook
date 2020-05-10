@@ -93,6 +93,7 @@ html {
     --brand-primary: #172a3f;
     --brand-secondary: #858f9a;
     --brand-gray: #b6bcc3;
+    --brand-black: #0b1f35;
 
     --background-main: #f3f4f5;
     --background-light: #f9fafa;
@@ -170,6 +171,8 @@ html {
     @include media("<=desktop-1") {
         --width-base-container: 100%;
     }
+
+    --main-border: 1px solid var(--background-main);
 }
 
 .disabled {
@@ -178,4 +181,12 @@ html {
     touch-action: none;
     filter: grayscale(100%);
     opacity: 0.3;
+}
+
+@mixin hoverShadow {
+
+    &:hover {
+        transition: box-shadow .25s;
+        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
+    }
 }

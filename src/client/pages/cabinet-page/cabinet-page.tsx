@@ -22,7 +22,7 @@ export class CabinetPage extends React.PureComponent {
                 <div className={styles.courseProgressBlock}>
                     <CoursesProgressBlock/>
                 </div>
-                <div>
+                <div className={styles.recentCoursesBlock}>
                     <RecentCoursesBlock/>
                 </div>
             </React.Fragment>
