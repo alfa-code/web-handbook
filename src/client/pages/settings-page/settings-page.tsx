@@ -48,7 +48,8 @@ export class SettingsPage extends PureComponent<Props, State> {
                                     Сменить пароль
                                 </NavLink>
                             </li>
-                            <li>
+                            {/* TODO: включить после доработки */}
+                            {/* <li>
                                 <NavLink
                                     to='/profile/email'
                                     className={ styles.menuLink }
@@ -56,7 +57,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 >
                                     Сменить email
                                 </NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                         <div>
                         <Switch>
@@ -76,10 +77,11 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 component={ SettingsBlock }
 
                             />
-                            <Route
+                            {/* TODO: включить после доработки */}
+                            {/* <Route
                                 path={ `${matchUrl}/email` }
                                 component={ SettingsBlock }
-                            />
+                            /> */}
                         </Switch>
                         </div>
                     </div>
