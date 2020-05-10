@@ -41,14 +41,14 @@ export function getServerPlugins() {
     plugins.push({
         plugin: settingsSubpageRoutePlugin,
         options: {
-            auth: false
+            auth: 'jwt'
         },
     });
 
     plugins.push({
         plugin: postgreRoutePlugin,
         options: {
-            auth: false
+            auth: 'jwt'
         }
     });
 
