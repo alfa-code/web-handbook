@@ -30,7 +30,9 @@ export class LessonCard extends React.PureComponent<Props> {
                             { title }
                         </div>
                         <div className={ styles.desc }>
-                            { desc } * { numberOfLesson } урок
+                            { desc }
+                            <span className={ styles.divider }>&bull;</span>
+                            { numberOfLesson } урок
                         </div>
                     </div>
                     <div className={ styles.time }>

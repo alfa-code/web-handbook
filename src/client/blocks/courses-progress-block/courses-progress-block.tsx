@@ -43,6 +43,18 @@ const courseListInfo = [
         ),
         type: 'horizontal'
     },
+    {
+        image: jsImage,
+        header: 'Оформление текста',
+        text: 'Знакомимся с синтаксисом JavaScript, '
+            + 'тренируемся использовать базовые концепции и пишем свои первые программы.',
+        color: 'green',
+        firstCustomSection: customSection,
+        secondCustomSection: (
+            <CourseProgressBlock percent={15}/>
+        ),
+        type: 'horizontal'
+    },
 ];
 
 export class CoursesProgressBlock extends React.PureComponent<Props> {

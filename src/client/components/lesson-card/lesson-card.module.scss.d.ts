@@ -5,6 +5,7 @@ interface CssExports {
   'content': string;
   'desc': string;
   'disabled': string;
+  'divider': string;
   'picture': string;
   'playIcon': string;
   'root': string;
