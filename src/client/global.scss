@@ -158,7 +158,8 @@ html {
     --gap-2xl: 32px;
     --gap-3xl: 40px;
     --gap-4xl: 48px;
-    --gap-5xl: 72px;
+    --gap-5xl: 64px;
+    --gap-6xl: 72px;
 
     @include media("<desktop-3") {
         --width-base-container-additional: 0px;

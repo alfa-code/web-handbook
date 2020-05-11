@@ -4,6 +4,7 @@ import { Heading } from 'Components/heading';
 import { InfoLabel } from 'Components/info-label';
 
 import jsImage from 'Assets/images/other/java-script.png';
+import htmlCss from 'Assets/images/other/html-css.png';
 
 import { Props } from './props';
 
@@ -30,11 +31,27 @@ const courseListInfo = [
         ),
         type: 'horizontal'
     },
+    {
+        image: htmlCss,
+        header: 'HTML и CSS для начинающих',
+        text: 'Знакомимся с синтаксисом JavaScript, '
+            + 'тренируемся использовать базовые концепции и пишем свои первые программы.',
+        color: 'blue',
+        firstCustomSection: customSection,
+        secondCustomSection: (
+            <CourseProgressBlock percent={100}/>
+        ),
+        type: 'horizontal'
+    },
 ];
 
 export class CoursesProgressBlock extends React.PureComponent<Props> {
-    getCard(item) {
-        return getCardItem(item)
+    getCard(item, index) {
+        return (
+            <div key={index} className={styles.item}>
+                {getCardItem(item)}
+            </div>
+        )
     }
 
     getCardList(items) {
