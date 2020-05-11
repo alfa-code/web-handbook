@@ -11,6 +11,7 @@ interface Props {
     error?: string;
     onBlur?: () => void;
     className?: string;
+    size?: string;
 }
 
 interface State {
@@ -39,6 +40,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
         error,
         touched,
         onBlur,
+        size,
         className
       } = this.props;
 
@@ -47,7 +49,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
       const isError = error && touched;
 
       return (
-        <span className={`${styles.inputSimple} ${className ? className : ''}`}>
+        <span className={`${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}`}>
           <input
             type="text"
             onChange={ this.inputOnChange }

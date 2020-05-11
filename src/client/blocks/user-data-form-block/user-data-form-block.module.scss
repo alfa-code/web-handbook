@@ -1,0 +1,26 @@
+.body {
+    margin-top: var(--gap-4xl);
+}
+
+.input {
+    margin-top: var(--gap-2xl);
+    width: 100%;
+    max-width: 688px;
+}
+
+.submitBlock {
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin-top: 64px;
+
+    .button {
+        margin-right: var(--gap-xl);
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+

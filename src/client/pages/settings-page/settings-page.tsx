@@ -11,6 +11,7 @@ interface Props extends RouteComponentProps { }
 interface State { }
 
 import styles from './settings-page.module.scss';
+import { UserSettingsPage } from 'Src/client/pages/user-settings-page';
 
 export class SettingsPage extends PureComponent<Props, State> {
     render(): ReactNode {
@@ -70,7 +71,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             />
                             <Route
                                 path={ `${matchUrl}/tools` }
-                                component={ SettingsBlock }
+                                component={ UserSettingsPage }
                             />
                             <Route
                                 path={ `${matchUrl}/password` }
