@@ -39,7 +39,8 @@
 }
 
 .heading {
-    margin-bottom: .9em;
+    margin-bottom: var(--gap-m);
+    line-height: 1.25;
 }
 
 .body {
@@ -53,7 +54,7 @@
 .text {
     font-family: Roboto;
     font-size: 16px;
-    line-height: 1.32;
+    line-height: 1.37;
     max-height: 90px;
     overflow: hidden;
 }
@@ -71,18 +72,19 @@
     height: 256px;
 
     & .header {
-        width: 42.74%;
+        width: 42.829%;
         height: auto;
 
         img {
-            max-width: 50%;
+            max-width: 39%;
         }
 
     }
 
     & .body {
-        width: 57.26%;
+        width: 57.131%;
         height: 100%;
+        padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
     }
 }
 

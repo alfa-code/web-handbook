@@ -6,21 +6,18 @@ import { LessonCard } from 'Components/lesson-card';
 
 const items = [
     {
-        key: 1,
         title: 'Знакомство с JavaScript',
         numberOfLesson: 1,
         desc: 'Основы JavaScript',
         timing: '02:00'
     },
     {
-        key: 2,
         title: 'Справочники и спецификации',
         numberOfLesson: 2,
         desc: 'Основы JavaScript',
         timing: '44:00'
     },
     {
-        key: 3,
         title: 'Консоль разработчика',
         numberOfLesson: 4,
         desc: 'Основы JavaScript',
@@ -36,9 +33,10 @@ export class RecentCoursesBlock extends React.PureComponent {
                     <Heading size={ 6 }>Недавно смотрели</Heading>
                 </div>
                 {
-                    items.map(item => {
+                    items.map((item, index) => {
                         return (
                             <LessonCard
+                                key={ index + 1}
                                 { ...item }
                             />
                         )
