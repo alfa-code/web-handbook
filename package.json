@@ -17,8 +17,8 @@
         "build:server:prod": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.prod.js",
         "build:server:dev:watch": "cross-env NODE_ENV=development webpack --watch --config ./configs/webpack.config.server.prod.js",
         "build:all:prod": "cross-env NODE_ENV=production yarn clear && yarn build:client:prod && yarn build:server:prod",
-        "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost/postgres node ./.build/server.js",
-        "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost/postgres nodemon ./.build/server.js --watch ./.build/server.js",
+        "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/server.js",
+        "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon ./.build/server.js --watch ./.build/server.js",
         "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server",
         "deploy": "sh ./deploy/deploy.sh"
     },
