@@ -3,8 +3,10 @@ import classNames from 'classnames';
 
 import { Heading } from 'Components/heading';
 import { Paragraph } from 'Components/paragraph';
+import { limitOfChars } from 'Src/utils/limitOfChars';
 
 import styles from './card.module.scss';
+
 
 interface Props {
     image?: string;
@@ -49,13 +51,15 @@ export class Card extends Component<Props> {
             <div>
               { this.renderCustomSection(firstCustomSection) }
               <Heading size={3} className={styles.heading}>
-                { header }
+                { limitOfChars(header, 70) }
               </Heading>
               <Paragraph className={styles.text}>
-                { text }
+                { limitOfChars(text, 150) }
               </Paragraph>
             </div>
-            { this.renderCustomSection(secondCustomSection) }
+            <div className={styles.customSelection}>
+                { this.renderCustomSection(secondCustomSection) }
+            </div>
           </div>
         </div>
       );

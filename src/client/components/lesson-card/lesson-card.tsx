@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import JSPicture from 'Assets/images/js.svg';
 import TimeIcon from 'Assets/icons/info-icons/clock.svg';
 import PlayIcon from 'Assets/icons/info-icons/play.svg';
+import { limitOfChars } from 'Src/utils/limitOfChars';
 
 import { Props } from './props';
 
@@ -27,10 +28,10 @@ export class LessonCard extends React.PureComponent<Props> {
                     </div>
                     <div className={ styles.body }>
                         <div className={ styles.title }>
-                            { title }
+                            { limitOfChars(title, 47, undefined, false, 4) }
                         </div>
                         <div className={ styles.desc }>
-                            { desc }
+                            { limitOfChars(desc, 260) }
                             <span className={ styles.divider }>&bull;</span>
                             { numberOfLesson } урок
                         </div>

@@ -4,6 +4,7 @@ interface CssExports {
   'blue': string;
   'body': string;
   'card': string;
+  'customSelection': string;
   'disabled': string;
   'green': string;
   'header': string;

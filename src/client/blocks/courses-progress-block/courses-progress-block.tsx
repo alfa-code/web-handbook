@@ -12,7 +12,7 @@ import styles from './courses-progress-block.module.scss';
 import { CourseProgressBlock } from 'Components/course-progress-block';
 
 const customSection = (
-    <div style={{marginBottom: '24px'}}>
+    <div style={{marginBottom: '24px', display: 'inline-flex', flexWrap: 'wrap', marginLeft: '-16px'}}>
         <InfoLabel text="10 видео-уроков" iconType="camera" />
         <InfoLabel text="3 часа" iconType="clock" />
     </div>
@@ -33,9 +33,10 @@ const courseListInfo = [
     },
     {
         image: htmlCss,
-        header: 'HTML и CSS для начинающих',
+        header: 'HTML и CSS для начинающих HTML и CSS для начинающих HTML и CSS для начинающих',
         text: 'Знакомимся с синтаксисом JavaScript, '
-            + 'тренируемся использовать базовые концепции и пишем свои первые программы.',
+            + 'тренируемся использовать базовые концепции и пишем свои первые программы. ' +
+            'Этот текст должен быть обрезан где-то здесь.',
         color: 'blue',
         firstCustomSection: customSection,
         secondCustomSection: (

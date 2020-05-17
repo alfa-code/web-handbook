@@ -66,10 +66,14 @@
     object-fit: contain;
 }
 
+.customSelection {
+    margin-top: var(--gap-m);
+}
+
 .horizontal {
     display: flex;
     max-width: 100%;
-    height: 256px;
+    min-height: 256px;
 
     & .header {
         width: 42.829%;
@@ -83,7 +87,7 @@
 
     & .body {
         width: 57.131%;
-        height: 100%;
+        height: auto;
         padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
     }
 }

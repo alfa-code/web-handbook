@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { limitOfChars } from 'Src/utils/limitOfChars';
 
 import { ItemProps } from './props';
 
@@ -8,7 +9,7 @@ export const StatisticBlockItem = function ({ count, desc }: ItemProps) {
     return (
         <div className={styles.item}>
             <div className={styles.count}>{count}</div>
-            <div className={styles.desc}>{desc}</div>
+            <div className={styles.desc}>{limitOfChars(desc, 70)}</div>
         </div>
     )
 };

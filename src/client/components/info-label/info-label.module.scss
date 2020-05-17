@@ -1,19 +1,16 @@
 .label {
     display: inline-flex;
-    align-items: center;
+    margin-left: var(--gap-m);
+    align-items: flex-start;
 
     img + span {
         margin-left: 10px;
-    }
-
-    & + & {
-        margin-left: 16px;
     }
 }
 
 .icon {
     width: 16px;
-    height: 16px;
+    height: 18px;
 }
 
 .text {

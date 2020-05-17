@@ -184,6 +184,10 @@ html {
     opacity: 0.3;
 }
 
+img {
+    max-width: 100%;
+}
+
 @mixin hoverShadow {
 
     &:hover {
