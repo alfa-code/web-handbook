@@ -1,5 +1,7 @@
 @import "Src/client/breakpoints.scss";
 
+@import "Src/client/global.scss";
+
 .card {
     background: #fff;
     border: 1px solid var(--background-main);
@@ -10,9 +12,7 @@
 
     justify-self: center;
 
-    &:hover {
-        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
-    }
+    @include hoverShadow();
 }
 
 .yellow {
@@ -21,6 +21,10 @@
 
 .blue {
     background-color: var(--background-2);
+}
+
+.green {
+    background-color: var(--background-3);
 }
 
 .header {
@@ -35,21 +39,22 @@
 }
 
 .heading {
-    margin-bottom: .9em;
+    margin-bottom: var(--gap-m);
+    line-height: 1.25;
 }
 
 .body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 24px 32px 24px 24px;
+    padding: var(--gap-xl) var(--gap-2xl) var(--gap-xl) var(--gap-xl);
     height: 292px;
 }
 
 .text {
     font-family: Roboto;
     font-size: 16px;
-    line-height: 1.32;
+    line-height: 1.37;
     max-height: 90px;
     overflow: hidden;
 }
@@ -60,3 +65,31 @@
     height: 100%;
     object-fit: contain;
 }
+
+.customSelection {
+    margin-top: var(--gap-m);
+}
+
+.horizontal {
+    display: flex;
+    max-width: 100%;
+    min-height: 256px;
+
+    & .header {
+        width: 42.829%;
+        height: auto;
+
+        img {
+            max-width: 39%;
+        }
+
+    }
+
+    & .body {
+        width: 57.131%;
+        height: auto;
+        padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
+    }
+}
+
+.default {}

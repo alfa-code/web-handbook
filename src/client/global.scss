@@ -86,18 +86,21 @@ html {
     --text-paragraphs: #546271;
     --text-secondary: #6d7986;
     --text-tetriary: #b5bbc2;
+    --text-green: #13A463;
     --text-inverse: #ffffff;
 
     --brand-red: #ef3124;
     --brand-primary: #172a3f;
     --brand-secondary: #858f9a;
     --brand-gray: #b6bcc3;
+    --brand-black: #0b1f35;
 
     --background-main: #f3f4f5;
     --background-light: #f9fafa;
     --background-1: #fef9d2;
     --background-2: #dae6ff;
     --background-3: #d6f5f2;
+    --background-green: #13A463;
 
     --illustrations-blue: #4480ff;
     --illustration-yellow: #ffb96f;
@@ -118,7 +121,7 @@ html {
     --text-heading-3: 30px;
     --text-heading-4: 22px;
     --text-heading-5: 16px;
-    --text-heading-6: 12px;
+    --text-heading-6: 16px;
 
     @include media("<desktop-3") {
         --text-heading-1: 40px;
@@ -126,7 +129,7 @@ html {
         --text-heading-3: 22px;
         --text-heading-4: 16px;
         --text-heading-5: 12px;
-        --text-heading-6: 10px;
+        --text-heading-6: 16px;
     }
 
     /* Sizes */
@@ -155,7 +158,8 @@ html {
     --gap-2xl: 32px;
     --gap-3xl: 40px;
     --gap-4xl: 48px;
-    --gap-5xl: 72px;
+    --gap-5xl: 64px;
+    --gap-6xl: 72px;
 
     @include media("<desktop-3") {
         --width-base-container-additional: 0px;
@@ -168,6 +172,8 @@ html {
     @include media("<=desktop-1") {
         --width-base-container: 100%;
     }
+
+    --main-border: 1px solid var(--background-main);
 }
 
 .disabled {
@@ -176,4 +182,16 @@ html {
     touch-action: none;
     filter: grayscale(100%);
     opacity: 0.3;
+}
+
+img {
+    max-width: 100%;
+}
+
+@mixin hoverShadow {
+
+    &:hover {
+        transition: box-shadow .25s;
+        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
+    }
 }

@@ -13,7 +13,7 @@ interface Props {
 }
 
 export class InfoLabel extends React.Component<Props> {
-    getIcon = () => {
+    getIcon() {
       const { iconType } = this.props;
 
       switch (iconType) {
@@ -38,7 +38,7 @@ export class InfoLabel extends React.Component<Props> {
             alt="Иконка лейбла"
             className={styles.icon}
           />
-          <span>
+          <span className={styles.text}>
             { text }
           </span>
         </div>

@@ -1,0 +1,38 @@
+.root {
+    background-color: var(--background-light);
+    padding: var(--gap-2xl) var(--gap-2);
+    text-align: center;
+}
+
+.body {
+    width: 808px;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.item {
+    width: 40.594%;
+    text-align: left;
+    min-width: 328px;
+    margin-right: var(--gap-2);
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.count {
+    font-family: "Rubik";
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+.desc {
+    margin-top: var(--gap-xs);
+    color: var(--text-paragraphs);
+    font-size: 18px;
+    line-height: 1.38;
+}

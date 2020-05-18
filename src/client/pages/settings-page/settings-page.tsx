@@ -12,6 +12,7 @@ interface State { }
 
 import styles from './settings-page.module.scss';
 import { UserSettingsPage } from 'Src/client/pages/user-settings-page';
+import { CabinetPage } from 'Src/client/pages/cabinet-page';
 
 export class SettingsPage extends PureComponent<Props, State> {
     render(): ReactNode {
@@ -67,7 +68,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             </Route>
                             <Route
                                 path={ `${matchUrl}/cabinet` }
-                                component={ SettingsBlock }
+                                component={ CabinetPage }
                             />
                             <Route
                                 path={ `${matchUrl}/tools` }

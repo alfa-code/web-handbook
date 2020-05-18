@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { Definition } from 'Src/client/components/definition';
 import { Grid } from 'Src/client/components/grid';
-import { Card } from 'Src/client/components/card';
 import { InfoLabel } from 'Src/client/components/info-label';
 import { UserLabel } from 'Src/client/components/user-label';
 
@@ -10,6 +9,7 @@ import htmlCssImage from 'Assets/images/other/html-css.png';
 import jsImage from 'Assets/images/other/java-script.png';
 
 import styles from './our-curses-block.module.scss';
+import { getCardItem } from 'Components/card/card';
 
 const customSection = (
   <div className={styles.firstCustomSection}>
@@ -63,19 +63,9 @@ const data = [
 ];
 
 export class OurCursesBlock extends Component {
-    getCard = (item) => (
-      <Card
-        image={item.image}
-        key={item.header}
-        header={item.header}
-        text={item.text}
-        color={item.color}
-        firstCustomSection={item.firstCustomSection}
-        secondCustomSection={item.secondCustomSection}
-      />
-    )
+    getCard = getCardItem;
 
-    renderCards = (cardsArray) => cardsArray.map(this.getCard)
+    renderCards = (cardsArray) => cardsArray.map(this.getCard);
 
     render() {
       return (
