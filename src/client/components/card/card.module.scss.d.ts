@@ -4,8 +4,12 @@ interface CssExports {
   'blue': string;
   'body': string;
   'card': string;
+  'customSelection': string;
+  'disabled': string;
+  'green': string;
   'header': string;
   'heading': string;
+  'horizontal': string;
   'image': string;
   'text': string;
   'yellow': string;

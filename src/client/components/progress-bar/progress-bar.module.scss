@@ -1,0 +1,18 @@
+.container {
+    width: 100%;
+    background: var(--background-main);
+    border-radius: 4px;
+    height: 8px;
+    margin-top: var(--gap-m);
+    margin-bottom: 1px;
+    position: relative;
+}
+
+.bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--background-green);
+}
