@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 import { ToastContainer } from 'react-toastify';
 
 import { MainPage } from 'Src/client/pages/main-page';
-import { LoginPage } from 'Src/client/pages/login-page';
+import { AuthPage } from 'Src/client/pages/auth-page';
 import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
@@ -42,7 +42,24 @@ export default class App extends React.Component {
             <Provider store={ store }>
                 <Switch>
                     <Route exact path='/' component={ MainPage } />
-                    <Route exact path='/auth' component={ LoginPage } />
+                    <Route
+                        exact
+                        path='/auth'
+                        render={() => {
+                            return (
+                                <AuthPage mode="login"/>
+                            );
+                        }}
+                    />
+                    <Route
+                        exact
+                        path='/registration'
+                        render={() => {
+                            return (
+                                <AuthPage mode="registration"/>
+                            );
+                        }}
+                    />
                     <Route path='/profile' component={ SettingsPage } />
                     <Route exact path='/postgre' component={ PostgrePanel } />
                     <Route path='*' component={ NotFoundPage } />

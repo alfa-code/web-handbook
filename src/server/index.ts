@@ -83,7 +83,7 @@ const init = async (): Promise<any> => {
 
                 if (result.rowCount === 0) {
                     const addUserSQL =
-                        `INSERT INTO accounts(username, password, rights) VALUES (${login}, ${password}, 'user');`;
+                        `INSERT INTO accounts(username, password, rights) VALUES ('${login}', '${password}', 'user');`;
 
                     await request.pg.client.query(addUserSQL);
 
