@@ -1,9 +1,15 @@
 import React from 'react';
 
+import AvatarExample from 'Assets/images/other/avatar-example.png';
+
 import { Props } from './props';
 
-export const Avatar = ({ src }: Props): JSX.Element => {
+import styles from './avatar.module.scss';
+
+export const Avatar = ({ src = AvatarExample }: Props): JSX.Element => {
     return (
-        <img src={src} alt={'Avatar'}/>
+        <div className={styles.container}>
+            <img src={src} alt={'Avatar'}/>
+        </div>
     );
 };

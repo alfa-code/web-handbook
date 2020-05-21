@@ -1,12 +1,19 @@
+@import "Src/client/breakpoints.scss";
+
 .body {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    margin-top: var(--gap-2xl);
 }
 
 .avatar {
     width: 19.847%;
-    height: 208px;
+    height: auto;
+
+    @include media("<desktop-1") {
+        width: 170px;
+    }
 }
 
 .buttonBlock {
@@ -14,6 +21,10 @@
     align-items: center;
     justify-content: flex-start;
     margin-left: var(--gap-xl);
+
+    @include media("<desktop-1") {
+        display: block;
+    }
 }
 
 .button {
@@ -21,5 +32,14 @@
 
     &:last-child {
         margin-right: 0;
+    }
+
+    @include media("<desktop-1") {
+        margin-right: 0;
+        margin-bottom: var(--gap-m);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 }

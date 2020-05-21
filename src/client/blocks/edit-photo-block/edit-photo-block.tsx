@@ -3,6 +3,7 @@ import { Button } from 'Components/button';
 
 import styles from './edit-photo-block.module.scss';
 import { Heading } from 'Components/heading';
+import { Avatar } from 'Components/avatar';
 
 class EditPhotoBlock extends React.PureComponent {
     render(): ReactNode {
@@ -11,7 +12,7 @@ class EditPhotoBlock extends React.PureComponent {
                 <Heading size={6}>Редактировать фотографию</Heading>
                 <div className={styles.body}>
                     <div className={styles.avatar}>
-                        <img src={null}/>
+                        <Avatar />
                     </div>
                     <div className={styles.buttonBlock}>
                         <Button className={styles.button} viewType='primary'>Выбрать фотографию</Button>
