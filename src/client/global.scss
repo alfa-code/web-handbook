@@ -166,7 +166,7 @@ html {
     }
 
     @include media(">desktop-1", "<desktop-3") {
-        --width-base-container: 1408px;
+        --width-base-container: 1280px;
     }
 
     @include media("<=desktop-1") {
