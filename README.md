@@ -54,3 +54,9 @@ DATABASE_URL - адрес базы данных postgresql (сборка | ст�
 ### Репозиторий для практики
 
 <https://github.com/nar3k/yc-public-tasks/>
+
+### Проверка собранного docker image
+
+```
+docker run  -it -e JWT_SECRET_KEY=secret -e DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres --network host --name app cr.yandex/[REGISTRY]/platform:[TAG]
+```
