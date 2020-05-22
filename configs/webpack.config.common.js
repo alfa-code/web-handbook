@@ -13,6 +13,7 @@ module.exports = {
             Fonts: path.join(rootPath, './src/assets/fonts/'),
             Blocks: path.join(rootPath, './src/client/blocks/'),
             Forms: path.join(rootPath, './src/client/forms/'),
+            Pages: path.join(rootPath, './src/client/pages/'),
         }
     }
-}
+};

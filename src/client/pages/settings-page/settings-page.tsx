@@ -5,14 +5,16 @@ import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 
-import { SettingsBlock } from 'Blocks/settings-block';
+import { ChangePasswordPage } from 'Pages/change-password-page';
+import { UserSettingsPage } from 'Pages/user-settings-page';
+import { CabinetPage } from 'Pages/cabinet-page';
 
 interface Props extends RouteComponentProps { }
 interface State { }
 
 import styles from './settings-page.module.scss';
-import { UserSettingsPage } from 'Src/client/pages/user-settings-page';
-import { CabinetPage } from 'Src/client/pages/cabinet-page';
+
+
 
 export class SettingsPage extends PureComponent<Props, State> {
     render(): ReactNode {
@@ -76,7 +78,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             />
                             <Route
                                 path={ `${matchUrl}/password` }
-                                component={ SettingsBlock }
+                                component={ ChangePasswordPage }
 
                             />
                             {/* TODO: включить после доработки */}

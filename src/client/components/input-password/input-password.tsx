@@ -14,6 +14,8 @@ interface Props {
     error?: string;
     onBlur?: () => void;
     className?: string;
+    size?: string;
+    name?: string;
 }
 interface State {
     value: string;
@@ -34,7 +36,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
         const { value } = e.target;
         if (onChange) { onChange(value) }
         this.setState({ value });
-    }
+    };
 
     handleShowPassword = () => {
         const { isHide } = this.state;
@@ -42,7 +44,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
         this.setState({
             isHide: !isHide
         });
-    }
+    };
 
     render(): ReactNode {
         const {
@@ -51,7 +53,9 @@ export class InputPassword extends React.PureComponent<Props, State> {
             error,
             touched,
             onBlur,
-            className
+            className,
+            size,
+            name,
         } = this.props;
 
         const { value, isHide } = this.state;
@@ -59,9 +63,10 @@ export class InputPassword extends React.PureComponent<Props, State> {
         const isError = error && touched;
 
         return (
-            <span className={ `${styles.inputSimple} ${className ? className : ''}` }>
+            <span className={ `${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}` }>
                 <input
                     type={ isHide ? 'password' : 'text' }
+                    name={ name }
                     onChange={ this.inputOnChange }
                     value={ propsValue || value }
                     className={ `${styles.input} ${isError ? styles.inputError : ''}` }

@@ -8,7 +8,7 @@
         "config",
         ".build",
         "deploy",
-        "tls",
+        "tls"
     ],
     "compilerOptions": {
         "outDir": "./build/",
@@ -29,7 +29,8 @@
             "Assets/*": ["src/assets/*"],
             "Fonts/*": ["src/assets/fonts/*"],
             "Blocks/*": ["src/client/blocks/*"],
-            "Forms/*": ["src/client/forms/*"]
+            "Forms/*": ["src/client/forms/*"],
+            "Pages/*": ["src/client/pages/*"]
         }
     },
     "files": [
