@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 
 import { Avatar } from 'Components/avatar';
-import AvatarExample from 'Assets/images/other/avatar-example.png';
 
 import { Props } from './props';
 
@@ -14,7 +13,7 @@ export class UserInfoBlock extends React.PureComponent<Props> {
         return (
             <div className={styles.root}>
                 <div className={styles.avatar}>
-                    <Avatar src={AvatarExample}/>
+                    <Avatar />
                 </div>
                 <div className={styles.body}>
                     <div className={styles.header}>

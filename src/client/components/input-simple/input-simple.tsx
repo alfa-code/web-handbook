@@ -11,6 +11,8 @@ interface Props {
     error?: string;
     onBlur?: () => void;
     className?: string;
+    name?: string;
+    size?: string;
 }
 
 interface State {
@@ -18,48 +20,55 @@ interface State {
 }
 
 export class InputSimple extends React.PureComponent<Props, State> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: props.value || '',
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: props.value || ''
+        };
+    }
 
     inputOnChange = (e) => {
         const { onChange } = this.props;
         const { value } = e.target;
-        if (onChange) { onChange(value) }
+
+        if (onChange) {
+            onChange(value, e)
+        }
+
         this.setState({ value });
-    }
+    };
 
     render(): ReactNode {
-      const {
-        placeholder,
-        value: propsValue,
-        error,
-        touched,
-        onBlur,
-        className
-      } = this.props;
+        const {
+            placeholder,
+            value: propsValue,
+            error,
+            touched,
+            onBlur,
+            size,
+            name,
+            className
+        } = this.props;
 
-      const { value } = this.state;
+        const { value } = this.state;
 
-      const isError = error && touched;
+        const isError = error && touched;
 
-      return (
-        <span className={`${styles.inputSimple} ${className ? className : ''}`}>
-          <input
-            type="text"
-            onChange={ this.inputOnChange }
-            onBlur={ onBlur }
-            value={ propsValue || value }
-            className={`${styles.input} ${isError ? styles.inputError : ''}`}
-          />
-          <span className={`${styles.label} ${(value ? styles.labelFilled : '')}`}>
-            { placeholder }
-          </span>
-          {isError && <span className={ styles.inputErrorLabel }>{error}</span>}
+        return (
+            <span className={ `${ styles.inputSimple } ${ className ? className : '' } ${ styles[`${ size }Width`] }` }>
+                <input
+                    type="text"
+                    onChange={ this.inputOnChange }
+                    onBlur={ onBlur }
+                    name={ name }
+                    value={ propsValue || value }
+                    className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
+                />
+                <span className={ `${ styles.label } ${ (value ? styles.labelFilled : '') }` }>
+                  { placeholder }
+                </span>
+                { isError && <span className={ styles.inputErrorLabel }>{ error }</span> }
         </span>
-      );
+        );
     }
 }
