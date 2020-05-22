@@ -8,7 +8,7 @@ import { PageContainer } from 'Components/page-container';
 import { ChangePasswordPage } from 'Pages/change-password-page';
 import { UserSettingsPage } from 'Pages/user-settings-page';
 import { CabinetPage } from 'Pages/cabinet-page';
-// import { SettingsBlock } from 'Blocks/settings-block';
+import { ChangeEmailPage } from 'Pages/change-email-page';
 
 interface Props extends RouteComponentProps { }
 interface State { }
@@ -51,8 +51,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                                     Сменить пароль
                                 </NavLink>
                             </li>
-                            {/* TODO: включить после доработки */}
-                            {/* <li>
+                            <li>
                                 <NavLink
                                     to='/profile/email'
                                     className={ styles.menuLink }
@@ -60,7 +59,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 >
                                     Сменить email
                                 </NavLink>
-                            </li> */}
+                            </li>
                         </ul>
                         <div>
                         <Switch>
@@ -80,11 +79,10 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 component={ ChangePasswordPage }
 
                             />
-                            {/* TODO: включить после доработки */}
-                            {/* <Route
+                            <Route
                                 path={ `${matchUrl}/email` }
-                                component={ SettingsBlock }
-                            /> */}
+                                component={ ChangeEmailPage }
+                            />
                         </Switch>
                         </div>
                     </div>
