@@ -12,7 +12,7 @@
     display: flex;
     align-content: flex-start;
     justify-content: flex-start;
-    margin-top: 64px;
+    margin-top: var(--gap-5xl);
 
     .button {
         margin-right: var(--gap-xl);
