@@ -8,6 +8,7 @@ import { PageContainer } from 'Components/page-container';
 import { ChangePasswordPage } from 'Pages/change-password-page';
 import { UserSettingsPage } from 'Pages/user-settings-page';
 import { CabinetPage } from 'Pages/cabinet-page';
+// import { SettingsBlock } from 'Blocks/settings-block';
 
 interface Props extends RouteComponentProps { }
 interface State { }
