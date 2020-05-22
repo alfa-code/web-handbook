@@ -3,6 +3,7 @@
 interface CssExports {
   'body': string;
   'button': string;
+  'content': string;
   'input': string;
   'submitBlock': string;
 }
