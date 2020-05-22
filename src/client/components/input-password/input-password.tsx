@@ -17,6 +17,7 @@ interface Props {
     size?: string;
     name?: string;
 }
+
 interface State {
     value: string;
     isHide: boolean;
@@ -34,7 +35,10 @@ export class InputPassword extends React.PureComponent<Props, State> {
     inputOnChange = (e) => {
         const { onChange } = this.props;
         const { value } = e.target;
-        if (onChange) { onChange(value) }
+
+        if (onChange) {
+            onChange(value, e)
+        }
         this.setState({ value });
     };
 
@@ -55,7 +59,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
             onBlur,
             className,
             size,
-            name,
+            name
         } = this.props;
 
         const { value, isHide } = this.state;
@@ -63,16 +67,16 @@ export class InputPassword extends React.PureComponent<Props, State> {
         const isError = error && touched;
 
         return (
-            <span className={ `${styles.inputSimple} ${className ? className : ''} ${styles[`${size}Width`]}` }>
+            <span className={ `${ styles.inputSimple } ${ className ? className : '' } ${ styles[`${ size }Width`] }` }>
                 <input
                     type={ isHide ? 'password' : 'text' }
                     name={ name }
                     onChange={ this.inputOnChange }
                     value={ propsValue || value }
-                    className={ `${styles.input} ${isError ? styles.inputError : ''}` }
+                    className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
                     onBlur={ onBlur }
                 />
-                <span className={ `${styles.label} ${(value ? styles.labelFilled : '')}` }>
+                <span className={ `${ styles.label } ${ (value ? styles.labelFilled : '') }` }>
                     { placeholder }
                 </span>
                 <button
@@ -85,7 +89,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
                         alt='иконка статуса пароля (скрыт или показан)'
                     />
                 </button>
-                {isError && <span className={ styles.inputErrorLabel }>{error}</span>}
+                { isError && <span className={ styles.inputErrorLabel }>{ error }</span> }
             </span>
         );
     }
