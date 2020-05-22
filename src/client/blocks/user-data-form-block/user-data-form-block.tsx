@@ -11,8 +11,8 @@ export class UserDataFormBlock extends React.PureComponent {
             <React.Fragment>
                 <Heading size={6}>Редактировать данные</Heading>
                 <div className={styles.body}>
-                    <InputSimple className={styles.input} placeholder='Имя' size='full'/>
-                    <InputSimple className={styles.input} placeholder='Фамилия' size='full'/>
+                    <InputSimple className={styles.input} name='name' placeholder='Имя' size='full'/>
+                    <InputSimple className={styles.input} name='surname' placeholder='Фамилия' size='full'/>
                 </div>
                 <div className={styles.submitBlock}>
                     <Button className={styles.button} viewType='primary'>Сохранить</Button>
