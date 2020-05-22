@@ -4,6 +4,8 @@ import { InputSimple } from 'Components/input-simple';
 import { ProfileForm, FormBody, SubmitBlock } from 'Components/style-wrappers/profile';
 import { Button } from 'Components/button';
 
+import styles from './user-data-form-block.module.scss';
+
 export class UserDataFormBlock extends React.PureComponent {
     render(): ReactNode {
         return (
@@ -14,7 +16,7 @@ export class UserDataFormBlock extends React.PureComponent {
                         <InputSimple className='form-body-input' name='name' placeholder='Имя' size='full'/>
                         <InputSimple className='form-body-input' name='surname' placeholder='Фамилия' size='full'/>
                     </FormBody>
-                    <SubmitBlock>
+                    <SubmitBlock className={styles.submitBlock}>
                         <Button viewType='primary'>Сохранить</Button>
                         <Button viewType='secondary'>Удалить аккаунт</Button>
                     </SubmitBlock>
