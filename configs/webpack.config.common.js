@@ -14,6 +14,10 @@ module.exports = {
             Blocks: path.join(rootPath, './src/client/blocks/'),
             Forms: path.join(rootPath, './src/client/forms/'),
             Pages: path.join(rootPath, './src/client/pages/'),
+            Actions: path.join(rootPath, './src/actions/'),
+            Reducers: path.join(rootPath, './src/reducers/'),
+            Selectors: path.join(rootPath, './src/selectors/'),
+            Types: path.join(rootPath, './src/types/'),
         }
     }
 };

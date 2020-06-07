@@ -13,6 +13,7 @@ interface Props {
     touched?: boolean;
     error?: string;
     onBlur?: () => void;
+    onFocus?: () => void;
     className?: string;
     size?: string;
     name?: string;
@@ -59,7 +60,8 @@ export class InputPassword extends React.PureComponent<Props, State> {
             onBlur,
             className,
             size,
-            name
+            name,
+            onFocus,
         } = this.props;
 
         const { value, isHide } = this.state;
@@ -75,6 +77,7 @@ export class InputPassword extends React.PureComponent<Props, State> {
                     value={ propsValue || value }
                     className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
                     onBlur={ onBlur }
+                    onFocus={ onFocus }
                 />
                 <span className={ `${ styles.label } ${ (value ? styles.labelFilled : '') }` }>
                     { placeholder }

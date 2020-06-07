@@ -48,6 +48,11 @@ export function getContent(request: any): string {
                     auth: {
                         isAuthenticated,
                         ...userTokenInfo
+                    },
+                    UI: {
+                        changePassword: {
+                            hintVisible: false
+                        }
                     }
                 }
             }

@@ -16,7 +16,10 @@ module.exports = {
     stats: {
         outputPath: true
     },
-    entry: './src/server/index.ts',
+    entry: {
+        server: './src/server/index.ts',
+        migrations: './src/server/migrations/setDB.ts'
+    },
     module: {
         rules: [
             {
@@ -86,7 +89,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: 'server.js',
+        filename: '[name].js',
         path: buildPath,
         publicPath: '/assets/'
     },

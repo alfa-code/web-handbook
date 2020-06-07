@@ -30,7 +30,11 @@
             "Fonts/*": ["src/assets/fonts/*"],
             "Blocks/*": ["src/client/blocks/*"],
             "Forms/*": ["src/client/forms/*"],
-            "Pages/*": ["src/client/pages/*"]
+            "Pages/*": ["src/client/pages/*"],
+            "Actions/*": ["src/actions/*"],
+            "Reducers/*": ["src/reducers/*"],
+            "Selectors/*": ["src/selectors/*"],
+            "Types/*": ["src/types/*"]
         }
     },
     "files": [

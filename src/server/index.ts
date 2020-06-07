@@ -7,6 +7,8 @@ import HapiPostgresConnection from 'hapi-postgres-connection';
 
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
+import { SequelizeConnectPlugin } from 'Src/server/plugins/sequelize-connect';
+import { getUserModel } from 'Src/server/models/User';
 
 // jwt info
 const algorithm = 'HS256';
@@ -61,6 +63,13 @@ const init = async (): Promise<any> => {
         }
     });
     server.auth.default('jwt');
+
+    await server.register({
+        plugin: SequelizeConnectPlugin,
+        options: {
+            models: [ getUserModel ]
+        }
+    })
 
     const plugins = getServerPlugins();
     await server.register(plugins);

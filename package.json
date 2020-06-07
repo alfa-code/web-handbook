@@ -20,6 +20,7 @@
         "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/server.js",
         "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon ./.build/server.js --watch ./.build/server.js",
         "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server",
+        "db:mirgate": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.prod.js && cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/migrations.js",
         "deploy": "sh ./deploy/deploy.sh"
     },
     "repository": {
@@ -86,6 +87,7 @@
         "@hapi/inert": "^5.2.2",
         "@types/react": "^16.9.5",
         "add": "^2.0.6",
+        "axios": "^0.19.2",
         "bcryptjs": "^2.4.3",
         "classnames": "^2.2.6",
         "eslint-plugin-react-hooks": "^2.3.0",
@@ -99,6 +101,7 @@
         "lodash": "^4.17.15",
         "normalize.css": "^8.0.1",
         "pg": "^8.0.3",
+        "pg-hstore": "^2.3.3",
         "react": "^16.10.2",
         "react-dom": "^16.10.2",
         "react-final-form": "^6.3.5",
@@ -106,10 +109,12 @@
         "react-router-dom": "^5.1.2",
         "react-toastify": "^5.5.0",
         "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "redux-logger": "^3.0.6",
+        "redux-saga": "^1.1.3",
+        "sequelize": "^5.21.11",
         "uuid": "^3.3.3",
         "webpack-node-externals": "^1.7.2",
-        "yarn": "^1.21.1",
-        "redux-logger": "^3.0.6",
-        "redux-devtools-extension": "^2.13.8"
+        "yarn": "^1.21.1"
     }
 }

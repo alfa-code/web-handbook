@@ -7,6 +7,7 @@ import { settingsSubpageRoutePlugin } from 'Src/server/plugins/routes/settings-s
 import { postgreRoutePlugin } from 'Src/server/plugins/routes/postgre-route';
 import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
+import { changePasswordPlugin } from 'Src/server/plugins/change-password';
 
 export function getServerPlugins() {
     const plugins = [];
@@ -67,6 +68,13 @@ export function getServerPlugins() {
         plugin: assetsRoutePlugin,
         options: {
             auth: false,
+        }
+    })
+
+    plugins.push({
+        plugin: changePasswordPlugin,
+        options: {
+            auth: 'jwt',
         }
     })
 
