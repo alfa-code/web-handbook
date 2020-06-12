@@ -9,25 +9,25 @@ interface State { }
 export class HeaderNavigation extends PureComponent<Props, State> {
     render(): ReactNode {
         return (
-            <nav className={ `${styles.headerNavigation} disabled` }>
+            <nav className={ `${styles.headerNavigation}` }>
                 <ul>
                     <li>
-                        <Link to='/'>
+                        <Link to='/' className='disabled'>
                             Курсы
                         </Link>
                     </li>
                     <li>
-                        <Link to='/'>
+                        <Link to='/blog'>
                             Блог
                         </Link>
                     </li>
                     <li>
-                        <Link to='/'>
+                        <Link to='/' className='disabled'>
                             Html справочник
                         </Link>
                     </li>
                     <li>
-                        <Link to='/'>
+                        <Link to='/' className='disabled'>
                             О нас
                         </Link>
                     </li>

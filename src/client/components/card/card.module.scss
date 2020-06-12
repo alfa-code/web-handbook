@@ -59,11 +59,22 @@
     overflow: hidden;
 }
 
+@keyframes appearance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 .image {
     color: inherit;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    opacity: 0;
+    animation: appearance 1s forwards;
 }
 
 .customSelection {
@@ -90,6 +101,10 @@
         height: auto;
         padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
     }
+}
+
+.link {
+    text-decoration: none;
 }
 
 .default {}

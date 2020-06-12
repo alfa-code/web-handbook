@@ -8,7 +8,40 @@ import mainImage from 'Assets/images/main-illustration.svg';
 
 import styles from './main-screen-block-style.module.scss';
 
-export class MainScreenBlock extends React.PureComponent {
+type Props = {
+    isAuthenticated: boolean;
+}
+
+export class MainScreenBlock extends React.PureComponent<Props> {
+    renderUnauthContent = () => {
+        const { isAuthenticated } = this.props;
+
+        if (isAuthenticated) {
+            return null;
+        }
+
+        return (
+            <div>
+                <p className={styles.subheader}>
+                    Получите доступ к грамотной и структурированной информации для обучения.
+                </p>
+                <SubscribeForm />
+                <div className={styles.subtextContainer}>
+                    <span className={styles.subtext}>
+                        Уже пользуетесь Alfa Code?
+                    </span>
+                    {' '}
+                    <Link
+                        to='/auth'
+                        className={styles.link}
+                    >
+                        Войдите
+                    </Link>
+                </div>
+            </div>
+        )
+    }
+
     render(): ReactNode {
         return (
             <div className={styles.mainScreenBlock}>
@@ -20,24 +53,7 @@ export class MainScreenBlock extends React.PureComponent {
                         <br />
                         <span> IT специалистов</span>
                     </Heading>
-                    <div>
-                        <p className={styles.subheader}>
-                            Получите доступ к грамотной и структурированной информации для обучения.
-                        </p>
-                        <SubscribeForm />
-                        <div className={styles.subtextContainer}>
-                            <span className={styles.subtext}>
-                                Уже пользуетесь Alfa Code?
-                            </span>
-                            {' '}
-                            <Link
-                                to='/auth'
-                                className={styles.link}
-                            >
-                                Войдите
-                            </Link>
-                        </div>
-                    </div>
+                    { this.renderUnauthContent() }
                 </div>
                 <img
                     src={mainImage}

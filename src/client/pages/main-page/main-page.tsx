@@ -6,7 +6,7 @@ import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 
-import { MainScreenBlock } from 'Src/client/blocks/main-screen-block';
+import { MainScreenBlockContainer } from 'Src/client/containers/main-screen-block-container';
 import { MainPlusesBlock } from 'Src/client/blocks/main-pluses-block';
 import { MainSecondPlusesBlock } from 'Src/client/blocks/main-second-pluses';
 import { BannerBlock } from 'Src/client/blocks/banner-block';
@@ -28,7 +28,7 @@ export class MainPage extends PureComponent<Props, State> {
         return (
             <PageFrame>
                 <PageContainer paddingsOnPhone={ true }>
-                    <MainScreenBlock />
+                    <MainScreenBlockContainer />
                 </PageContainer>
                 <PageContainer paddingsOnPhone={ true }>
                     <MainPlusesBlock />

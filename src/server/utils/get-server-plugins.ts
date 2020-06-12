@@ -5,9 +5,11 @@ import { anyRoutePlugin } from 'Src/server/plugins/routes/any-route';
 import { authRoutePlugin } from 'Src/server/plugins/routes/auth-route';
 import { settingsSubpageRoutePlugin } from 'Src/server/plugins/routes/settings-subpage-route';
 import { postgreRoutePlugin } from 'Src/server/plugins/routes/postgre-route';
+import { blogRoutePlugin } from 'Src/server/plugins/routes/blog-route';
 import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
 import { changePasswordPlugin } from 'Src/server/plugins/change-password';
+import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
 
 export function getServerPlugins() {
     const plugins = [];
@@ -54,9 +56,16 @@ export function getServerPlugins() {
     });
 
     plugins.push({
+        plugin: blogRoutePlugin,
+        options: {
+            auth: false
+        }
+    });
+
+    plugins.push({
         plugin: logoutPlugin,
         options: {
-            auth: false,
+            auth: false
         }
     });
 
@@ -75,6 +84,13 @@ export function getServerPlugins() {
         plugin: changePasswordPlugin,
         options: {
             auth: 'jwt',
+        }
+    })
+
+    plugins.push({
+        plugin: getAllBlogPostsPlugin,
+        options: {
+            auth: false,
         }
     })
 

@@ -15,7 +15,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     rules: {
         'import/extensions': 'off',
-        'max-len': [1, 120, 4],
+        'max-len': [1, 200, 4],
         'import/no-unresolved': 'off', // ?
         'import/prefer-default-export': 'off', // ?
         'react/prefer-stateless-function': 'off', // ?
@@ -37,7 +37,8 @@ module.exports = {
         '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-ts-ignore': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off'
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/camelcase': 'off'
     },
     env: {
         browser: true,

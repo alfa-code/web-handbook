@@ -10,6 +10,8 @@ import { AuthPage } from 'Src/client/pages/auth-page';
 import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
+import { BlogListPage } from 'Src/client/pages/blog-list-page';
+import { BlogArticlePage } from 'Src/client/pages/blog-article-page';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga'
@@ -68,6 +70,8 @@ export default class App extends React.Component {
                     />
                     <Route path='/profile' component={ SettingsPage } />
                     <Route exact path='/postgre' component={ PostgrePanel } />
+                    <Route exact path='/blog' component={ BlogListPage } />
+                    <Route exact path='/blog/article/:id' component={ BlogArticlePage } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
                 <ToastContainer />

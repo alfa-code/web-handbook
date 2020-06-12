@@ -21,6 +21,9 @@ interface Props {
     paragraphClassName?: string;
 }
 
+/**
+ * Компонент используется как заголовок для подразделов главной страницы
+ */
 export class Definition extends Component<Props> {
   render() {
     const {
