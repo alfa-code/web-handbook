@@ -64,10 +64,12 @@ export class InputSimple extends React.PureComponent<Props, State> {
                     value={ propsValue || value }
                     className={ `${ styles.input } ${ isError ? styles.inputError : '' }` }
                 />
-                <span className={ `${ styles.label } ${ (value ? styles.labelFilled : '') }` }>
-                  { placeholder }
+                <span className={ `${ styles.label } ${ propsValue ? styles.labelFilled : '' }` }>
+                    { placeholder }
                 </span>
-                { isError && <span className={ styles.inputErrorLabel }>{ error }</span> }
+                { isError && <span className={ styles.inputErrorLabel }>
+                    { error }
+                </span> }
         </span>
         );
     }

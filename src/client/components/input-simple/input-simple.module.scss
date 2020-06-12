@@ -43,12 +43,17 @@
     pointer-events: none;
     color: var(--text-paragraphs);
 
-    .input:focus + &,
-    &Filled {
+    .input:focus + & {
         font-size: .8em;
         color: var(--text-tetriary);
         top: 0%;
     }
+}
+
+.labelFilled {
+    font-size: .8em;
+    color: var(--text-tetriary);
+    top: 0%;
 }
 
 .inputErrorLabel {

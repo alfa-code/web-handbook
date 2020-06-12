@@ -2,6 +2,7 @@ import React, { PureComponent, ReactElement } from 'react';
 import Cookies from 'js-cookie';
 import { Form, Field } from 'react-final-form';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 import { COOKIES_NAMES } from 'Constants/cookies-names';
 
@@ -69,6 +70,10 @@ interface Props {
 }
 
 export class AuthPage extends PureComponent<Props> {
+    state = {
+        login: ''
+    }
+
     onSubmit = async (values: FormValues): Promise<void> => {
         const { mode } = this.props;
         const request = mode === 'registration' ? registrationRequest : logInRequest;
@@ -88,6 +93,33 @@ export class AuthPage extends PureComponent<Props> {
         return errors;
     }
 
+    renderBottomLink = () => {
+        const { mode } = this.props;
+        const isRegistration = mode === 'registration';
+        const labelText = isRegistration ? 'Уже есть аккаунт?' : 'Еще нет аккаунта?';
+        const linkText = isRegistration ? 'Войдите' : 'Зарегистрироваться';
+        const linkTo = isRegistration ? '/auth' : '/registration';
+
+        return (
+            <div className={ styles.bottomLink }>
+                <span>
+                    { labelText }
+                </span>
+                <Link
+                    to={ linkTo }
+                >
+                    { linkText }
+                </Link>
+            </div>
+        );
+    }
+
+    componentDidMount = () => {
+        this.setState({
+            login: Cookies.get(COOKIES_NAMES.email) || ''
+        })
+    }
+
     render(): any {
         const { mode } = this.props;
         
@@ -96,8 +128,7 @@ export class AuthPage extends PureComponent<Props> {
         const passwordPlaceholder = isRegistration ? 'Придумайте пароль' : 'Введите пароль';
 
         const initialValues = {
-            // login: loginInitialValue
-            login: Cookies.get(COOKIES_NAMES.email) || ''
+            login: this.state.login
         }
 
         return (
@@ -166,6 +197,7 @@ export class AuthPage extends PureComponent<Props> {
                                 )}
                             />
                         </div>
+                        { this.renderBottomLink() }
                     </div>
                 </ModalForm>
             </div>
