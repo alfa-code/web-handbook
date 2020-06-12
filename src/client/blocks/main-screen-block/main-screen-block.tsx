@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 import { Heading } from 'Src/client/components/heading';
@@ -19,7 +20,7 @@ export class MainScreenBlock extends React.PureComponent {
                         <br />
                         <span> IT специалистов</span>
                     </Heading>
-                    <div className="disabled">
+                    <div>
                         <p className={styles.subheader}>
                             Получите доступ к грамотной и структурированной информации для обучения.
                         </p>
@@ -29,12 +30,12 @@ export class MainScreenBlock extends React.PureComponent {
                                 Уже пользуетесь Alfa Code?
                             </span>
                             {' '}
-                            <a
-                                href="/"
+                            <Link
+                                to='/auth'
                                 className={styles.link}
                             >
                                 Войдите
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

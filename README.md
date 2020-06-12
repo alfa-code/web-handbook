@@ -24,6 +24,10 @@ yarn start:dev
 yarn lint
 ```
 
+## БД
+Запусти Docker контейнеры из репозитория https://github.com/alfa-code/alfa-code-platform-db
+Затем выполни скрипт `yarn db:mirgate`
+
 ## Общие правила
 
 ---------------------

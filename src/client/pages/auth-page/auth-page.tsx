@@ -1,7 +1,9 @@
 import React, { PureComponent, ReactElement } from 'react';
-
+import Cookies from 'js-cookie';
 import { Form, Field } from 'react-final-form';
 import { toast } from 'react-toastify';
+
+import { COOKIES_NAMES } from 'Constants/cookies-names';
 
 import { Button } from 'Src/client/components/button';
 import { InputSimple } from 'Src/client/components/input-simple';
@@ -11,7 +13,6 @@ import { ModalForm } from 'Src/client/components/modal-form';
 import { Heading } from 'Src/client/components/heading';
 
 import styles from './auth-page.module.scss';
-
 
 type FormValues = {
     login?: string;
@@ -94,6 +95,11 @@ export class AuthPage extends PureComponent<Props> {
         const title = isRegistration ? 'Регистрация' : 'Вход';
         const passwordPlaceholder = isRegistration ? 'Придумайте пароль' : 'Введите пароль';
 
+        const initialValues = {
+            // login: loginInitialValue
+            login: Cookies.get(COOKIES_NAMES.email) || ''
+        }
+
         return (
             <div className={styles.loginPage}>
                 <Logo />
@@ -108,6 +114,7 @@ export class AuthPage extends PureComponent<Props> {
                             <Form
                                 onSubmit={ this.onSubmit }
                                 validate={ this.validateForm }
+                                initialValues={ initialValues }
                                 render={({ handleSubmit }): ReactElement => (
                                     <form onSubmit={handleSubmit} className={styles.loginForm}>
                                         <Field name='login'>
