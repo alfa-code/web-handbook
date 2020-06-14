@@ -1,7 +1,7 @@
 import get from 'lodash/get';
 
 export function selectArticles(state) {
-    return get(state, 'blog.articles', []);
+    return get(state, 'blog.articlesList', []);
 }
 
 export function selectBlogIsLoading(state) {

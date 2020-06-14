@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import { Grid } from 'Src/client/components/grid';
 import { Card } from 'Src/client/components/card';
 
+import styles from './blog-posts-list.module.scss'
+
 type Props = {
-    articles: any[];
+    articlesList: any[];
 }
 
 export class BlogPostsList extends Component<Props> {
@@ -15,22 +17,26 @@ export class BlogPostsList extends Component<Props> {
                 key={item.post_id}
                 header={item.title}
                 text={item.description}
-                firstCustomSection={ 'dsgdg' }
-                secondCustomSection={ 'dsgdg' }
+                // firstCustomSection={ '---' }
+                // secondCustomSection={ '---' }
                 link={ `/blog/article/${item.post_id}` }
             />
         )
     }
 
     renderCards = () => {
-        const { articles } = this.props;
+        const { articlesList } = this.props;
 
-        return articles.map(this.getCard);
+        if (!articlesList) {
+            return null;
+        }
+
+        return articlesList.map(this.getCard);
     }
 
     render() {
         return (
-            <Grid>
+            <Grid className={ styles.container }>
                 { this.renderCards() }
             </Grid>
         );

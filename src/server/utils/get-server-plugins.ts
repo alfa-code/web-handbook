@@ -10,6 +10,7 @@ import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
 import { changePasswordPlugin } from 'Src/server/plugins/change-password';
 import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
+import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
 
 export function getServerPlugins() {
     const plugins = [];
@@ -92,7 +93,14 @@ export function getServerPlugins() {
         options: {
             auth: false,
         }
-    })
+    });
+
+    plugins.push({
+        plugin: getBlogPostByIdPlugin,
+        options: {
+            auth: false,
+        }
+    });
 
     return plugins;
 }

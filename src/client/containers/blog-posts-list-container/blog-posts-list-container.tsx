@@ -11,7 +11,7 @@ import { Loading } from 'Components/loading';
 
 type Props = {
     loading: boolean;
-    articles: any[];
+    articlesList: any[];
     getAllBlogPostsDA: any;
 }
 
@@ -23,14 +23,14 @@ class BlogPostsListWrapper extends Component<Props> {
     }
 
     render() {
-        const { loading, articles } = this.props;
+        const { loading, articlesList } = this.props;
 
         if (loading) {
             return <Loading />
         }
         
         return (
-            <BlogPostsList articles={ articles }/>
+            <BlogPostsList articlesList={ articlesList }/>
         );
     }
 }
@@ -38,7 +38,7 @@ class BlogPostsListWrapper extends Component<Props> {
 const mapStateToProps = (state) => {
     return {
         loading: selectBlogIsLoading(state),
-        articles: selectArticles(state),
+        articlesList: selectArticles(state),
     }
 }
 

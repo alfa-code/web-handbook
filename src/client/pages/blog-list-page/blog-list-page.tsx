@@ -9,7 +9,7 @@ export class BlogListPage extends Component {
         return (
             <PageFrame>
                 <PageContainer paddingsOnPhone={ true }>
-                    <Heading size={2}>
+                    <Heading size={1}>
                         Полезный блог
                     </Heading>
                     <BlogPostsListContainer />

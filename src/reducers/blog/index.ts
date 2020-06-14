@@ -2,10 +2,14 @@ import { TYPES } from 'Actions/blog-actions';
 
 type BlogReducerType = {
     loading: boolean;
+    articles: any;
 };
 
 const initialState = {
     loading: false,
+    articles: {
+
+    }
 };
 
 export default function blogReducer(state: BlogReducerType = initialState, action) {
@@ -20,13 +24,21 @@ export default function blogReducer(state: BlogReducerType = initialState, actio
         case TYPES.GET_ALL_POSTS_SUCCESS:
             return {
                 ...state,
-                articles: payload,
+                articlesList: payload,
                 loading: false
             }
         case TYPES.GET_ALL_POSTS_ERROR:
             return {
                 ...state,
                 loading: false
+            }
+        case TYPES.GET_BLOG_POST_BY_ID_SUCCESS:
+            return {
+                ...state,
+                articles: {
+                    ...state.articles,
+                    [payload.post_id]: payload
+                }
             }
         default:
             return state
