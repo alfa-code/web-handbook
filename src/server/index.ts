@@ -8,7 +8,8 @@ import HapiPostgresConnection from 'hapi-postgres-connection';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
 import { SequelizeConnectPlugin } from 'Src/server/plugins/sequelize-connect';
-import { getUserModel } from 'Src/server/models/User';
+import { getAccountModel } from 'Src/server/models/Account';
+import { getUsersModel } from 'Src/server/models/User';
 import { getBlogPostModel } from 'Src/server/models/BlogPost';
 
 // jwt info
@@ -69,7 +70,8 @@ const init = async (): Promise<any> => {
         plugin: SequelizeConnectPlugin,
         options: {
             models: [
-                getUserModel,
+                getAccountModel,
+                getUsersModel,
                 getBlogPostModel
             ]
         }

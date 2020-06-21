@@ -3,6 +3,7 @@ export const TYPES = {
     ERROR: 'NOTIFY_ERROR',
 }
 
+
 export function notifySuccessAC(message) {
     return {
         type: TYPES.SUCCESS,

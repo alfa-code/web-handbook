@@ -11,30 +11,3 @@ export function passwordValidationHintSetVisibilityAC(visibility: boolean) {
         payload: visibility
     }
 }
-
-export function changePasswordRequestStartAC(values) {
-    return {
-        type: TYPES.CHANGE_PASSWORD_REQUEST_START,
-        payload: {
-            values
-        }
-    }
-}
-
-export function changePasswordRequestSuccessAC(response) {
-    return {
-        type: TYPES.CHANGE_PASSWORD_REQUEST_SUCCESS,
-        payload: {
-            ...response
-        }
-    }
-}
-
-export function changePasswordRequestErrorAC(error) {
-    return {
-        type: TYPES.CHANGE_PASSWORD_REQUEST_ERROR,
-        payload: {
-            ...error
-        }
-    }
-}

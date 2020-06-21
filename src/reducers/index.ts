@@ -1,18 +1,30 @@
 import { combineReducers } from 'redux';
 
-import counterReducer from './counter';
-import authReducer from './auth';
-import blogReducer from './blog';
+import counterReducer from 'Reducers/counter';
+import authReducer from 'Reducers/auth';
+import blogReducer from 'Reducers/blog';
+import { userParamsReducer } from 'Reducers/user-params';
 
-import uiChangePassword from './ui/change-password-form-reducer';
+import { hintVisibilityReducer, changePasswordReducer} from 'Reducers/ui/hint-visibility-reducer';
+import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
 
 const rootReducer = combineReducers({
     counter: counterReducer,
     auth: authReducer,
     UI: combineReducers({
-        changePassword: uiChangePassword
+        changePassword: combineReducers({
+            hintVisible: hintVisibilityReducer,
+            sending: changePasswordReducer,
+        }),
+        userParams: combineReducers({
+            sending: uiUserParamsChange,
+            loading: uiUserParamsGet,
+        }),
     }),
-    blog: blogReducer
+    user: combineReducers({
+        params: userParamsReducer,
+    }),
+    blog: blogReducer,
 });
 
 export default rootReducer;

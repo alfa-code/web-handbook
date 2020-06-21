@@ -8,6 +8,7 @@ import { postgreRoutePlugin } from 'Src/server/plugins/routes/postgre-route';
 import { blogRoutePlugin } from 'Src/server/plugins/routes/blog-route';
 import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
+import { changeUserParamsPlugin, getUserParamsPlugin } from 'Src/server/plugins/user/user-params';
 import { changePasswordPlugin } from 'Src/server/plugins/change-password';
 import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
 import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
@@ -101,6 +102,27 @@ export function getServerPlugins() {
             auth: false,
         }
     });
+
+    plugins.push({
+        plugin: changePasswordPlugin,
+        options: {
+            auth: 'jwt',
+        }
+    })
+
+    plugins.push({
+        plugin: changeUserParamsPlugin,
+        options: {
+            auth: 'jwt'
+        },
+    })
+
+    plugins.push({
+        plugin: getUserParamsPlugin,
+        options: {
+            auth: 'jwt'
+        },
+    })
 
     return plugins;
 }

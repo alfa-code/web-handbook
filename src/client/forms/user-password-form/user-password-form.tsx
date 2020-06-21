@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Form, Field } from 'react-final-form'
 
 import {
-    changePasswordRequestStartAC,
     passwordValidationHintSetVisibilityAC
 } from 'Actions/ui/change-password-actions';
 import { InputPassword } from 'Components/input-password';
@@ -15,6 +14,7 @@ import { changePasswordValidation } from 'Forms/user-password-form/validation';
 import { ValidList } from 'Src/client/containers/valid-list/valid-list';
 
 import { Props } from './props';
+import { changePassword } from 'Actions/request-actions';
 
 
 const passwordNewValidFields = [
@@ -106,7 +106,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    submit: changePasswordRequestStartAC,
+    submit: changePassword.request,
     setHintVisibility: passwordValidationHintSetVisibilityAC
 };
 

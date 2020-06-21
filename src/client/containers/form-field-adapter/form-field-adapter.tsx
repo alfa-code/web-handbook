@@ -1,7 +1,17 @@
 import React from 'react';
 import { Shape } from 'Types/objects';
+import { InputSimple } from 'Components/input-simple';
+import { AnyFunction } from 'Types/functions';
 
 const emptyFunc = (...args: any) => void { ...args};
+
+type FieldAdapterOptions = Partial<{
+    placeholder: string;
+    onFocus: AnyFunction;
+    onBlur: AnyFunction;
+    onChange: AnyFunction;
+    component: React.ComponentClass<any> | React.FC<any>;
+}>;
 
 export const formFieldAdapter =
     ({
@@ -9,12 +19,13 @@ export const formFieldAdapter =
          onFocus = emptyFunc,
          onBlur = emptyFunc,
          onChange = emptyFunc,
-         component = undefined
-     }) => ({
+         component = InputSimple
+     }: FieldAdapterOptions) => ({
                 input: {
                     onBlur: inputBlur = emptyFunc,
                     onFocus: inputFocus = emptyFunc,
-                    onChange: inputChange = emptyFunc
+                    onChange: inputChange = emptyFunc,
+                    value,
                 },
                 meta: {
                     error,
@@ -42,6 +53,7 @@ export const formFieldAdapter =
                     onBlur(...args);
                     inputBlur(...args);
                 } }
+                value={value}
             />
         )
     };

@@ -1,8 +1,9 @@
 import { dbError } from 'Src/server/utils/errors/handlers/db-error';
+import { userNotFound } from 'Src/server/utils/errors/handlers/user-not-found';
 import { CHANGE_PASSWORD_ERRORS } from 'Src/constants/error-codes';
 
 const defaultErrorHandlers = {
-    db: dbError,
+    db: dbError(),
     wrongPassword: (request, h) => {
         const res = h.response({
             type: 'error',
@@ -21,15 +22,7 @@ const defaultErrorHandlers = {
         res.code(400);
         return res;
     },
-    notFound: (request, h) => {
-        const res = h.response({
-            type: 'error',
-            ...CHANGE_PASSWORD_ERRORS.NO_SUCH_USER
-        })
-
-        res.code(404);
-        return res;
-    }
+    notFound: userNotFound()
 }
 
 const defaultSuccessHandler = (request, h) => {
@@ -62,11 +55,11 @@ export const changePasswordPlugin = {
                         credentials: { username }
                     }
                 } = request;
-                const { User } = await server.methods.getModels();
+                const { Account } = await server.methods.getModels();
                 let result;
 
                 try {
-                    result = await User.findOne({ where: { username } });
+                    result = await Account.findOne({ where: { username } });
                 } catch (error) {
                     return errorHandlers.db(request, h, error)
                 }
@@ -83,7 +76,7 @@ export const changePasswordPlugin = {
                     }
 
                     try {
-                        await User.update({ password: userData.newPassword }, { where: { username } });
+                        await Account.update({ password: userData.newPassword }, { where: { username } });
                     } catch (error) {
                         return errorHandlers.db(request, h, error)
                     }

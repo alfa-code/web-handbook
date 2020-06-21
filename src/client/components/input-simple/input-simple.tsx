@@ -10,6 +10,7 @@ interface Props {
     touched?: boolean;
     error?: string;
     onBlur?: () => void;
+    onFocus?: () => void;
     className?: string;
     name?: string;
     size?: string;
@@ -45,6 +46,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
             error,
             touched,
             onBlur,
+            onFocus,
             size,
             name,
             className
@@ -59,6 +61,7 @@ export class InputSimple extends React.PureComponent<Props, State> {
                 <input
                     type="text"
                     onChange={ this.inputOnChange }
+                    onFocus={ onFocus }
                     onBlur={ onBlur }
                     name={ name }
                     value={ propsValue || value }

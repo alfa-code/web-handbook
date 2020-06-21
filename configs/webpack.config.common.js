@@ -19,6 +19,7 @@ module.exports = {
             Reducers: path.join(rootPath, './src/reducers/'),
             Selectors: path.join(rootPath, './src/selectors/'),
             Types: path.join(rootPath, './src/types/'),
+            Utils: path.join(rootPath, './src/utils/'),
         }
     }
 };

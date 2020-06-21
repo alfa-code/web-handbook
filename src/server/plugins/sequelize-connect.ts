@@ -26,10 +26,10 @@ export const SequelizeConnectPlugin = {
 
         server.method('getModels', function () {
             return modelList;
-        }, { cache: { expiresIn: 2000, generateTimeout: 100 } })
+        }, { cache: { generateTimeout: 100 } })
 
         server.method('getOrm', function () {
             return instance;
-        }, { cache: { expiresIn: 2000, generateTimeout: 100 } })
+        }, { cache: { generateTimeout: 100 } })
     }
 };

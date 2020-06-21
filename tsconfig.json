@@ -35,7 +35,8 @@
             "Actions/*": ["src/actions/*"],
             "Reducers/*": ["src/reducers/*"],
             "Selectors/*": ["src/selectors/*"],
-            "Types/*": ["src/types/*"]
+            "Types/*": ["src/types/*"],
+            "Utils/*": ["src/utils/*"]
         }
     },
     "files": [

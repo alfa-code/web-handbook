@@ -1,13 +1,18 @@
 import { all } from 'redux-saga/effects'
 
-import { changePasswordSagas } from 'Src/sagas/change-password';
+import { changePasswordSaga } from 'Src/sagas/change-password';
 import { notifiesSagas } from 'Src/sagas/notify';
+import { userParamsChangeSaga, userParamsGetSaga } from 'Src/sagas/requests-sagas';
+import { requestNotifySagas } from 'Src/sagas/request-notify-sagas';
 import { blogSagas } from 'Src/sagas/blog-saga';
 
 export function* rootSaga() {
     yield all([
-        changePasswordSagas(),
+        changePasswordSaga(),
         notifiesSagas(),
-        blogSagas()
+        userParamsChangeSaga(),
+        userParamsGetSaga(),
+        requestNotifySagas(),
+        blogSagas(),
     ])
 }
