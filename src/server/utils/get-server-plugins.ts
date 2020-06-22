@@ -104,13 +104,6 @@ export function getServerPlugins() {
     });
 
     plugins.push({
-        plugin: changePasswordPlugin,
-        options: {
-            auth: 'jwt',
-        }
-    })
-
-    plugins.push({
         plugin: changeUserParamsPlugin,
         options: {
             auth: 'jwt'
