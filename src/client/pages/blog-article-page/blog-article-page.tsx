@@ -16,7 +16,6 @@ const WrappedSyntaxHighlighter = ({ children, theme }: any) => {
     // TODO: children - это строки коротые будут отрендерены с подсветкой
     // атрибут language - может принимать только одно значение
     // пожтому придется динимически определять тип контента и подставлять нужный тип синтаксиса
-    console.log('children', children)
     return (
         <SyntaxHighlighter language="javascript|css" style={ theme }>
             { children }
