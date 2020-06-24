@@ -1,6 +1,27 @@
 export const blogPostDefaults = {
-    imageAddress: 'https://images.unsplash.com/photo-1591966491656-91f717b1372f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-    title: 'title',
-    description: 'description',
-    content: '---'
+    imageAddress: 'https://bit.ly/2YXuze4',
+    title: 'CSS свойство all',
+    description: 'CSS свойство all довольно редко используется разработчиками, хотя может быть очень полезным. В этом посте немного об этом свойстве',
+    content:
+
+`
+Сокращенное свойство CSS all сбрасывает все свойства (background-color, color, font-size и многие другие), кроме unicode-bidi и direction, до их начального или унаследованного значения.
+
+<code>
+.module {
+    all: unset;
+}
+</code>
+
+\`\`\`js
+sdfsdf
+\`\`\`
+
+initial - Это ключевое слово указывает на изменение всех свойств, применяемых к элементу или родительскому элементу. Значения unicode-bidi и direction не затрагиваются.
+
+inherit - Это ключевое слово указывает на изменение всех свойств, применяемых к элементу или родительскому элементу, на значение их родителя. Значения unicode-bidi и direction не затрагиваются.
+
+
+`
+
 }
