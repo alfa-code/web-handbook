@@ -8,7 +8,9 @@ import { PageContainer } from 'Components/page-container';
 import { ChangePasswordPage } from 'Pages/change-password-page';
 import { UserSettingsPage } from 'Pages/user-settings-page';
 import { CabinetPage } from 'Pages/cabinet-page';
-import { ChangeEmailPage } from 'Pages/change-email-page';
+
+// Данный функционал спорный - займемся им потом
+// import { ChangeEmailPage } from 'Pages/change-email-page';
 
 interface Props extends RouteComponentProps { }
 interface State { }
@@ -51,7 +53,8 @@ export class SettingsPage extends PureComponent<Props, State> {
                                     Сменить пароль
                                 </NavLink>
                             </li>
-                            <li>
+                            { /* Данный функционал спорный - займемся им потом */ }
+                            {/* <li>
                                 <NavLink
                                     to='/profile/email'
                                     className={ styles.menuLink }
@@ -59,7 +62,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 >
                                     Сменить email
                                 </NavLink>
-                            </li>
+                            </li> */}
                         </ul>
                         <div>
                         <Switch>
@@ -79,10 +82,11 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 component={ ChangePasswordPage }
 
                             />
-                            <Route
+                            { /* Данный функционал спорный - займемся им потом */ }
+                            {/* <Route
                                 path={ `${matchUrl}/email` }
                                 component={ ChangeEmailPage }
-                            />
+                            /> */}
                         </Switch>
                         </div>
                     </div>
