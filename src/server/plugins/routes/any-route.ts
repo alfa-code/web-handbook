@@ -9,7 +9,6 @@ export const anyRoutePlugin = {
             path: '/{any*}',
             options,
             handler: function (request) {
-                console.log('anyRoutePlugin')
                 return getContent(request);
             }
         });
