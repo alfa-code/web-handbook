@@ -13,114 +13,108 @@ import { changePasswordPlugin } from 'Src/server/plugins/change-password';
 import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
 import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
 import { registrationPlugin } from 'Src/server/plugins/registration/registration-plugin';
+import { loginPlugin } from 'Src/server/plugins/login-plugin';
+import { postgreRequestPlugin } from 'Src/server/plugins/postgre-request-plugin';
 
 export function getServerPlugins() {
-    const plugins = [];
-
-    plugins.push({
-        plugin: HapiErrorPlugin,
-        options: {
-            statusCodes: {
-                '401': {
-                    'redirect': function (): string {
-                        return '/auth'
+    const plugins = [
+        {
+            plugin: HapiErrorPlugin,
+            options: {
+                statusCodes: {
+                    '401': {
+                        'redirect': function (): string {
+                            return '/auth'
+                        }
                     }
                 }
             }
-        }
-    });
-
-    plugins.push({
-        plugin: registrationPlugin
-    });
-
-    plugins.push({
-        plugin: anyRoutePlugin,
-        options: {
-            auth: false
-        }
-    });
-
-    plugins.push({
-        plugin: authRoutePlugin,
-        options: {
-            auth: false,
         },
-    });
-
-    plugins.push({
-        plugin: settingsSubpageRoutePlugin,
-        options: {
-            auth: 'jwt'
+        {
+            plugin: Inert
         },
-    });
-
-    plugins.push({
-        plugin: postgreRoutePlugin,
-        options: {
-            auth: 'jwt'
-        }
-    });
-
-    plugins.push({
-        plugin: blogRoutePlugin,
-        options: {
-            auth: false
-        }
-    });
-
-    plugins.push({
-        plugin: logoutPlugin,
-        options: {
-            auth: false
-        }
-    });
-
-    plugins.push({
-        plugin: Inert
-    })
-
-    plugins.push({
-        plugin: assetsRoutePlugin,
-        options: {
-            auth: false,
-        }
-    })
-
-    plugins.push({
-        plugin: changePasswordPlugin,
-        options: {
-            auth: 'jwt',
-        }
-    })
-
-    plugins.push({
-        plugin: getAllBlogPostsPlugin,
-        options: {
-            auth: false,
-        }
-    });
-
-    plugins.push({
-        plugin: getBlogPostByIdPlugin,
-        options: {
-            auth: false,
-        }
-    });
-
-    plugins.push({
-        plugin: changeUserParamsPlugin,
-        options: {
-            auth: 'jwt'
+        {
+            plugin: assetsRoutePlugin,
+            options: {
+                auth: false,
+            }
         },
-    })
-
-    plugins.push({
-        plugin: getUserParamsPlugin,
-        options: {
-            auth: 'jwt'
+        {
+            plugin: registrationPlugin
         },
-    })
+        {
+            plugin: loginPlugin
+        },
+        {
+            plugin: logoutPlugin,
+            options: {
+                auth: false
+            }
+        },
+        {
+            plugin: postgreRequestPlugin
+        },
+        {
+            plugin: anyRoutePlugin,
+            options: {
+                auth: false
+            }
+        },
+        {
+            plugin: authRoutePlugin,
+            options: {
+                auth: false,
+            },
+        },
+        {
+            plugin: settingsSubpageRoutePlugin,
+            options: {
+                auth: 'jwt'
+            },
+        },
+        {
+            plugin: postgreRoutePlugin,
+            options: {
+                auth: 'jwt'
+            }
+        },
+        {
+            plugin: blogRoutePlugin,
+            options: {
+                auth: false
+            }
+        },
+        {
+            plugin: changePasswordPlugin,
+            options: {
+                auth: 'jwt',
+            }
+        },
+        {
+            plugin: getAllBlogPostsPlugin,
+            options: {
+                auth: false,
+            }
+        },
+        {
+            plugin: getBlogPostByIdPlugin,
+            options: {
+                auth: false,
+            }
+        },
+        {
+            plugin: changeUserParamsPlugin,
+            options: {
+                auth: 'jwt'
+            },
+        },
+        {
+            plugin: getUserParamsPlugin,
+            options: {
+                auth: 'jwt'
+            },
+        }
+    ];
 
     return plugins;
 }

@@ -37,7 +37,6 @@ export function SubscribeForm() {
                     <Field name='email'>
                         {
                             (props: any): ReactElement => {
-                                console.log('props', props)
                                 return (
                                     <InputSimple
                                         placeholder="Введите ваш email"
