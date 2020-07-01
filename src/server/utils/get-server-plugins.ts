@@ -12,6 +12,7 @@ import { changeUserParamsPlugin, getUserParamsPlugin } from 'Src/server/plugins/
 import { changePasswordPlugin } from 'Src/server/plugins/change-password';
 import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
 import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
+import { registrationPlugin } from 'Src/server/plugins/registration/registration-plugin';
 
 export function getServerPlugins() {
     const plugins = [];
@@ -27,6 +28,10 @@ export function getServerPlugins() {
                 }
             }
         }
+    });
+
+    plugins.push({
+        plugin: registrationPlugin
     });
 
     plugins.push({

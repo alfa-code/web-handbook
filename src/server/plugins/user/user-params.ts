@@ -50,6 +50,7 @@ export const changeUserParamsPlugin = {
                         credentials: { username }
                     }
                 } = request;
+
                 const { Account, User } = await server.methods.getModels();
 
                 try {
