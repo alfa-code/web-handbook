@@ -15,4 +15,4 @@ const AppWithRouter = (
     </BrowserRouter>
 )
 
-ReactDOM.hydrate(AppWithRouter, document.getElementById('react-app') || document.querySelector('body'));
+ReactDOM.render(AppWithRouter, document.getElementById('react-app') || document.querySelector('body'));
