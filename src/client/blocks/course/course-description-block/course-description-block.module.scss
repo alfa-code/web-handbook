@@ -1,0 +1,30 @@
+.body {
+    padding: var(--gap-xl) 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.description {
+    width: 74.431%;
+}
+
+.control {
+    margin-left: var(--gap-2xl);
+    flex: 1;
+}
+
+.button {
+    width: 100%;
+    margin-top: var(--gap-m);
+}
+
+.subtitle {
+    font-size: 22px;
+    line-height: 31px;
+}
+
+.target {
+    margin-top: var(--gap-5xl);
+}
+

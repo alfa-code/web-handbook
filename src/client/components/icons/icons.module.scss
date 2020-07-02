@@ -1,0 +1,15 @@
+.icon {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+}
+
+$sizes: "s", "xs", "s", "m", "l", "xl", "2xl", "3xl", "4xl", "5xl";
+
+@each $size in $sizes {
+
+    .size-#{$size} {
+        width: var(--gap-#{$size});
+        height: var(--gap-#{$size});
+    }
+}
