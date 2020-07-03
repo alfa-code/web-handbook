@@ -1,0 +1,36 @@
+.playlistBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.textWrapper {
+    font-family: "Rubik", "sans-serif";
+    padding: 0 240px;
+
+    .title {
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 48px;
+        color: var(--text-primary);
+    }
+
+    p {
+        font-family: "Roboto", "sans-serif";
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 25px;
+        color: var(--text-paragraphs);
+
+        span {
+            font-family: "Rubik", "sans-serif";
+            color: var(--text-primary);
+        }
+    }
+}
+
+.description {
+    margin: 32px 0 24px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--text-tetriary);
+}

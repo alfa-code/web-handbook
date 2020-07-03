@@ -9,14 +9,15 @@
 
     &:hover {
         text-decoration: underline;
-    } 
+    }
 
     & + .buttonLink {
         margin-left: 20px;
     }
 }
 
-.link, .container {
+.link,
+.container {
     color: var(--brand-black);
     font-weight: var(--font-weight-medium);
 }

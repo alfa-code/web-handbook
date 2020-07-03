@@ -11,6 +11,7 @@ import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
+import {PlaylistPage} from "Pages/playlist-page";
 import { BlogArticlePageContainer } from 'Src/client/containers/blog-article-page-container';
 import { CoursePage } from 'Pages/course-page';
 
@@ -19,7 +20,6 @@ import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
-
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -74,6 +74,7 @@ export default class App extends React.Component {
                     <Route exact path='/postgre' component={ PostgrePanel } />
                     <Route exact path='/blog' component={ BlogListPage } />
                     <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
+                    <Route exact path='/playlist' component={ PlaylistPage } />
                     <Route exact path='/courses/:id' component={ CoursePage } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>

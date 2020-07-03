@@ -184,6 +184,23 @@ html {
     opacity: 0.3;
 }
 
+.dark-mode {
+    background-color: var(--brand-black);
+    padding-bottom: 64px;
+
+    .inner-header-container:hover {
+
+        >div {
+            background-color: var(--brand-black);
+        }
+    }
+
+    a,
+    span {
+        color: var(--text-inverse);
+    }
+}
+
 img {
     max-width: 100%;
 }

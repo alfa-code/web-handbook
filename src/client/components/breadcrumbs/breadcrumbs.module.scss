@@ -1,0 +1,15 @@
+.wrapper {
+    display: flex;
+    font-size: 13px;
+    margin: 64px 0 16px 0;
+    font-family: "Rubik", "sans-serif";
+    color: var(--text-secondary);
+}
+
+.link {
+    cursor: pointer;
+}
+
+.slash {
+    margin: 0 8px;
+}

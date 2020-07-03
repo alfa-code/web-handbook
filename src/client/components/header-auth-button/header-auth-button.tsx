@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import defaultUserIcon from 'Assets/icons/other/default-user-icon.svg';
 
@@ -14,7 +15,8 @@ export const HeaderAuthButton: React.FC<Props> = (props: Props) => {
     const { text, className } = props;
 
     return (
-        <div className={`${styles.container} ${className}`}>
+        <div className={ classNames(
+            `${ styles.container } ${ className }`, 'inner-header-container') }>
             <div className={ styles.innerContainer }>
                 <div className={ styles.visiblePart }>
                     <div className={ styles.icon }>
