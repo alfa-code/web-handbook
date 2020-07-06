@@ -38,14 +38,15 @@ const Breadcrumbs = () => {
     };
 
     return (
-        <div className={styles.wrapper}>
+        <div className={ styles.wrapper }>
             {
-                parts.map(part => (
-                    <>
-                <span className={styles.link}
-                      onClick={() => changePageHandler(part)}>{part}</span>
-                        <span className={styles.slash}>/</span>
-                    </>
+                parts.map((part, index) => (
+                    <span key={index}>
+                        <span className={ styles.link }
+                              onClick={ () => changePageHandler(part) }>{ part }
+                        </span>
+                        <span className={ styles.slash }>/</span>
+                    </span>
                 ))
             }
         </div>

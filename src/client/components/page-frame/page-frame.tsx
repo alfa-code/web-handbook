@@ -8,17 +8,18 @@ import styles from './style.module.scss';
 
 interface Props {
     children: ReactNode;
+    bgcolor?: string;
     darkMode?: boolean;
 }
 interface State { }
 
 export class PageFrame extends PureComponent<Props, State> {
     render(): ReactNode {
-        const { children, darkMode } = this.props;
+        const { children, darkMode,  bgcolor } = this.props;
 
         return (
             <div className={styles.container}>
-                <PageContainer darkMode={darkMode}>
+                <PageContainer bgcolor={ bgcolor } darkMode={ darkMode } >
                     <PageHeader />
                 </PageContainer>
                 { children }

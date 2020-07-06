@@ -9,22 +9,24 @@ type Props = {
     children: ReactNode;
     paddingsOnPhone?: boolean;
     darkMode?: boolean;
+    bgcolor?: string;
 }
 
 export function PageContainer(props: Props): any {
-  const { paddingsOnPhone, darkMode, children } = props;
+  const { paddingsOnPhone, darkMode, bgcolor, children } = props;
 
   const paddings = paddingsOnPhone ? styles.paddingsOnPhone : null;
-  const dark = darkMode ? 'dark-mode' : null
+  const colorMode = bgcolor ? true : null;
+  const dark = darkMode ? styles.dark : null;
 
     let content = (
         <div className={classNames(styles.pageContainer, paddings, globalStyles.verticalNeighbors)}>
             { children }
         </div>
     )
-    if (dark) {
+    if (colorMode) {
         content = (
-            <div className={dark}>
+            <div className={dark} style={bgcolor ? {backgroundColor: bgcolor} : null}>
                 {content}
             </div>
         )

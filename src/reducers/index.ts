@@ -7,6 +7,7 @@ import { userParamsReducer } from 'Reducers/user-params';
 
 import { hintVisibilityReducer, changePasswordReducer} from 'Reducers/ui/hint-visibility-reducer';
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
+import changeBackgroundColor from 'Reducers/ui/background-color';
 
 const rootReducer = combineReducers({
     counter: counterReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
             sending: uiUserParamsChange,
             loading: uiUserParamsGet,
         }),
+        pageStyles: changeBackgroundColor
     }),
     user: combineReducers({
         params: userParamsReducer,

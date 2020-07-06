@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
+import { useSelector } from 'react-redux'
 
 import defaultUserIcon from 'Assets/icons/other/default-user-icon.svg';
 
@@ -13,11 +13,23 @@ type Props = {
 
 export const HeaderAuthButton: React.FC<Props> = (props: Props) => {
     const { text, className } = props;
+    const [containerBgColor, setContainerBgColor] = useState(null);
+    let bgcolor = useSelector(state => state.UI.pageStyles.backgroundColor)
+
+    if (!bgcolor) {
+        bgcolor = '#fff';
+    }
+
+    const updateContainerStyles = (color) => {
+        setContainerBgColor(color)
+    }
 
     return (
-        <div className={ classNames(
-            `${ styles.container } ${ className }`, 'inner-header-container') }>
-            <div className={ styles.innerContainer }>
+        <div className={ `${ styles.container } ${ className }` }
+             onMouseEnter={ () => updateContainerStyles(bgcolor) }
+             onMouseLeave={ () => updateContainerStyles(null) }>
+            <div style={{backgroundColor: containerBgColor}}
+                 className={ styles.innerContainer }>
                 <div className={ styles.visiblePart }>
                     <div className={ styles.icon }>
                         <img src={ defaultUserIcon } alt="Пользователь" />

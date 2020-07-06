@@ -1,5 +1,12 @@
 @import "Src/client/breakpoints.scss";
 
+.dark {
+    a,
+    span {
+        color: var(--text-inverse);
+    }
+}
+
 .pageContainer {
     margin: 0 auto;
     width: var(--width-base-container);

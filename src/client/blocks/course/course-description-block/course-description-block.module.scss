@@ -7,11 +7,20 @@
 
 .description {
     width: 74.431%;
+
+    .paragraph {
+        color: var(--text-paragraphs);
+        line-height: 22px;
+    }
 }
 
 .control {
     margin-left: var(--gap-2xl);
     flex: 1;
+
+    .jsImage {
+        margin-bottom: var(--gap-xs);
+    }
 }
 
 .button {
@@ -22,9 +31,99 @@
 .subtitle {
     font-size: 22px;
     line-height: 31px;
+    color: var(--text-paragraphs);
 }
 
 .target {
     margin-top: var(--gap-5xl);
 }
 
+//resourceIconsWrapper
+
+.row {
+    font-family: "Rubik", "sans-serif";
+    font-weight: var(--font-weight-medium);
+    display: flex;
+    margin-top: var(--gap-2xl);
+
+    .column {
+        width: 33.3%;
+
+        .resourceImage {
+            margin-right: var(--gap-m);
+        }
+
+        &:not(:last-child) {
+            > .imageTitleWrapper {
+                margin-right: var(--gap-l);
+            }
+        }
+
+        &:last-child {
+            &:not(:only-child) {
+                > .imageTitleWrapper {
+                    margin-left: var(--gap-l);
+                }
+            }
+
+            &:only-child {
+                > .imageTitleWrapper {
+                    margin-right: var(--gap-l);
+                }
+            }
+        }
+
+        > .imageTitleWrapper {
+            display: flex;
+            border: 1px solid var(--background-main);
+            align-items: center;
+            padding: var(--gap-xl);
+        }
+    }
+}
+
+.videosWrapper {
+    border: 1px solid var(--background-main);
+    box-sizing: border-box;
+    font-family: "Rubik", "sans-serif";
+}
+
+.video {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--gap-xl);
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--background-main);
+    }
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .title {
+        margin-bottom: var(--gap-xs);
+        font-weight: var(--font-weight-medium);
+    }
+
+    .counter {
+        font-size: 13px;
+        color: var(--text-secondary);
+    }
+
+    .time {
+        font-size: 13px;
+        color: var(--text-tetriary);
+    }
+
+    .jsIcon {
+        max-width: var(--gap-xl);
+        margin-right: var(--gap-m);
+    }
+
+    .clockIcon {
+        max-width: var(--gap-m);
+        margin-right: var(--gap-xs);
+    }
+}

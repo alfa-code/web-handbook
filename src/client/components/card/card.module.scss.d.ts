@@ -6,14 +6,12 @@ interface CssExports {
   'body': string;
   'card': string;
   'customSelection': string;
-  'dark-mode': string;
   'disabled': string;
   'green': string;
   'header': string;
   'heading': string;
   'horizontal': string;
   'image': string;
-  'inner-header-container': string;
   'link': string;
   'text': string;
   'yellow': string;

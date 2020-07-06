@@ -3,11 +3,9 @@
 interface CssExports {
   'body': string;
   'content': string;
-  'dark-mode': string;
   'desc': string;
   'disabled': string;
   'divider': string;
-  'inner-header-container': string;
   'picture': string;
   'playIcon': string;
   'root': string;
