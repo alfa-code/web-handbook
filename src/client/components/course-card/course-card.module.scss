@@ -1,0 +1,93 @@
+@import "Src/client/breakpoints.scss";
+
+@import "Src/client/global.scss";
+
+.card {
+    border-radius: 4px;
+    transition: box-shadow .3s;
+    overflow: hidden;
+
+    @include hoverShadow();
+}
+
+.yellow {
+    background-color: var(--background-1);
+}
+
+.blue {
+    background-color: var(--background-2);
+}
+
+.green {
+    background-color: var(--background-3);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 256px;
+
+    @include media("<desktop-1") {
+        height: 170px;
+    }
+}
+
+.heading {
+    margin-bottom: var(--gap-m);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.25;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--gap-xl) var(--gap-2xl) var(--gap-xl) var(--gap-xl);
+    height: 292px;
+}
+
+.text {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.37;
+    max-height: 90px;
+    overflow: hidden;
+}
+
+@keyframes appearance {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.image {
+    height: 70%;
+    animation: appearance 1s forwards;
+}
+
+.customSelection {
+    margin-top: var(--gap-m);
+}
+
+.horizontal {
+
+    & .header {
+        height: 256px;
+    }
+
+    & .body {
+        padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
+    }
+}
+
+.link {
+    text-decoration: none;
+}
+
+.default {}

@@ -20,6 +20,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
+import { CoursesPage } from 'Pages/courses-page/courses-page';
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -75,6 +76,7 @@ export default class App extends React.Component {
                     <Route exact path='/blog' component={ BlogListPage } />
                     <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
                     <Route exact path='/playlist' component={ PlaylistPage } />
+                    <Route exact path='/courses' component={ CoursesPage } />
                     <Route exact path='/courses/:id' component={ CoursePage } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
