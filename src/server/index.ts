@@ -13,6 +13,7 @@ import { SequelizeConnectPlugin } from 'Src/server/plugins/sequelize-connect';
 import { getAccountModel } from 'Src/server/models/Account';
 import { getUsersModel } from 'Src/server/models/User';
 import { getBlogPostModel } from 'Src/server/models/BlogPost';
+import { getCourseModel } from 'Src/server/models/Course';
 
 // app root path
 const rootPath = process.cwd();
@@ -68,7 +69,8 @@ const init = async (): Promise<any> => {
             models: [
                 getAccountModel,
                 getUsersModel,
-                getBlogPostModel
+                getBlogPostModel,
+                getCourseModel
             ]
         }
     })
