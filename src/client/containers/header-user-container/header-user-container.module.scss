@@ -1,11 +1,19 @@
+@import "Src/client/breakpoints.scss";
+
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include media("<tablet-2") {
+        padding: 0;
+        justify-content: space-between;
+    }
 }
 
 .link {
     text-decoration: none;
+    transition: 0.25s;
 
     &:hover {
         text-decoration: underline;
@@ -13,6 +21,34 @@
 
     & + .buttonLink {
         margin-left: 20px;
+        transition: 0.25s;
+
+        @include media("<tablet-2") {
+            color: var(--text-inverse);
+            margin: 0;
+            border: 0;
+            width: 66%;
+            padding: var(--gap-m);
+            height: var(--gap-5xl);
+            border-radius: 0;
+
+            &:hover {
+                background: var(--brand-secondary);
+            }
+        }
+    }
+
+    @include media("<tablet-2") {
+        display: block;
+        width: 33%;
+        padding: var(--gap-xl) var(--gap-m);
+        height: var(--gap-5xl);
+        text-align: center;
+
+        &:hover {
+            text-decoration: none;
+            background: var(--brand-secondary);
+        }
     }
 }
 
@@ -20,4 +56,8 @@
 .container {
     color: var(--brand-black);
     font-weight: var(--font-weight-medium);
+
+    @include media("<tablet-2") {
+        color: var(--text-inverse);
+    }
 }

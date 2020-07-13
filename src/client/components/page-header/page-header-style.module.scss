@@ -13,6 +13,7 @@
     @include media("<desktop-1") {
         padding: 0 10px;
     }
+
 }
 
 .marginLeftAuto {
@@ -20,5 +21,9 @@
 
     @include media("<tablet-2") {
         margin-left: 0;
+    }
+
+    @include media("<tablet-1") {
+        display: none;
     }
 }

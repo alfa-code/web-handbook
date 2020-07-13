@@ -1,3 +1,5 @@
+@import "Src/client/breakpoints.scss";
+
 .container {
     position: relative;
 
@@ -5,11 +7,23 @@
 
     &:hover .innerContainer {
         background: #FFFFFF;
-        box-shadow: 0px 10px 24px rgba(23, 42, 63, .1);
+        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
 
-        padding: 16px;
-        top: -16px;
-        right: -16px;
+        padding: var(--gap-m);
+        top: calc(0 - var(--gap-m));
+        right: calc(0 - var(--gap-m));
+    }
+
+    @include media("<tablet-2") {
+
+        &:hover .innerContainer {
+            background: var(--brand-primary);
+            box-shadow: none;
+            padding: 0;
+            top: 0;
+            right: 0;
+
+        }
     }
 }
 
@@ -17,8 +31,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0px 0px;
+    padding: 0 0;
     position: relative;
+
+    @include media("<tablet-2") {
+        color: var(--text-inverse);
+        background: var(--brand-primary);
+    }
 }
 
 .container:hover .hiddenPart {
@@ -34,15 +53,36 @@
 
     line-height: 22px;
 
-    padding-top: 32px;
+    padding-top: var(--gap-2xl);
 
     li + li {
-        margin-top: 16px;
+        margin-top: var(--gap-m);
+
+        @include media("<tablet-2") {
+            margin-top: 0;
+        }
     }
 
     a {
         color: var(--text-primary);
         text-decoration: none;
+        transition: background-color 0.25s;
+
+        @include media("<tablet-2") {
+            display: block;
+            padding: var(--gap-s) var(--gap-xl);
+            color: var(--text-inverse);
+
+            &:hover {
+                background-color: var(--brand-secondary);
+            }
+        }
+    }
+
+    @include media("<tablet-2") {
+        display: block;
+        padding-top: 0;
+        background-color: var(--brand-primary);
     }
 }
 
@@ -56,6 +96,10 @@
 
     &:hover .text {
         color: red;
+    }
+
+    @include media("<tablet-2") {
+        padding: var(--gap-m);
     }
 }
 
@@ -84,6 +128,10 @@
     font-size: 16px;
     line-height: 22px;
     color: var(--text-primary);
+
+    @include media("<tablet-2") {
+        color: var(--text-inverse)
+    }
 }
 
 .text:after {

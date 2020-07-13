@@ -1,7 +1,29 @@
+@import "Src/client/breakpoints.scss";
+
 .block {
     display: flex;
 
     & > *:first-child {
         margin-right: 15px;
+    }
+    @include media("<desktop-1") {
+        & > *:first-child {
+            flex: 1;
+        }
+    }
+
+    @include media("<tablet-2") {
+        & > *:first-child {
+            flex: none;
+        }
+    }
+
+    @include media("<tablet-1") {
+        display: block;
+
+        & > *:first-child {
+            margin-right: 0;
+            margin-bottom: var(--gap-l);
+        }
     }
 }

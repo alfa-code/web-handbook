@@ -29,8 +29,6 @@ export class PageHeader extends React.Component<Props, State> {
     }
 
     render(): ReactNode {
-
-
         return (
             <header className={styles.header}>
                 {this.getContent()}

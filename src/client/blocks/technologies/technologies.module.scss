@@ -1,7 +1,14 @@
+@import "Src/client/breakpoints.scss";
+
 .block {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+    @include media("<tablet-1") {
+        display: block;
+        text-align: center;
+    }
 }
 
 .cell {
@@ -10,10 +17,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include media("<desktop-1") {
+        width: calc(33% - var(--gap-xs))
+    }
+
+    @include media("<tablet-1") {
+        display: inline-block;
+        width: 100%;
+        max-width: 446px;
+        margin-bottom: var(--gap-m);
+    }
 }
 
 .plate {
-    padding: 24px;
+    padding: var(--gap-xl);
     background: #fff;
     border: 1px solid #f3f4f5;
     border-radius: 4px;
@@ -21,6 +39,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    @include media("<desktop-1") {
+        min-width: 100%;
+    }
+
+    @include media("<tablet-2") {
+        padding: var(--gap-l);
+    }
 }
 
 .techName {
@@ -30,8 +56,16 @@
     font-size: 22px;
     color: var(--text-primary);
     text-transform: uppercase;
+
+    @include media("<tablet-2") {
+        font-size: 20px;
+    }
 }
 
 .icon {
     margin-right: 16px;
+
+    @include media("<tablet-2") {
+        max-width: 15%;
+    }
 }

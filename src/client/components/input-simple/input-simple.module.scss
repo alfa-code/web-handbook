@@ -1,8 +1,15 @@
+@import "Src/client/breakpoints.scss";
+
 .inputSimple {
     display: inline-block;
     width: 328px;
     height: 48px;
     position: relative;
+
+    @include media("<tablet-1") {
+        width: 100%;
+        max-width: 350px;
+    }
 }
 
 .fullWidth {

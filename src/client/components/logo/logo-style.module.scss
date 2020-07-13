@@ -1,8 +1,18 @@
+@import "Src/client/breakpoints.scss";
+
 .logoLink {
     display: inline-block;
+
+    @include media("<tablet-1") {
+        display: block;
+    }
 }
 
 .logo {
     width: 178px;
     height: 48px;
+
+    @include media("<tablet-1") {
+        display: block;
+    }
 }

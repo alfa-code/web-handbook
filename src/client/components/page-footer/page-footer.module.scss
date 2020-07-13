@@ -18,12 +18,12 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    @include media("<tablet-1") {
-        grid-template-columns: 1fr;
-    }
-
     @include media("<desktop-1") {
         padding: 0 20px 20px;
+    }
+
+    @include media("<tablet-1") {
+        grid-template-columns: 1fr;
     }
 
     .sectionOne {
@@ -58,17 +58,37 @@
     // TODO: разобраться - куда делись стили
     .sectionTwo {
         color: inherit;
+
+        @include media("<tablet-1") {
+            margin-top: var(--gap-l);
+        }
     }
 
     .sectionThree {
         color: inherit;
+
+        @include media("<phone-2") {
+            margin-top: var(--gap-xs);
+        }
     }
 
     .sectionFour {
         color: var(--text-paragraphs);
 
         * {
-            margin-bottom: 24px;
+            margin-bottom: var(--gap-xl);
+
+            @include media("<phone-2") {
+                margin-bottom: var(--gap-m);
+            }
+        }
+
+        @include media("<phone-2") {
+            margin-top: var(--gap-xs);
+
+            & > div {
+                margin-bottom: var(--gap-m);
+            }
         }
     }
 
@@ -105,5 +125,9 @@ ul.list {
 
     li {
         margin-bottom: 26px;
+
+        @include media("<phone-2") {
+            margin-bottom: var(--gap-m);
+        }
     }
 }

@@ -8,5 +8,13 @@
         @include media("<desktop-2") {
             margin-top: var(--gap-3);
         }
+
+        @include media("<desktop-1") {
+            margin-top: var(--gap-2);
+        }
+
+        @include media("<phone-2") {
+            margin-top: var(--gap-1);
+        }
     }
 }

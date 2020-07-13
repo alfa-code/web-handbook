@@ -36,6 +36,10 @@
     @include media("<desktop-1") {
         height: 170px;
     }
+
+    @include media("<tablet-1") {
+        height: auto;
+    }
 }
 
 .heading {
@@ -49,6 +53,14 @@
     justify-content: space-between;
     padding: var(--gap-xl) var(--gap-2xl) var(--gap-xl) var(--gap-xl);
     height: 292px;
+
+    @include media("<tablet-1") {
+        height: auto;
+    }
+
+    @include media("<phone-2") {
+        padding: var(--gap-xl) var(--gap-l) var(--gap-xl) var(--gap-l);
+    }
 }
 
 .text {
@@ -57,6 +69,10 @@
     line-height: 1.37;
     max-height: 90px;
     overflow: hidden;
+
+    @include media("<phone-2") {
+        font-size: 14px;
+    }
 }
 
 @keyframes appearance {
@@ -77,6 +93,10 @@
     object-fit: cover;
     opacity: 0;
     animation: appearance 1s forwards;
+
+    @include media("<tablet-1") {
+        height: auto;
+    }
 }
 
 .customSelection {

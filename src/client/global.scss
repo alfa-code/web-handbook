@@ -82,7 +82,7 @@ html {
     color: var(--text-primary);
 
     /* Colors */
-    --text-primary: #172a3f;
+    --text-primary: "#172a3f";
     --text-paragraphs: #546271;
     --text-secondary: #6d7986;
     --text-tetriary: #b5bbc2;
@@ -130,6 +130,24 @@ html {
         --text-heading-4: 16px;
         --text-heading-5: 12px;
         --text-heading-6: 16px;
+    }
+
+    @include media("<=tablet-1") {
+        --text-heading-1: 28px;
+        --text-heading-2: 24px;
+        --text-heading-3: 18px;
+        --text-heading-4: 16px;
+        --text-heading-5: 12px;
+        --text-heading-6: 16px;
+    }
+
+    @include media("<=phone-2") {
+        --text-heading-1: 24px;
+        --text-heading-2: 20px;
+        --text-heading-3: 16px;
+        --text-heading-4: 16px;
+        --text-heading-5: 12px;
+        --text-heading-6: 15px;
     }
 
     /* Sizes */

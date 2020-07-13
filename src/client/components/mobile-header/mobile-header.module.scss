@@ -1,0 +1,43 @@
+.padding {
+    height: var(--gap-5xl);
+}
+
+.base {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: var(--brand-primary);
+    padding: var(--gap-xs) var(--gap-m);
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.logoMobile {
+    max-width: 48px;
+}
+
+.burger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    width: var(--gap-5xl);
+    height: var(--gap-5xl);
+    transition: 0.25s;
+
+}
+
+.menu {
+    position: fixed;
+    left: 0;
+    top: var(--gap-5xl);
+    width: 100%;
+    z-index: 100;
+    border-top: 1px solid var(--brand-secondary);
+}

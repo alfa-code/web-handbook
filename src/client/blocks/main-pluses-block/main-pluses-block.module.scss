@@ -6,7 +6,14 @@
     padding-top: 128px;
 
     @include media("<tablet-2") {
+        display: block;
         flex-wrap: wrap;
+        padding-top: var(--gap-3);
+        text-align: center;
+    }
+
+    @include media("<phone-2") {
+        margin-top: var(--gap-m);
     }
 }
 
@@ -19,6 +26,21 @@
         @include media("<tablet-2") {
             margin-left: 0;
         }
+    }
+
+    @include media("<tablet-2") {
+        display: inline-block;
+        flex-grow: 0;
+        max-width: 70%;
+        margin-bottom: var(--gap-4xl);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include media("<phone-2") {
+        max-width: 100%;
     }
 }
 
@@ -36,7 +58,7 @@
 }
 
 .imageWrapper {
-    padding-bottom: 20px;
+    padding-bottom: var(--gap-2);
 }
 
 .image {
@@ -48,5 +70,10 @@
 .text {
     line-height: 1.4;
     margin: 14px 0;
+
+    @include media("<phone-2") {
+        font-size: 14px;
+        margin: var(--gap-xs)
+    }
 }
 
