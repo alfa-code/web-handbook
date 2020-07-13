@@ -1,3 +1,5 @@
+@import "Src/client/breakpoints.scss";
+
 .loginPage {
     width: 100%;
     height: 100%;
@@ -10,8 +12,25 @@
     /* Light background */
     background-color: var(--background-light);
 
+    @include media("<tablet-1") {
+        height: auto;
+        min-height: 100%;
+        padding: 20px;
+    }
+
     [class*="modalForm"] {
         margin-top: 25px;
+    }
+}
+
+.centerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include media("<tablet-1") {
+        width: 100%;
     }
 }
 
@@ -29,7 +48,15 @@
     width: 100%;
 }
 
+.modalForm {
+    @include media("<tablet-1") {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
 .loginForm {
+
 
     > * {
         width: 100%;
@@ -40,7 +67,16 @@
 .bottomLink {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 60px;
+
+    @include media("<tablet-1") {
+        flex-direction: column;
+
+        & > *:nth-child(1) {
+            margin-bottom: 10px;
+        }
+    }
 
     a {
         color: black;

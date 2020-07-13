@@ -69,18 +69,6 @@
     flex-wrap: nowrap;
     max-width: 448px;
 
-    h1 {
-        font-size: 24px;
-
-        @include media("<desktop-2") {
-            font-size: 20px;
-        }
-
-        @include media("<phone-2") {
-            font-size: 18px;
-        }
-    }
-
     @include media("<desktop-3") {
 
     }
@@ -92,6 +80,18 @@
     @include media("<tablet-1") {
         display: inline-flex;
         text-align: left;
+    }
+
+    h1 {
+        font-size: 24px;
+
+        @include media("<desktop-2") {
+            font-size: 20px;
+        }
+
+        @include media("<phone-2") {
+            font-size: 18px;
+        }
     }
 }
 
@@ -111,12 +111,12 @@
 
     @include media("<tablet-2") {
         font-size: 15px;
-        margin: var(--gap-xs) 0 0
+        margin: var(--gap-xs) 0 0;
     }
 
     @include media("<phone-2") {
         font-size: 14px;
-        margin: var(--gap-xs) 0 0
+        margin: var(--gap-xs) 0 0;
     }
 }
 

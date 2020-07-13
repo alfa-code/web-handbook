@@ -122,7 +122,7 @@ export class AuthPage extends PureComponent<Props> {
 
     render(): any {
         const { mode } = this.props;
-        
+
         const isRegistration = mode === 'registration';
         const title = isRegistration ? 'Регистрация' : 'Вход';
         const passwordPlaceholder = isRegistration ? 'Придумайте пароль' : 'Введите пароль';
@@ -133,73 +133,75 @@ export class AuthPage extends PureComponent<Props> {
 
         return (
             <div className={styles.loginPage}>
-                <Logo />
-                <ModalForm>
-                    <div className={ styles.container }>
-                        <div className={styles.headingRow}>
-                            <Heading size={3}>
-                                { title }
-                            </Heading>
-                        </div>
-                        <div>
-                            <Form
-                                onSubmit={ this.onSubmit }
-                                validate={ this.validateForm }
-                                initialValues={ initialValues }
-                                render={({ handleSubmit }): ReactElement => (
-                                    <form onSubmit={handleSubmit} className={styles.loginForm}>
-                                        <Field name='login'>
-                                            {
-                                                (props: any): ReactElement => {
-                                                    const { input, meta } = props;
-                                                    return (
-                                                        <div>
-                                                            <InputSimple
-                                                                value={input.value}
-                                                                onChange={input.onChange}
-                                                                placeholder='Введите email'
-                                                                touched={ meta.touched }
-                                                                error={ meta.error }
-                                                                onBlur={input.onBlur}
-                                                                className={ styles.inputAvailableWidth }
-                                                            />
-                                                        </div>
-                                                    )
+                <div className={ styles.centerContainer }>
+                    <Logo />
+                    <ModalForm className={ styles.modalForm }>
+                        <div className={ styles.container }>
+                            <div className={styles.headingRow}>
+                                <Heading size={3}>
+                                    { title }
+                                </Heading>
+                            </div>
+                            <div>
+                                <Form
+                                    onSubmit={ this.onSubmit }
+                                    validate={ this.validateForm }
+                                    initialValues={ initialValues }
+                                    render={({ handleSubmit }): ReactElement => (
+                                        <form onSubmit={handleSubmit} className={styles.loginForm}>
+                                            <Field name='login'>
+                                                {
+                                                    (props: any): ReactElement => {
+                                                        const { input, meta } = props;
+                                                        return (
+                                                            <div>
+                                                                <InputSimple
+                                                                    value={input.value}
+                                                                    onChange={input.onChange}
+                                                                    placeholder='Введите email'
+                                                                    touched={ meta.touched }
+                                                                    error={ meta.error }
+                                                                    onBlur={input.onBlur}
+                                                                    className={ styles.inputAvailableWidth }
+                                                                />
+                                                            </div>
+                                                        )
+                                                    }
                                                 }
-                                            }
-                                        </Field>
-                                        <Field name='password'>
-                                            {
-                                                (props: any): ReactElement => {
-                                                    const { input, meta } = props;
-                                                    return (
-                                                        <div>
-                                                            <InputPassword
-                                                                value={props.input.value}
-                                                                onChange={props.input.onChange}
-                                                                placeholder={ passwordPlaceholder }
-                                                                touched={ meta.touched }
-                                                                error={ meta.error }
-                                                                onBlur={input.onBlur}
-                                                                className={ styles.inputAvailableWidth }
-                                                            />
-                                                        </div>
-                                                    )
+                                            </Field>
+                                            <Field name='password'>
+                                                {
+                                                    (props: any): ReactElement => {
+                                                        const { input, meta } = props;
+                                                        return (
+                                                            <div>
+                                                                <InputPassword
+                                                                    value={props.input.value}
+                                                                    onChange={props.input.onChange}
+                                                                    placeholder={ passwordPlaceholder }
+                                                                    touched={ meta.touched }
+                                                                    error={ meta.error }
+                                                                    onBlur={input.onBlur}
+                                                                    className={ styles.inputAvailableWidth }
+                                                                />
+                                                            </div>
+                                                        )
+                                                    }
                                                 }
-                                            }
-                                        </Field>
-                                        <Button
-                                            viewType="primary"
-                                            text={ title }
-                                            type="submit"
-                                        />
-                                    </form>
-                                )}
-                            />
+                                            </Field>
+                                            <Button
+                                                viewType="primary"
+                                                text={ title }
+                                                type="submit"
+                                            />
+                                        </form>
+                                    )}
+                                />
+                            </div>
+                            { this.renderBottomLink() }
                         </div>
-                        { this.renderBottomLink() }
-                    </div>
-                </ModalForm>
+                    </ModalForm>
+                </div>
             </div>
         );
     }

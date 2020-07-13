@@ -3,14 +3,15 @@ import React, { StatelessComponent } from 'react';
 import styles from './modal-form.module.scss';
 
 type Props = {
-    children?: React.ReactNode[];
+    children?: React.ReactNode;
+    className?: string;
 }
 
-export const ModalForm: StatelessComponent = (props: Props) => {
-    const { children = {} } = props;
+export const ModalForm: StatelessComponent<Props> = (props: Props) => {
+    const { children = {}, className } = props;
 
     return (
-        <div className={ styles.modalForm }>
+        <div className={ `${styles.modalForm} ${className}` }>
             { children }
         </div>
     );

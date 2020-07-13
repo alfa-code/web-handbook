@@ -54,19 +54,23 @@
         }
 
         &:not(:last-child) {
+
             > .imageTitleWrapper {
                 margin-right: var(--gap-l);
             }
         }
 
         &:last-child {
+
             &:not(:only-child) {
+
                 > .imageTitleWrapper {
                     margin-left: var(--gap-l);
                 }
             }
 
             &:only-child {
+
                 > .imageTitleWrapper {
                     margin-right: var(--gap-l);
                 }

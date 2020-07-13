@@ -13,16 +13,16 @@
     font-size: 13px;
     color: var(--text-secondary);
 
+    @include media("<phone-2") {
+        padding-left: var(--gap-s);
+        padding-right: var(--gap-s);
+    }
+
     & + & {
         margin-left: var(--gap-m);
 
         @include media("<phone-2") {
             margin-left: var(--gap-xs);
         }
-    }
-
-    @include media("<phone-2") {
-        padding-left: var(--gap-s);
-        padding-right: var(--gap-s);
     }
 }

@@ -75,18 +75,18 @@
     .sectionFour {
         color: var(--text-paragraphs);
 
-        * {
-            margin-bottom: var(--gap-xl);
-
-            @include media("<phone-2") {
-                margin-bottom: var(--gap-m);
-            }
-        }
-
         @include media("<phone-2") {
             margin-top: var(--gap-xs);
 
             & > div {
+                margin-bottom: var(--gap-m);
+            }
+        }
+
+        * {
+            margin-bottom: var(--gap-xl);
+
+            @include media("<phone-2") {
                 margin-bottom: var(--gap-m);
             }
         }

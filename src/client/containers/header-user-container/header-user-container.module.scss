@@ -15,6 +15,19 @@
     text-decoration: none;
     transition: 0.25s;
 
+    @include media("<tablet-2") {
+        display: block;
+        width: 33%;
+        padding: var(--gap-xl) var(--gap-m);
+        height: var(--gap-5xl);
+        text-align: center;
+
+        &:hover {
+            text-decoration: none;
+            background: var(--brand-secondary);
+        }
+    }
+
     &:hover {
         text-decoration: underline;
     }
@@ -35,19 +48,6 @@
             &:hover {
                 background: var(--brand-secondary);
             }
-        }
-    }
-
-    @include media("<tablet-2") {
-        display: block;
-        width: 33%;
-        padding: var(--gap-xl) var(--gap-m);
-        height: var(--gap-5xl);
-        text-align: center;
-
-        &:hover {
-            text-decoration: none;
-            background: var(--brand-secondary);
         }
     }
 }

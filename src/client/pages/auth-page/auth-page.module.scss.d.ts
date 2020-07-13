@@ -2,11 +2,13 @@
 // Please do not change this file!
 interface CssExports {
   'bottomLink': string;
+  'centerContainer': string;
   'container': string;
   'headingRow': string;
   'inputAvailableWidth': string;
   'loginForm': string;
   'loginPage': string;
+  'modalForm': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

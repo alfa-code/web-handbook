@@ -82,10 +82,6 @@
     width: 810px;
     height: 456px;
 
-    &:hover .girlImg {
-        opacity: 0;
-    }
-
     @include media("<tablet-2") {
         width: 100%;
         height: auto;
@@ -94,6 +90,10 @@
             width: 100%;
             height: 50vw;
         }
+    }
+
+    &:hover .girlImg {
+        opacity: 0;
     }
 }
 
