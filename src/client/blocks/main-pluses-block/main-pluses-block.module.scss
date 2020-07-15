@@ -20,6 +20,14 @@
 .cell {
     flex-grow: 1;
 
+    & + & {
+        margin-left: 32px;
+
+        @include media("<tablet-2") {
+            margin-left: 0;
+        }
+    }
+
     @include media("<tablet-2") {
         display: inline-block;
         flex-grow: 0;
@@ -33,14 +41,6 @@
 
     @include media("<phone-2") {
         max-width: 100%;
-    }
-
-    & + & {
-        margin-left: 32px;
-
-        @include media("<tablet-2") {
-            margin-left: 0;
-        }
     }
 }
 
@@ -73,7 +73,7 @@
 
     @include media("<phone-2") {
         font-size: 14px;
-        margin: var(--gap-xs);
+        margin: var(--gap-xs)
     }
 }
 

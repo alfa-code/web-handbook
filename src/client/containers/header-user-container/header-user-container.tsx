@@ -4,9 +4,13 @@ import { Link } from 'react-router-dom';
 
 import { HeaderAuthButton } from 'Components/header-auth-button';
 import { selectAuthInfo } from  'Src/selectors/select-auth-info';
+import loginIcon from 'Assets/icons/info-icons/user-icon.svg'
 import { Button } from 'Components/button';
 
 import styles from './header-user-container.module.scss';
+import { Icon } from 'Components/icons/icons';
+import { MatchMedia } from 'Components/math-media';
+import { BREAKPOINTS } from 'Constants/media';
 
 type Props = {
     authInfo: any;
@@ -23,6 +27,9 @@ function Container(props: Props) {
         return (
             <div className={ styles.container }>
                 <Link to="/auth" className={ styles.link }>
+                    <MatchMedia maxWidth={`<${BREAKPOINTS.TABLET_2}`}>
+                        <Icon size="xl" src={ loginIcon } className={ styles.loginIcon }/>
+                    </MatchMedia>
                     Войти
                 </Link>
                 <Button
@@ -32,7 +39,7 @@ function Container(props: Props) {
                     className={ styles.buttonLink }
                 />
             </div>
-            
+
         )
     }
 

@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 
 import defaultUserIcon from 'Assets/icons/other/default-user-icon.svg';
-import { BREAKPOINTS } from 'Constants/media';
-import { MOBILE_AUTH_BLOCK_COLOR } from 'Constants/colors';
-import { media } from 'Utils/media/media';
 
 import styles from './header-auth-button.module.scss';
 
@@ -17,9 +14,7 @@ type Props = {
 export const HeaderAuthButton: React.FC<Props> = (props: Props) => {
     const { text, className } = props;
     const [containerBgColor, setContainerBgColor] = useState(null);
-    let bgcolor = media(`>${BREAKPOINTS.TABLET_2}`)
-        ? useSelector(state => state.UI.pageStyles.backgroundColor)
-        : MOBILE_AUTH_BLOCK_COLOR;
+    let bgcolor = useSelector(state => state.UI.pageStyles.backgroundColor);
 
     if (!bgcolor) {
         bgcolor = '#fff';

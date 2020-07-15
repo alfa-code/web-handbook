@@ -30,7 +30,7 @@ export class MobileHeader extends Component<{}, State> {
                 <div className={ styles.padding } />
                 <div className={ styles.base }>
                     <div className={ styles.logoMobile }>
-                        <Logo type="short" />
+                        <Logo />
                     </div>
                     <WaveEffect onClick={ this.toggleMenu } className={ styles.burger }>
                         <MenuBurger active={ menuOpened } />

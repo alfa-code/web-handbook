@@ -4,6 +4,7 @@ interface CssExports {
   'buttonLink': string;
   'container': string;
   'link': string;
+  'loginIcon': string;
 }
 export const cssExports: CssExports;
 export default cssExports;

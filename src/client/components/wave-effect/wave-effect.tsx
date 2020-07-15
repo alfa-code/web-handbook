@@ -10,7 +10,7 @@ import styles from './wave-effect.module.scss';
  * @constructor
  */
 export const WaveEffect = (props: Props): JSX.Element => {
-    const { children, className, onClick, onMouseLeave } = props;
+    const { children, className, onClick, onMouseLeave, darkMode } = props;
     const [wave, setWave] = useState([]);
 
     const setWaveHandle = (event) => {
@@ -26,7 +26,9 @@ export const WaveEffect = (props: Props): JSX.Element => {
     const onMouseLeaveHandler = useCallback((event) => {
         onMouseLeave(event);
 
-        resetWaves();
+        setTimeout(() => {
+            resetWaves();
+        }, 500)
     }, [onMouseLeave])
 
 
@@ -44,7 +46,7 @@ export const WaveEffect = (props: Props): JSX.Element => {
             className={ `${styles.container} ${className}`}
         >
             {
-                wave.map ( (item, index) => <div key={index} className={ styles.wave } />)
+                wave.map ( (item, index) => <div key={index} className={ `${styles.wave} ${darkMode ? 'dark' : ''}`} />)
             }
             { children }
         </div>
@@ -54,4 +56,5 @@ export const WaveEffect = (props: Props): JSX.Element => {
 WaveEffect.defaultProps = {
     onClick: () => void 0,
     onMouseLeave: () => void 0,
+    darkMode: false,
 }

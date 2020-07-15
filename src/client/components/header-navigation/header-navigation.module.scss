@@ -21,10 +21,6 @@
             flex-direction: column;
         }
 
-        li {
-
-        }
-
         li + li {
             margin-left: 64px;
 
@@ -41,12 +37,12 @@
 
         @include media("<tablet-2") {
             display: block;
-            color: var(--text-inverse);
-            padding: var(--gap-s) var(--gap-m);
+            padding: var(--gap-m) var(--gap-5xl);
             font-size: 16px;
 
             &:hover {
-                background: var(--brand-secondary);
+                color: var(--hover-brand-red);
+                background: var(--background-main);
             }
         }
     }

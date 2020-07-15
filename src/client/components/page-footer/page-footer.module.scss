@@ -42,6 +42,10 @@
             padding: 0;
             margin: 0;
             margin-bottom: 20px;
+
+            @include media("<tablet-2") {
+                width: auto;
+            }
         }
 
         :first-child {
@@ -75,18 +79,19 @@
     .sectionFour {
         color: var(--text-paragraphs);
 
-        @include media("<phone-2") {
-            margin-top: var(--gap-xs);
-
-            & > div {
-                margin-bottom: var(--gap-m);
-            }
-        }
-
         * {
             margin-bottom: var(--gap-xl);
 
             @include media("<phone-2") {
+                margin-bottom: var(--gap-m);
+            }
+        }
+
+        @include media("<phone-2") {
+            margin-top: var(--gap-xs);
+            max-width: 100%;
+
+            & > div {
                 margin-bottom: var(--gap-m);
             }
         }

@@ -5,7 +5,27 @@
 
     max-height: 40px;
 
+    &:hover .innerContainer {
+        background: #FFFFFF;
+        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
+
+        padding: var(--gap-m);
+        top: calc(0 - var(--gap-m));
+        right: calc(0 - var(--gap-m));
+    }
+
     @include media("<tablet-2") {
+        max-height: 100%;
+        padding: var(--gap-m) 0;
+
+        &:before {
+            content: "";
+            display: block;
+            margin: calc(0px - var(--gap-m)) var(--gap-m) var(--gap-m);
+            height: 1px;
+            background: var(--background-main);
+        }
+
 
         &:hover .innerContainer {
             background: var(--brand-primary);
@@ -15,15 +35,6 @@
             right: 0;
 
         }
-    }
-
-    &:hover .innerContainer {
-        background: #FFFFFF;
-        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
-
-        padding: var(--gap-m);
-        top: calc(0 - var(--gap-m));
-        right: calc(0 - var(--gap-m));
     }
 }
 
@@ -35,8 +46,8 @@
     position: relative;
 
     @include media("<tablet-2") {
-        color: var(--text-inverse);
-        background: var(--brand-primary);
+        color: var(--text-primary);
+        background: var(--background-white);
     }
 }
 
@@ -55,14 +66,8 @@
 
     padding-top: var(--gap-2xl);
 
-    @include media("<tablet-2") {
-        display: block;
-        padding-top: 0;
-        background-color: var(--brand-primary);
-    }
-
     li + li {
-        margin-top: var(--gap-m);
+        margin-top: var(--gap-2xl);
 
         @include media("<tablet-2") {
             margin-top: 0;
@@ -72,17 +77,23 @@
     a {
         color: var(--text-primary);
         text-decoration: none;
-        transition: background-color 0.25s;
+        transition: background-color 0.25s, color 0.25s;
 
         @include media("<tablet-2") {
             display: block;
-            padding: var(--gap-s) var(--gap-xl);
-            color: var(--text-inverse);
+            padding: var(--gap-m) var(--gap-5xl);
 
             &:hover {
-                background-color: var(--brand-secondary);
+                background-color: var(--background-main);
+                color: var(--brand-red)
             }
         }
+    }
+
+    @include media("<tablet-2") {
+        display: block;
+        padding-top: 0;
+        background-color: var(--background-white);
     }
 }
 
@@ -90,16 +101,16 @@
     display: inline-flex;
     align-items: center;
 
-    @include media("<tablet-2") {
-        padding: var(--gap-m);
-    }
-
     &:hover .icon {
         border-color: red;
     }
 
     &:hover .text {
         color: red;
+    }
+
+    @include media("<tablet-2") {
+        padding: var(--gap-m);
     }
 }
 
@@ -130,7 +141,7 @@
     color: var(--text-primary);
 
     @include media("<tablet-2") {
-        color: var(--text-inverse);
+        color: var(--text-primary)
     }
 }
 

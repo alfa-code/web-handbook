@@ -1,8 +1,10 @@
 .base {
     display: block;
     background: var(--brand-primary);
+    background-color: var(--background-white);
+    min-height: calc(100vh - var(--gap-5xl));
 }
 
 .user {
-    border-top: 1px solid var(--brand-secondary);
+    padding-top: var(--gap-m);
 }

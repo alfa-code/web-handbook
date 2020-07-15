@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    background-color: var(--brand-primary);
+    background-color: var(--text-inverse);
     padding: var(--gap-xs) var(--gap-m);
     z-index: 100;
     top: 0;
@@ -16,7 +16,11 @@
 }
 
 .logoMobile {
-    max-width: 48px;
+
+    img {
+        padding: var(--gap-xs) 0;
+        margin-left: calc(0px - var(--gap-m));
+    }
 }
 
 .burger {
@@ -30,7 +34,7 @@
     width: var(--gap-5xl);
     height: var(--gap-5xl);
     transition: 0.25s;
-
+    padding: var(--gap-s);
 }
 
 .menu {
@@ -39,5 +43,5 @@
     top: var(--gap-5xl);
     width: 100%;
     z-index: 100;
-    border-top: 1px solid var(--brand-secondary);
+    border-top: 1px solid var(--background-main);
 }
