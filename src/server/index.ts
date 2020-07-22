@@ -22,9 +22,21 @@ const rootPath = process.cwd();
 const SERVER_PORT = 3000;
 const SERVER_HOST = '0.0.0.0';
 
-const validateJwtData = async function (): Promise<{ isValid: boolean }>  {
-    // If token is correct - is not necessary
-    return { isValid: true };
+const validateJwtData = async function (decoded, request): Promise<{ isValid: boolean }>  {
+    const { path } = request;
+    const { rights } = decoded;
+
+    switch (true) {
+        case (/admin/.test(path)): {
+            if (rights && rights !== 'admin') {
+                return { isValid: false };
+            }
+            return { isValid: true };
+        }
+        default: {
+            return { isValid: true };
+        }
+    }
 };
 
 // @ts-ignore

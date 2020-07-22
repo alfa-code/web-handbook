@@ -14,6 +14,7 @@ import { BlogListPage } from 'Src/client/pages/blog-list-page';
 import {PlaylistPage} from "Pages/playlist-page";
 import { BlogArticlePageContainer } from 'Src/client/containers/blog-article-page-container';
 import { CoursePage } from 'Pages/course-page';
+import { AdminPage } from 'Pages/admin-page';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga'
@@ -78,6 +79,7 @@ export default class App extends React.Component {
                     <Route exact path='/playlist' component={ PlaylistPage } />
                     <Route exact path='/courses' component={ CoursesPage } />
                     <Route exact path='/courses/:id' component={ CoursePage } />
+                    <Route path='/admin' component={ AdminPage } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
                 <ToastContainer />

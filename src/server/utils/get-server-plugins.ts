@@ -5,6 +5,7 @@ import { anyRoutePlugin } from 'Src/server/plugins/routes/any-route';
 import { authRoutePlugin } from 'Src/server/plugins/routes/auth-route';
 import { settingsSubpageRoutePlugin } from 'Src/server/plugins/routes/settings-subpage-route';
 import { postgreRoutePlugin } from 'Src/server/plugins/routes/postgre-route';
+import { adminRoutePlugin } from 'Src/server/plugins/routes/admin-route';
 import { blogRoutePlugin } from 'Src/server/plugins/routes/blog-route';
 import { logoutPlugin } from 'Src/server/plugins/logout-plugin';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
@@ -15,6 +16,8 @@ import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
 import { registrationPlugin } from 'Src/server/plugins/registration/registration-plugin';
 import { loginPlugin } from 'Src/server/plugins/login-plugin';
 import { postgreRequestPlugin } from 'Src/server/plugins/postgre-request-plugin';
+import { createBlogArticlePlugin } from 'Src/server/plugins/api/blog/create-blog-article';
+import { updateBlogArticlePlugin } from 'Src/server/plugins/api/blog/update-blog-article';
 
 export function getServerPlugins() {
     const plugins = [
@@ -79,6 +82,12 @@ export function getServerPlugins() {
             }
         },
         {
+            plugin: adminRoutePlugin,
+            options: {
+                auth: 'jwt'
+            }
+        },
+        {
             plugin: blogRoutePlugin,
             options: {
                 auth: false
@@ -94,6 +103,17 @@ export function getServerPlugins() {
             plugin: getAllBlogPostsPlugin,
             options: {
                 auth: false,
+            }
+        },
+        {
+            plugin: createBlogArticlePlugin,
+            options: {
+                auth: 'jwt',
+            }
+        },{
+            plugin: updateBlogArticlePlugin,
+            options: {
+                auth: 'jwt',
             }
         },
         {
