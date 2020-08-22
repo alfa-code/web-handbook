@@ -63,15 +63,14 @@
         &:last-child {
 
             &:not(:only-child) {
-
-                > .imageTitleWrapper {
+                > .imageTitleWrapper { /* stylelint-disable-line */
                     margin-left: var(--gap-l);
                 }
             }
 
             &:only-child {
 
-                > .imageTitleWrapper {
+                > .imageTitleWrapper { /* stylelint-disable-line */
                     margin-right: var(--gap-l);
                 }
             }

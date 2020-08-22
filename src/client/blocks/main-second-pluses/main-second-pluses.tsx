@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
+import { v1 as uuidv1 } from 'uuid';
 
 import graduationCapIcon from 'Assets/icons/bw/graduation-cap.svg';
 import thumbsUpIcon from 'Assets/icons/bw/thumbs-up.svg';
 import videoIcon from 'Assets/icons/bw/video.svg';
-
-import uuidv1 from 'uuid/v1';
 
 import styles from './main-second-pluses.module.scss';
 

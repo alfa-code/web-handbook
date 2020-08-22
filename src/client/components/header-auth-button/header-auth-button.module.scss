@@ -5,15 +5,6 @@
 
     max-height: 40px;
 
-    &:hover .innerContainer {
-        background: #FFFFFF;
-        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
-
-        padding: var(--gap-m);
-        top: calc(0 - var(--gap-m));
-        right: calc(0 - var(--gap-m));
-    }
-
     @include media("<tablet-2") {
         max-height: 100%;
         padding: var(--gap-m) 0;
@@ -35,6 +26,15 @@
             right: 0;
 
         }
+    }
+
+    &:hover .innerContainer {
+        background: #FFFFFF;
+        box-shadow: 0 10px 24px rgba(23, 42, 63, .1);
+
+        padding: var(--gap-m);
+        top: calc(0 - var(--gap-m));
+        right: calc(0 - var(--gap-m));
     }
 }
 
@@ -66,6 +66,12 @@
 
     padding-top: var(--gap-2xl);
 
+    @include media("<tablet-2") {
+        display: block;
+        padding-top: 0;
+        background-color: var(--background-white);
+    }
+
     li + li {
         margin-top: var(--gap-2xl);
 
@@ -85,15 +91,9 @@
 
             &:hover {
                 background-color: var(--background-main);
-                color: var(--brand-red)
+                color: var(--brand-red);
             }
         }
-    }
-
-    @include media("<tablet-2") {
-        display: block;
-        padding-top: 0;
-        background-color: var(--background-white);
     }
 }
 
@@ -101,16 +101,16 @@
     display: inline-flex;
     align-items: center;
 
+    @include media("<tablet-2") {
+        padding: var(--gap-m);
+    }
+
     &:hover .icon {
         border-color: red;
     }
 
     &:hover .text {
         color: red;
-    }
-
-    @include media("<tablet-2") {
-        padding: var(--gap-m);
     }
 }
 
@@ -141,7 +141,7 @@
     color: var(--text-primary);
 
     @include media("<tablet-2") {
-        color: var(--text-primary)
+        color: var(--text-primary);
     }
 }
 

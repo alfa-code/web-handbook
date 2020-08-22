@@ -12,11 +12,11 @@
 
     justify-self: center;
 
+    @include hoverShadow();
+
     @include media("<desktop-1") {
         width: 320px;
     }
-
-    @include hoverShadow();
 }
 
 .yellow {

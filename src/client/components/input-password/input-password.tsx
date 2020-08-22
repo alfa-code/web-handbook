@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
-import * as eyeHideImage from 'Assets/icons/info-icons/eye-show.svg';
-import * as eyeImage from 'Assets/icons/info-icons/eye-hide.svg';
+import eyeHideImage from 'Assets/icons/info-icons/eye-show.svg';
+import eyeImage from 'Assets/icons/info-icons/eye-hide.svg';
 
 import styles from './input-password.module.scss';
 

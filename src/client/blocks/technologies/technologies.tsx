@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as htmlIcon from 'Assets/icons/technologies/html.png';
-import * as cssIcon from 'Assets/icons/technologies/css.png';
-import * as jsIcon from 'Assets/icons/technologies/js.png';
+import htmlIcon from 'Assets/icons/technologies/html.png';
+import cssIcon from 'Assets/icons/technologies/css.png';
+import jsIcon from 'Assets/icons/technologies/js.png';
 
 import styles from './technologies.module.scss';
 

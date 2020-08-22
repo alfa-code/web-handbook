@@ -4,9 +4,9 @@ import { HeaderLabel } from 'Src/client/components/header-label';
 import { Heading } from 'Src/client/components/heading';
 import { Paragraph } from 'Src/client/components/paragraph';
 
-import * as girlImage from 'Assets/images/girl.svg';
-import * as dotsImage from 'Assets/images/dots.svg';
-import * as whatIsAlfaCodeImage from 'Assets/images/what-is-alfa-code.svg';
+import girlImage from 'Assets/images/girl.svg';
+import dotsImage from 'Assets/images/dots.svg';
+import whatIsAlfaCodeImage from 'Assets/images/what-is-alfa-code.svg';
 
 import styles from './about-platform.module.scss';
 

@@ -1,12 +1,11 @@
 import React, { ReactNode } from 'react';
+import { v1 as uuidv1 } from 'uuid';
 
-import * as webTechnologyImage from 'Assets/images/web-technology.svg';
-import * as upToExpertLevelImage from 'Assets/images/up-to-expert-level.svg';
-import * as practicalTrainingImage from 'Assets/images/practical-training.svg';
+import webTechnologyImage from 'Assets/images/web-technology.svg';
+import upToExpertLevelImage from 'Assets/images/up-to-expert-level.svg';
+import practicalTrainingImage from 'Assets/images/practical-training.svg';
 
 import { Heading } from 'Components/heading';
-
-import uuidv1 from 'uuid/v1';
 
 import styles from './main-pluses-block.module.scss';
 

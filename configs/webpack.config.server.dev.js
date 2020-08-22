@@ -35,7 +35,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            onlyLocals: true,
+                            // exportOnlyLocals: true,
                             modules: {
                                 localIdentName: "[name]__[local]___[hash:base64:5]",
                             },
@@ -99,6 +99,6 @@ module.exports = {
     ],
     externals: [nodeExternals({
         // this WILL include `jquery` and `webpack/hot/dev-server` in the bundle, as well as `lodash/*`
-        whitelist: []
+        allowlist: []
     })],
 };

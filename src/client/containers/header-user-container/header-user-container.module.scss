@@ -17,6 +17,25 @@
     text-decoration: none;
     transition: 0.25s;
 
+    @include media("<tablet-2") {
+        line-height: var(--gap-xl);
+        width: 100%;
+        text-align: center;
+        max-width: 250px;
+        display: inline-flex;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        padding: var(--gap-s) 0;
+        border: 1px solid var(--brand-gray);
+        border-radius: 4px;
+
+        &:hover {
+            text-decoration: none;
+            border-color: var(--brand-primary);
+        }
+    }
+
     &:hover {
         text-decoration: underline;
     }
@@ -34,25 +53,6 @@
             display: inline-flex;
             vertical-align: middle;
             padding: var(--gap-s) 0;
-        }
-    }
-
-    @include media("<tablet-2") {
-        line-height: var(--gap-xl);
-        width: 100%;
-        text-align: center;
-        max-width: 250px;
-        display: inline-flex;
-        vertical-align: middle;
-        justify-content: center;
-        align-items: center;
-        padding: var(--gap-s) 0;
-        border: 1px solid var(--brand-gray);
-        border-radius: 4px;
-
-        &:hover {
-            text-decoration: none;
-            border-color: var(--brand-primary);
         }
     }
 }
