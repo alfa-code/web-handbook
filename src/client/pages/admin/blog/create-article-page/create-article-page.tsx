@@ -10,13 +10,16 @@ export function CreateArticlePage() {
 
     const createArticle = async (e) => {
         e.preventDefault();
-        const newArticle = await axios.post('/api/create-blog-article', {
+        const { status } = await axios.post('/api/create-blog-article', {
             title,
             imageAddress,
             description,
             content
         });
-        console.log('newArticle', newArticle);
+
+        if (status === 201) {
+            window.location.href = '/admin/blog';
+        }
     }
 
     return (

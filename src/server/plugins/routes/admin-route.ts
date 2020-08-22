@@ -6,7 +6,7 @@ export const adminRoutePlugin = {
     register: async function (server, options) {
         server.route({
             method: 'GET',
-            path: '/admin',
+            path: '/admin/{optionalPath?}',
             options,
             handler: function (request) {
                 return getContent(request);

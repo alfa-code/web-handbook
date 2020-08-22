@@ -15,9 +15,12 @@ export class BlogList extends PureComponent<Props, any> {
         }
     }
 
-    articleDelitePrompt = (post_id) => {
+    articleDelitePrompt = async (post_id) => {
         const isDelete = confirm(`Удалить пост с id ${post_id}? `);
-        console.log('isDelete', isDelete);
+        if (isDelete) {
+            const { status } = await axios.delete(`/api/delete-blog-article/${post_id}`);
+            console.log('status', status);
+        }
     }
 
     renderArticlesTable = () => {

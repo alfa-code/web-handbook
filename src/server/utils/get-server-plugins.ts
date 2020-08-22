@@ -18,6 +18,7 @@ import { loginPlugin } from 'Src/server/plugins/login-plugin';
 import { postgreRequestPlugin } from 'Src/server/plugins/postgre-request-plugin';
 import { createBlogArticlePlugin } from 'Src/server/plugins/api/blog/create-blog-article';
 import { updateBlogArticlePlugin } from 'Src/server/plugins/api/blog/update-blog-article';
+import { deleteBlogArticlePlugin } from 'Src/server/plugins/api/blog/delete-blog-article';
 
 export function getServerPlugins() {
     const plugins = [
@@ -112,6 +113,11 @@ export function getServerPlugins() {
             }
         },{
             plugin: updateBlogArticlePlugin,
+            options: {
+                auth: 'jwt',
+            }
+        },{
+            plugin: deleteBlogArticlePlugin,
             options: {
                 auth: 'jwt',
             }

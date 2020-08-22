@@ -12,14 +12,17 @@ export function UpdateArticlePage(props: any) {
 
     const updateArticle = async (e) => {
         e.preventDefault();
-        const updatedArticle = await axios.post('/api/update-blog-article', {
+        const { status } = await axios.put('/api/update-blog-article', {
             post_id,
             title,
             imageAddress,
             description,
             content
         });
-        console.log('updatedArticle', updatedArticle);
+
+        if (status === 200) {
+            window.location.href = '/admin/blog';
+        }
     }
 
     useEffect(() => {
