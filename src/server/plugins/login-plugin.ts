@@ -15,34 +15,28 @@ export const loginPlugin = {
             },
             handler: async (request, h) => {
                 const { login, password } = request.payload;
-    
-                //let foundUser;
+                const { Account } = await server.methods.getModels();
+
                 if (login && password) {
-                    // eslint-disable-next-line
-                    const sql = `SELECT user_id, username, rights FROM accounts WHERE username = '${login}' AND password = '${password}'`;
-                    // const result: any = await createSQLRequest(pgClient, sql);
-                    const result = await request.pg.client.query(sql);
-    
-                    if (result.rowCount === 1) {
-                        const { user_id: userId, username, rights } = result.rows[0]
-    
-                        // generate jwt token by user data
-                        const token = jwt.sign({ userId, username, rights }, jwtPrivateKey, { algorithm: jwtAlgorithm });
-    
-                        // set the jwt token cookie
+                    const userSearchResult = await Account.findOne({ where: { username: login, password } });
+
+                    if (userSearchResult && userSearchResult.dataValues) {
+
+                        const { user_id, username, rights } = userSearchResult.dataValues;
+                        const token = jwt.sign({ userId: user_id, username, rights }, jwtPrivateKey, { algorithm: jwtAlgorithm });
                         h.state('token', token, {
                             SameSite: 'Lax',
                             isSecure: false,
                             isHttpOnly: false,
-                            ttl: 1000 * 60 * 60, // one hour
+                            ttl: 1000 * 60 * 60,
                             path: '/',
                         });
-    
+
                         return h.response({
                             type: 'success',
                             message: 'Вы успешно аутентифицированы!',
                             redirectTo: '/profile'
-                        })
+                        });
                     } else {
                         return h.response({
                             type: 'error',

@@ -15,7 +15,6 @@ import { getAllBlogPostsPlugin } from 'Src/server/plugins/get-all-blog-posts';
 import { getBlogPostByIdPlugin } from 'Src/server/plugins/get-blog-post-by-id';
 import { registrationPlugin } from 'Src/server/plugins/registration/registration-plugin';
 import { loginPlugin } from 'Src/server/plugins/login-plugin';
-import { postgreRequestPlugin } from 'Src/server/plugins/postgre-request-plugin';
 import { createBlogArticlePlugin } from 'Src/server/plugins/api/blog/create-blog-article';
 import { updateBlogArticlePlugin } from 'Src/server/plugins/api/blog/update-blog-article';
 import { deleteBlogArticlePlugin } from 'Src/server/plugins/api/blog/delete-blog-article';
@@ -54,9 +53,6 @@ export function getServerPlugins() {
             options: {
                 auth: false
             }
-        },
-        {
-            plugin: postgreRequestPlugin
         },
         {
             plugin: anyRoutePlugin,

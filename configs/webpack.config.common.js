@@ -9,6 +9,7 @@ module.exports = {
         alias: {
             Src: path.join(rootPath, './src/'),
             Components: path.join(rootPath, './src/client/components/'),
+            Containers: path.join(rootPath, './src/client/containers/'),
             Constants: path.join(rootPath, './src/constants/'),
             Assets: path.join(rootPath, './src/assets/'),
             Fonts: path.join(rootPath, './src/assets/fonts/'),

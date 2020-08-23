@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
-
 import axios from 'axios';
 
-export function UpdateArticlePage(props: any) {
-    const { params: { post_id } } = props.match;
+interface Props {
+    editArticleByIdStartDA: any;
+    postId: string;
+}
+
+export function UpdateArticlePage(props: Props) {
+    const {
+        editArticleByIdStartDA,
+        postId
+    } = props;
 
     const [imageAddress, setNewArticleImageAddress] = useState(null);
     const [title, setNewArticleTitle] = useState(null);
@@ -12,21 +19,18 @@ export function UpdateArticlePage(props: any) {
 
     const updateArticle = async (e) => {
         e.preventDefault();
-        const { status } = await axios.put('/api/update-blog-article', {
-            post_id,
+
+        editArticleByIdStartDA({
+            postId,
             title,
             imageAddress,
             description,
             content
         });
-
-        if (status === 200) {
-            window.location.href = '/admin/blog';
-        }
     }
 
     useEffect(() => {
-        const targetPost = axios.get(`/api/get-blog-post-by-id/${post_id}`);
+        const targetPost = axios.get(`/api/get-blog-post-by-id/${postId}`);
         targetPost.then((response) => {
             console.log('response.data', response.data);
 

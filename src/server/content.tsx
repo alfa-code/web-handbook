@@ -9,7 +9,7 @@ import get from 'lodash/get';
 import AppHtml from 'Components/app-html';
 import App from 'Src/client/app/app';
 
-import { StaticRouter } from 'react-router-dom';
+// import { StaticRouter as Router } from 'react-router-dom';
 
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 
@@ -57,12 +57,16 @@ export function getContent(request: any): string {
                 }
             }
         >
-            <StaticRouter
+            {/* <Router
                 location={{ pathname: request.url.pathname, hash: request.url.pathname }}
                 context={context}
             >
                 <App />
-            </StaticRouter>
+            </Router> */}
+            <App
+                location={{ pathname: request.url.pathname, hash: request.url.pathname }}
+                context={context}
+            />
         </AppHtml>,
     );
 

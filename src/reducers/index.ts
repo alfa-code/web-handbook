@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 
 import counterReducer from 'Reducers/counter';
 import authReducer from 'Reducers/auth';
+import { adminReducer } from 'Reducers/admin';
+
 import blogReducer from 'Reducers/blog';
 import { userParamsReducer } from 'Reducers/user-params';
 
@@ -27,6 +29,7 @@ const rootReducer = combineReducers({
         params: userParamsReducer,
     }),
     blog: blogReducer,
+    admin: adminReducer,
 });
 
 export default rootReducer;

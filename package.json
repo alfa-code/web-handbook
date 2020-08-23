@@ -18,7 +18,7 @@
         "build:server:dev:watch": "cross-env NODE_ENV=development webpack --watch --config ./configs/webpack.config.server.prod.js",
         "build:all:prod": "cross-env NODE_ENV=production yarn clear && yarn build:client:prod && yarn build:server:prod",
         "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/server.js",
-        "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon ./.build/server.js --watch ./.build/server.js",
+        "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon --inspect ./.build/server.js --watch ./.build/server.js",
         "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server",
         "db:migrate": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.prod.js && cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/migrations.js",
         "deploy": "sh ./deploy/deploy.sh"
@@ -92,7 +92,7 @@
         "final-form": "^4.20.1",
         "hapi-auth-jwt2": "^10.1.0",
         "hapi-error": "^2.2.0",
-        "hapi-postgres-connection": "^7.0.0",
+        "history": "^5.0.0",
         "include-media": "^1.4.9",
         "js-cookie": "^2.2.1",
         "jsonwebtoken": "^8.5.1",

@@ -2,7 +2,6 @@ import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
 import Inert from '@hapi/inert';
 import path from 'path';
-import HapiPostgresConnection from 'hapi-postgres-connection';
 
 import { jwtAlgorithm } from 'Src/constants/jwt';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
@@ -10,10 +9,7 @@ import { getServerPlugins } from 'Src/server/utils/get-server-plugins';
 
 import { SequelizeConnectPlugin } from 'Src/server/plugins/sequelize-connect';
 
-import { getAccountModel } from 'Src/server/models/Account';
-import { getUsersModel } from 'Src/server/models/User';
-import { getBlogPostModel } from 'Src/server/models/BlogPost';
-import { getCourseModel } from 'Src/server/models/Course';
+import { ormModels } from 'Src/server/models';
 
 // app root path
 const rootPath = process.cwd();
@@ -39,7 +35,6 @@ const validateJwtData = async function (decoded, request): Promise<{ isValid: bo
     }
 };
 
-// @ts-ignore
 const server = new Hapi.Server({
     port: SERVER_PORT,
     host: SERVER_HOST,
@@ -61,9 +56,6 @@ const server = new Hapi.Server({
 const init = async (): Promise<any> => {
     await server.register(Inert);
     await server.register(HapiAuthJWT2);
-    await server.register({
-        plugin: HapiPostgresConnection
-    });
 
     server.auth.strategy('jwt', 'jwt', {
         key: process.env[JWT_SECRET_KEY],
@@ -75,15 +67,11 @@ const init = async (): Promise<any> => {
     });
     server.auth.default('jwt');
 
+    // Подключаем ORM - передаем массив моделей
     await server.register({
         plugin: SequelizeConnectPlugin,
         options: {
-            models: [
-                getAccountModel,
-                getUsersModel,
-                getBlogPostModel,
-                getCourseModel
-            ]
+            models: ormModels
         }
     })
 

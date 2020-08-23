@@ -26,6 +26,7 @@
         "paths": {
             "Src/*": ["src/*"],
             "Components/*": ["src/client/components/*"],
+            "Containers/*": ["src/client/containers/*"],
             "Constants/*": ["src/constants/*"],
             "Assets/*": ["src/assets/*"],
             "Fonts/*": ["src/assets/fonts/*"],

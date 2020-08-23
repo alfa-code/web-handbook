@@ -1,9 +1,11 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import logger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { ToastContainer } from 'react-toastify';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware from 'redux-saga';
 
 import { MainPage } from 'Src/client/pages/main-page';
 import { AuthPage } from 'Src/client/pages/auth-page';
@@ -15,9 +17,6 @@ import {PlaylistPage} from "Pages/playlist-page";
 import { BlogArticlePageContainer } from 'Src/client/containers/blog-article-page-container';
 import { CoursePage } from 'Pages/course-page';
 import { AdminPage } from 'Pages/admin-page';
-
-import { composeWithDevTools } from 'redux-devtools-extension';
-import createSagaMiddleware from 'redux-saga'
 
 import rootReducer from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
@@ -40,18 +39,31 @@ try {
     initialState = {}
 }
 
+const loggerReduxLogger = createLogger({
+    collapsed: true,
+    duration: true,
+    diff: true
+});
+
+
 const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(logger, sagaMiddleware))
+    composeEnhancers(applyMiddleware(loggerReduxLogger, sagaMiddleware))
 );
 
-sagaMiddleware.run(rootSaga)
 
-export default class App extends React.Component {
-    render(): any {
+sagaMiddleware.run(rootSaga);
+
+type Props = {
+    location?: any;
+    context?: any;
+}
+
+export default class App extends React.Component<Props> {
+    getMainContent() {
         return (
-            <Provider store={ store }>
+            <>
                 <Switch>
                     <Route exact path='/' component={ MainPage } />
                     <Route
@@ -83,8 +95,30 @@ export default class App extends React.Component {
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
                 <ToastContainer />
-            </Provider>
+            </>
         );
+    }
+
+    render(): any {
+        const { location, context } = this.props;
+
+        if (typeof window === 'undefined') {
+            return (
+                <Provider store={ store }>
+                    <StaticRouter location={ location } context={ context }>
+                        { this.getMainContent() }
+                    </StaticRouter>
+                </Provider>
+            )
+        } else {
+            return (
+                <Provider store={ store }>
+                    <BrowserRouter>
+                        { this.getMainContent() }
+                    </BrowserRouter>
+                </Provider>
+            )
+        }
     }
 }
 

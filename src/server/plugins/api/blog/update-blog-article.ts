@@ -26,11 +26,11 @@ export const updateBlogArticlePlugin = {
                     }, { where: { post_id }});
                     console.log('result', result);
                     if (result) {
-                        const res = h.response('обновлено');
+                        const res = h.response(`Статья с id ${post_id} успешно обновлена`);
                         res.code(200);
                         return res;
                     } else {
-                        const res = h.response('не обновлено');
+                        const res = h.response(`Не удалось обновить статью с id ${post_id}`);
                         res.code(418);
                         return res;
                     }

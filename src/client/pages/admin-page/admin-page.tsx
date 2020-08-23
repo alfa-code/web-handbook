@@ -1,9 +1,13 @@
 import React, { PureComponent } from 'react';
 import { NavLink, RouteComponentProps, Switch, Route } from 'react-router-dom';
 
+import { Logo } from 'Components/logo';
+
 import { AdminBlogPageContainer } from 'Src/client/containers/admin-blog-page-container';
-import { CreateArticlePage } from 'Src/client/pages/admin/blog/create-article-page';
-import { UpdateArticlePage } from 'Src/client/pages/admin/blog/update-article-page';
+// import { CreateArticlePage } from 'Src/client/pages/admin/blog/create-article-page';
+
+import { EditArticlePageContainer } from 'Containers/edit-article-page-container';
+import { CreateArticlePageContainer } from 'Containers/create-article-page-container';
 
 import styles from './admin-page.module.scss';
 
@@ -24,6 +28,7 @@ export class AdminPage extends PureComponent<Props> {
         return (
             <div className={ styles.container }>
                 <div className={ styles.sidebar }>
+                    <Logo className={ styles.logo } type="white" />
                     <ul className={ styles.menu }>
                         <li>
                             <NavLink
@@ -51,11 +56,11 @@ export class AdminPage extends PureComponent<Props> {
                         <Route
                             exact
                             path={ `${matchUrl}/blog/create` }
-                            component={ CreateArticlePage }
+                            component={ CreateArticlePageContainer }
                         />
                         <Route
                             path={ `${matchUrl}/blog/edit/:post_id` }
-                            component={ UpdateArticlePage }
+                            component={ EditArticlePageContainer }
                         />
                         <Route
                             exact

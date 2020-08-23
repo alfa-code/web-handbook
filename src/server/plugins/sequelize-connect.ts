@@ -13,6 +13,8 @@ export const SequelizeConnectPlugin = {
             connectionString = process.env.DATABASE_URL,
             models = []
         }: PluginOptions = options;
+
+        // Подключаемся к БД
         const instance = new Sequelize(connectionString);
 
         const modelList = {};

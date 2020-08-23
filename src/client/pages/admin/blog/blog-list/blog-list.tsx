@@ -1,32 +1,37 @@
 import React, { PureComponent } from 'react';
-import axios from 'axios';
 
 import { Link } from 'react-router-dom';
 
-type Props = {};
+import { PostsPreviewArray } from 'Types/common';
+
+type Props = {
+    fetchAllPreviewPostsDA: any;
+    deleteArticleByIdStartAD: any;
+    previewArticles: PostsPreviewArray;
+};
 
 import styles from './blog-list.module.scss';
 
 export class BlogList extends PureComponent<Props, any> {
-    constructor(props) {
-        super(props);
-        this.state = {
-            articles: []
-        }
+    componentDidMount(): void {
+        const { fetchAllPreviewPostsDA } = this.props;
+        fetchAllPreviewPostsDA();
     }
 
-    articleDelitePrompt = async (post_id) => {
+    articleDeletePrompt(post_id) {
+        const { deleteArticleByIdStartAD } = this.props;
+
         const isDelete = confirm(`Удалить пост с id ${post_id}? `);
+
         if (isDelete) {
-            const { status } = await axios.delete(`/api/delete-blog-article/${post_id}`);
-            console.log('status', status);
+            deleteArticleByIdStartAD(post_id);
         }
     }
 
     renderArticlesTable = () => {
-        const { articles } = this.state;
+        const { previewArticles } = this.props;
 
-        const articlesElements = articles.map((item) => {
+        const articlesElements = previewArticles.map((item) => {
             const { post_id, title } = item;
             return (
                 <tr key={ post_id }>
@@ -42,7 +47,7 @@ export class BlogList extends PureComponent<Props, any> {
                         </Link>
                     </td>
                     <td>
-                        <button onClick={ () => { this.articleDelitePrompt(post_id) } }>
+                        <button onClick={ () => { this.articleDeletePrompt(post_id) } }>
                             Удалить
                         </button>
                     </td>
@@ -60,14 +65,6 @@ export class BlogList extends PureComponent<Props, any> {
     render() {
         return (
             <div>
-                <button onClick={ async () => {
-                        const posts = await axios.get('/api/get-all-blog-posts');
-                        console.log('posts.data', posts.data);
-                        this.setState({ articles: posts.data });
-                    }
-                } >
-                    Загрузить все записи
-                </button>
                 <Link to={ '/admin/blog/create' }>
                     Создать статью
                 </Link>
@@ -75,17 +72,19 @@ export class BlogList extends PureComponent<Props, any> {
                 <br/>
                 <br/>
                 <table className={ styles.table }>
-                    <tr>
-                        <td>
-                            id записи
-                        </td>
-                        <td>
-                            заголовок статьи
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    { this.renderArticlesTable() }
+                    <tbody>
+                        <tr>
+                            <td>
+                                id записи
+                            </td>
+                            <td>
+                                заголовок статьи
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        { this.renderArticlesTable() }
+                    </tbody>
                 </table>
             </div>
         );

@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
-import axios from 'axios';
-
-export function CreateArticlePage() {
+export function CreateArticlePage(props: { createArticleByIdStartDA: any }) {
     const [imageAddress, setNewArticleImageAddress] = useState('');
     const [title, setNewArticleTitle] = useState('');
     const [description, setNewArticleDescription] = useState('');
     const [content, setNewArticleContent] = useState('');
 
+    const { createArticleByIdStartDA } = props;
+
     const createArticle = async (e) => {
         e.preventDefault();
-        const { status } = await axios.post('/api/create-blog-article', {
-            title,
-            imageAddress,
-            description,
-            content
-        });
 
-        if (status === 201) {
-            window.location.href = '/admin/blog';
-        }
+        createArticleByIdStartDA({
+            url: '/api/create-blog-article',
+            data: {
+                title,
+                imageAddress,
+                description,
+                content
+            }
+        });
     }
 
     return (

@@ -18,13 +18,12 @@ export const deleteBlogArticlePlugin = {
                         where: { post_id }
                     })
 
-                    console.log('result', result);
                     if (result) {
-                        const res = h.response('удаллено');
+                        const res = h.response(`Статья с id ${post_id} - Удалена успешно`);
                         res.code(200);
                         return res;
                     } else {
-                        const res = h.response('не удаллено');
+                        const res = h.response(`Не удалось удалить статью с с id ${post_id}`);
                         res.code(418);
                         return res;
                     }
