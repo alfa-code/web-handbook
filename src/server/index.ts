@@ -62,7 +62,8 @@ const init = async (): Promise<any> => {
         validate: validateJwtData,
         verifyOptions: {
             algorithm: jwtAlgorithm,
-            cookieKey: 'token'
+            cookieKey: 'token',
+            ignoreExpiration: true
         }
     });
     server.auth.default('jwt');
