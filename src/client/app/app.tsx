@@ -13,7 +13,8 @@ import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
-import {PlaylistPage} from "Pages/playlist-page";
+
+import { PlaylistPage } from 'Pages/playlist-page';
 import { BlogArticlePageContainer } from 'Src/client/containers/blog-article-page-container';
 import { CoursePage } from 'Pages/course-page';
 import { AdminPage } from 'Pages/admin-page';

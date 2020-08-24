@@ -1,5 +1,9 @@
 import Sequelize, { ModelType, Model } from 'sequelize';
 
+/**
+ * Сущность, относящаяся к аккаунту
+ * @param sequelize
+ */
 export function getAccountModel(sequelize): ModelType {
     class Account extends Model {}
 

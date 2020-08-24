@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-import counterReducer from 'Reducers/counter';
 import authReducer from 'Reducers/auth';
 import { adminReducer } from 'Reducers/admin';
 
@@ -15,7 +14,6 @@ import { changeBackgroundColor}  from 'Reducers/ui/background-color';
 import { coursesReducer } from 'Reducers/courses/courses.reducer';
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
     auth: authReducer,
     UI: combineReducers({
         changePassword: combineReducers({

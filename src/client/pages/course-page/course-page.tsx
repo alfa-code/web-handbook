@@ -14,7 +14,6 @@ import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
 import { changeBackgroundColor } from 'Actions/ui/background-color';
 
 class Course extends React.PureComponent<Props> {
-
     componentDidMount() {
         this.props.changeBackgroundColor(this.bgColor)
     }

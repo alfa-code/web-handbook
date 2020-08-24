@@ -1,14 +1,34 @@
-import { Shape } from 'Types/objects';
+import { ModelType } from 'sequelize';
+
 import { NotFoundError } from 'Src/server/utils/errors/types';
+import { UserService } from 'Src/server/plugins/services/UserService';
+import { userDefaults } from 'Src/server/migrations/defaults/userDefaults';
+import { EndService } from 'Src/server/plugins/services/EndService';
+
+import { Shape } from 'Types/objects';
+import { IAsyncService } from 'Types/service';
+
+export type IAccountService = IAsyncService & {
+    id: number;
+    username: string;
+    accountModel: ModelType;
+    services: Shape<(...args) => Promise<IAsyncService>>;
+};
 
 /**
  * Сервис для работы с моделью аккаунта, возвращает обертку над моделями sequelize
  * @param username - логин пользователя
  * @param AccountModel - модель для создания обертки
  * @param initData - начальные значения
+ * @param services - сервисы, связанные с данным
  * @constructor
  */
-export async function AccountService(username: string, AccountModel, initData: Shape<any> = null) {
+export async function AccountService(
+    username: string,
+    AccountModel,
+    initData: Shape<any> = null,
+    services = { userService: UserService }
+): Promise<IAccountService> {
     let data = initData;
 
     if (!initData) {
@@ -25,16 +45,31 @@ export async function AccountService(username: string, AccountModel, initData: S
         id: data.user_id,
         username,
         accountModel: AccountModel,
+        services,
+        async map(fn) {
+            return await fn(AccountService(this.username, this.accountModel, data))
+        },
         async create(fields) {
             await this.accountModel.create(fields);
-            return AccountService(this.username, this.accountModel, data);
+            const UserService = await this.services.userService(this.map(service => service), this.accountModel)
+            await UserService.create(userDefaults);
+            return this.map(service => service);
         },
         async update(fields) {
             await this.accountModel.update(fields, { where: { username: this.username } });
-            return AccountService(this.username, this.accountModel, data);
+            return this.map(service => service);
         },
         async delete() {
-            await this.update({ deleted: true })
+            const UserService = await this.services.userService(this.map(service => service), this.accountModel)
+            await UserService.delete()
+
+            if (UserService.success) {
+                await this.update({ deleted: true });
+                return EndService.success();
+            } else {
+                return EndService.error('UNABLE_TO_DELETE');
+            }
+
         },
         toJSON() {
             return data;

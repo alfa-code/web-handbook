@@ -1,6 +1,11 @@
 import Sequelize, { ModelType, Model } from 'sequelize';
 import { getAccountModel } from 'Src/server/models/Account';
 
+/**
+ * Сущность с параметрами пользователя
+ * @param sequelize
+ * @param AccountModel
+ */
 export function getUsersModel(sequelize, AccountModel): ModelType {
     class User extends Model {}
 
