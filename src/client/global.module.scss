@@ -1,9 +1,8 @@
 @import "Src/client/breakpoints.scss";
 
 .verticalNeighbors {
-
     & + & {
-        margin-top: var(--gap-4);
+        // margin-top: var(--gap-4);
 
         @include media("<desktop-2") {
             margin-top: var(--gap-3);

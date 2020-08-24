@@ -9,7 +9,10 @@ import { userParamsReducer } from 'Reducers/user-params';
 
 import { hintVisibilityReducer, changePasswordReducer} from 'Reducers/ui/hint-visibility-reducer';
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
-import changeBackgroundColor from 'Reducers/ui/background-color';
+import { uiCoursesListGet } from 'Reducers/ui/courses-ui.reducer';
+import { changeBackgroundColor}  from 'Reducers/ui/background-color';
+
+import { coursesReducer } from 'Reducers/courses/courses.reducer';
 
 const rootReducer = combineReducers({
     counter: counterReducer,
@@ -23,12 +26,16 @@ const rootReducer = combineReducers({
             sending: uiUserParamsChange,
             loading: uiUserParamsGet,
         }),
-        pageStyles: changeBackgroundColor
+        pageStyles: changeBackgroundColor,
+        courses: combineReducers({
+            loading: uiCoursesListGet
+        })
     }),
     user: combineReducers({
         params: userParamsReducer,
     }),
     blog: blogReducer,
+    courses: coursesReducer,
     admin: adminReducer,
 });
 

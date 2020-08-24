@@ -13,7 +13,6 @@ export function getUsersModel(sequelize, AccountModel): ModelType {
             autoIncrement: true,
             primaryKey: true
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
         user_id: {
             type: Sequelize.INTEGER,
             references: {
@@ -26,6 +25,10 @@ export function getUsersModel(sequelize, AccountModel): ModelType {
             allowNull: false
         },
         surname: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        description: {
             type: Sequelize.STRING,
             allowNull: false
         },

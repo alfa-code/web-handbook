@@ -18,6 +18,7 @@ import { loginPlugin } from 'Src/server/plugins/login-plugin';
 import { createBlogArticlePlugin } from 'Src/server/plugins/api/blog/create-blog-article';
 import { updateBlogArticlePlugin } from 'Src/server/plugins/api/blog/update-blog-article';
 import { deleteBlogArticlePlugin } from 'Src/server/plugins/api/blog/delete-blog-article';
+import { getCoursesListPlugin } from 'Src/server/plugins/api/courses/get-courses-lits.plugin';
 
 export function getServerPlugins() {
     const plugins = [
@@ -120,6 +121,12 @@ export function getServerPlugins() {
         },
         {
             plugin: getBlogPostByIdPlugin,
+            options: {
+                auth: false,
+            }
+        },
+        {
+            plugin: getCoursesListPlugin,
             options: {
                 auth: false,
             }

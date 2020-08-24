@@ -1,7 +1,8 @@
 export const userDefault = {
     id: 1,
-    // eslint-disable-next-line @typescript-eslint/camelcase
     user_id: 1,
-    name: 'Васисуалис',
-    surname: 'Лоханский',
+    name: 'Петров',
+    surname: 'Сергей',
+    description: 'Работает в большой компании',
+    avatar: 'https://api.adorable.io/avatars/145/test@adorable.io.png'
 };

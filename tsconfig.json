@@ -8,7 +8,9 @@
         "config",
         ".build",
         "deploy",
-        "tls"
+        "tls",
+        "blueprint-templates",
+        "./blueprint-templates"
     ],
     "compilerOptions": {
         "outDir": "./build/",

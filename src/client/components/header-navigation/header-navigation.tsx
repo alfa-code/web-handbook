@@ -12,7 +12,7 @@ export class HeaderNavigation extends PureComponent<Props, State> {
             <nav className={ `${styles.headerNavigation}` }>
                 <ul>
                     <li>
-                        <Link to='/' className='disabled'>
+                        <Link to='/courses'>
                             Курсы
                         </Link>
                     </li>

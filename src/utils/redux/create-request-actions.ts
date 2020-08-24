@@ -24,9 +24,7 @@ export function createRequestActions(NAME: string): RequestActions {
         }),
         success: (data) => ({
             type: `${NAME}.SUCCESS`,
-            payload: {
-                ...data
-            }
+            payload: data
         }),
         error: (error) => ({
             type: `${NAME}.ERROR`,

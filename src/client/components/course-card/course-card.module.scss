@@ -3,23 +3,23 @@
 @import "Src/client/global.scss";
 
 .card {
+    width: 448px;
+
     border-radius: 4px;
     transition: box-shadow .3s;
     overflow: hidden;
 
+    border: 1px solid var(--background-main);
+
+    & .header {
+        height: 256px;
+    }
+
+    & .body {
+        padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
+    }
+
     @include hoverShadow();
-}
-
-.yellow {
-    background-color: var(--background-1);
-}
-
-.blue {
-    background-color: var(--background-2);
-}
-
-.green {
-    background-color: var(--background-3);
 }
 
 .header {
@@ -37,6 +37,14 @@
     margin-bottom: var(--gap-m);
     font-weight: var(--font-weight-bold);
     line-height: 1.25;
+    color: var(--text-primary);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+        color: var(--brand-red);
+    }
 }
 
 .body {
@@ -53,10 +61,71 @@
     line-height: 1.37;
     max-height: 90px;
     overflow: hidden;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        box-shadow: inset 0px -15px 10px 0px rgba(255, 255, 255, 1);
+        width: 100%;
+        height: 30px;
+        position: absolute;
+        top: 60px;
+    }
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    animation: appearance 1s forwards;
+}
+
+.authorSelection {
+    margin-bottom: var(--gap-s);
+    display: flex;
+    align-items: center;
+}
+
+.courseInfo {
+    margin-bottom: 24px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-left: -16px;
+}
+
+.authorAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.authorName {
+    color: var(--text-primary);
+    font-size: 14;
+    font-family: 'Rubik';
+    font-weight: 500;
+    margin-bottom: 8;
+}
+
+.authorDescription {
+    color: var(--text-tetriary);
+    font-size: 12;
+    font-weight: 500;
+    font-family: Roboto;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.courseMainInfoBlock {
+    height: 180px;
+    overflow: hidden;
 }
 
 @keyframes appearance {
-
     0% {
         opacity: 0;
     }
@@ -65,29 +134,3 @@
         opacity: 1;
     }
 }
-
-.image {
-    height: 70%;
-    animation: appearance 1s forwards;
-}
-
-.customSelection {
-    margin-top: var(--gap-m);
-}
-
-.horizontal {
-
-    & .header {
-        height: 256px;
-    }
-
-    & .body {
-        padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
-    }
-}
-
-.link {
-    text-decoration: none;
-}
-
-.default {}

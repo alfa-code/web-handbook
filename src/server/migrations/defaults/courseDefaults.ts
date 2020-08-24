@@ -6,6 +6,5 @@ export const courseDefaults = {
     number_of_videos: 10,
     video_time: 3,
     playlist_id: 1,
-    author_id: 2
-
+    author_id: 1
 }

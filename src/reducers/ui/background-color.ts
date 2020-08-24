@@ -4,7 +4,7 @@ const initialState = {
     backgroundColor: '#fff',
 };
 
-export default function changeBackgroundColor(state = initialState, action) {
+export function changeBackgroundColor(state = initialState, action) {
     switch (action.type) {
         case TYPES.CHANGE_BACKGROUND_COLOR:
             return {
