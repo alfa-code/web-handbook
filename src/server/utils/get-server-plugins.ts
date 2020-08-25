@@ -19,6 +19,8 @@ import { createBlogArticlePlugin } from 'Src/server/plugins/api/blog/create-blog
 import { updateBlogArticlePlugin } from 'Src/server/plugins/api/blog/update-blog-article';
 import { deleteBlogArticlePlugin } from 'Src/server/plugins/api/blog/delete-blog-article';
 import { getCoursesListPlugin } from 'Src/server/plugins/api/courses/get-courses-lits.plugin';
+import { getCourseInfoPlugin } from 'Src/server/plugins/api/courses/get-course-info.plugin';
+import { createNewCoursePlugin } from 'Src/server/plugins/api/courses/create-new-course.plugin';
 
 export function getServerPlugins() {
     const plugins = [
@@ -127,6 +129,18 @@ export function getServerPlugins() {
         },
         {
             plugin: getCoursesListPlugin,
+            options: {
+                auth: false,
+            }
+        },
+        {
+            plugin: createNewCoursePlugin,
+            options: {
+                auth: false,
+            }
+        },
+        {
+            plugin: getCourseInfoPlugin,
             options: {
                 auth: false,
             }

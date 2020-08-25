@@ -27,8 +27,7 @@ export async function UserService(
     let userParams = initData;
 
     if (!initData) {
-        // eslint-disable-next-line @typescript-eslint/camelcase
-        const result = await UserModel.findOne({ where: { user_id: accountService.id }});
+        const result = await UserModel.findOne({ where: { user_id: accountService.id } });
         userParams = result?.dataValues;
 
         if (!userParams) {
@@ -48,7 +47,6 @@ export async function UserService(
             return this.map(service => service);
         },
         async update(fields) {
-            // eslint-disable-next-line @typescript-eslint/camelcase
             this.userModel.update(fields, { where: { user_id: this.id }  })
             return this.map(service => service);
         },

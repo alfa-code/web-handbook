@@ -12,7 +12,7 @@ import { CabinetPage } from 'Pages/cabinet-page';
 // Данный функционал спорный - займемся им потом
 // import { ChangeEmailPage } from 'Pages/change-email-page';
 
-interface Props extends RouteComponentProps { }
+type Props = RouteComponentProps
 interface State { }
 
 import styles from './settings-page.module.scss';

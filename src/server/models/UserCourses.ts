@@ -1,6 +1,6 @@
 import Sequelize, { ModelType, Model } from 'sequelize';
-import { getUsersModel } from 'Src/server/models/User';
-import { getAccountModel } from 'Src/server/models/Account';
+// import { getUsersModel } from 'Src/server/models/User';
+// import { getAccountModel } from 'Src/server/models/Account';
 
 /**
  * Сущность-связка
@@ -11,8 +11,8 @@ export function getUserCoursesModel(sequelize, UserModel): ModelType {
     class UserCourse extends Model {
     }
 
-    const AccountModel = getAccountModel(sequelize);
-    const User = UserModel || getUsersModel(sequelize, AccountModel);
+    // const AccountModel = getAccountModel(sequelize);
+    // const User = UserModel || getUsersModel(sequelize, AccountModel);
 
     UserCourse.init({
         id: {
@@ -24,7 +24,7 @@ export function getUserCoursesModel(sequelize, UserModel): ModelType {
         user: {
             type: Sequelize.INTEGER,
             references: {
-                model: User,
+                model: 'User',
                 key: 'id'
             }
         },

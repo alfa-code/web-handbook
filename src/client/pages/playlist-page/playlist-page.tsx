@@ -1,13 +1,13 @@
-import React, {PureComponent, ReactNode} from 'react';
+import React, { PureComponent, ReactNode } from 'react';
 import { connect } from 'react-redux';
 
 import styles from './playlist-page.module.scss';
-import {PageContainer} from 'Components/page-container';
-import {PageFrame} from 'Components/page-frame';
-import {MemoizedPlayer} from 'Components/player/player';
-import {PlayerManagement} from 'Components/player-management';
+import { PageContainer } from 'Components/page-container';
+import { PageFrame } from 'Components/page-frame';
+import { MemoizedPlayer } from 'Components/player/player';
+import { PlayerManagement } from 'Components/player-management';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
-import {changeBackgroundColor} from 'Actions/ui/background-color';
+import { changeBackgroundColor } from 'Actions/ui/background-color';
 
 type Props = {
     changeBackgroundColor: (value: string) => void;

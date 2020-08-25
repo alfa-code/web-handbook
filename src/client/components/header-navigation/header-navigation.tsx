@@ -26,11 +26,6 @@ export class HeaderNavigation extends PureComponent<Props, State> {
                             Html справочник
                         </Link>
                     </li>
-                    <li>
-                        <Link to='/' className='disabled'>
-                            О нас
-                        </Link>
-                    </li>
                 </ul>
             </nav>
         );

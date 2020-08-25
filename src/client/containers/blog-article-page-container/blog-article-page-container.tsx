@@ -18,14 +18,14 @@ type ReduxStateProps = {
 };
 
 type ReduxDispatchProps = {
-    getBlogPostByIdDA: (id: string) => {};
+    getBlogPostByIdDA: (id: string) => any;
 };
 
 type Props = ReduxStateProps & ReduxDispatchProps & RouteComponentProps<{id?: string }>;
 
 class Container extends Component<Props> {
     componentDidMount() {
-        const { match: { params: { id }}, getBlogPostByIdDA } = this.props;
+        const { match: { params: { id } }, getBlogPostByIdDA } = this.props;
 
         if (id) {
             getBlogPostByIdDA(id);
@@ -42,7 +42,7 @@ class Container extends Component<Props> {
 }
 
 const mapStateToProps = (state, props) => {
-    const { match: { params: { id }} } = props;
+    const { match: { params: { id } } } = props;
 
     return {
         article: selectBlogArticleById(state, id)

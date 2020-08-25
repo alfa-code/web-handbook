@@ -1,25 +1,32 @@
 @keyframes rotate {
+
     0% {
         transform: rotate(0);
     }
+
     100% {
         transform: rotate(1turn);
     }
 }
 
 @keyframes pulse {
+
     0% {
         transform: scale(1);
     }
+
     25% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(2);
     }
+
     75% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1);
     }
@@ -27,7 +34,7 @@
 
 .spinner {
     display: inline-block;
-    filter: url('#goo');
+    filter: url("#goo");
     width: 48px;
     height: 48px;
     padding: 12px;
@@ -40,7 +47,7 @@
         height: 48px;
 
         &:after {
-            content: '';
+            content: "";
             display: block;
             height: 16px;
             width: 16px;

@@ -15,8 +15,9 @@ import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
 
 import { PlaylistPage } from 'Pages/playlist-page';
-import { BlogArticlePageContainer } from 'Src/client/containers/blog-article-page-container';
-import { CoursePage } from 'Pages/course-page';
+import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
+import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container'
+
 import { AdminPage } from 'Pages/admin-page';
 
 import rootReducer from 'Src/reducers';
@@ -89,9 +90,9 @@ export default class App extends React.Component<Props> {
                     <Route exact path='/postgre' component={ PostgrePanel } />
                     <Route exact path='/blog' component={ BlogListPage } />
                     <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
-                    <Route exact path='/playlist' component={ PlaylistPage } />
                     <Route exact path='/courses' component={ CoursesPage } />
-                    <Route exact path='/courses/:id' component={ CoursePage } />
+                    <Route exact path='/courses/:id' component={ CoursePageContainer } />
+                    <Route exact path='/courses/:id/playlist' component={ PlaylistPage } />
                     <Route path='/admin' component={ AdminPage } />
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>

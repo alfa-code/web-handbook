@@ -2,7 +2,7 @@ import { ModelType } from 'sequelize';
 
 import { NotFoundError } from 'Src/server/utils/errors/types';
 import { UserService } from 'Src/server/plugins/services/UserService';
-import { userDefaults } from 'Src/server/migrations/defaults/userDefaults';
+import { accountDefaults } from 'Src/server/migrations/defaults/accountDefaults';
 import { EndService } from 'Src/server/plugins/services/EndService';
 
 import { Shape } from 'Types/objects';
@@ -52,7 +52,7 @@ export async function AccountService(
         async create(fields) {
             await this.accountModel.create(fields);
             const UserService = await this.services.userService(this.map(service => service), this.accountModel)
-            await UserService.create(userDefaults);
+            await UserService.create(accountDefaults);
             return this.map(service => service);
         },
         async update(fields) {

@@ -6,10 +6,10 @@ import { adminReducer } from 'Reducers/admin';
 import blogReducer from 'Reducers/blog';
 import { userParamsReducer } from 'Reducers/user-params';
 
-import { hintVisibilityReducer, changePasswordReducer} from 'Reducers/ui/hint-visibility-reducer';
+import { hintVisibilityReducer, changePasswordReducer } from 'Reducers/ui/hint-visibility-reducer';
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
 import { uiCoursesListGet } from 'Reducers/ui/courses-ui.reducer';
-import { changeBackgroundColor}  from 'Reducers/ui/background-color';
+import { changeBackgroundColor }  from 'Reducers/ui/background-color';
 
 import { coursesReducer } from 'Reducers/courses/courses.reducer';
 

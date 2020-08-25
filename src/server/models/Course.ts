@@ -1,7 +1,17 @@
 import Sequelize, { ModelType, Model } from 'sequelize';
 
 export function getCourseModel(sequelize): ModelType {
-    class Course extends Model {}
+    class Course extends Model {
+        static associate = (sequelize, selfModel) => {
+            selfModel.belongsTo(sequelize.models.User, {
+                foreignKey: {
+                    allowNull: false,
+                    name: 'author_id'
+                },
+                as: 'author'
+            });
+        }
+    }
 
     Course.init({
         id: {
@@ -28,15 +38,15 @@ export function getCourseModel(sequelize): ModelType {
         },
         number_of_videos: {
             type: Sequelize.SMALLINT,
-            allowNull: false,
+            allowNull: true,
         },
         video_time: {
             type: Sequelize.FLOAT,
-            allowNull: false,
+            allowNull: true,
         },
         playlist_id: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         author_id: {
             type: Sequelize.INTEGER,
@@ -47,6 +57,15 @@ export function getCourseModel(sequelize): ModelType {
         tableName: 'courses',
         modelName: 'Course',
     });
+
+    // console.log('Course sequelize.models', sequelize.models)
+
+    // Course.belongsTo(sequelize.models.User, {
+    //     foreignKey: {
+    //         allowNull: false,
+    //         name: 'user_id'
+    //     }
+    // });
 
     return Course;
 }

@@ -12,7 +12,7 @@ import { WaveEffect } from 'Components/wave-effect/wave-effect';
 /**
  * Компонент мобильной шапки
  */
-export class MobileHeader extends Component<{}, State> {
+export class MobileHeader extends Component<any, State> {
 
     state = {
         menuOpened: false

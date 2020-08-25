@@ -3,7 +3,7 @@ import { Shape } from 'Types/objects';
 import { InputSimple } from 'Components/input-simple';
 import { AnyFunction } from 'Types/functions';
 
-const emptyFunc = (...args: any) => void { ...args};
+const emptyFunc = (...args: any) => void { ...args };
 
 type FieldAdapterOptions = Partial<{
     placeholder: string;
@@ -20,6 +20,7 @@ export const formFieldAdapter =
          onBlur = emptyFunc,
          onChange = emptyFunc,
          component = InputSimple
+         // eslint-disable-next-line
      }: FieldAdapterOptions) => ({
                 input: {
                     onBlur: inputBlur = emptyFunc,

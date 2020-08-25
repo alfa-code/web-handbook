@@ -20,7 +20,7 @@ import subscriptionImage from 'Assets/images/subscription.svg';
 
 import { Button } from 'Components/button';
 
-interface Props extends RouteProps {}
+type Props = RouteProps
 interface State { }
 
 export class MainPage extends PureComponent<Props, State> {

@@ -12,7 +12,7 @@ export const Icon = (props: IconProps) => {
     return (
         <div
             className={`${styles.icon} ${styles[`size-${size}`]} ${className || ''}`}
-            style={{backgroundImage: `url(${src})`}}
+            style={{ backgroundImage: `url(${src})` }}
         />
     );
 };

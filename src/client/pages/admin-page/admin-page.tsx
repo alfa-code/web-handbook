@@ -4,22 +4,15 @@ import { NavLink, RouteComponentProps, Switch, Route } from 'react-router-dom';
 import { Logo } from 'Components/logo';
 
 import { AdminBlogPageContainer } from 'Src/client/containers/admin-blog-page-container';
-// import { CreateArticlePage } from 'Src/client/pages/admin/blog/create-article-page';
-
 import { EditArticlePageContainer } from 'Containers/edit-article-page-container';
 import { CreateArticlePageContainer } from 'Containers/create-article-page-container';
+import { CoursesListContainer } from 'Containers/courses-list-container';
+import { CreateCourseAdminPageContainer } from 'Containers/create-course-admin-page-container';
 
 import styles from './admin-page.module.scss';
 
-const coursesComponent = () => {
-    return (
-        <div>
-            courses
-        </div>
-    )
-}
 
-interface Props extends RouteComponentProps { }
+type Props = RouteComponentProps
 
 export class AdminPage extends PureComponent<Props> {
     render(): any {
@@ -65,7 +58,12 @@ export class AdminPage extends PureComponent<Props> {
                         <Route
                             exact
                             path={ `${matchUrl}/courses` }
-                            component={ coursesComponent }
+                            component={ CoursesListContainer }
+                        />
+                        <Route
+                            exact
+                            path={ `${matchUrl}/courses/create` }
+                            component={ CreateCourseAdminPageContainer }
                         />
                     </Switch>
                 </div>

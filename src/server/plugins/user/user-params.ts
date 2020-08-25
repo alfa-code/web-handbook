@@ -55,7 +55,6 @@ export const changeUserParamsPlugin = {
 
                 try {
                     const account = await AccountService(username, Account);
-                    // @ts-ignore
                     const userInfo = await UserService(account, User);
                     await userInfo.update({ name: userData.name, surname: userData.surname })
 

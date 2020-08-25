@@ -30,7 +30,7 @@ export function getContent(request: any): string {
             } else {
                 if (decoded) {
                     isAuthenticated = true;
-                    userTokenInfo = {...decoded};
+                    userTokenInfo = { ...decoded };
                 }
             }
         });
@@ -44,7 +44,6 @@ export function getContent(request: any): string {
             cssFiles={assets.css}
             initialReduxState={
                 {
-                    counter: 10,
                     auth: {
                         isAuthenticated,
                         ...userTokenInfo

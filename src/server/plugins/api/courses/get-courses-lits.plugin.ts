@@ -1,15 +1,3 @@
-async function getAuthorsByCourses(UserModel, coursesArray) {
-    const authorsPromises = coursesArray.map(async (course) => {
-        const author = await UserModel.findOne({
-            raw: true,
-            where: { user_id: course.author_id }
-        });
-        return author;
-    });
-
-    return Promise.all(authorsPromises);
-}
-
 export const getCoursesListPlugin = {
     name: 'getCoursesListPlugin',
     version: '1.0.0',
@@ -20,33 +8,23 @@ export const getCoursesListPlugin = {
             options,
             handler: async (request, h) => {
                 const { Course, User } = await server.methods.getModels();
+                const sequalizeInstance = await server.methods.getOrm();
 
                 try {
-                    const courses = await Course.findAll({
-                        raw: true
-                    });
-
-                    const authors = await getAuthorsByCourses(User, courses);
-
-                    const coursesExtended = courses.map((course, i) => {
-                        if (authors && authors[i]) {
-                            return {
-                                ...course,
-                                author: authors[i]
-                            }
+                    let response;
+                    await sequalizeInstance.transaction(async (t) => {
+                        const courses = await Course.findAll({
+                            include: [{ model: User, as: 'author' }],
+                        });
+                        if (courses) {
+                            response = h.response(courses);
+                            response.code(200);
+                        } else {
+                            response = h.response('Не удалось загрузить данные о курсах или данные отсутствуют.');
+                            response.code(404);
                         }
-                        return course;
                     });
-
-                    if (coursesExtended) {
-                        const res = h.response(coursesExtended);
-                        res.code(200);
-                        return res;
-                    } else {
-                        const res = h.response('Не удалось загрузить данные о курсах или данные отсутствуют.');
-                        res.code(404);
-                        return res;
-                    }
+                    return response;
                 } catch (error) {
                     console.log('error', error);
                     const res = h.response('Не удалось загрузить данные о курсах. Попробуйте позднее.');

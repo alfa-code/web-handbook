@@ -11,6 +11,8 @@
 
     border: 1px solid var(--background-main);
 
+    @include hoverShadow();
+
     & .header {
         height: 256px;
     }
@@ -18,8 +20,6 @@
     & .body {
         padding: var(--gap-xl) var(--gap-2xl) var(--gap-2) var(--gap-xl);
     }
-
-    @include hoverShadow();
 }
 
 .header {
@@ -64,7 +64,7 @@
     position: relative;
 
     &:after {
-        content: '';
+        content: "";
         display: block;
         box-shadow: inset 0px -15px 10px 0px rgba(255, 255, 255, 1);
         width: 100%;
@@ -104,7 +104,7 @@
 .authorName {
     color: var(--text-primary);
     font-size: 14;
-    font-family: 'Rubik';
+    font-family: "Rubik";
     font-weight: 500;
     margin-bottom: 8;
 }
@@ -126,6 +126,7 @@
 }
 
 @keyframes appearance {
+
     0% {
         opacity: 0;
     }

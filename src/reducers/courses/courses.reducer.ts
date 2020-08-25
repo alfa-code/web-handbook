@@ -1,5 +1,4 @@
-import { coursesListGetActions } from 'Actions/request-actions';
-
+import { coursesListGetActions, courseGetActions } from 'Actions/request-actions';
 
 import { Action } from 'Types/actions';
 
@@ -22,6 +21,14 @@ export function coursesReducer(state = initialState, action: Action) {
                     ...payload
                 ]
             };
+        case courseGetActions.types.success: {
+            return {
+                ...state,
+                currentCourse: {
+                    ...payload
+                }
+            };
+        }
         default:
             return state
     }

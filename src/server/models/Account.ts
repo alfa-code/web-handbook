@@ -8,7 +8,6 @@ export function getAccountModel(sequelize): ModelType {
     class Account extends Model {}
 
     Account.init({
-        // eslint-disable-next-line @typescript-eslint/camelcase
         user_id: {
             type: Sequelize.INTEGER,
             allowNull: false,

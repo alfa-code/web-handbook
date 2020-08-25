@@ -28,7 +28,7 @@ export const HeaderAuthButton: React.FC<Props> = (props: Props) => {
         <div className={ `${ styles.container } ${ className }` }
              onMouseEnter={ () => updateContainerStyles(bgcolor) }
              onMouseLeave={ () => updateContainerStyles(null) }>
-            <div style={{backgroundColor: containerBgColor}}
+            <div style={{ backgroundColor: containerBgColor }}
                  className={ styles.innerContainer }>
                 <div className={ styles.visiblePart }>
                     <div className={ styles.icon }>

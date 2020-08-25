@@ -9,7 +9,7 @@ const ProgressBar = (props: Props): JSX.Element => {
 
     return (
         <div className={ styles.container }>
-            <div className={ styles.bar } style={{width: `${percent}%`}}/>
+            <div className={ styles.bar } style={{ width: `${percent}%` }}/>
         </div>
     );
 };

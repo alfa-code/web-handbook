@@ -12,7 +12,7 @@ import styles from './courses-progress-block.module.scss';
 import { CourseProgressBlock } from 'Components/course-progress-block';
 
 const customSection = (
-    <div style={{marginBottom: '24px', display: 'inline-flex', flexWrap: 'wrap', marginLeft: '-16px'}}>
+    <div style={{ marginBottom: '24px', display: 'inline-flex', flexWrap: 'wrap', marginLeft: '-16px' }}>
         <InfoLabel text="10 видео-уроков" iconType="camera" />
         <InfoLabel text="3 часа" iconType="clock" />
     </div>

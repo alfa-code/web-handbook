@@ -26,13 +26,13 @@ export function PageContainer(props: Props): any {
     )
     if (colorMode) {
         content = (
-            <div className={dark} style={bgcolor ? {backgroundColor: bgcolor} : null}>
+            <div className={dark} style={bgcolor ? { backgroundColor: bgcolor } : null}>
                 {content}
             </div>
         )
     }
 
   return (
-      {...content}
+      { ...content }
   );
 }

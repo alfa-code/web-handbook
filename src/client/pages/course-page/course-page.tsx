@@ -11,25 +11,27 @@ import styles from './course-page.module.scss';
 import { Props } from './props';
 import { CourseDescriptionBlock } from 'Blocks/course/course-description-block';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
-import { changeBackgroundColor } from 'Actions/ui/background-color';
 
-class Course extends React.PureComponent<Props> {
+export class CoursePage extends React.PureComponent<Props> {
     componentDidMount() {
-        this.props.changeBackgroundColor(this.bgColor)
+        this.props.changeBackgroundColorDA(this.bgColor)
     }
 
     bgColor = "#FFFBE6";
 
     render(): ReactNode {
-        const { title = 'Основы JavaScript' } = this.props;
+        const { currentCourse } = this.props;
+        console.log('currentCourse',currentCourse )
 
         return (
             <PageFrame bgcolor={ this.bgColor }>
-                <PageContainer paddingsOnPhone={ true }
-                               bgcolor={ this.bgColor }>
+                <PageContainer
+                    paddingsOnPhone={ true }
+                    bgcolor={ this.bgColor }
+                >
                     <Breadcrumbs />
-                    <Heading size={2}>
-                        { title }
+                    <Heading size={ 2 }>
+                        { currentCourse.title }
                     </Heading>
                     <div className={styles.coursePreviewVideoBlock}>
                         <CoursePreviewVideoBlock/>
@@ -37,16 +39,10 @@ class Course extends React.PureComponent<Props> {
                 </PageContainer>
                 <PageContainer paddingsOnPhone={ true }>
                     <div className={styles.courseDescriptionBlock}>
-                        <CourseDescriptionBlock/>
+                        <CourseDescriptionBlock currentCourse={ currentCourse }/>
                     </div>
                 </PageContainer>
             </PageFrame>
         );
     }
 }
-
-const mapDispatchToProps = {
-    changeBackgroundColor: changeBackgroundColor
-}
-
-export const CoursePage = connect(null, mapDispatchToProps)(Course);

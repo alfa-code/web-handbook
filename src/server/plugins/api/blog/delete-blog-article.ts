@@ -11,8 +11,6 @@ export const deleteBlogArticlePlugin = {
 
                 const { post_id } = request.params;
 
-                console.log('post_id', post_id)
-
                 try {
                     const result = await BlogPost.destroy({
                         where: { post_id }

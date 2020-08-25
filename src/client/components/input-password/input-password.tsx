@@ -8,7 +8,7 @@ import styles from './input-password.module.scss';
 interface Props {
     placeholder?: string;
     children?: any;
-    onChange?: Function;
+    onChange?: any;
     value?: any;
     touched?: boolean;
     error?: string;

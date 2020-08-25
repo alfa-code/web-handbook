@@ -5,7 +5,7 @@ import styles from './input-simple.module.scss';
 interface Props {
     placeholder?: string;
     children?: any;
-    onChange?: Function;
+    onChange?: any;
     value?: any;
     touched?: boolean;
     error?: string;

@@ -16,9 +16,9 @@ const AccountModel = getAccountModel(DBConnection);
 const BlogPostModel = getBlogPostModel(DBConnection);
 const CourseModel = getCourseModel(DBConnection);
 
-const UserModel = getUsersModel(DBConnection, AccountModel);
+const UserModel = getUsersModel(DBConnection);
 
-AccountModel.sync({force: true}).then(() => {
+AccountModel.sync({ force: true }).then(() => {
     // @ts-ignore
     AccountModel.create(accountDefaults);
 
@@ -28,12 +28,12 @@ AccountModel.sync({force: true}).then(() => {
     })
 })
 
-BlogPostModel.sync({force: true}).then(() => {
+BlogPostModel.sync({ force: true }).then(() => {
     // @ts-ignore
     BlogPostModel.create(blogPostDefaults);
 });
 
-CourseModel.sync({force: true}).then(() => {
+CourseModel.sync({ force: true }).then(() => {
     // @ts-ignore
     CourseModel.create(courseDefaults);
 });
