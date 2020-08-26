@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { connect } from 'react-redux';
 
 import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';

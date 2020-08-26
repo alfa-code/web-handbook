@@ -12,7 +12,7 @@ export const getCoursesListPlugin = {
 
                 try {
                     let response;
-                    await sequalizeInstance.transaction(async (t) => {
+                    await sequalizeInstance.transaction(async () => {
                         const courses = await Course.findAll({
                             include: [{ model: User, as: 'author' }],
                         });

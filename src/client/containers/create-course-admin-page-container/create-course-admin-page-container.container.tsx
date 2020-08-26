@@ -16,7 +16,7 @@ class Container extends Component<Props> {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
     return {
 
     }
