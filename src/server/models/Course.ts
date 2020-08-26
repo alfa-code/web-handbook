@@ -58,14 +58,5 @@ export function getCourseModel(sequelize): ModelType {
         modelName: 'Course',
     });
 
-    // console.log('Course sequelize.models', sequelize.models)
-
-    // Course.belongsTo(sequelize.models.User, {
-    //     foreignKey: {
-    //         allowNull: false,
-    //         name: 'user_id'
-    //     }
-    // });
-
     return Course;
 }

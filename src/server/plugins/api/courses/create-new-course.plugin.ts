@@ -1,15 +1,16 @@
-// create-new-course.plugin.ts
-async function getAuthorsByCourses(UserModel, coursesArray) {
-    const authorsPromises = coursesArray.map(async (course) => {
-        const author = await UserModel.findOne({
-            raw: true,
-            where: { user_id: course.author_id }
-        });
-        return author;
-    });
 
-    return Promise.all(authorsPromises);
-}
+// // create-new-course.plugin.ts
+// async function getAuthorsByCourses(UserModel, coursesArray) {
+//     const authorsPromises = coursesArray.map(async (course) => {
+//         const author = await UserModel.findOne({
+//             raw: true,
+//             where: { user_id: course.author_id }
+//         });
+//         return author;
+//     });
+
+//     return Promise.all(authorsPromises);
+// }
 
 export const createNewCoursePlugin = {
     name: 'createNewCoursePlugin',
@@ -17,7 +18,7 @@ export const createNewCoursePlugin = {
     register: async function (server, options) {
         server.route({
             method: 'POST',
-            path: '/api/create-new-course',
+            path: '/api/courses/create-new-course',
             options,
             handler: async (request, h) => {
                 const { Course } = await server.methods.getModels();
@@ -27,7 +28,11 @@ export const createNewCoursePlugin = {
 
                     if (createdCourse) {
                         const res = h.response('Курс создан!');
-                        res.code(200);
+                        res.code(201);
+                        return res;
+                    } else {
+                        const res = h.response('Что то пошло не так.');
+                        res.code(500);
                         return res;
                     }
                 } catch (error) {

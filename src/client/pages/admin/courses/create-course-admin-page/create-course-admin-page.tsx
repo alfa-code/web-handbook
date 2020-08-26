@@ -3,17 +3,25 @@ import React, { PureComponent } from 'react';
 import { Formik } from 'formik';
 
 type Props = {
+    createNewCourseDA: any;
 };
 
 export class CreateCourseAdminPage extends PureComponent<Props, any> {
     render() {
         const initialValues = {
+            author_id: '1',
             image: '-',
             title: '-',
             short_description: '-',
-            full_description: '-',
-            author_id: '1'
+            full_description: '',
+            number_of_videos: '10',
+            playlist_id: '1',
+            video_time: '10',
         };
+        const {
+            createNewCourseDA
+        } = this.props;
+
         return (
             <div>
                 <h1>
@@ -34,8 +42,8 @@ export class CreateCourseAdminPage extends PureComponent<Props, any> {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
-                        setSubmitting(false);
+                            createNewCourseDA(values);
+                            setSubmitting(false);
                         }, 400);
                     }}
                     >
@@ -148,7 +156,7 @@ export class CreateCourseAdminPage extends PureComponent<Props, any> {
                             </button>
                         </form>
                     )}
-                    </Formik>
+                </Formik>
             </div>
         );
     }

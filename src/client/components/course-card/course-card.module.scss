@@ -1,4 +1,3 @@
-@import "Src/client/breakpoints.scss";
 
 @import "Src/client/global.scss";
 
@@ -12,6 +11,10 @@
     border: 1px solid var(--background-main);
 
     @include hoverShadow();
+
+    @include media("<phone-2") {
+        width: 280px;
+    }
 
     & .header {
         height: 256px;

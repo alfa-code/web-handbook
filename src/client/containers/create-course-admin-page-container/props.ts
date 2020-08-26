@@ -2,6 +2,7 @@ type MapStateToProps = {
 }
 
 type MapDispatchToProps = {
+    createNewCourseDA: any
 };
 
 type OwnProps = {

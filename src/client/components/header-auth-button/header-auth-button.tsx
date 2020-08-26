@@ -1,6 +1,5 @@
 import React, { Component, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-// import { useSelector } from 'react-redux'
 
 import defaultUserIcon from 'Assets/icons/other/default-user-icon.svg';
 
@@ -38,25 +37,11 @@ export class HeaderAuthButton extends Component<Props> {
         changeHeaderMenuVisabilityDA(false);
     }
 
-    // const [containerBgColor, setContainerBgColor] = useState(null);
-    // const [menuOpened, setMenuState] = useState(false);
-    // let bgcolor = useSelector(state => state.UI.pageStyles.backgroundColor);
-
-    // if (!bgcolor) {
-    //     bgcolor = '#fff';
-    // }
-
-    // const updateContainerStyles = (color) => {
-    //     setContainerBgColor(color)
-    // }
-
     render(): ReactNode {
         const { text, className, menuOpened, changeHeaderMenuVisabilityDA } = this.props;
         return (
             <div
                 className={ `${ styles.container } ${menuOpened ? styles.opened : ''} ${ className } header-auth-button` }
-                // onMouseEnter={ () => updateContainerStyles(bgcolor) }
-                // onMouseLeave={ () => updateContainerStyles(null) }\
             >
                 <div
                     // style={{ backgroundColor: containerBgColor }}

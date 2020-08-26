@@ -85,6 +85,7 @@
         "webpackbar": "^4.0.0"
     },
     "dependencies": {
+        "@hapi/boom": "^9.1.0",
         "@hapi/hapi": "^20.0.0",
         "@hapi/inert": "^6.0.2",
         "axios": "^0.20.0",

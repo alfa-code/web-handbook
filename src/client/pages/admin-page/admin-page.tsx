@@ -8,6 +8,7 @@ import { EditArticlePageContainer } from 'Containers/edit-article-page-container
 import { CreateArticlePageContainer } from 'Containers/create-article-page-container';
 import { CoursesListContainer } from 'Containers/courses-list-container';
 import { CreateCourseAdminPageContainer } from 'Containers/create-course-admin-page-container';
+import { EditCourseAdminPageContainer } from 'Containers/edit-course-admin-page-container';
 
 import styles from './admin-page.module.scss';
 
@@ -64,6 +65,10 @@ export class AdminPage extends PureComponent<Props> {
                             exact
                             path={ `${matchUrl}/courses/create` }
                             component={ CreateCourseAdminPageContainer }
+                        />
+                        <Route
+                            path={ `${matchUrl}/courses/edit/:courseId` }
+                            component={ EditCourseAdminPageContainer }
                         />
                     </Switch>
                 </div>

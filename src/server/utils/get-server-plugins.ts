@@ -21,6 +21,8 @@ import { deleteBlogArticlePlugin } from 'Src/server/plugins/api/blog/delete-blog
 import { getCoursesListPlugin } from 'Src/server/plugins/api/courses/get-courses-lits.plugin';
 import { getCourseInfoPlugin } from 'Src/server/plugins/api/courses/get-course-info.plugin';
 import { createNewCoursePlugin } from 'Src/server/plugins/api/courses/create-new-course.plugin';
+import { saveEditedCoursePlugin } from 'Src/server/plugins/api/courses/save-edited-course.plugin';
+import { deleteCourseById } from 'Src/server/plugins/api/courses/delete-course-by-id.plugin';
 
 export function getServerPlugins() {
     const plugins = [
@@ -136,13 +138,25 @@ export function getServerPlugins() {
         {
             plugin: createNewCoursePlugin,
             options: {
-                auth: false,
+                auth: 'jwt',
+            }
+        },
+        {
+            plugin: saveEditedCoursePlugin,
+            options: {
+                auth: 'jwt',
             }
         },
         {
             plugin: getCourseInfoPlugin,
             options: {
                 auth: false,
+            }
+        },
+        {
+            plugin: deleteCourseById,
+            options: {
+                auth: 'jwt',
             }
         },
         {

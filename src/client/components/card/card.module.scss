@@ -17,6 +17,10 @@
     @include media("<desktop-1") {
         width: 320px;
     }
+
+    @include media("<phone-2") {
+        width: 280px;
+    }
 }
 
 .yellow {
@@ -109,7 +113,7 @@
 
 .horizontal {
     display: flex;
-    max-width: 100%;
+    width: 100%;
     min-height: 256px;
 
     & .header {
@@ -132,5 +136,3 @@
 .link {
     text-decoration: none;
 }
-
-.default {}

@@ -3,12 +3,10 @@ import { connect } from 'react-redux';
 
 import { Props } from './props';
 
-import styles from './{{name}}.module.scss';
-
 class Container extends Component<Props> {
     render() {
         return (
-            <div className={ styles.container } />
+            <div />
         );
     }
 }

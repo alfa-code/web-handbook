@@ -1,7 +1,5 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { RouteComponentProps } from 'react-router-dom';
-
 
 import {
     editArticleByIdStartAC
@@ -9,18 +7,7 @@ import {
 
 import { UpdateArticlePage } from 'Pages/admin/blog/update-article-page';
 
-type MapStateToProps = {
-}
-
-type MapDispatchToProps = {
-    editArticleByIdStartDA: any;
-};
-
-type Props = MapStateToProps & MapDispatchToProps & RouteComponentProps<{ post_id }>;
-
-// interface Props extends RouteComponentProps<{ post_id }> {
-//     editArticleByIdStartDA: any;
-// }
+import { Props } from './props';
 
 export class Container extends PureComponent<Props> {
     render() {
@@ -40,8 +27,6 @@ export class Container extends PureComponent<Props> {
         );
     }
 }
-
-// onst mapStateToProps = (state) => {}
 
 const mapDispatchToProps = {
     editArticleByIdStartDA: editArticleByIdStartAC
