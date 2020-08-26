@@ -10,6 +10,7 @@ import { hintVisibilityReducer, changePasswordReducer } from 'Reducers/ui/hint-v
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
 import { uiCoursesListGet } from 'Reducers/ui/courses-ui.reducer';
 import { changeBackgroundColor }  from 'Reducers/ui/background-color';
+import { uiHeaderReducer }  from 'Reducers/ui/header.reducer';
 
 import { coursesReducer } from 'Reducers/courses/courses.reducer';
 
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
         pageStyles: changeBackgroundColor,
         courses: combineReducers({
             loading: uiCoursesListGet
-        })
+        }),
+        header: uiHeaderReducer
     }),
     user: combineReducers({
         params: userParamsReducer,

@@ -1,41 +1,53 @@
 import { Sequelize } from 'sequelize';
-import { getAccountModel } from '../models/Account';
-import { getUsersModel } from '../models/User';
-import { getBlogPostModel } from '../models/BlogPost';
-import { getCourseModel } from '../models/Course';
 
 import { accountDefaults } from './defaults/accountDefaults';
-import { userDefault } from './defaults/userDefault';
+import { usersDefault } from './defaults/userDefault';
 import { blogPostDefaults } from './defaults/blogPostDefaults';
 import { courseDefaults } from './defaults/courseDefaults';
+import { ormModels } from '../models'
 
 const connectionString = process.env.DATABASE_URL;
 
-const DBConnection = new Sequelize(connectionString);
-const AccountModel = getAccountModel(DBConnection);
-const BlogPostModel = getBlogPostModel(DBConnection);
-const CourseModel = getCourseModel(DBConnection);
+const sequelizeInstance = new Sequelize(connectionString);
 
-const UserModel = getUsersModel(DBConnection);
+const modelList: any = {};
+ormModels.forEach((model) => {
+    const modelInstance = model(sequelizeInstance);
+    const modelName = modelInstance.name;
 
-AccountModel.sync({ force: true }).then(() => {
-    // @ts-ignore
-    AccountModel.create(accountDefaults);
+    modelList[modelName] = modelInstance;
+})
 
-    UserModel.sync({ force: true }).then(() => {
+for (const key in modelList) {
+    const currentModel = modelList[key];
+    if (currentModel.associate) {
         // @ts-ignore
-        UserModel.create(userDefault);
+        currentModel.associate(sequelizeInstance, currentModel);
+    }
+}
+
+const { Account, User, BlogPost, Course } = sequelizeInstance.models;
+
+Account.sync({ force: true }).then(() => {
+    accountDefaults.forEach(element => {
+        Account.create(element);
+    });
+
+    User.sync({ force: true }).then(() => {
+        usersDefault.forEach(element => {
+            User.create(element);
+        });
     })
 })
 
-BlogPostModel.sync({ force: true }).then(() => {
+BlogPost.sync({ force: true }).then(() => {
     // @ts-ignore
-    BlogPostModel.create(blogPostDefaults);
+    BlogPost.create(blogPostDefaults);
 });
 
-CourseModel.sync({ force: true }).then(() => {
+Course.sync({ force: true }).then(() => {
     // @ts-ignore
-    CourseModel.create(courseDefaults);
+    Course.create(courseDefaults);
 });
 
 
