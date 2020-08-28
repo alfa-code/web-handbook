@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { userParamsGet } from 'Actions/request-actions';
+import { userParamsGet, getUserCoursesActions } from 'Actions/request-actions';
 import { CabinetPage } from 'Pages/cabinet-page';
 import { selectUserParams } from 'Selectors/user-params';
+import { selectUserCourses } from 'Selectors/courses/courses.selector';
 
 import { Props } from './props';
 
 class Container extends Component<Props> {
     componentDidMount() {
-        const { userParamsGetDA } = this.props;
+        const { userParamsGetDA, getUserCoursesActionsDA } = this.props;
         userParamsGetDA();
+        getUserCoursesActionsDA();
     }
     render() {
-        const { userParams } = this.props;
+        const { userParams, userCourses } = this.props;
         return (
             <CabinetPage
                 userParams={ userParams }
+                userCourses={ userCourses }
             />
         );
     }
@@ -24,12 +27,14 @@ class Container extends Component<Props> {
 
 const mapStateToProps = (state) => {
     return {
-        userParams: selectUserParams(state)
+        userParams: selectUserParams(state),
+        userCourses: selectUserCourses(state),
     }
 }
 
 const mapDispatchToProps = {
-    userParamsGetDA: userParamsGet.request
+    userParamsGetDA: userParamsGet.request,
+    getUserCoursesActionsDA: getUserCoursesActions.request
 }
 
 export const CabinetPageContainer = connect(mapStateToProps, mapDispatchToProps)(Container)

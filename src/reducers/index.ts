@@ -5,6 +5,7 @@ import { adminReducer } from 'Reducers/admin';
 
 import blogReducer from 'Reducers/blog';
 import { userParamsReducer } from 'Reducers/user-params';
+import { userCoursesReducer } from 'Reducers/user-courses.reducer';
 
 import { hintVisibilityReducer, changePasswordReducer } from 'Reducers/ui/hint-visibility-reducer';
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
@@ -33,6 +34,7 @@ const rootReducer = combineReducers({
     }),
     user: combineReducers({
         params: userParamsReducer,
+        courses: userCoursesReducer,
     }),
     blog: blogReducer,
     courses: coursesReducer,

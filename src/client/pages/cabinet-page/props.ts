@@ -1,5 +1,6 @@
 type OwnProps = {
     userParams: any;
+    userCourses: any;
 }
 
 

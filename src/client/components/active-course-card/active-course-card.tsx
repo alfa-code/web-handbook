@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
 import { Link } from 'react-router-dom';
 import { Heading } from 'Components/heading';
 import { Paragraph } from 'Components/paragraph';
 import { limitOfChars } from 'Src/utils/limitOfChars';
+import { CourseProgressBlock } from 'Components/course-progress-block';
+
+import { InfoLabel } from 'Components/info-label';
 
 import { Props } from './props';
 
-import styles from './card.module.scss';
+import styles from './active-course-card.module.scss';
 
 /**
  * Карточка - используется для отображения карточек на блоге и карточек курсов
@@ -23,7 +25,7 @@ import styles from './card.module.scss';
  * @link Ссылка - если есть, гаголовок карточки является ссылкой
  *
  * */
-export class Card extends Component<Props> {
+export class ActiveCourseCard extends Component<Props> {
     renderCustomSection(section: any) {
         if (!section) {
             return null;
@@ -57,15 +59,11 @@ export class Card extends Component<Props> {
             image,
             text,
             header,
-            color,
-            firstCustomSection,
-            secondCustomSection,
-            type = 'default'
         } = this.props;
 
         return (
-            <div className={classNames(styles.card, styles[type])}>
-                <div className={classNames(styles.header, styles[color])}>
+            <div className={ `${styles.card} ${styles.horizontal}` }>
+                <div className={ styles.header }>
                     <img
                         src={image}
                         alt={header}
@@ -74,32 +72,20 @@ export class Card extends Component<Props> {
                 </div>
                 <div className={styles.body}>
                     <div>
-                        { this.renderCustomSection(firstCustomSection) }
+                        <div style={{ marginBottom: '24px', display: 'inline-flex', flexWrap: 'wrap', marginLeft: '-16px' }}>
+                            <InfoLabel text="10 видео-уроков" iconType="camera" />
+                            <InfoLabel text="3 часа" iconType="clock" />
+                        </div>
                         { this.getCardHeading() }
                         <Paragraph className={styles.text}>
                             {limitOfChars(text, 150)}
                         </Paragraph>
                     </div>
                     <div className={styles.customSelection}>
-                        {this.renderCustomSection(secondCustomSection)}
+                        <CourseProgressBlock percent={15}/>
                     </div>
                 </div>
             </div>
         );
     }
-}
-
-export function getCardItem(item) {
-    return (
-        <Card
-            image={item.image}
-            key={item.header}
-            header={item.header}
-            text={item.text}
-            color={item.color}
-            firstCustomSection={item.firstCustomSection}
-            secondCustomSection={item.secondCustomSection}
-            type={item.type}
-        />
-    )
 }

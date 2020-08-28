@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { UserInfoBlock } from 'Blocks/user-info-block';
-import { StatisticBlock } from 'Blocks/statistic-block';
+// import { StatisticBlock } from 'Blocks/statistic-block';
 import { CoursesProgressBlock } from 'Blocks/courses-progress-block/courses-progress-block';
 import { Heading } from 'Components/heading';
-import { RecentCoursesBlock } from 'Blocks/recent-courses-block/recent-courses-block';
+// import { RecentCoursesBlock } from 'Blocks/recent-courses-block/recent-courses-block';
 
 import styles from './cabinet-page.module.scss';
 
@@ -11,7 +11,17 @@ import { Props } from './props';
 
 export class CabinetPage extends React.PureComponent<Props> {
     render(): ReactNode {
-        const { name, surname, avatar, description } = this.props.userParams;
+        const {
+            name,
+            surname,
+            avatar,
+            description
+        } = this.props.userParams;
+
+        const {
+            userCourses
+        } =this.props;
+
         return (
             <React.Fragment>
                 <div>
@@ -25,15 +35,15 @@ export class CabinetPage extends React.PureComponent<Props> {
                         description={ description }
                     />
                 </div>
-                <div className={styles.statisticBlock}>
+                {/* <div className={styles.statisticBlock}>
                     <StatisticBlock/>
-                </div>
+                </div> */}
                 <div className={styles.courseProgressBlock}>
-                    <CoursesProgressBlock/>
+                    <CoursesProgressBlock items={ userCourses } />
                 </div>
-                <div className={styles.recentCoursesBlock}>
+                {/* <div className={styles.recentCoursesBlock}>
                     <RecentCoursesBlock/>
-                </div>
+                </div> */}
             </React.Fragment>
         );
     }

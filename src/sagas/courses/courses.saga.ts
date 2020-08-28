@@ -7,7 +7,8 @@ import {
     courseGetActions,
     saveEditedCourseActions,
     createNewCourseActions,
-    deleteCourseByIdActions
+    deleteCourseByIdActions,
+    getUserCoursesActions
 } from 'Actions/request-actions';
 
 function* fetchCoursesList() {
@@ -90,8 +91,6 @@ function* deleteCourseById(action) {
     try {
         const { status, data: message } = yield call(() => axios.delete(url));
 
-        console.log('message', message)
-
         if (status === 200) {
             yield put(deleteCourseByIdActions.success(message));
             yield put(coursesListGetActions.request());
@@ -106,10 +105,27 @@ function* deleteCourseById(action) {
     }
 }
 
+function* gerUserCourses() {
+    const url = '/api/courses/get-user-courses';
+    try {
+        const { status, data } = yield call(() => axios.get(url));
+
+        if (status === 200) {
+            yield put(getUserCoursesActions.success(data));
+        } else {
+            yield put(getUserCoursesActions.error(new Error(data)));
+        }
+    } catch (e) {
+        yield put(getUserCoursesActions.error(e));
+        toast.error('Ошибка! Ну удалось получить список курсов.');
+    }
+}
+
 export function* coursesSagas() {
     yield takeLatest(coursesListGetActions.types.request, fetchCoursesList);
     yield takeLatest(courseGetActions.types.request, fetchCourseById);
     yield takeLatest(saveEditedCourseActions.types.request, saveEditedCourseById);
     yield takeLatest(createNewCourseActions.types.request, createNewCourseById);
     yield takeLatest(deleteCourseByIdActions.types.request, deleteCourseById);
+    yield takeLatest(getUserCoursesActions.types.request, gerUserCourses);
 }

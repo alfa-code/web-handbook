@@ -7,3 +7,7 @@ export function selectCoursesList(state) {
 export function selectCurrentCourse(state) {
     return get(state, 'courses.currentCourse', {});
 }
+
+export function selectUserCourses(state) {
+    return get(state, 'user.courses', []);
+}
