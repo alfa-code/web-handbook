@@ -10,6 +10,7 @@ type Props = {
     className?: string;
     menuOpened: boolean;
     changeHeaderMenuVisabilityDA: any;
+    userParams?: any;
 }
 
 export class HeaderAuthButton extends Component<Props> {
@@ -38,7 +39,18 @@ export class HeaderAuthButton extends Component<Props> {
     }
 
     render(): ReactNode {
-        const { text, className, menuOpened, changeHeaderMenuVisabilityDA } = this.props;
+        const {
+            text,
+            className,
+            menuOpened,
+            changeHeaderMenuVisabilityDA,
+            userParams
+        } = this.props;
+
+        const { name, surname, avatar } = userParams;
+        const userIcon = avatar ? avatar : defaultUserIcon;
+        const userName = (name && surname) ? `${name} ${surname}` : text;
+
         return (
             <div
                 className={ `${ styles.container } ${menuOpened ? styles.opened : ''} ${ className } header-auth-button` }
@@ -53,12 +65,12 @@ export class HeaderAuthButton extends Component<Props> {
                     >
                         <div className={ styles.icon }>
                             <img
-                                src={ defaultUserIcon }
+                                src={ userIcon }
                                 alt="Пользователь"
                             />
                         </div>
                         <span className={ styles.text }>
-                            { text }
+                            { userName }
                         </span>
                     </div>
                     <ul className={ styles.hiddenPart }>

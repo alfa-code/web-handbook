@@ -4,7 +4,8 @@ import { accountDefaults } from './defaults/accountDefaults';
 import { usersDefault } from './defaults/userDefault';
 import { blogPostDefaults } from './defaults/blogPostDefaults';
 import { courseDefaults } from './defaults/courseDefaults';
-import { ormModels } from '../models'
+import { userCoursesDefault } from './defaults/userCoursesDefaults';
+import { ormModels } from '../models';
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -26,7 +27,7 @@ for (const key in modelList) {
     }
 }
 
-const { Account, User, BlogPost, Course } = sequelizeInstance.models;
+const { Account, User, BlogPost, Course, UserCourses } = sequelizeInstance.models;
 
 Account.sync({ force: true }).then(() => {
     accountDefaults.forEach(element => {
@@ -49,6 +50,14 @@ Course.sync({ force: true }).then(() => {
     // @ts-ignore
     Course.create(courseDefaults);
 });
+
+UserCourses.sync({ force: true }).then(() => {
+    userCoursesDefault.forEach(element => {
+        UserCourses.create(element);
+    });
+});
+
+
 
 
 

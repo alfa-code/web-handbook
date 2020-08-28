@@ -8,19 +8,19 @@ import styles from './user-info-block.module.scss';
 
 export class UserInfoBlock extends React.PureComponent<Props> {
     render(): ReactNode {
-        const { header } = this.props;
+        const { header, avatarUrl, description = '' } = this.props;
 
         return (
             <div className={styles.root}>
                 <div className={styles.avatar}>
-                    <Avatar />
+                    <Avatar src={ avatarUrl }/>
                 </div>
                 <div className={styles.body}>
                     <div className={styles.header}>
                         { header }
                     </div>
                     <div className={styles.info}>
-                        Some information
+                        { description }
                     </div>
                 </div>
             </div>

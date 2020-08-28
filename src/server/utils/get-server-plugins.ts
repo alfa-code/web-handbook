@@ -23,6 +23,7 @@ import { getCourseInfoPlugin } from 'Src/server/plugins/api/courses/get-course-i
 import { createNewCoursePlugin } from 'Src/server/plugins/api/courses/create-new-course.plugin';
 import { saveEditedCoursePlugin } from 'Src/server/plugins/api/courses/save-edited-course.plugin';
 import { deleteCourseById } from 'Src/server/plugins/api/courses/delete-course-by-id.plugin';
+import { getUserCoursesPlugin } from 'Src/server/plugins/api/courses/get-user-courses.plugin';
 
 export function getServerPlugins() {
     const plugins = [
@@ -155,6 +156,12 @@ export function getServerPlugins() {
         },
         {
             plugin: deleteCourseById,
+            options: {
+                auth: 'jwt',
+            }
+        },
+        {
+            plugin: getUserCoursesPlugin,
             options: {
                 auth: 'jwt',
             }

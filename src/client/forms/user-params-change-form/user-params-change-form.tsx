@@ -14,10 +14,10 @@ import { userParamsValidation } from 'Forms/user-params-change-form/validation';
 import { Props } from './props';
 
 export const UserParamsChangeFormComponent = (props: Props) => {
-    const { submit, FormField, initialValues: { name, surname }, getInitialValues, sending } = props;
+    const { submit, FormField, initialValues: { name, surname }, getInitialValuesDA, sending } = props;
 
     React.useEffect(() => {
-        getInitialValues();
+        getInitialValuesDA();
     }, [])
 
     if (!name) return false;
@@ -71,7 +71,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     submit: userParamsChange.request,
-    getInitialValues: userParamsGet.request,
+    getInitialValuesDA: userParamsGet.request,
 }
 
 export const UserParamsChangeForm = connect(mapStateToProps, mapDispatchToProps)(UserParamsChangeFormComponent);

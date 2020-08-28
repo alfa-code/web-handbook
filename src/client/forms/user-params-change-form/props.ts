@@ -15,7 +15,7 @@ type ReduxStateProps = {
 
 type ReduxDispatchProps = {
     submit?: (value: any) => void;
-    getInitialValues?: () => void;
+    getInitialValuesDA?: () => void;
 }
 
 export type Props = OwnProps & ReduxDispatchProps & ReduxStateProps;

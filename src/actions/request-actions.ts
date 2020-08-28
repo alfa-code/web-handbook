@@ -8,3 +8,4 @@ export const courseGetActions = createRequestActions('GET_COURSE_BY_ID');
 export const createNewCourseActions = createRequestActions('CREATE_NEW_COURSE');
 export const saveEditedCourseActions = createRequestActions('SAVE_EDITES_COURSE');
 export const deleteCourseByIdActions = createRequestActions('DELETE_COURSE_BY_ID');
+export const getUserCoursesActions = createRequestActions('GET_USER_COURSES');

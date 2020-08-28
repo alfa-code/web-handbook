@@ -8,6 +8,7 @@ import loginIcon from 'Assets/icons/info-icons/user-icon.svg';
 import { Button } from 'Components/button';
 import { changeHeaderMenuVisabilityAC } from 'Actions/ui/header-actions';
 import { selectHeaderMenuOpened } from 'Selectors/ui/header.selector';
+import { selectUserParams } from 'Selectors/user-params';
 
 import { Icon } from 'Components/icons/icons';
 import { MatchMedia } from 'Components/math-media';
@@ -17,14 +18,14 @@ import styles from './header-user-container.module.scss';
 
 type Props = {
     authInfo: any;
-
+    userParams: any;
     changeHeaderMenuVisabilityDA: any;
     menuOpened: boolean;
 }
 
 function Container(props: Props) {
     const { isAuthenticated, username = '' } = props.authInfo;
-    const { changeHeaderMenuVisabilityDA, menuOpened } = props;
+    const { changeHeaderMenuVisabilityDA, menuOpened, userParams } = props;
 
     if (isAuthenticated) {
         return (
@@ -32,6 +33,7 @@ function Container(props: Props) {
                 text={ username }
                 menuOpened={ menuOpened }
                 changeHeaderMenuVisabilityDA={ changeHeaderMenuVisabilityDA }
+                userParams={ userParams }
             />
         );
     } else if (isAuthenticated === false) {
@@ -64,7 +66,8 @@ const mapDispatchToProps = {
 const mapStateToProps = (state) => {
     return {
         authInfo: selectAuthInfo(state),
-        menuOpened: selectHeaderMenuOpened(state)
+        menuOpened: selectHeaderMenuOpened(state),
+        userParams: selectUserParams(state)
     }
 }
 

@@ -7,7 +7,8 @@ import { PageContainer } from 'Components/page-container';
 
 import { ChangePasswordPage } from 'Pages/change-password-page';
 import { UserSettingsPage } from 'Pages/user-settings-page';
-import { CabinetPage } from 'Pages/cabinet-page';
+import { CabinetPageContainer } from 'Containers/cabinet-page-container';
+
 
 // Данный функционал спорный - займемся им потом
 // import { ChangeEmailPage } from 'Pages/change-email-page';
@@ -71,7 +72,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                             </Route>
                             <Route
                                 path={ `${matchUrl}/cabinet` }
-                                component={ CabinetPage }
+                                component={ CabinetPageContainer }
                             />
                             <Route
                                 path={ `${matchUrl}/tools` }

@@ -1,13 +1,25 @@
 import Sequelize, { ModelType, Model } from 'sequelize';
 
-/**
- * Сущность-связка
- * @param sequelize
- */
 export function getUserCoursesModel(sequelize): ModelType {
-    class UserCourse extends Model {}
+    class UserCourses extends Model {
+        static associate = (sequelize, selfModel) => {
+            selfModel.belongsTo(sequelize.models.User, {
+                foreignKey: {
+                    allowNull: false,
+                    name: 'user'
+                },
+            });
 
-    UserCourse.init({
+            // selfModel.belongsTo(sequelize.models.Course, {
+            //     foreignKey: {
+            //         allowNull: false,
+            //         name: 'course'
+            //     },
+            // });
+        }
+    }
+
+    UserCourses.init({
         id: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -16,12 +28,8 @@ export function getUserCoursesModel(sequelize): ModelType {
         },
         user: {
             type: Sequelize.INTEGER,
-            references: {
-                model: 'User',
-                key: 'id'
-            }
+            allowNull: false,
         },
-        // TODO: When Course model will be done - add reference here
         course: {
             type: Sequelize.INTEGER,
             allowNull: false
@@ -33,5 +41,5 @@ export function getUserCoursesModel(sequelize): ModelType {
         modelName: 'UserCourses'
     })
 
-    return UserCourse;
+    return UserCourses;
 }

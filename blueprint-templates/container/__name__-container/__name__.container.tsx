@@ -12,9 +12,10 @@ class Container extends Component<Props> {
 }
 
 const mapStateToProps = (state) => {
+    return {}
 }
 
 const mapDispatchToProps = {
 }
 
-export const {{pascalCase name}} = connect(mapStateToProps, mapDispatchToProps)(Container)
+export const {{pascalCase name}}Container = connect(mapStateToProps, mapDispatchToProps)(Container)

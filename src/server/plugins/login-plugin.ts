@@ -24,6 +24,7 @@ export const loginPlugin = {
 
                         const { user_id, username, rights } = userSearchResult.dataValues;
                         const token = jwt.sign({ userId: user_id, username, rights }, jwtPrivateKey, { algorithm: jwtAlgorithm });
+
                         h.state('token', token, {
                             SameSite: 'Lax',
                             isSecure: false,

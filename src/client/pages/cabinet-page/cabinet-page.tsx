@@ -7,14 +7,23 @@ import { RecentCoursesBlock } from 'Blocks/recent-courses-block/recent-courses-b
 
 import styles from './cabinet-page.module.scss';
 
-export class CabinetPage extends React.PureComponent {
+import { Props } from './props';
+
+export class CabinetPage extends React.PureComponent<Props> {
     render(): ReactNode {
+        const { name, surname, avatar, description } = this.props.userParams;
         return (
             <React.Fragment>
                 <div>
-                    <UserInfoBlock header={
-                        <Heading size={1}>Неопознанный волк</Heading>
-                    }/>
+                    <UserInfoBlock
+                        header={
+                            <Heading size={1}>
+                                { `${name} ${surname}` }
+                            </Heading>
+                        }
+                        avatarUrl={ avatar }
+                        description={ description }
+                    />
                 </div>
                 <div className={styles.statisticBlock}>
                     <StatisticBlock/>
