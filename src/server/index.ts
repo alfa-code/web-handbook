@@ -55,8 +55,11 @@ const server = new Hapi.Server({
 
 const init = async (): Promise<any> => {
     await server.register(Inert);
+
+    // Регистрируем аутентификационную схему - ее имя 'jwt'
     await server.register(HapiAuthJWT2);
 
+    // Регистрируем стратегию jwt - схема для нее jwt
     server.auth.strategy('jwt', 'jwt', {
         key: process.env[JWT_SECRET_KEY],
         validate: validateJwtData,
@@ -66,6 +69,8 @@ const init = async (): Promise<any> => {
             ignoreExpiration: true
         }
     });
+
+    // Устанавливаем стратегию по умолчанию
     server.auth.default('jwt');
 
     // Подключаем ORM - передаем массив моделей

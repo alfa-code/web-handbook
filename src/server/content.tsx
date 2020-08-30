@@ -16,21 +16,38 @@ import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 
 // Превращаем контент в строку HTML
-export function getContent(request: any): string {
+export async function getContent(request: any) {
     const assets = readAssetsManifest();
 
     // Verify token and generate default redux state
     const token = get(request, 'state.token');
     let isAuthenticated = false;
-    let userTokenInfo = {};
+    let userTokenInfo: any = {};
+    let userParams: any = {};
+
     if (token) {
-        jwt.verify(token, process.env[JWT_SECRET_KEY], function(err, decoded) {
+        await jwt.verify(token, process.env[JWT_SECRET_KEY], async function(err, decoded) {
             if (err) {
                 console.log('token verify err: ', err);
             } else {
                 if (decoded) {
                     isAuthenticated = true;
                     userTokenInfo = { ...decoded };
+
+                    const { result } = await request.server.inject({
+                        method: 'GET',
+                        url: '/api/user/get',
+                        auth: {
+                            strategy: 'jwt',
+                            credentials: {
+                                username: userTokenInfo.username
+                            }
+                        }
+                    })
+
+                    if (result) {
+                        userParams = { ...userParams, ...result };
+                    }
                 }
             }
         });
@@ -51,6 +68,11 @@ export function getContent(request: any): string {
                     UI: {
                         changePassword: {
                             hintVisible: false
+                        }
+                    },
+                    user: {
+                        params: {
+                            ...userParams
                         }
                     }
                 }

@@ -8,8 +8,8 @@ export const authRoutePlugin = {
             method: 'GET',
             path: '/auth',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }

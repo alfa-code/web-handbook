@@ -8,8 +8,8 @@ export const adminRoutePlugin = {
             method: 'GET',
             path: '/admin/{optionalPath?}',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }

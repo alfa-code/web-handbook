@@ -8,8 +8,8 @@ export const postgreRoutePlugin = {
             method: 'GET',
             path: '/postgre',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }

@@ -8,8 +8,8 @@ export const settingsSubpageRoutePlugin = {
             method: 'GET',
             path: '/profile/{subpage*}',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }

@@ -8,8 +8,8 @@ export const blogRoutePlugin = {
             method: 'GET',
             path: '/blog',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }

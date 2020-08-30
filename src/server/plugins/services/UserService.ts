@@ -27,7 +27,10 @@ export async function UserService(
     let userParams = initData;
 
     if (!initData) {
-        const result = await UserModel.findOne({ where: { user_id: accountService.id } });
+        const result = await UserModel.findOne({
+                where: { user_id: accountService.id },
+                attributes: ['id', 'user_id', 'name', 'surname', 'description', 'avatar']
+        });
         userParams = result?.dataValues;
 
         if (!userParams) {

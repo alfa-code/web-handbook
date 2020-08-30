@@ -8,8 +8,8 @@ export const anyRoutePlugin = {
             method: '*',
             path: '/{any*}',
             options,
-            handler: function (request) {
-                return getContent(request);
+            handler: async function (request) {
+                return await getContent(request);
             }
         });
     }
