@@ -36,7 +36,7 @@ export class InfoLabel extends React.Component<Props> {
           <img
             src={this.getIcon()}
             alt="Иконка лейбла"
-            className={styles.icon}
+            className={ styles.icon }
           />
           <span className={styles.text}>
             { text }

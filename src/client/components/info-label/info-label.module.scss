@@ -2,7 +2,6 @@
 
 .label {
     display: inline-flex;
-    margin-left: var(--gap-m);
     align-items: flex-start;
 
     @include media("<phone-2") {
@@ -15,6 +14,10 @@
         @include media("<phone-2") {
             margin-left: var(--gap-xs);
         }
+    }
+
+    & + & {
+        margin-left: var(--gap-m);
     }
 }
 

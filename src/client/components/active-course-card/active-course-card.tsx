@@ -72,7 +72,7 @@ export class ActiveCourseCard extends Component<Props> {
                 </div>
                 <div className={styles.body}>
                     <div>
-                        <div style={{ marginBottom: '24px', display: 'inline-flex', flexWrap: 'wrap', marginLeft: '-16px' }}>
+                        <div className={ styles.labelsBlock }>
                             <InfoLabel text="10 видео-уроков" iconType="camera" />
                             <InfoLabel text="3 часа" iconType="clock" />
                         </div>

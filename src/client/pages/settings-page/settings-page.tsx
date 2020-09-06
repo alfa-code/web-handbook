@@ -65,30 +65,30 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 </NavLink>
                             </li> */}
                         </ul>
-                        <div>
-                        <Switch>
-                            <Route exact path={ matchUrl }>
-                                <Redirect to={ `${matchUrl}/cabinet` } />
-                            </Route>
-                            <Route
-                                path={ `${matchUrl}/cabinet` }
-                                component={ CabinetPageContainer }
-                            />
-                            <Route
-                                path={ `${matchUrl}/tools` }
-                                component={ UserSettingsPage }
-                            />
-                            <Route
-                                path={ `${matchUrl}/password` }
-                                component={ ChangePasswordPage }
+                        <div className={ styles.contentSection }>
+                            <Switch>
+                                <Route exact path={ matchUrl }>
+                                    <Redirect to={ `${matchUrl}/cabinet` } />
+                                </Route>
+                                <Route
+                                    path={ `${matchUrl}/cabinet` }
+                                    component={ CabinetPageContainer }
+                                />
+                                <Route
+                                    path={ `${matchUrl}/tools` }
+                                    component={ UserSettingsPage }
+                                />
+                                <Route
+                                    path={ `${matchUrl}/password` }
+                                    component={ ChangePasswordPage }
 
-                            />
-                            { /* Данный функционал спорный - займемся им потом */ }
-                            {/* <Route
-                                path={ `${matchUrl}/email` }
-                                component={ ChangeEmailPage }
-                            /> */}
-                        </Switch>
+                                />
+                                { /* Данный функционал спорный - займемся им потом */ }
+                                {/* <Route
+                                    path={ `${matchUrl}/email` }
+                                    component={ ChangeEmailPage }
+                                /> */}
+                            </Switch>
                         </div>
                     </div>
                 </PageContainer>

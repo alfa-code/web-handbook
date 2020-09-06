@@ -2,13 +2,14 @@
     display: grid;
     grid-template-columns: 328px auto;
     gap: 0 32px;
+    padding-bottom: 80px;
 }
 
 .menuList {
     padding: 16px 0;
     margin: 0;
     list-style: none;
-
+    height: max-content;
     background: #FFFFFF;
     border: 1px solid #F3F4F5;
     box-sizing: border-box;
@@ -42,3 +43,6 @@
     color: #172a3f;
 }
 
+.contentSection {
+    padding-bottom: 0px;
+}
