@@ -8,7 +8,8 @@ import {
     saveEditedCourseActions,
     createNewCourseActions,
     deleteCourseByIdActions,
-    getUserCoursesActions
+    getUserCoursesActions,
+    createUserCourseActions
 } from 'Actions/request-actions';
 
 function* fetchCoursesList() {
@@ -121,6 +122,26 @@ function* gerUserCourses() {
     }
 }
 
+function* createUserCourse(action) {
+    const { payload: { values: id } } = action;
+    const url = '/api/courses/create-user-course';
+    try {
+        const { status, data } = yield call(() => axios.post(url, {
+            id
+        }));
+
+        if (status === 201) {
+            yield put(createUserCourseActions.success(data));
+            toast.success(data);
+        } else {
+            yield put(createUserCourseActions.error(new Error(data)));
+        }
+    } catch (e) {
+        yield put(createUserCourseActions.error(e));
+        toast.error('Ошибка! Ну удалось начать новый курс.');
+    }
+}
+
 export function* coursesSagas() {
     yield takeLatest(coursesListGetActions.types.request, fetchCoursesList);
     yield takeLatest(courseGetActions.types.request, fetchCourseById);
@@ -128,4 +149,5 @@ export function* coursesSagas() {
     yield takeLatest(createNewCourseActions.types.request, createNewCourseById);
     yield takeLatest(deleteCourseByIdActions.types.request, deleteCourseById);
     yield takeLatest(getUserCoursesActions.types.request, gerUserCourses);
+    yield takeLatest(createUserCourseActions.types.request, createUserCourse);
 }

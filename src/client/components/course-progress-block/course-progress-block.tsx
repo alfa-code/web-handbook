@@ -10,7 +10,7 @@ import styles from './course-progress-block.module.scss';
 
 export class CourseProgressBlock extends React.PureComponent<Props> {
     render(): ReactNode {
-        const { percent } = this.props;
+        const { percent, courseId } = this.props;
         const isComplete = (percent === 100);
 
         return (
@@ -30,8 +30,8 @@ export class CourseProgressBlock extends React.PureComponent<Props> {
                     </div>
                     {
                         !isComplete && (
-                            <Link to='/' className={ styles.continueLink }>
-                                Продолжить смотреть
+                            <Link to={ `/courses/${ courseId }/playlist` } className={ styles.continueLink }>
+                                Продолжить обучение
                             </Link>
                         )
                     }

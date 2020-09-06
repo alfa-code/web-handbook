@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { courseGetActions } from 'Actions/request-actions';
-import { changeBackgroundColor } from 'Actions/ui/background-color';
 
 import { CoursePage } from 'Pages/course-page';
 
@@ -25,10 +24,19 @@ class Container extends PureComponent<Props> {
     }
 
     render() {
+        const {
+            match: {
+                params: {
+                    id
+                }
+            },
+            currentCourse
+        }= this.props;
+
         return (
             <CoursePage
-                currentCourse={ this.props.currentCourse }
-                changeBackgroundColorDA={ this.props.changeBackgroundColorDA }
+                currentCourseId={ id }
+                currentCourse={ currentCourse }
             />
         );
     }
@@ -41,8 +49,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    courseGetByIdDA: courseGetActions.request,
-    changeBackgroundColorDA: changeBackgroundColor
+    courseGetByIdDA: courseGetActions.request
 }
 
 export const CoursePageContainer = connect(mapStateToProps, mapDispatchToProps)(Container)

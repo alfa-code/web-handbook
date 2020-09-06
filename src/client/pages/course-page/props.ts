@@ -1,4 +1,4 @@
 export type Props = {
-    changeBackgroundColorDA: any;
     currentCourse: any;
+    currentCourseId: string;
 };

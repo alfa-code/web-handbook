@@ -7,25 +7,12 @@ import { PageFrame } from 'Components/page-frame';
 import { MemoizedPlayer } from 'Components/player/player';
 import { PlayerManagement } from 'Components/player-management';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
-import { changeBackgroundColor } from 'Actions/ui/background-color';
 
-type Props = {
-    changeBackgroundColor: (value: string) => void;
-}
-
-class PlayList extends PureComponent<Props> {
-
-    componentDidMount() {
-        this.props.changeBackgroundColor(this.bgColor)
-    }
-
-    bgColor = "#0b1f35";
-
+class PlayList extends PureComponent {
     render(): ReactNode {
         return (
-            <PageFrame bgcolor={ this.bgColor } darkMode={ true }>
-                <PageContainer paddingsOnPhone={true}
-                               bgcolor={ this.bgColor }>
+            <PageFrame>
+                <PageContainer paddingsOnPhone={true}>
                     <div className={styles.playlistBlock}>
                         <MemoizedPlayer />
                         <PlayerManagement />
@@ -75,8 +62,4 @@ class PlayList extends PureComponent<Props> {
     }
 }
 
-const mapDispatchToProps = {
-    changeBackgroundColor: changeBackgroundColor
-}
-
-export const PlaylistPage = connect(null, mapDispatchToProps)(PlayList);
+export const PlaylistPage = connect(null, null)(PlayList);

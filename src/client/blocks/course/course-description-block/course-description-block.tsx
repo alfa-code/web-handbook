@@ -14,11 +14,85 @@ import javascriptImage from 'Assets/images/javascript.svg';
 
 type Props = {
     currentCourse: any;
+    isAuthenticated: boolean;
+    isCourseStarted: boolean;
+    currentCourseId: string;
+    createUserCourseDA: any;
 }
 
 export class CourseDescriptionBlock extends React.PureComponent<Props> {
+    renderRegisterBlock = () => {
+        return (
+            <div>
+                <p>
+                    Для того чтобы начать курс, войдите пол личным аккаунтом или зарегистрируйтесь.
+                </p>
+                <Button
+                    text="Войти"
+                    viewType="secondary"
+                    href="/auth"
+                    className={ styles.buttonLink }
+                />
+                <br/>
+                <Button
+                    text="Зарегистрироваться"
+                    viewType="secondary"
+                    href="/registration"
+                    className={ styles.buttonLink }
+                />
+            </div>
+        )
+    }
+
+    startTheCourse = () => {
+        const { createUserCourseDA, currentCourseId } = this.props;
+        createUserCourseDA(currentCourseId);
+    }
+
+    renderStartCourseBlock = () => {
+        return (
+            <div>
+                <Button
+                    className={ styles.button }
+                    viewType="primary"
+                    onClick={ this.startTheCourse }
+                >
+                    Начать изучение
+                </Button>
+            </div>
+        )
+    }
+
+    renderResumeCourseBlock = () => {
+        const { currentCourseId } = this.props;
+
+        return (
+            <Button
+                text="Продолжить обучение"
+                viewType="secondary"
+                href={ `/courses/${ currentCourseId }/playlist` }
+                className={ styles.button }
+            />
+        )
+    }
+
+    renderRightButtonsBlock = () => {
+        const { isAuthenticated, isCourseStarted } = this.props;
+
+        if (!isAuthenticated) {
+            return this.renderRegisterBlock();
+        }
+
+        if (isCourseStarted) {
+            return this.renderResumeCourseBlock();
+        }
+
+        return this.renderStartCourseBlock();
+    }
+
     render(): ReactNode {
         const { currentCourse } = this.props;
+
         return (
             <div className={ styles.body }>
                 <div className={ styles.description }>
@@ -204,10 +278,7 @@ export class CourseDescriptionBlock extends React.PureComponent<Props> {
                 </div>
                 <div className={ styles.control }>
                     <img className={styles.jsImage} src={ javascriptImage } alt="" />
-                    <Button className={ styles.button } viewType="primary">Начать
-                        просмотр</Button>
-                    <Button className={ styles.button } viewType="secondary">Программа
-                        курса</Button>
+                    { this.renderRightButtonsBlock() }
                 </div>
             </div>
         );

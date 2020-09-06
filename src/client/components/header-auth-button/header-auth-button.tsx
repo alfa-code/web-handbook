@@ -55,10 +55,7 @@ export class HeaderAuthButton extends Component<Props> {
             <div
                 className={ `${ styles.container } ${menuOpened ? styles.opened : ''} ${ className } header-auth-button` }
             >
-                <div
-                    // style={{ backgroundColor: containerBgColor }}
-                    className={ styles.innerContainer }
-                >
+                <div className={ styles.innerContainer }>
                     <div
                         className={ styles.visiblePart }
                         onClick={ () => { changeHeaderMenuVisabilityDA(!menuOpened) } }

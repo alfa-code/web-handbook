@@ -6,7 +6,6 @@ type MapStateToProps = {
 
 type MapDispatchToProps = {
     courseGetByIdDA: any;
-    changeBackgroundColorDA: any;
 };
 
 type OwnProps = {

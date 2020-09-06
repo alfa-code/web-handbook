@@ -24,6 +24,7 @@ export async function getContent(request: any) {
     let isAuthenticated = false;
     let userTokenInfo: any = {};
     let userParams: any = {};
+    let userCourses: any = [];
 
     if (token) {
         await jwt.verify(token, process.env[JWT_SECRET_KEY], async function(err, decoded) {
@@ -34,20 +35,44 @@ export async function getContent(request: any) {
                     isAuthenticated = true;
                     userTokenInfo = { ...decoded };
 
-                    const { result } = await request.server.inject({
-                        method: 'GET',
-                        url: '/api/user/get',
-                        auth: {
-                            strategy: 'jwt',
-                            credentials: {
-                                username: userTokenInfo.username
+                    // userParams
+                    {
+                        const { result } = await request.server.inject({
+                            method: 'GET',
+                            url: '/api/user/get',
+                            auth: {
+                                strategy: 'jwt',
+                                credentials: {
+                                    username: userTokenInfo.username
+                                }
                             }
-                        }
-                    })
+                        });
 
-                    if (result) {
-                        userParams = { ...userParams, ...result };
+                        if (result) {
+                            userParams = { ...userParams, ...result };
+                        }
                     }
+
+                    // UserCourses
+                    {
+                        const { result } = await request.server.inject({
+                            method: 'GET',
+                            url: '/api/courses/get-user-courses',
+                            auth: {
+                                strategy: 'jwt',
+                                credentials: {
+                                    username: userTokenInfo.username,
+                                    userId: userTokenInfo.userId
+                                }
+                            }
+                        });
+
+                        if (result) {
+                            userCourses = [...result];
+                        }
+                    }
+
+
                 }
             }
         });
@@ -73,7 +98,8 @@ export async function getContent(request: any) {
                     user: {
                         params: {
                             ...userParams
-                        }
+                        },
+                        courses: userCourses
                     }
                 }
             }

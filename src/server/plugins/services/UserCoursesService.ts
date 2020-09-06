@@ -17,7 +17,7 @@ export type IUserCoursesServiceCollection = IAsyncService & {
     data: Shape<any>[];
 }
 
-export async function UserCourses(
+export async function UserCoursesService(
     id: number,
     UserCoursesModel: any,
     initData: Shape<any> = null
@@ -30,7 +30,7 @@ export async function UserCourses(
         data = result?.dataValues;
 
         if (!data) {
-            throw new NotFoundError('UserCourses Service');
+            throw new NotFoundError('UserCoursesService Service');
         }
     }
 
@@ -39,7 +39,7 @@ export async function UserCourses(
         data,
         model: UserCoursesModel,
         async map(fn) {
-            return await fn(UserCourses(this.id, this.model, this.data))
+            return await fn(UserCoursesService(this.id, this.model, this.data))
         },
         async create(fields) {
             await this.model.create(fields);
@@ -89,7 +89,7 @@ export async function UserCoursesCollection(
             return await fn(UserCoursesCollection(this.id, this.courseId, this.model, this.data))
         },
         async create() {
-            return UserCourses(null, this.model);
+            return UserCoursesService(null, this.model);
         },
         async update(fields) {
             await this.model.update(fields, { where: requestSelector });

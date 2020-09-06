@@ -62,13 +62,13 @@ import styles from './courses-progress-block.module.scss';
 
 export class CoursesProgressBlock extends React.PureComponent<Props> {
     getCard(item: any, index) {
-        console.log('item', item)
         return (
             <div key={index} className={styles.item}>
                 <ActiveCourseCard
                     image={ item.courseInfo.image }
                     header={ item.courseInfo.title }
                     text={ item.courseInfo.short_description }
+                    courseId={ item.courseInfo.id }
                     // firstCustomSection={item.firstCustomSection}
                     // secondCustomSection={item.secondCustomSection}
                     // type={item.type}

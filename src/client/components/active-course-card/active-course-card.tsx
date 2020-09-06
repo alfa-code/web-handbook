@@ -59,6 +59,7 @@ export class ActiveCourseCard extends Component<Props> {
             image,
             text,
             header,
+            courseId
         } = this.props;
 
         return (
@@ -82,7 +83,10 @@ export class ActiveCourseCard extends Component<Props> {
                         </Paragraph>
                     </div>
                     <div className={styles.customSelection}>
-                        <CourseProgressBlock percent={15}/>
+                        <CourseProgressBlock
+                            courseId={ courseId }
+                            percent={15}
+                        />
                     </div>
                 </div>
             </div>

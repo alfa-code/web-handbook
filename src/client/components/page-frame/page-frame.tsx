@@ -11,18 +11,16 @@ import { BREAKPOINTS } from 'Constants/media';
 
 interface Props {
     children: ReactNode;
-    bgcolor?: string;
-    darkMode?: boolean;
 }
 interface State { }
 
 export class PageFrame extends PureComponent<Props, State> {
     render(): ReactNode {
-        const { children, darkMode,  bgcolor } = this.props;
+        const { children } = this.props;
 
         return (
             <div className={styles.container}>
-                <PageContainer bgcolor={ bgcolor } darkMode={ darkMode } >
+                <PageContainer>
                     <MatchMedia maxWidth={`>=${BREAKPOINTS.TABLET_2}`}>
                         <PageHeader/>
                     </MatchMedia>

@@ -11,3 +11,12 @@ export function selectCurrentCourse(state) {
 export function selectUserCourses(state) {
     return get(state, 'user.courses', []);
 }
+
+export function selectIsCourseStarted(state, courseId) {
+    const userCourses = get(state, 'user.courses', []);
+    const isCourseStarted = userCourses.some(function(course) {
+        return course.course === Number(courseId);
+    });
+    return isCourseStarted;
+}
+

@@ -7,6 +7,7 @@ export type CardItem = {
     secondCustomSection?: any;
     type?: 'horizontal' | 'default';
     link?: string;
+    courseId: number;
 }
 
 export type Props = CardItem;
