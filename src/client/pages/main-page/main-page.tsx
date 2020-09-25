@@ -1,8 +1,6 @@
 import React, { PureComponent, ReactNode } from 'react';
 import { RouteProps } from "react-router-dom";
 
-import { PageFrame } from 'Components/page-frame';
-
 import { PageContainer } from 'Components/page-container';
 import { SubscribeForm } from 'Src/client/forms/subscribe-form';
 
@@ -25,8 +23,9 @@ interface State { }
 
 export class MainPage extends PureComponent<Props, State> {
     render(): ReactNode {
+        console.log('main')
         return (
-            <PageFrame>
+            <>
                 <PageContainer paddingsOnPhone={ true }>
                     <MainScreenBlockContainer />
                 </PageContainer>
@@ -68,7 +67,7 @@ export class MainPage extends PureComponent<Props, State> {
                 <PageContainer paddingsOnPhone={ true }>
                     <Technologies />
                 </PageContainer>
-            </PageFrame>
+            </>
         );
     }
 }

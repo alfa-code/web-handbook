@@ -3,7 +3,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import Markdown from 'markdown-to-jsx';
 
 import { Heading } from 'Components/heading';
-import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 
 import { monokaiTheme } from './highlight-monokai';
@@ -34,7 +33,7 @@ export class BlogArticlePage extends Component<Props> {
         const { title, content } = article;
 
         return (
-            <PageFrame>
+            <>
                 <PageContainer paddingsOnPhone={ true }>
                     <Heading size={2}>
                         { title }
@@ -54,7 +53,7 @@ export class BlogArticlePage extends Component<Props> {
                         { content }
                     </Markdown>
                 </PageContainer>
-            </PageFrame>
+            </>
         );
     }
 }

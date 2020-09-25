@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 
-import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 import { CoursePreviewVideoBlock } from 'Blocks/course/course-preview-video-block';
 import { Heading } from 'Components/heading';
@@ -16,7 +15,7 @@ export class CoursePage extends React.PureComponent<Props> {
         const { currentCourse, currentCourseId } = this.props;
 
         return (
-            <PageFrame>
+            <>
                 <PageContainer
                     paddingsOnPhone={ true }                >
                     <Breadcrumbs />
@@ -35,7 +34,7 @@ export class CoursePage extends React.PureComponent<Props> {
                         />
                     </div>
                 </PageContainer>
-            </PageFrame>
+            </>
         );
     }
 }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import styles from './playlist-page.module.scss';
 import { PageContainer } from 'Components/page-container';
-import { PageFrame } from 'Components/page-frame';
 import { MemoizedPlayer } from 'Components/player/player';
 import { PlayerManagement } from 'Components/player-management';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
@@ -11,7 +10,7 @@ import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
 class PlayList extends PureComponent {
     render(): ReactNode {
         return (
-            <PageFrame>
+            <>
                 <PageContainer paddingsOnPhone={true}>
                     <div className={styles.playlistBlock}>
                         <MemoizedPlayer />
@@ -57,7 +56,7 @@ class PlayList extends PureComponent {
                         </p>
                     </div>
                 </PageContainer>
-            </PageFrame>
+            </>
         );
     }
 }

@@ -2,7 +2,6 @@ import React, { PureComponent, ReactNode } from 'react';
 import { NavLink, Redirect } from 'react-router-dom';
 import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 
-import { PageFrame } from 'Components/page-frame';
 import { PageContainer } from 'Components/page-container';
 
 import { ChangePasswordPage } from 'Pages/change-password-page';
@@ -23,7 +22,7 @@ export class SettingsPage extends PureComponent<Props, State> {
         const matchUrl = this.props.match.path;
 
         return (
-            <PageFrame>
+            <>
                 <PageContainer paddingsOnPhone={ true }>
                     <div className={ styles.rootContainer }>
                         <ul className={ styles.menuList }>
@@ -92,7 +91,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                         </div>
                     </div>
                 </PageContainer>
-            </PageFrame>
+            </>
         );
     }
 }

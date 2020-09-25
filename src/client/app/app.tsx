@@ -15,6 +15,7 @@ import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
+import { PageFrame } from 'Components/page-frame';
 
 import { PlaylistPage } from 'Pages/playlist-page';
 import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
@@ -75,7 +76,7 @@ type Props = {
 export default class App extends React.Component<Props> {
     getMainContent() {
         return (
-            <>
+            <PageFrame>
                 <Switch>
                     <Route exact path='/' component={ MainPage } />
                     <Route
@@ -107,12 +108,11 @@ export default class App extends React.Component<Props> {
                     <Route path='*' component={ NotFoundPage } />
                 </Switch>
                 <ToastContainer />
-            </>
+            </PageFrame>
         );
     }
 
     render(): any {
-        console.log('this.props', this.props)
         const { location, context } = this.props;
 
         if (typeof window === 'undefined') {

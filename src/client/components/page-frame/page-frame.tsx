@@ -1,4 +1,4 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React, { Profiler, ReactNode } from 'react';
 
 import { PageContainer } from 'Components/page-container';
 import { PageFooter } from 'Components/page-footer';
@@ -14,7 +14,7 @@ interface Props {
 }
 interface State { }
 
-export class PageFrame extends PureComponent<Props, State> {
+export class PageFrame extends React.Component<Props, State> {
     render(): ReactNode {
         const { children } = this.props;
 
@@ -28,7 +28,9 @@ export class PageFrame extends PureComponent<Props, State> {
                         <MobileHeader />
                     </MatchMedia>
                 </PageContainer>
-                { children }
+                <main className={ styles.main }>
+                    { children }
+                </main>
                 <PageFooter />
             </div>
         );

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { PureComponent, ReactNode } from 'react';
 
 import { Logo } from 'Components/logo/logo';
 import { HeaderNavigation } from 'Components/header-navigation';
@@ -9,7 +9,7 @@ import styles from './page-header-style.module.scss';
 interface Props { }
 interface State { }
 
-export class PageHeader extends React.Component<Props, State> {
+export class PageHeader extends PureComponent<Props, State> {
     getContent = () => {
         const { children } = this.props;
 
