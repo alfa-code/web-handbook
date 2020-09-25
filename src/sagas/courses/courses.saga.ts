@@ -145,7 +145,7 @@ function* createUserCourse(action) {
 
 function* createUserCourseSuccess(action) {
     const { payload: startedCourseId } = action;
-    yield console.log('startedCourseId', startedCourseId)
+    yield console.log('startedCourseId', startedCourseId);
 }
 
 export function* coursesSagas() {

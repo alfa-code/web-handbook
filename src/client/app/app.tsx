@@ -1,11 +1,13 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter, StaticRouter } from 'react-router-dom';
+import { Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
 import { ToastContainer } from 'react-toastify';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
+import { createBrowserHistory, createMemoryHistory  } from 'history';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import { MainPage } from 'Src/client/pages/main-page';
 import { AuthPage } from 'Src/client/pages/auth-page';
@@ -16,17 +18,15 @@ import { BlogListPage } from 'Src/client/pages/blog-list-page';
 
 import { PlaylistPage } from 'Pages/playlist-page';
 import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
-import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container'
+import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container';
 
 import { AdminPage } from 'Pages/admin-page';
 
-import rootReducer from 'Src/reducers';
+import { createRootReducer } from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
 import { CoursesPage } from 'Pages/courses-page/courses-page';
 
 const composeEnhancers = composeWithDevTools({});
-
-const sagaMiddleware = createSagaMiddleware();
 
 declare global {
     interface Window {
@@ -47,13 +47,23 @@ const loggerReduxLogger = createLogger({
     diff: true
 });
 
+let history;
+if (typeof window !== 'undefined') {
+    history = createBrowserHistory();
+} else {
+    history = createMemoryHistory();
+}
+
+const rootReducer = createRootReducer(history);
+const routerMiddlewar = routerMiddleware(history);
+const sagaMiddleware = createSagaMiddleware();
+const middleware = applyMiddleware(loggerReduxLogger, sagaMiddleware, routerMiddlewar);
 
 const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(loggerReduxLogger, sagaMiddleware))
+    composeEnhancers(middleware)
 );
-
 
 sagaMiddleware.run(rootSaga);
 
@@ -102,6 +112,7 @@ export default class App extends React.Component<Props> {
     }
 
     render(): any {
+        console.log('this.props', this.props)
         const { location, context } = this.props;
 
         if (typeof window === 'undefined') {
@@ -115,9 +126,9 @@ export default class App extends React.Component<Props> {
         } else {
             return (
                 <Provider store={ store }>
-                    <BrowserRouter>
+                    <ConnectedRouter history={ history }>
                         { this.getMainContent() }
-                    </BrowserRouter>
+                    </ConnectedRouter>
                 </Provider>
             )
         }

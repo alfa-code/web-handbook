@@ -23,7 +23,7 @@ export const createBlogArticlePlugin = {
                         description,
                         content,
                     });
-                    console.log('result', result);
+
                     if (result) {
                         const res = h.response('создано');
                         res.code(201);

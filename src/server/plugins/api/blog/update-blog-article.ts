@@ -24,7 +24,7 @@ export const updateBlogArticlePlugin = {
                         description,
                         content,
                     }, { where: { post_id } });
-                    console.log('result', result);
+
                     if (result) {
                         const res = h.response(`Статья с id ${post_id} успешно обновлена`);
                         res.code(200);
