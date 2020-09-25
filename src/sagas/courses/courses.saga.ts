@@ -131,8 +131,9 @@ function* createUserCourse(action) {
         }));
 
         if (status === 201) {
-            yield put(createUserCourseActions.success(data));
-            toast.success(data);
+            const { startedCourseId } = data;
+            yield put(createUserCourseActions.success(startedCourseId));
+            toast.success('Поздравляем! Вы начали новый курс.');
         } else {
             yield put(createUserCourseActions.error(new Error(data)));
         }
@@ -140,6 +141,11 @@ function* createUserCourse(action) {
         yield put(createUserCourseActions.error(e));
         toast.error('Ошибка! Ну удалось начать новый курс.');
     }
+}
+
+function* createUserCourseSuccess(action) {
+    const { payload: startedCourseId } = action;
+    yield console.log('startedCourseId', startedCourseId)
 }
 
 export function* coursesSagas() {
@@ -150,4 +156,5 @@ export function* coursesSagas() {
     yield takeLatest(deleteCourseByIdActions.types.request, deleteCourseById);
     yield takeLatest(getUserCoursesActions.types.request, gerUserCourses);
     yield takeLatest(createUserCourseActions.types.request, createUserCourse);
+    yield takeLatest(createUserCourseActions.types.success, createUserCourseSuccess);
 }

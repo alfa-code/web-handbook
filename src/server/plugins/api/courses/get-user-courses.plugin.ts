@@ -1,11 +1,10 @@
 async function extendsUserCourses(userCourses = [], courseModel) {
     const courses = userCourses.map(async course => {
-        const { course: courseId } = course;
-        // console.log('courseId', courseId);
+        const { course_id } = course;
 
         const currentCourse = await courseModel.findOne({
             where: {
-                id: courseId
+                id: course_id
             },
             // attributes: ['id', 'course'],
         });
@@ -41,13 +40,15 @@ export const getUserCoursesPlugin = {
 
                     const { userId } = request.auth.credentials;
 
+                    console.log('userId', userId)
+
                     let response;
                     await sequalizeInstance.transaction(async () => {
                         const userCourses = await UserCourses.findAll({
                             where: {
-                                user: userId
+                                user_id: userId
                             },
-                            attributes: ['id', 'course'],
+                            attributes: ['id', 'course_id'],
                         });
 
                         const extendedUserCourses = await extendsUserCourses(userCourses, Course);

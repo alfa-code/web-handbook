@@ -27,15 +27,22 @@ export function getUserCoursesModel(sequelize): ModelType {
             autoIncrement: true,
             primaryKey: true
         },
-        user: {
+        user_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
         },
-        course: {
+        course_id: {
             type: Sequelize.INTEGER,
             allowNull: false
+        },
+        active_lesson: {
+            type: Sequelize.INTEGER,
+            allowNull: false
+        },
+        is_finished: {
+            type: Sequelize.BOOLEAN,
+            allowNull: false
         }
-
     }, {
         sequelize,
         tableName: 'user_courses',

@@ -14,16 +14,17 @@ export const createNewUserCoursePlugin = {
                 const { id: courseId } = request.payload;
 
                 const fields = {
-                    user: request.auth.credentials.userId,
-                    course: courseId
+                    user_id: request.auth.credentials.userId,
+                    course_id: courseId,
+                    active_lesson: 1,
+                    is_finished: false
                 }
 
                 try {
                     const createdUserCourse = await UserCourses.create(fields);
-                    console.log('createdUserCourse', createdUserCourse)
 
-                    if (createdUserCourse) {
-                        const res = h.response('Поздравляем! Вы начали новый курс.');
+                    if (createdUserCourse && createdUserCourse.course_id) {
+                        const res = h.response({ startedCourseId: createdUserCourse.course_id });
                         res.code(201);
                         return res;
                     } else {

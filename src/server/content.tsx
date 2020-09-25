@@ -67,6 +67,8 @@ export async function getContent(request: any) {
                             }
                         });
 
+                        console.log('result', result)
+
                         if (result) {
                             userCourses = [...result];
                         }
