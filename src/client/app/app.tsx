@@ -76,9 +76,8 @@ type Props = {
 export default class App extends React.Component<Props> {
     getMainContent() {
         return (
-            <PageFrame>
+            <>
                 <Switch>
-                    <Route exact path='/' component={ MainPage } />
                     <Route
                         exact
                         path='/auth'
@@ -97,18 +96,24 @@ export default class App extends React.Component<Props> {
                             );
                         }}
                     />
-                    <Route path='/profile' component={ SettingsPage } />
-                    <Route exact path='/postgre' component={ PostgrePanel } />
-                    <Route exact path='/blog' component={ BlogListPage } />
-                    <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
-                    <Route exact path='/courses' component={ CoursesPage } />
-                    <Route exact path='/courses/:id' component={ CoursePageContainer } />
-                    <Route exact path='/courses/:id/playlist' component={ PlaylistPage } />
                     <Route path='/admin' component={ AdminPage } />
-                    <Route path='*' component={ NotFoundPage } />
+                    <Route path='*' component={ () => (
+                        <PageFrame>
+                            <Switch>
+                                <Route exact path='/' component={ MainPage } />
+                                <Route path='/profile' component={ SettingsPage } />
+                                <Route exact path='/postgre' component={ PostgrePanel } />
+                                <Route exact path='/blog' component={ BlogListPage } />
+                                <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
+                                <Route exact path='/courses' component={ CoursesPage } />
+                                <Route exact path='/courses/:id' component={ CoursePageContainer } />
+                                <Route exact path='/courses/:id/playlist' component={ PlaylistPage } />
+                                <Route path='*' component={ NotFoundPage } />
+                            </Switch>
+                        </PageFrame>
+                    ) } />
                 </Switch>
-                <ToastContainer />
-            </PageFrame>
+            </>
         );
     }
 
@@ -128,6 +133,7 @@ export default class App extends React.Component<Props> {
                 <Provider store={ store }>
                     <ConnectedRouter history={ history }>
                         { this.getMainContent() }
+                        <ToastContainer />
                     </ConnectedRouter>
                 </Provider>
             )

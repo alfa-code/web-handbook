@@ -1,4 +1,4 @@
-import React, { Profiler, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 import { PageContainer } from 'Components/page-container';
 import { PageFooter } from 'Components/page-footer';

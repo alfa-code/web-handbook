@@ -1,6 +1,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { push } from 'connected-react-router';
 
 import {
     coursesListGetActions,
@@ -145,7 +146,7 @@ function* createUserCourse(action) {
 
 function* createUserCourseSuccess(action) {
     const { payload: startedCourseId } = action;
-    yield console.log('startedCourseId', startedCourseId);
+    yield put(push(`/courses/${startedCourseId}/playlist`))
 }
 
 export function* coursesSagas() {
