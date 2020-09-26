@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
+import Hoek from '@hapi/hoek';
 import { Link } from 'react-router-dom';
+
+import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
 import CompleteIcon from 'Assets/icons/info-icons/check-green.svg';
 import ProgressBar from 'Components/progress-bar/progress-bar';
@@ -30,7 +33,10 @@ export class CourseProgressBlock extends React.PureComponent<Props> {
                     </div>
                     {
                         !isComplete && (
-                            <Link to={ `/courses/${ courseId }/playlist` } className={ styles.continueLink }>
+                            <Link
+                                to={ Hoek.reachTemplate({ course_id: courseId }, COURSES_ENDPOINTS.study) }
+                                className={ styles.continueLink }
+                            >
                                 Продолжить обучение
                             </Link>
                         )

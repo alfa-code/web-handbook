@@ -1,5 +1,8 @@
 import React, { Component, ReactNode } from 'react';
 
+import classNames from 'classnames';
+
+import globalStyles from 'Src/client/global.module.scss';
 import styles from './button-style.module.scss';
 
 import { Link } from 'react-router-dom';
@@ -12,7 +15,8 @@ type Props = {
     children?: any;
     href?: string;
     onClick?: any;
-    type?: any;
+    type?: 'button' | any;
+    mode?: 'normal' | 'loading' | 'disabled'
 }
 
 export class Button extends Component<Props> {
@@ -45,11 +49,39 @@ export class Button extends Component<Props> {
         }
     }
 
+    renderButtonContent = () => {
+        const {
+            text,
+            children,
+            mode = 'normal'
+        } = this.props;
+
+        const isLoading = mode === 'loading';
+
+        if (isLoading) {
+            return null;
+        }
+
+        return (
+            <>
+                {this.renderIcon()}
+                {text || children}
+            </>
+        )
+    }
+
     render(): ReactNode {
-        const { text, children, href, onClick, className = '', type = 'button' } = this.props;
+        const {
+            text,
+            children,
+            href,
+            onClick,
+            className = '',
+            type = 'button',
+            mode = 'normal'
+        } = this.props;
 
         if (href) {
-
             const linkContent = (
                 <>
                     {this.renderIcon()}
@@ -71,18 +103,22 @@ export class Button extends Component<Props> {
             );
         }
 
+        const isLoading = mode === 'loading';
+        const isDisabled = mode === 'disabled';
+
         return (
             <button
                 type={ type }
                 className={
-                    `${styles.button}
-                    ${this.getButtonClassNames()}
-                    ${className}`
+                    classNames(styles.button, className, this.getButtonClassNames(), {
+                        [styles.button]: true,
+                        [globalStyles.spinner]: isLoading,
+                    })
                 }
                 onClick={ onClick }
+                disabled={ isLoading || isDisabled }
             >
-                {this.renderIcon()}
-                {text || children}
+                { this.renderButtonContent() }
             </button>
         );
     }

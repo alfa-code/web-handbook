@@ -5,8 +5,9 @@ import { CourseDescriptionBlock } from 'Blocks/course/course-description-block';
 
 import { createUserCourseActions } from 'Actions/request-actions';
 
-import { selectAuthInfo } from  'Src/selectors/select-auth-info';
+import { selectAuthInfo } from  'Selectors/select-auth-info';
 import { selectIsCourseStarted } from 'Selectors/courses/courses.selector';
+import { selectAppLoadingStatus } from 'Selectors/ui/select-app-loading-status';
 
 import { Props } from './props';
 
@@ -17,6 +18,7 @@ class Container extends Component<Props> {
             isCourseStarted,
             currentCourseId,
             createUserCourseDA,
+            isLoading
         } = this.props;
 
         return (
@@ -26,6 +28,7 @@ class Container extends Component<Props> {
                 isAuthenticated={ isAuthenticated }
                 isCourseStarted={ isCourseStarted }
                 createUserCourseDA={ createUserCourseDA }
+                isLoading={ isLoading }
             />
         )
     }
@@ -34,12 +37,13 @@ class Container extends Component<Props> {
 const mapStateToProps = (state, props) => {
     return {
         auth: selectAuthInfo(state),
-        isCourseStarted: selectIsCourseStarted(state, props.currentCourseId)
+        isCourseStarted: selectIsCourseStarted(state, props.currentCourseId),
+        isLoading: selectAppLoadingStatus(state)
     }
 }
 
 const mapDispatchToProps = {
-    createUserCourseDA: createUserCourseActions.request
+    createUserCourseDA: createUserCourseActions.request,
 }
 
 export const CourseDescriptionBlockContainer = connect(mapStateToProps, mapDispatchToProps)(Container)

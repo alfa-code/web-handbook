@@ -13,6 +13,7 @@ import { hintVisibilityReducer, changePasswordReducer } from 'Reducers/ui/hint-v
 import { uiUserParamsChange, uiUserParamsGet } from 'Reducers/ui/user-params-ui-reducer';
 import { uiCoursesListGet } from 'Reducers/ui/courses-ui.reducer';
 import { uiHeaderReducer }  from 'Reducers/ui/header.reducer';
+import { uiAppLoadingReducer }  from 'Reducers/ui/app-loading.reducer';
 
 import { coursesReducer } from 'Reducers/courses/courses.reducer';
 
@@ -20,6 +21,7 @@ export const createRootReducer = (history: History<any>) => combineReducers({
     auth: authReducer,
     router: connectRouter(history),
     UI: combineReducers({
+        loading: uiAppLoadingReducer,
         changePassword: combineReducers({
             hintVisible: hintVisibilityReducer,
             sending: changePasswordReducer,

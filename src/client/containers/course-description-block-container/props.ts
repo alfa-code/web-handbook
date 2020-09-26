@@ -3,6 +3,7 @@ type MapStateToProps = {
         isAuthenticated: boolean;
     },
     isCourseStarted: boolean;
+    isLoading: boolean;
 }
 
 type MapDispatchToProps = {

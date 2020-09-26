@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
 import Hoek from '@hapi/hoek';
 
-import { Button } from 'Src/client/components/button';
+import { Button } from 'Components/button';
 import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
-import styles from './course-description-block.module.scss';
 import { Heading } from 'Components/heading';
 // import resourceImage from 'Assets/icons/other/resource-picture.svg';
 // import resourceCode from 'Assets/icons/other/resource-code.svg';
@@ -14,12 +13,15 @@ import jsIcon from 'Assets/icons/technologies/js.png';
 import clockIcon from 'Assets/icons/info-icons/clock.svg';
 import javascriptImage from 'Assets/images/javascript.svg';
 
+import styles from './course-description-block.module.scss';
+
 type Props = {
     currentCourse: any;
     isAuthenticated: boolean;
     isCourseStarted: boolean;
     currentCourseId: string;
     createUserCourseDA: any;
+    isLoading: boolean;
 }
 
 export class CourseDescriptionBlock extends React.PureComponent<Props> {
@@ -52,12 +54,14 @@ export class CourseDescriptionBlock extends React.PureComponent<Props> {
     }
 
     renderStartCourseBlock = () => {
+        const { isLoading } = this.props;
         return (
             <div>
                 <Button
                     className={ styles.button }
                     viewType="primary"
                     onClick={ this.startTheCourse }
+                    mode={ (isLoading) ? 'loading' : 'normal' }
                 >
                     Начать изучение
                 </Button>

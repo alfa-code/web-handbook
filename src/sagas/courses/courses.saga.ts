@@ -1,9 +1,11 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put, delay } from 'redux-saga/effects';
 import axios from 'axios';
 import Hoek from '@hapi/hoek';
 import { toast } from 'react-toastify';
 import { push } from 'connected-react-router';
 import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
+
+import { setAppLoadingAC } from 'Actions/ui/set-app-loading.actions';
 
 import {
     coursesListGetActions,
@@ -110,6 +112,7 @@ function* deleteCourseById(action) {
 }
 
 function* gerUserCourses() {
+    yield put(setAppLoadingAC(true));
     const url = '/api/courses/get-user-courses';
     try {
         const { status, data } = yield call(() => axios.get(url));
@@ -125,7 +128,16 @@ function* gerUserCourses() {
     }
 }
 
+function* gerUserCoursesSuccess() {
+    yield put(setAppLoadingAC(false));
+}
+
+function* gerUserCoursesError() {
+    yield put(setAppLoadingAC(false));
+}
+
 function* createUserCourse(action) {
+    yield put(setAppLoadingAC(true));
     const { payload: { values: id } } = action;
     const url = '/api/courses/create-user-course';
     try {
@@ -147,9 +159,16 @@ function* createUserCourse(action) {
 }
 
 function* createUserCourseSuccess(action) {
+    yield delay(1000);
+    yield put(setAppLoadingAC(false));
+    yield put(getUserCoursesActions.request());
     const { payload: startedCourseId } = action;
     const href = Hoek.reachTemplate({ course_id: startedCourseId }, COURSES_ENDPOINTS.study);
     yield put(push(href));
+}
+
+function* createUserCourseError() {
+    yield put(setAppLoadingAC(false));
 }
 
 export function* coursesSagas() {
@@ -158,7 +177,12 @@ export function* coursesSagas() {
     yield takeLatest(saveEditedCourseActions.types.request, saveEditedCourseById);
     yield takeLatest(createNewCourseActions.types.request, createNewCourseById);
     yield takeLatest(deleteCourseByIdActions.types.request, deleteCourseById);
+
     yield takeLatest(getUserCoursesActions.types.request, gerUserCourses);
+    yield takeLatest(getUserCoursesActions.types.success, gerUserCoursesSuccess);
+    yield takeLatest(getUserCoursesActions.types.error, gerUserCoursesError);
+
     yield takeLatest(createUserCourseActions.types.request, createUserCourse);
     yield takeLatest(createUserCourseActions.types.success, createUserCourseSuccess);
+    yield takeLatest(createUserCourseActions.types.error, createUserCourseError);
 }

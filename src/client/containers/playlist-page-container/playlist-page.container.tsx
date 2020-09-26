@@ -9,10 +9,18 @@ import { selectUserCourseById } from 'Selectors/courses/courses.selector';
 import { Props } from './props';
 
 class Container extends Component<Props> {
+    componentDidMount() {
+        if (typeof window !== 'undefined') {
+            console.log('window.document', window.document.body)
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    }
     render() {
         const { userCourse } = this.props;
         const { match: { params: { id } } } = this.props;
-        console.log('userCourse', userCourse)
         if (userCourse) {
             return (
                 <PlayListPage />
