@@ -1,4 +1,5 @@
 import React from 'react';
+import Hoek from '@hapi/hoek';
 import { Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -8,6 +9,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory, createMemoryHistory  } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+
+import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
 import { MainPage } from 'Src/client/pages/main-page';
 import { AuthPage } from 'Src/client/pages/auth-page';
@@ -107,7 +110,11 @@ export default class App extends React.Component<Props> {
                                 <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
                                 <Route exact path='/courses' component={ CoursesPage } />
                                 <Route exact path='/courses/:id' component={ CoursePageContainer } />
-                                <Route exact path='/courses/:id/playlist' component={ PlaylistPage } />
+                                <Route
+                                    exact
+                                    path={Hoek.reachTemplate({ course_id: ':id' }, COURSES_ENDPOINTS.study)}
+                                    component={ PlaylistPage }
+                                />
                                 <Route path='*' component={ NotFoundPage } />
                             </Switch>
                         </PageFrame>

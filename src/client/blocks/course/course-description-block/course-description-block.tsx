@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
+import Hoek from '@hapi/hoek';
 
 import { Button } from 'Src/client/components/button';
+import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
 import styles from './course-description-block.module.scss';
 import { Heading } from 'Components/heading';
@@ -66,11 +68,13 @@ export class CourseDescriptionBlock extends React.PureComponent<Props> {
     renderResumeCourseBlock = () => {
         const { currentCourseId } = this.props;
 
+        const href = Hoek.reachTemplate({ course_id: currentCourseId }, COURSES_ENDPOINTS.study);
+
         return (
             <Button
                 text="Продолжить обучение"
                 viewType="secondary"
-                href={ `/courses/${ currentCourseId }/playlist` }
+                href={ href }
                 className={ styles.button }
             />
         )

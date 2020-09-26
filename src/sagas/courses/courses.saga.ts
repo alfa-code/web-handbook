@@ -1,7 +1,9 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import axios from 'axios';
+import Hoek from '@hapi/hoek';
 import { toast } from 'react-toastify';
 import { push } from 'connected-react-router';
+import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
 import {
     coursesListGetActions,
@@ -146,7 +148,8 @@ function* createUserCourse(action) {
 
 function* createUserCourseSuccess(action) {
     const { payload: startedCourseId } = action;
-    yield put(push(`/courses/${startedCourseId}/playlist`))
+    const href = Hoek.reachTemplate({ course_id: startedCourseId }, COURSES_ENDPOINTS.study);
+    yield put(push(href));
 }
 
 export function* coursesSagas() {
