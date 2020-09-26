@@ -10,6 +10,7 @@ export const saveEditedCourseActions = createRequestActions('SAVE_EDITES_COURSE'
 export const deleteCourseByIdActions = createRequestActions('DELETE_COURSE_BY_ID');
 export const getUserCoursesActions = createRequestActions('GET_USER_COURSES');
 export const createUserCourseActions = createRequestActions('CREATE_USER_COURSE');
-
 export const registrationActions = createRequestActions('REGISTRATION');
 export const authActions = createRequestActions('AUTHENTICATION');
+
+export const getUserParamsActions = createRequestActions('GET_USER_AUTH_PARAMS');

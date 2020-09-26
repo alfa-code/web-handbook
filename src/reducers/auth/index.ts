@@ -1,13 +1,13 @@
+import { getUserParamsActions } from 'Actions/request-actions';
+
 export default function authReducer(state = {}, action) {
     switch (action.type) {
-        case 'INCREMENT':
+        case getUserParamsActions.types.success: {
+            const { payload } = action;
             return {
-                ...state
+                ...payload
             }
-        case 'DECREMENT':
-            return {
-                ...state
-            }
+        }
         default:
             return state
     }

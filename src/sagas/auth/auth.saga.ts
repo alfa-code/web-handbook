@@ -7,7 +7,8 @@ import { SERVER_ENDPOINTS, PROFILE_ENDPOINTS } from 'Constants/endpoints';
 
 import {
     registrationActions,
-    authActions
+    authActions,
+    getUserParamsActions
 } from 'Actions/request-actions';
 
 import { setAppLoadingAC } from 'Actions/ui/set-app-loading.actions';
@@ -44,6 +45,7 @@ export function* registrationStart(action) {
 
 export function* registrationSuccess() {
     yield put(setAppLoadingAC(false));
+    yield put(getUserParamsActions.request());
     yield put(push(PROFILE_ENDPOINTS.profile));
 }
 
@@ -80,6 +82,7 @@ export function* authenticationSuccess(action) {
     const { payload: message } = action;
     yield put(setAppLoadingAC(false));
     yield put(push(PROFILE_ENDPOINTS.profile));
+    yield put(getUserParamsActions.request());
     toast.success(message);
 }
 
@@ -94,6 +97,29 @@ export function* authenticationError(action) {
     yield put(setAppLoadingAC(false));
 }
 
+/* get user auth params */
+export function* getUserAuthParamsStart() {
+    yield put(setAppLoadingAC(true));
+
+    try {
+        const response = yield call(() => axios.get(SERVER_ENDPOINTS.authParams));
+        const { status, data } = response;
+
+        if (status == 200) {
+            yield put(getUserParamsActions.success(data));
+        }
+    } catch (e) {
+        yield put(getUserParamsActions.error('Что-то пошло не так. Повторите попытку чуть позже.'));
+    }
+}
+
+export function* getUserAuthParamsSuccess(action) {
+    yield put(setAppLoadingAC(false));
+}
+
+export function* getUserAuthParamsError() {
+    yield put(setAppLoadingAC(false));
+}
 
 export function* authSagas() {
     /* registration */
@@ -104,4 +130,9 @@ export function* authSagas() {
     yield takeLatest(authActions.types.request, authenticationStart);
     yield takeLatest(authActions.types.success, authenticationSuccess);
     yield takeLatest(authActions.types.error, authenticationError);
+    /* get user auth params */
+    yield takeLatest(getUserParamsActions.types.request, getUserAuthParamsStart);
+    yield takeLatest(getUserParamsActions.types.success, getUserAuthParamsSuccess);
+    yield takeLatest(getUserParamsActions.types.error, getUserAuthParamsError);
+
 }

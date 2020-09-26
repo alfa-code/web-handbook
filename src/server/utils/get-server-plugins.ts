@@ -25,6 +25,7 @@ import { saveEditedCoursePlugin } from 'Src/server/plugins/api/courses/save-edit
 import { deleteCourseById } from 'Src/server/plugins/api/courses/delete-course-by-id.plugin';
 import { getUserCoursesPlugin } from 'Src/server/plugins/api/courses/get-user-courses.plugin';
 import { createNewUserCoursePlugin } from 'Src/server/plugins/api/courses/create-new-user-course.plugin';
+import { getUserAuthParams } from 'Src/server/plugins/api/auth/get-user-auth-params';
 
 export function getServerPlugins() {
     const plugins = [
@@ -42,6 +43,9 @@ export function getServerPlugins() {
         },
         {
             plugin: Inert
+        },
+        {
+            plugin: getUserAuthParams
         },
         {
             plugin: assetsRoutePlugin,
