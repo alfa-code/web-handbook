@@ -9,5 +9,6 @@ export const PROFILE_ENDPOINTS = {
 }
 
 export const SERVER_ENDPOINTS = {
-    registration: '/api/auth/registration'
+    registration: '/api/auth/registration',
+    auth: '/api/auth/login'
 }

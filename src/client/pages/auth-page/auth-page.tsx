@@ -22,29 +22,6 @@ type FormValues = {
     password?: string;
 }
 
-async function logInRequest(values, authStartDA) {
-    const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-        redirect: 'manual'
-    });
-
-    const jsonResponseData = await response.json();
-
-    if (response.ok && jsonResponseData.redirectTo) {
-        toast.success(jsonResponseData.message);
-
-        setTimeout(() => {
-            window.location.href = jsonResponseData.redirectTo;
-        }, 2000);
-    } else {
-        toast.error(jsonResponseData.message);
-    }
-}
-
 export class AuthPage extends PureComponent<Props> {
     state = {
         login: ''
@@ -60,7 +37,7 @@ export class AuthPage extends PureComponent<Props> {
         if (mode === 'registration') {
             registrationStartDA(values)
         } else {
-            logInRequest(values, authStartDA)
+            authStartDA(values)
         }
     }
 

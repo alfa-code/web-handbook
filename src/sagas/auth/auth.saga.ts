@@ -60,15 +60,37 @@ export function* registrationError(action) {
 
 /* authentication */
 
-export function* authenticationStart() {
+export function* authenticationStart(action) {
+    const { payload: { values } } = action;
     yield put(setAppLoadingAC(true));
+
+    try {
+        const response = yield call(() => axios.post(SERVER_ENDPOINTS.auth, values));
+        const { status, data: { message } } = response;
+
+        if (status == 200 && message) {
+            yield put(authActions.success(message));
+        }
+    } catch (e) {
+        yield put(authActions.error('Что-то пошло не так. Повторите попытку чуть позже.'));
+    }
 }
 
-export function* authenticationSuccess() {
+export function* authenticationSuccess(action) {
+    const { payload: message } = action;
     yield put(setAppLoadingAC(false));
+    yield put(push(PROFILE_ENDPOINTS.profile));
+    toast.success(message);
 }
 
 export function* authenticationError(action) {
+    try {
+        const { payload: { message } } = action;
+        toast.error(message);
+    } catch (e) {
+        toast.error('Что-то пошло не так. Повторите попытку чуть позже.');
+    }
+
     yield put(setAppLoadingAC(false));
 }
 

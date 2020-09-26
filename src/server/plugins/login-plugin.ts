@@ -33,16 +33,19 @@ export const loginPlugin = {
                             path: '/',
                         });
 
-                        return h.response({
+                        const res = h.response({
                             type: 'success',
                             message: 'Вы успешно аутентифицированы!',
-                            redirectTo: '/profile'
                         });
+                        res.code(200);
+                        return res;
                     } else {
-                        return h.response({
+                        const res = h.response({
                             type: 'error',
                             message: 'Ошибка ввода данных или такого пользователя не существует!'
                         });
+                        res.code(409);
+                        return res;
                     }
                 }
             }
