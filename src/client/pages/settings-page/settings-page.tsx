@@ -5,7 +5,8 @@ import { Switch, Route, RouteComponentProps } from 'react-router-dom';
 import { PageContainer } from 'Components/page-container';
 
 import { ChangePasswordPage } from 'Pages/change-password-page';
-import { UserSettingsPage } from 'Pages/user-settings-page';
+
+import { UserSettingsPageContainer } from 'Containers/user-settings-page-container';
 import { CabinetPageContainer } from 'Containers/cabinet-page-container';
 
 
@@ -75,7 +76,7 @@ export class SettingsPage extends PureComponent<Props, State> {
                                 />
                                 <Route
                                     path={ `${matchUrl}/tools` }
-                                    component={ UserSettingsPage }
+                                    component={ UserSettingsPageContainer }
                                 />
                                 <Route
                                     path={ `${matchUrl}/password` }

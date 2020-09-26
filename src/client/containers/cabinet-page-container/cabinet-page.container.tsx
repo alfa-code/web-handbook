@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { userParamsGet, getUserCoursesActions } from 'Actions/request-actions';
 import { CabinetPage } from 'Pages/cabinet-page';
+
 import { selectUserParams } from 'Selectors/user-params';
 import { selectUserCourses } from 'Selectors/courses/courses.selector';
 
