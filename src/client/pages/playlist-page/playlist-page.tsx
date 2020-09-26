@@ -1,5 +1,4 @@
 import React, { PureComponent, ReactNode } from 'react';
-import { connect } from 'react-redux';
 
 import styles from './playlist-page.module.scss';
 import { PageContainer } from 'Components/page-container';
@@ -7,7 +6,7 @@ import { MemoizedPlayer } from 'Components/player/player';
 import { PlayerManagement } from 'Components/player-management';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
 
-class PlayList extends PureComponent {
+export class PlayListPage extends PureComponent {
     render(): ReactNode {
         return (
             <>
@@ -60,5 +59,3 @@ class PlayList extends PureComponent {
         );
     }
 }
-
-export const PlaylistPage = connect(null, null)(PlayList);

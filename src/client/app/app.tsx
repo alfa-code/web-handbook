@@ -20,7 +20,7 @@ import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
 import { PageFrame } from 'Components/page-frame';
 
-import { PlaylistPage } from 'Pages/playlist-page';
+import { PlaylistPageContainer } from 'Containers/playlist-page-container';
 import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
 import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container';
 
@@ -109,11 +109,15 @@ export default class App extends React.Component<Props> {
                                 <Route exact path='/blog' component={ BlogListPage } />
                                 <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
                                 <Route exact path='/courses' component={ CoursesPage } />
-                                <Route exact path='/courses/:id' component={ CoursePageContainer } />
+                                <Route
+                                    exact
+                                    path={ Hoek.reachTemplate({ course_id: ':id' }, COURSES_ENDPOINTS.coursePage) }
+                                    component={ CoursePageContainer }
+                                />
                                 <Route
                                     exact
                                     path={Hoek.reachTemplate({ course_id: ':id' }, COURSES_ENDPOINTS.study)}
-                                    component={ PlaylistPage }
+                                    component={ PlaylistPageContainer }
                                 />
                                 <Route path='*' component={ NotFoundPage } />
                             </Switch>
