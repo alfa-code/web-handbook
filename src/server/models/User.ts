@@ -50,7 +50,6 @@ export function getUsersModel(sequelize, /* AccountModel */): ModelType {
             type: Sequelize.STRING,
             allowNull: true
         },
-
     }, {
         sequelize,
         tableName: 'users',

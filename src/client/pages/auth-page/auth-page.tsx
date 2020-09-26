@@ -13,6 +13,8 @@ import { Logo } from 'Src/client/components/logo';
 import { ModalForm } from 'Src/client/components/modal-form';
 import { Heading } from 'Src/client/components/heading';
 
+import { Props } from './props';
+
 import styles from './auth-page.module.scss';
 
 type FormValues = {
@@ -20,29 +22,7 @@ type FormValues = {
     password?: string;
 }
 
-async function registrationRequest(values) {
-    const response = await fetch('/api/auth/registration', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-        redirect: 'follow'
-    });
-
-    const jsonResponseData = await response.json();
-
-    if (response.ok && jsonResponseData.redirectTo) {
-        toast.success(jsonResponseData.message);
-        setTimeout(() => {
-            window.location.href = jsonResponseData.redirectTo;
-        }, 2000);
-    } else {
-        toast.error(jsonResponseData.message);
-    }
-}
-
-async function logInRequest(values) {
+async function logInRequest(values, authStartDA) {
     const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
@@ -65,19 +45,23 @@ async function logInRequest(values) {
     }
 }
 
-interface Props {
-    mode: 'registration' | 'login';
-}
-
 export class AuthPage extends PureComponent<Props> {
     state = {
         login: ''
     }
 
     onSubmit = async (values: FormValues): Promise<void> => {
-        const { mode } = this.props;
-        const request = mode === 'registration' ? registrationRequest : logInRequest;
-        request(values);
+        const {
+            mode,
+            registrationStartDA,
+            authStartDA
+        } = this.props;
+
+        if (mode === 'registration') {
+            registrationStartDA(values)
+        } else {
+            logInRequest(values, authStartDA)
+        }
     }
 
     validateForm = (values): any => {
@@ -121,7 +105,9 @@ export class AuthPage extends PureComponent<Props> {
     }
 
     render(): any {
-        const { mode } = this.props;
+        const { mode, isLoading } = this.props;
+
+        const buttonMode = isLoading ? 'loading' : 'normal';
 
         const isRegistration = mode === 'registration';
         const title = isRegistration ? 'Регистрация' : 'Вход';
@@ -193,6 +179,7 @@ export class AuthPage extends PureComponent<Props> {
                                                 viewType="primary"
                                                 text={ title }
                                                 type="submit"
+                                                mode={ buttonMode }
                                             />
                                         </form>
                                     )}

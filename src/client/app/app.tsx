@@ -13,14 +13,15 @@ import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
 
 import { MainPage } from 'Src/client/pages/main-page';
-import { AuthPage } from 'Src/client/pages/auth-page';
 import { NotFoundPage } from 'Src/client/pages/not-found-page';
 import { PostgrePanel } from 'Src/client/pages/postgre-panel';
 import { SettingsPage } from 'Src/client/pages/settings-page';
 import { BlogListPage } from 'Src/client/pages/blog-list-page';
 import { PageFrame } from 'Components/page-frame';
 
+
 import { PlaylistPageContainer } from 'Containers/playlist-page-container';
+import { AuthPageContainer } from 'Containers/auth-page-container';
 import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
 import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container';
 
@@ -86,7 +87,7 @@ export default class App extends React.Component<Props> {
                         path='/auth'
                         render={() => {
                             return (
-                                <AuthPage mode="login"/>
+                                <AuthPageContainer mode="login"/>
                             );
                         }}
                     />
@@ -95,7 +96,7 @@ export default class App extends React.Component<Props> {
                         path='/registration'
                         render={() => {
                             return (
-                                <AuthPage mode="registration"/>
+                                <AuthPageContainer mode="registration"/>
                             );
                         }}
                     />

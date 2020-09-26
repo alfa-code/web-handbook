@@ -1,5 +1,5 @@
 import { selectUI } from './index';
 
-export function selectAppLoadingStatus(state) {
-    return selectUI(state)?.loading;
+export function selectAppLoadingStatus(state): boolean {
+    return !!selectUI(state)?.loading;
 }

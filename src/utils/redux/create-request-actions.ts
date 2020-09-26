@@ -6,7 +6,12 @@ export type RequestActions = {
     success: ActionCreator<{ type: string; payload: { message: string } }>;
     error: ActionCreator<{ type: string; payload: { error: Shape<any> | string } }>;
     retry: ActionCreator<{ type: string; payload: { values: Shape<any> } }>;
-    types: Shape<string>;
+    types: {
+        request: string;
+        success: string;
+        error: string;
+        retry: string;
+    };
     name: string;
 }
 

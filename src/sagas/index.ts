@@ -7,6 +7,7 @@ import { requestNotifySagas } from 'Src/sagas/request-notify-sagas';
 import { blogSagas } from 'Src/sagas/blog-saga';
 import { adminSagas } from 'Src/sagas/admin-saga';
 import { coursesSagas } from 'Src/sagas/courses/courses.saga';
+import { authSagas } from 'Src/sagas/auth/auth.saga';
 
 export function* rootSaga() {
     yield all([
@@ -18,5 +19,6 @@ export function* rootSaga() {
         blogSagas(),
         adminSagas(),
         coursesSagas(),
+        authSagas()
     ])
 }
