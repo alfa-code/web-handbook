@@ -11,5 +11,7 @@ export const PROFILE_ENDPOINTS = {
 export const SERVER_ENDPOINTS = {
     registration: '/api/auth/registration',
     auth: '/api/auth/login',
-    authParams: '/api/user/auth'
+    authParams: '/api/user/auth',
+    getUserCourses: '/api/courses/get-user-courses',
+    getUserParams: '/api/user/get'
 }

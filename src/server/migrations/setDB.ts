@@ -5,6 +5,8 @@ import { usersDefault } from './defaults/userDefault';
 import { blogPostDefaults } from './defaults/blogPostDefaults';
 import { courseDefaults } from './defaults/courseDefaults';
 import { userCoursesDefault } from './defaults/userCoursesDefaults';
+import { lessonDefaults_1, lessonDefaults_2 } from './defaults/lessonDefaults';
+import { materialVideoDefaults_1, materialVideoDefaults_2 } from './defaults/materialVideoDefaults';
 import { ormModels } from '../models';
 
 const connectionString = process.env.DATABASE_URL;
@@ -27,7 +29,15 @@ for (const key in modelList) {
     }
 }
 
-const { Account, User, BlogPost, Course, UserCourses } = sequelizeInstance.models;
+const {
+    Account,
+    User,
+    BlogPost,
+    Course,
+    UserCourses,
+    Lesson,
+    MaterialVideo
+} = sequelizeInstance.models;
 
 Account.sync({ force: true }).then(() => {
     accountDefaults.forEach(element => {
@@ -49,6 +59,18 @@ BlogPost.sync({ force: true }).then(() => {
 Course.sync({ force: true }).then(() => {
     // @ts-ignore
     Course.create(courseDefaults);
+});
+
+Lesson.sync({ force: true }).then(() => {
+    // @ts-ignore
+    Lesson.create(lessonDefaults_1);
+    Lesson.create(lessonDefaults_2);
+});
+
+MaterialVideo.sync({ force: true }).then(() => {
+    // @ts-ignore
+    MaterialVideo.create(materialVideoDefaults_1);
+    MaterialVideo.create(materialVideoDefaults_2);
 });
 
 UserCourses.sync({ force: true }).then(() => {

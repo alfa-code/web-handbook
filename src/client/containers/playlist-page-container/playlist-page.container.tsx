@@ -11,7 +11,6 @@ import { Props } from './props';
 class Container extends Component<Props> {
     componentDidMount() {
         if (typeof window !== 'undefined') {
-            console.log('window.document', window.document.body)
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -23,7 +22,7 @@ class Container extends Component<Props> {
         const { match: { params: { id } } } = this.props;
         if (userCourse) {
             return (
-                <PlayListPage />
+                <PlayListPage userCourse={ userCourse } />
             );
         }
         return <PlaylistUnstartedPage courseId={id}/>

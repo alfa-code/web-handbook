@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 import get from 'lodash/get';
 
 import AppHtml from 'Components/app-html';
+import { SERVER_ENDPOINTS } from 'Constants/endpoints';
 import App from 'Src/client/app/app';
 
 // import { StaticRouter as Router } from 'react-router-dom';
@@ -39,7 +40,7 @@ export async function getContent(request: any) {
                     {
                         const { result } = await request.server.inject({
                             method: 'GET',
-                            url: '/api/user/get',
+                            url: SERVER_ENDPOINTS.getUserParams,
                             auth: {
                                 strategy: 'jwt',
                                 credentials: {
@@ -57,7 +58,7 @@ export async function getContent(request: any) {
                     {
                         const { result } = await request.server.inject({
                             method: 'GET',
-                            url: '/api/courses/get-user-courses',
+                            url: SERVER_ENDPOINTS.getUserCourses,
                             auth: {
                                 strategy: 'jwt',
                                 credentials: {

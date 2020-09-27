@@ -4,7 +4,8 @@ import { Spinner } from 'Components/spinner/spinner';
 
 import styles from './player.module.scss';
 
-export const Player = () => {
+export const Player = (props) => {
+    const { src } = props;
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ export const Player = () => {
             <iframe
                 className={styles.iframe}
                 height="590"
-                src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG"
+                src={ src }
                 frameBorder="0"
                 allow="autoplay; encrypted-media"
                 allowFullScreen

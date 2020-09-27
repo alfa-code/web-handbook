@@ -6,14 +6,33 @@ import { MemoizedPlayer } from 'Components/player/player';
 import { PlayerManagement } from 'Components/player-management';
 import Breadcrumbs from 'Components/breadcrumbs/breadcrumbs';
 
-export class PlayListPage extends PureComponent {
+export class PlayListPage extends PureComponent<{ userCourse: any; }> {
     render(): ReactNode {
+        const { userCourse } = this.props;
+        const { active_lesson, lessons } = userCourse;
+
+        const currentLesson = lessons.find((lesson) => {
+            return lesson.id === active_lesson;
+        });
+
+        const {
+            // video_is_presented,
+            materials: {
+                video: {
+                    link
+                }
+            }
+        } = currentLesson;
+
         return (
             <>
                 <PageContainer paddingsOnPhone={true}>
                     <div className={styles.playlistBlock}>
-                        <MemoizedPlayer />
-                        <PlayerManagement />
+                        <MemoizedPlayer src={ link } />
+                        <PlayerManagement
+                            courseInfo={ userCourse.courseInfo}
+                            lessons={ lessons }
+                        />
                     </div>
                 </PageContainer>
                 <PageContainer>
@@ -25,7 +44,6 @@ export class PlayListPage extends PureComponent {
                         <div className={styles.description}>
                             Расшифровка
                         </div>
-
                         <p className={ styles.courseParagraph }>
                             <span className={ styles.time }>00:00</span> Начните с того, что выньте всю
                             табличку. Этот компонент travelVR будет отображать
