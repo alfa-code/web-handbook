@@ -2,18 +2,16 @@ import React from 'react';
 
 import styles from './player-management.module.scss';
 import triangleDown from 'Assets/icons/bw/triangle-down-small.svg';
-import replayIcon from 'Assets/icons/info-icons/repeat.svg'
-import shuffleIcon from 'Assets/icons/info-icons/shuffle.svg'
-import savePlaylistIcon from 'Assets/icons/info-icons/save-playlist.svg'
-import moreIcon from 'Assets/icons/info-icons/more.svg'
+// import replayIcon from 'Assets/icons/info-icons/repeat.svg'
+// import shuffleIcon from 'Assets/icons/info-icons/shuffle.svg'
+// import savePlaylistIcon from 'Assets/icons/info-icons/save-playlist.svg'
+// import moreIcon from 'Assets/icons/info-icons/more.svg'
 
 export class PlayerManagement extends React.Component<any> {
     renderLessonsList = () => {
         const { lessons, courseInfo } = this.props;
-        console.log('lessons', lessons)
 
         return lessons.map(lesson => {
-            console.log('lessons', lessons)
             return (
                 <div
                     key={ lesson.id }

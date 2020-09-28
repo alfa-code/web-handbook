@@ -1,6 +1,5 @@
 import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
-import Inert from '@hapi/inert';
 import path from 'path';
 
 import { jwtAlgorithm } from 'Src/constants/jwt';
@@ -54,8 +53,6 @@ const server = new Hapi.Server({
 });
 
 const init = async (): Promise<any> => {
-    await server.register(Inert);
-
     // Регистрируем аутентификационную схему - ее имя 'jwt'
     await server.register(HapiAuthJWT2);
 

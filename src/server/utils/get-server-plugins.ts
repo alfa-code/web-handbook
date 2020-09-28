@@ -1,5 +1,7 @@
 import HapiErrorPlugin from 'hapi-error';
 import Inert from '@hapi/inert';
+import Vision from '@hapi/vision'
+import HapiSwagger from 'hapi-swagger';
 
 import { anyRoutePlugin } from 'Src/server/plugins/routes/any-route';
 import { authRoutePlugin } from 'Src/server/plugins/routes/auth-route';
@@ -41,8 +43,16 @@ export function getServerPlugins() {
                 }
             }
         },
+        Inert,
+        Vision,
         {
-            plugin: Inert
+            plugin: HapiSwagger,
+            options: {
+                info: {
+                    title: 'API Documentation',
+                    version: '1.0.0',
+                },
+            }
         },
         {
             plugin: getUserAuthParams
