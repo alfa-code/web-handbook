@@ -1,6 +1,10 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 import { JWT_SECRET_KEY } from 'Src/constants/env-variables';
 import { jwtAlgorithm } from 'Src/constants/jwt';
+
+import { PASSWORD_SALT } from 'Constants/salt';
+
 const jwtPrivateKey = process.env[JWT_SECRET_KEY]
 
 export const loginPlugin = {
@@ -18,7 +22,13 @@ export const loginPlugin = {
                 const { Account } = await server.methods.getModels();
 
                 if (login && password) {
-                    const userSearchResult = await Account.findOne({ where: { username: login, password } });
+                    const hash = await bcrypt.hash(password, PASSWORD_SALT);
+                    const userSearchResult = await Account.findOne({
+                        where: {
+                            username: login,
+                            password: hash
+                        }
+                    });
 
                     if (userSearchResult && userSearchResult.dataValues) {
 

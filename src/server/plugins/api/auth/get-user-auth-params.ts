@@ -7,7 +7,6 @@ export const getUserAuthParams = {
             path: '/api/user/auth',
             options,
             handler: async (request, h) => {
-                console.log('request', request)
                 const { auth } = request;
 
                 let responseData;

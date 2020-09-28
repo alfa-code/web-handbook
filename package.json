@@ -90,6 +90,7 @@
         "@hapi/hoek": "^9.1.0",
         "@hapi/inert": "^6.0.2",
         "axios": "^0.20.0",
+        "bcrypt": "^5.0.0",
         "classnames": "^2.2.6",
         "connected-react-router": "^6.8.0",
         "final-form": "^4.20.1",
