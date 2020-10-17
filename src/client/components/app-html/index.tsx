@@ -28,6 +28,8 @@ export default class AppHtml extends React.PureComponent<Props> {
         return (
             <html lang="ru">
                 <head>
+                    <meta name="yandex-verification" content="804113b97f5f6426" />
+                    <meta name="yandex-verification" content="c713d5ef58254482" />
                     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                     <meta httpEquiv="Cache-Control" content="no-store" />
                     <meta httpEquiv="Pragma" content="no-cache" />

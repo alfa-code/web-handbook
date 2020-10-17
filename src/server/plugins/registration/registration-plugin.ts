@@ -1,10 +1,10 @@
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 import { jwtAlgorithm } from 'Constants/jwt';
 import { JWT_SECRET_KEY } from 'Constants/env-variables';
 import { SERVER_ENDPOINTS } from 'Constants/endpoints';
-import { PASSWORD_SALT } from 'Constants/salt';
+// import { PASSWORD_SALT } from 'Constants/salt';
 
 const jwtPrivateKey = process.env[JWT_SECRET_KEY];
 
@@ -37,11 +37,11 @@ export const registrationPlugin = {
                         });
 
                         if (result.length === 0) {
-                            const hash = await bcrypt.hash(password, PASSWORD_SALT);
+                            // const hash = await bcrypt.hash(password, PASSWORD_SALT);
 
                             const createdAccount = await Account.create({
                                 username: login,
-                                password: hash,
+                                password: password,
                                 rights: 'user'
                             });
 

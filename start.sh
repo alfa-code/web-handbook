@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Run nginx
-echo "start nginx"
-nginx &
+# echo "start nginx"
+# nginx &
 
 # Starting Node
 echo "start node"
