@@ -11,9 +11,6 @@ echo "REGISTRY is ${REGISTRY}";
 echo "LAST_VERSION is ${LAST_VERSION}";
 echo "NEW_VERSION is ${NEW_VERSION}";
 
-# Copy tls to project
-cp -r ./tls ./.build/tls
-
 # Build the new docker image
 docker build . -t cr.yandex/${REGISTRY}/platform:v${NEW_VERSION}
 
