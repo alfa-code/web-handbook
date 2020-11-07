@@ -12,6 +12,8 @@ import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { createRootReducer } from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
 
+import { Main, NotFound } from 'Pages/index';
+
 const composeEnhancers = composeWithDevTools({});
 
 declare global {
@@ -65,35 +67,12 @@ export default class App extends React.Component<Props> {
                 <Switch>
                     <Route
                         exact
-                        path='/page1'
-                        render={() => {
-                            return (
-                                <div>
-                                    page1
-                                </div>
-                            );
-                        }}
-                    />
-                    <Route
-                        exact
-                        path='/page2'
-                        render={() => {
-                            return (
-                                <div>
-                                    page2
-                                </div>
-                            );
-                        }}
+                        path='/'
+                        component={ Main }
                     />
                     <Route
                         path='*'
-                        render={() => {
-                            return (
-                                <div>
-                                    NotFoundPage
-                                </div>
-                            );
-                        }}
+                        component={ NotFound }
                     />
                 </Switch>
             </>
