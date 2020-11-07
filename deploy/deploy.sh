@@ -1,4 +1,3 @@
-# Set the dev env
 FOLDER=$(yc config get folder-id)
 SA_PULLER=$(yc iam service-account get --name=${FOLDER}-sa-puller --format=json | jq -r .id)
 REGISTRY=$(yc container registry get --name=main --format=json | jq -r .id)
@@ -16,8 +15,3 @@ docker build . -t cr.yandex/${REGISTRY}/platform:v${NEW_VERSION}
 
 # Push the new docker image to the remomote registry
 docker push cr.yandex/${REGISTRY}/platform:v${NEW_VERSION}
-
-# Update the remote server (env variables must be setted)
-yc compute instance update-container --container-image=cr.yandex/${REGISTRY}/platform:v${NEW_VERSION} \
-                                     --container-name=alfa-code-platform \
-                                     --name=alfa-code-platform

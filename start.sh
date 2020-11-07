@@ -1,3 +1,3 @@
-# Starting Node
-echo "start node"
+# Starting App (Server)
+echo "start Server"
 node /app/.build/server.js
