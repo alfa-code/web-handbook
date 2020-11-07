@@ -1,5 +1,4 @@
 import React from 'react';
-import Hoek from '@hapi/hoek';
 import { Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -10,26 +9,8 @@ import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory, createMemoryHistory  } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
-import { COURSES_ENDPOINTS } from 'Src/constants/endpoints';
-
-import { MainPage } from 'Src/client/pages/main-page';
-import { NotFoundPage } from 'Src/client/pages/not-found-page';
-import { PostgrePanel } from 'Src/client/pages/postgre-panel';
-import { SettingsPage } from 'Src/client/pages/settings-page';
-import { BlogListPage } from 'Src/client/pages/blog-list-page';
-import { PageFrame } from 'Components/page-frame';
-
-
-import { PlaylistPageContainer } from 'Containers/playlist-page-container';
-import { AuthPageContainer } from 'Containers/auth-page-container';
-import { BlogArticlePageContainer } from 'Containers/blog-article-page-container';
-import { CoursePageContainer } from 'Containers/course-page-container/course-page-container.container';
-
-import { AdminPage } from 'Pages/admin-page';
-
 import { createRootReducer } from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
-import { CoursesPage } from 'Pages/courses-page/courses-page';
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -81,57 +62,48 @@ export default class App extends React.Component<Props> {
     getMainContent() {
         return (
             <>
-                {/* <Switch>
+                <Switch>
                     <Route
                         exact
-                        path='/auth'
+                        path='/page1'
                         render={() => {
                             return (
-                                <AuthPageContainer mode="login"/>
+                                <div>
+                                    page1
+                                </div>
                             );
                         }}
                     />
                     <Route
                         exact
-                        path='/registration'
+                        path='/page2'
                         render={() => {
                             return (
-                                <AuthPageContainer mode="registration"/>
+                                <div>
+                                    page2
+                                </div>
                             );
                         }}
                     />
-                    <Route path='/admin' component={ AdminPage } />
-                    <Route path='*' component={ () => (
-                        <PageFrame>
-                            <Switch>
-                                <Route exact path='/' component={ MainPage } />
-                                <Route path='/profile' component={ SettingsPage } />
-                                <Route exact path='/postgre' component={ PostgrePanel } />
-                                <Route exact path='/blog' component={ BlogListPage } />
-                                <Route exact path='/blog/article/:id' component={ BlogArticlePageContainer } />
-                                <Route exact path='/courses' component={ CoursesPage } />
-                                <Route
-                                    exact
-                                    path={ Hoek.reachTemplate({ course_id: ':id' }, COURSES_ENDPOINTS.coursePage) }
-                                    component={ CoursePageContainer }
-                                />
-                                <Route
-                                    exact
-                                    path={Hoek.reachTemplate({ course_id: ':id' }, COURSES_ENDPOINTS.study)}
-                                    component={ PlaylistPageContainer }
-                                />
-                                <Route path='*' component={ NotFoundPage } />
-                            </Switch>
-                        </PageFrame>
-                    ) } />
-                </Switch> */}
-                <div>
-                    test
-                </div>
+                    <Route
+                        path='*'
+                        render={() => {
+                            return (
+                                <div>
+                                    NotFoundPage
+                                </div>
+                            );
+                        }}
+                    />
+                </Switch>
             </>
         );
     }
 
+    /**
+     * В проекте используется серверный рендеринг. Для серверного роутинга должен использоваться StaticRouter.
+     * В случае рендера в браузере используется ConnectedRouter (Роутинг подключен к redux store).
+     */
     render(): any {
         const { location, context } = this.props;
 

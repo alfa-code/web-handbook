@@ -19,7 +19,8 @@
         "build:all:prod": "cross-env NODE_ENV=production yarn clear && yarn build:client:prod && yarn build:server:prod",
         "start:server": "cross-env NODE_ENV=development node ./.build/server.js",
         "start:server:nodemon": "cross-env NODE_ENV=development nodemon --inspect ./.build/server.js --watch ./.build/server.js",
-        "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server"
+        "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server",
+        "npm-check": "npx npm-check"
     },
     "repository": {
         "type": "git",
