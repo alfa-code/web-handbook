@@ -81,7 +81,7 @@ export default class App extends React.Component<Props> {
     getMainContent() {
         return (
             <>
-                <Switch>
+                {/* <Switch>
                     <Route
                         exact
                         path='/auth'
@@ -124,7 +124,10 @@ export default class App extends React.Component<Props> {
                             </Switch>
                         </PageFrame>
                     ) } />
-                </Switch>
+                </Switch> */}
+                <div>
+                    test
+                </div>
             </>
         );
     }

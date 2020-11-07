@@ -1,4 +1,4 @@
-# alfa-code-platform
+# web-handbook
 
 ![Image of Alfa Code](https://avatars1.githubusercontent.com/u/64861429?s=200&v=4)
 

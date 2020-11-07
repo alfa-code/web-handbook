@@ -18,7 +18,6 @@ module.exports = {
     },
     entry: {
         server: './src/server/index.ts',
-        migrations: './src/server/migrations/setDB.ts'
     },
     module: {
         rules: [

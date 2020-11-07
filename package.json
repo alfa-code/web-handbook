@@ -1,7 +1,7 @@
 {
-    "name": "alfa-code-platform",
+    "name": "webhandbook",
     "version": "1.0.0",
-    "description": "Сервис для подготовки IT специалистов (Основная платформа для пользователей)",
+    "description": "SPA - Справочные материалы для тех кто изучает HTML и CSS",
     "main": "index.js",
     "scripts": {
         "lint-js": "eslint ./src/ --ext .js,.jsx,.ts,.tsx",
@@ -17,22 +17,20 @@
         "build:server:prod": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.prod.js",
         "build:server:dev:watch": "cross-env NODE_ENV=development webpack --watch --config ./configs/webpack.config.server.prod.js",
         "build:all:prod": "cross-env NODE_ENV=production yarn clear && yarn build:client:prod && yarn build:server:prod",
-        "start:server": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/server.js",
-        "start:server:nodemon": "cross-env NODE_ENV=development JWT_SECRET_KEY=secret DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres nodemon --inspect ./.build/server.js --watch ./.build/server.js",
-        "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server",
-        "db:migrate": "cross-env NODE_ENV=production webpack --config ./configs/webpack.config.server.prod.js && cross-env DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres node ./.build/migrations.js",
-        "deploy": "sh ./deploy/deploy.sh"
+        "start:server": "cross-env NODE_ENV=development node ./.build/server.js",
+        "start:server:nodemon": "cross-env NODE_ENV=development nodemon --inspect ./.build/server.js --watch ./.build/server.js",
+        "start:dev": "npm-run-all --parallel build:server:dev:watch start:server:nodemon build:client:dev-server"
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gitlab.com/alfa-code-space/alfa-code-platform.git"
+        "url": "git+ssh://github.com/alfa-code/web-handbook.git"
     },
     "author": "hydrock",
     "license": "ISC",
     "bugs": {
-        "url": "https://gitlab.com/alfa-code-space/alfa-code-platform/issues"
+        "url": "https://github.com/alfa-code/web-handbook/issues"
     },
-    "homepage": "https://gitlab.com/alfa-code-space/alfa-code-platform#readme",
+    "homepage": "https://github.com/alfa-code/web-handbook#readme",
     "devDependencies": {
         "@types/hapi": "^18.0.3",
         "@types/node": "^14.6.0",

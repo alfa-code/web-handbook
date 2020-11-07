@@ -4,9 +4,6 @@ FROM hydrock/frontend:v2
 # Создать директорию app
 WORKDIR /app
 
-# Скопировать конфигурацию nginx
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-
 # Скопировать исходники приложения
 COPY ./.build /app/.build
 
