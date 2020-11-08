@@ -78,7 +78,7 @@ npm run build:server:dev:watch
 start:server:nodemon
 ```
 
-![Image of Terminal](https://raw.githubusercontent.com/alfa-code/web-handbook/master/src/assets/images/localhost.jpg?token=AE6ZXO5ZUDCCNNYYH6BEMYC7VAPZ2)
+![Image of Terminal](https://github.com/alfa-code/web-handbook/blob/master/src/assets/images/localhost.jpg?raw=true))
 
 Таким образом возможно наблюдать за сборкой Клиентской и Серверной части отдельно.
 
