@@ -78,11 +78,18 @@ npm run build:server:dev:watch
 start:server:nodemon
 ```
 
-![Image of Terminal](https://raw.githubusercontent.com/alfa-code/web-handbook/master/src/assets/images/logo-for-readme.png?token=AE6ZXO33LHKZKVKR6BMSKAK7VAMVG)
+![Image of Terminal](https://raw.githubusercontent.com/alfa-code/web-handbook/master/src/assets/images/localhost.jpg?token=AE6ZXO5ZUDCCNNYYH6BEMYC7VAPZ2)
+
+Таким образом возможно наблюдать за сборкой Клиентской и Серверной части отдельно.
+
+### Почему не используется webpack-dev-server?
+
+webpack-dev-server - не компилирует файлы, а держит их в памяти. Стартует виртуальный сервер на порту 8080. Если бы проект состоял только из клиентской части, то этого вполне хватило. Но проект содержит сервер, который тоже нужно собирать/пересобирать и запускать. Сервер запускается на порту 3000.
+В результате приходится проксировать все запросы с порта 8080 на порт 3000. Появляется некая прослойка которой нет в продакшене, а это может повлиять на рабату боевой версии. Проект же стремится к однообразию и консистентности.
 
 ## Именования
 
-Создатели экшенов именуются двумя заглаыными буквами на конце **AC** - например fetchAllPreviewPostsAC
+Создатели экшенов (Action Creators) именуются двумя заглавными буквами на конце **AC** - например fetchAllPreviewPostsAC
 Готовая функция dispatch в замыкании которой хранится готовый экшен помечается **DA** - например fetchAllPreviewPostsDA
 
 ## Общие правила
@@ -109,15 +116,3 @@ start:server:nodemon
 Для корректной работы приложения необходимо установить обязательные ENV переменные
 
 NODE_ENV = development | production - тип сборки проекта (сборка)
-JWT_SECRET_KEY - секретный ключ для jwt токена (сборка | старт)
-DATABASE_URL - адрес базы данных postgresql (сборка | старт) - например postgres://postgres:postgres@localhost/postgres
-
-### Репозиторий для практики
-
-<https://github.com/nar3k/yc-public-tasks/>
-
-### Проверка собранного docker image
-
-```
-docker run  -it -e JWT_SECRET_KEY=secret -e DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres --network host --name app cr.yandex/[REGISTRY]/platform:[TAG]
-```
