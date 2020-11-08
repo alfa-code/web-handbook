@@ -40,7 +40,6 @@ const webpackConfig = {
             {
                 test: cssRegex,
                 use: [
-                    // 'style-loader',
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
@@ -55,7 +54,6 @@ const webpackConfig = {
                 test: scssRegex,
                 use: [
                     // Creates `style` nodes from JS strings
-                    // 'style-loader',
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
