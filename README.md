@@ -75,12 +75,14 @@ npm run lint
 ```javascript
 npm run build:client:dev:watch
 npm run build:server:dev:watch
-start:server:nodemon
+npm run start:server:nodemon
 ```
 
 ![Image of Terminal](https://github.com/alfa-code/web-handbook/blob/master/src/assets/images/localhost.jpg?raw=true))
 
 Таким образом возможно наблюдать за сборкой Клиентской и Серверной части отдельно.
+
+Конечно, например если вы не планируете работать над серверной частью - нужно просто убедиться что сервер собран и запустить его без сборки. Обртное относится и к клиентской части.
 
 ### Почему не используется webpack-dev-server?
 
