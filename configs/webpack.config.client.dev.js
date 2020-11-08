@@ -3,13 +3,10 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const rootPath = process.cwd();
 
 const { NODE_ENV } = process.env;
 const isProduction = NODE_ENV === 'production';
-const isDevelopment = NODE_ENV === 'development';
 
 const commonWebpackConfig = require('./webpack.config.common');
 
@@ -26,9 +23,6 @@ const scssRegex = /^((?!\.module).)*scss$/i;
 const webpackConfig = {
     mode: NODE_ENV || 'development',
     entry: ['./src/client/index.tsx'],
-    optimization: {
-        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    },
     module: {
         rules: [
             {
@@ -48,26 +42,22 @@ const webpackConfig = {
             {
                 test: scssRegex,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
-                    // Translates CSS into CommonJS
+                    'style-loader',
                     'css-loader',
-                    // Compiles Sass to CSS
                     'sass-loader'
                 ],
             },
             {
                 test: cssModuleRegex,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader
-                    },
+                    { loader: 'style-loader' },
                     {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
-                            modules: { auto: true },
+                            modules: {
+                                localIdentName: '[path]_[name]_[local]',
+                            },
                         }
                     },
                     { loader: 'sass-loader' }
@@ -112,7 +102,7 @@ const webpackConfig = {
         ],
     },
     output: {
-        filename: 'app.[hash].js',
+        filename: 'app.js',
         path: path.join(rootPath, '.build/assets/'),
         publicPath: '/assets/'
     },
@@ -124,20 +114,7 @@ const webpackConfig = {
             chunkFilename: '[id].css'
         }),
         new WebpackBar()
-    ],
-    devServer: {
-        index: '',
-        contentBase: path.join(rootPath, '.build'),
-        compress: true,
-        port: 8080,
-        open: true,
-        overlay: true,
-        proxy: {
-            '/': 'http://localhost:3000'
-        },
-        historyApiFallback: true,
-        hot: true
-    }
+    ]
 };
 
 if (!isProduction) {

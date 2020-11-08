@@ -47,13 +47,10 @@ const webpackConfig = {
             {
                 test: scssRegex,
                 use: [
-                    // Creates `style` nodes from JS strings
                     {
                         loader: MiniCssExtractPlugin.loader
                     },
-                    // Translates CSS into CommonJS
                     'css-loader',
-                    // Compiles Sass to CSS
                     'sass-loader'
                 ],
             },
@@ -121,7 +118,7 @@ const webpackConfig = {
     plugins: [
         assetsPluginInstance,
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: '[name].[hash].css',
             chunkFilename: '[id].css'
         }),
         new WebpackBar()
