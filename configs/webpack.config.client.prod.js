@@ -3,14 +3,12 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const rootPath = process.cwd();
 
 const { NODE_ENV } = process.env;
 const isProduction = NODE_ENV === 'production';
-const isDevelopment = NODE_ENV === 'development';
 
 const commonWebpackConfig = require('./webpack.config.common');
 
@@ -41,11 +39,7 @@ const webpackConfig = {
                 test: cssRegex,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDevelopment,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     'css-loader'
                 ],
@@ -55,11 +49,7 @@ const webpackConfig = {
                 use: [
                     // Creates `style` nodes from JS strings
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: false,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     // Translates CSS into CommonJS
                     'css-loader',
@@ -71,11 +61,7 @@ const webpackConfig = {
                 test: cssModuleRegex,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: false,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader',
@@ -140,25 +126,10 @@ const webpackConfig = {
         }),
         new WebpackBar()
     ],
-    devServer: {
-        contentBase: path.join(rootPath, '.build'),
-        compress: true,
-        port: 8080,
-        open: true,
-        overlay: true,
-    }
 };
 
 if (!isProduction) {
     webpackConfig.plugins.push(new HtmlWebpackPlugin());
-}
-
-if (isProduction) {
-    const pathToLogo = path.join(rootPath, 'src/assets/icons/logo/logo-without-name.svg');
-    webpackConfig.plugins.push(new FaviconsWebpackPlugin({
-        logo: pathToLogo,
-        prefix: 'favicons/'
-    }));
 }
 
 path.join(rootPath, '.build/assets/'),

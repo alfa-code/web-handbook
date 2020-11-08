@@ -5,11 +5,13 @@ import { Logo } from 'Components/index';
 import { Props } from './props';
 
 import styles from './main.module.scss';
+const { locals: classes } = styles as any;
 
 export class Main extends PureComponent<Props> {
     render() {
         return (
-            <div className={ styles.page }>
+            /* @ts-ignore */
+            <div className={ classes.page }>
                 <Logo />
             </div>
         );

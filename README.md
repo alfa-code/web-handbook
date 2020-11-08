@@ -9,29 +9,25 @@
 Установить зависимости
 
 ```javascript
-yarn
+npm i
 ```
 
 Для разработки приложения в dev режиме запустите команду
 
 ```javascript
-yarn start:dev
+npm run start:dev
 ```
 
 Запуск css и js линтинга
 
 ```javascript
-yarn lint
+npm run lint
 ```
 
 ## Именования
 
 Создатели экшенов именуются двумя заглаыными буквами на конце **AC** - например fetchAllPreviewPostsAC
 Готовая функция dispatch в замыкании которой хранится готовый экшен помечается **DA** - например fetchAllPreviewPostsDA
-
-## БД
-Запусти Docker контейнеры из репозитория https://github.com/alfa-code/alfa-code-platform-db
-Затем выполни скрипт `yarn db:mirgate`
 
 ## Общие правила
 

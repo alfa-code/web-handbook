@@ -3,7 +3,6 @@ const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackBar = require('webpackbar');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const rootPath = process.cwd();
@@ -41,11 +40,7 @@ const webpackConfig = {
                 test: cssRegex,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: true,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     'css-loader'
                 ],
@@ -54,11 +49,7 @@ const webpackConfig = {
                 test: scssRegex,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDevelopment,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     // Translates CSS into CommonJS
                     'css-loader',
@@ -70,18 +61,13 @@ const webpackConfig = {
                 test: cssModuleRegex,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: isDevelopment,
-                            reloadAll: true,
-                        },
+                        loader: MiniCssExtractPlugin.loader
                     },
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: {
-                                localIdentName: "[name]__[local]___[hash:base64:5]",
-                            },
+                            importLoaders: 1,
+                            modules: { auto: true },
                         }
                     },
                     { loader: 'sass-loader' }
@@ -140,13 +126,14 @@ const webpackConfig = {
         new WebpackBar()
     ],
     devServer: {
+        index: '',
         contentBase: path.join(rootPath, '.build'),
         compress: true,
         port: 8080,
         open: true,
         overlay: true,
         proxy: {
-            '*': 'http://localhost:3000'
+            '/': 'http://localhost:3000'
         },
         historyApiFallback: true,
         hot: true
@@ -155,14 +142,6 @@ const webpackConfig = {
 
 if (!isProduction) {
     webpackConfig.plugins.push(new HtmlWebpackPlugin());
-}
-
-if (isProduction) {
-    const pathToLogo = path.join(rootPath, 'src/assets/icons/logo/logo-without-name.svg');
-    webpackConfig.plugins.push(new FaviconsWebpackPlugin({
-        logo: pathToLogo,
-        prefix: 'favicons/'
-    }));
 }
 
 path.join(rootPath, '.build/assets/'),
