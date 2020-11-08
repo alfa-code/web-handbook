@@ -1,6 +1,6 @@
 # web-handbook
 
-![Image of Alfa Code](https://raw.githubusercontent.com/alfa-code/web-handbook/master/src/assets/images/logo-for-readme.png?token=AE6ZXO33LHKZKVKR6BMSKAK7VAMVG)
+![Image of Alfa Code](https://github.com/alfa-code/web-handbook/blob/master/src/assets/images/logo-for-readme.png?raw=true))
 
 Сервис для подготовки IT специалистов (Основная платформа для пользователей);
 
