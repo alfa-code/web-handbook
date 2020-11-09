@@ -89,7 +89,7 @@
         "formik": "^2.2.3",
         "hapi-error": "^2.2.0",
         "hapi-swagger": "14.0.0",
-        "history": "^5.0.0",
+        "history": "^4.10.1",
         "include-media": "^1.4.9",
         "joi": "17.x",
         "lodash": "^4.17.20",
