@@ -1,0 +1,37 @@
+.btn {
+  padding: 14px 32px 15px;
+  background: var(--brandRed);
+  display: inline-block;
+  color: var(--inverse);
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  border-radius: 4px;
+  transition: all 0.5s;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+    background: var(--hoverBrandRed);
+  }
+
+  &:disabled {
+    background: var(--disabledColor);
+  }
+}
+
+.btn.btnGreen {
+  background: #13a463;
+  fill: var(--inverse);
+  color: var(--inverse);
+
+  &:hover {
+    text-decoration: none;
+    background: var(--hoverBrandRed);
+  }
+  &:active {
+    text-decoration: none;
+    background: var(--brandRed);
+  }
+}

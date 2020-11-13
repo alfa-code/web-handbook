@@ -1,6 +1,65 @@
-.page {
-    height: 100vh;
+@import "Src/client/breakpoints.scss";
+
+.mainPage {
+    padding: var(--space-xxl) 0 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  
+    .mainBg {
+      position: absolute;
+      width: calc(100% - 64px - 57px);
+      height: calc(100% - 27px);
+      top: 27px;
+      right: calc(64px + 57px);
+      z-index: -1;
+      background: var(--lightBackground);
+  
+      @include media("<desktop-2") {
+        right: calc(16px + 57px);
+        width: calc(100% - 16px - 57px);
+      }
+    }
+  
+    .mainPageContent {
+      position: relative;
+      padding: 0 var(--space-xxl);
+  
+      @include media("<desktop-2") {
+        padding: 0 var(--space-m);
+      }
+    }
+    .mainPageTop {
+      display: flex;
+      align-items: center;
+      padding: var(--space-l) var(--space-l) var(--space-xl);
+      background: var(--background2);
+      border-radius: 4px;
+  
+      img {
+        margin-top: -64px;
+        width: 50%;
+      }
+      .text-subheading {
+        margin-top: var(--space-m);
+      }
+  
+      @include media("<desktop-2") {
+        & {
+          padding: var(--space-m) var(--space-m) var(--space-l);
+        }
+  
+        img {
+          width: 45%;
+        }
+        .text-subheading {
+          margin-top: var(--space-s);
+          font-size: 16px;
+        }
+      }
+    }
+    .mainPageLinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  

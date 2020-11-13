@@ -1,0 +1,133 @@
+@import "Src/client/breakpoints.scss";
+
+.header {
+  display: flex;
+  height: 96px;
+  align-items: center;
+  padding: 0 var(--space-l) 0 var(--space-xxl);
+  border-bottom: 1px solid #f3f4f5;
+
+  @include media("<desktop-2") {
+    padding: 0 var(--space-l);
+  }
+
+  .headerMenu {
+    height: calc(100% - 1px);
+    display: flex;
+
+    .headerMenuLink {
+      margin: 0 var(--space-l);
+      padding: 36px 0;
+      color: var(--primary);
+      transition: all 0.5s;
+
+			&:hover {
+				text-decoration: none;
+				color: var(--uiRed);
+			}
+
+			&.active {
+				box-shadow: 0 2px 0 0 var(--brandRed);
+			}
+    }
+
+    .dropdown {
+      position: relative;
+      margin: 0 var(--space-l);
+      padding: 36px 0;
+      color: var(--primary);
+      transition: all 0.5s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: var(--uiRed);
+        svg {
+          fill: var(--uiRed);
+        }
+      }
+
+      .dropdownInner {
+        flex-direction: column;
+        width: 169px;
+        position: absolute;
+        top: 75px;
+        left: -55px;
+        background: #ffffff;
+        box-shadow: 0px 10px 24px rgba(23, 42, 63, 0.1);
+        z-index: 10;
+        display: none;
+
+        .dropdownInnerLink {
+          width: 100%;
+          padding: var(--space-s);
+          border-bottom: 1px solid var(--background);
+          color: var(--primary);
+          transition: all 0.5s;
+
+          &:hover {
+            text-decoration: none;
+            color: var(--uiRed);
+          }
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+			}
+    }
+		.dropdown.active {
+			box-shadow: 0 2px 0 0 var(--brandRed);
+		}
+
+		.dropdown.active {
+			.dropdownInner {
+				display: flex;
+			}
+		}
+  }
+  .headerSearch {
+		margin-left: auto;
+		.inputWrapper {
+			position: relative;
+		
+			.inputWrapperInput {
+				padding: 0 40px 0 var(--space-s);
+				height: 40px;
+				width: 376px;
+				border: 1px solid var(--Gray);
+				box-sizing: border-box;
+				border-radius: 4px;
+				background: none;
+				color: var(--textParagraphs);
+		
+				&:active {
+					border: 1px solid var(--primary);
+				}
+		
+				&::placeholder {
+					color: var(--textTetriary);
+				}
+			}
+			.inputWrapperIcon {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 10px;
+				right: 10px;
+				cursor: pointer;
+				
+				.svgIcon {
+					fill: var(--primary);
+				}
+			}
+			.inputWrapperIcon:hover {
+				.svgIcon {
+					fill: var(--uiRed);
+				}
+			}
+		}
+		
+  }
+}

@@ -1,0 +1,11 @@
+.pageTop {
+  display: flex;
+  align-items: center;
+  margin: var(--space-l) 0 var(--space-s);
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--space-l);
+  }
+}
