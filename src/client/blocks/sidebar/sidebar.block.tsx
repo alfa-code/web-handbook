@@ -60,7 +60,7 @@ const cssSidebar = {
 
 export const Sidebar = () => {
     let sidebar = null;
-    let key = "main"
+    const key = "main"
     switch (key) {
         case "main":
             sidebar = mainSidebar;

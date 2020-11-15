@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import styles from './page-top.module.scss';
 
-export const PageTop = ({title, description, img} : Props) => {
+export const PageTop = ({ title, description, img } : Props) => {
     return (
         <div className={ styles.pageTop }>
             <img src={ img } alt="" />

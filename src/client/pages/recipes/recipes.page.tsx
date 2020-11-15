@@ -8,7 +8,7 @@ import PageTopImage from 'Assets/images/html-instruments.svg'
 
 import styles from './recipes.module.scss';
 
-export const Recipes = ({themes} : Props) => {
+export const Recipes = ({ themes } : Props) => {
     return (
         <div>
             <Header  />
@@ -29,15 +29,15 @@ export const Recipes = ({themes} : Props) => {
                         </div>
                      
                         { themes.map((theme, i) => 
-                            <div>
+                            <div key={ i }>
                                 <div className="mt-5 text-heading-4">{ theme.title }</div>
                                 <ul className={ styles.recipesList }>
                                     { theme.recipes.map((recipe, i) => 
-                                        <li className="mt-3">
+                                        <li className="mt-3" key={ i }>
                                             <a href={recipe.url} className="link-body-1">{recipe.text}</a>
                                         </li>
                                     )}
-                                </ul>    
+                                </ul>
                             </div>
                             ) 
                         }

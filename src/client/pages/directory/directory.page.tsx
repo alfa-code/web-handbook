@@ -21,8 +21,8 @@ export const Directory = ({ directory } : Props) => {
 
                     <div className={ styles.page }>
                         <div className={ styles.pageContent }>
-                            { directory.lists.map(list => 
-                                 <div>
+                            { directory.lists.map((list, i) => 
+                                 <div key={ i }>
                                      { list.title ?
                                          (<div className="text-heading-4">
                                              { list.title }
@@ -34,7 +34,7 @@ export const Directory = ({ directory } : Props) => {
                                          </div>) : null
                                      }
                                      { list.items.map((item, i) => 
-                                         <DirectoryInfo directory={item} />
+                                         <DirectoryInfo directory={item} key={ i } />
                                      ) }
                                  </div>
                                 )
