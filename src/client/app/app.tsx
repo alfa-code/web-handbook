@@ -10,6 +10,7 @@ import { createBrowserHistory, createMemoryHistory  } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import { createRootReducer } from 'Src/reducers';
+
 import { rootSaga } from 'Src/sagas';
 
 import { Main, NotFound, Directory, Recipes } from 'Pages/index';
