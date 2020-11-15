@@ -1,0 +1,27 @@
+.mainPageLink {
+  padding: var(--space-l);
+  background: var(--inverse);
+  border-radius: 4px;
+  display: flex;
+  margin-top: var(--space-l);
+  flex: 0 1 calc(50% - 16px);
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+
+    &Link {
+      flex: 1 1;
+      justify-content: flex-end;
+      // margin-top: 45px;
+      color: var(--brandRed);
+      display: block;
+    }
+  }
+  img {
+    margin-left: auto;
+    width: 30%;
+    min-width: 168px;
+    min-height: 128px;
+  }
+}

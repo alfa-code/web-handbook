@@ -1,0 +1,29 @@
+@import "Src/client/breakpoints.scss";
+
+.footer {
+  background: var(--lightBackground);
+  display: flex;
+  padding: 0 var(--space-l) var(--space-xxl) var(--space-l);
+
+  &Column {
+    margin-right: var(--space-l);
+    padding-right: 86px;
+
+    @include media("<desktop-2") {
+      padding-right: var(--space-l);
+    }
+
+    &:last-child {
+      padding-right: 0;
+      margin-right: 0;
+    }
+  }
+}
+.footerBottom {
+  background: var(--background);
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--textParagraphs) !important;
+}

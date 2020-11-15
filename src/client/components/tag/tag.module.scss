@@ -1,0 +1,19 @@
+.tag {
+  border-radius: 4px;
+  padding: 0 4px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  height: 18px;
+  display: inline-block;
+  margin: 0 var(--space-xs);
+}
+.tag.green {
+  color: #13a463;
+  background: var(--background3);
+}
+.tag.red {
+  background: var(--background4);
+  color: var(--brandRed);
+}

@@ -12,7 +12,9 @@ import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { createRootReducer } from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
 
-import { Main, NotFound } from 'Pages/index';
+import { Main, NotFound, Directory, Recipes } from 'Pages/index';
+
+import CONSTANTS from './constants';
 
 const composeEnhancers = composeWithDevTools({});
 
@@ -69,6 +71,16 @@ export default class App extends React.Component<Props> {
                         exact
                         path='/'
                         component={ Main }
+                    />
+                    <Route
+                        exact
+                        path='/directory-html'
+                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                    />
+                    <Route
+                        exact
+                        path='/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes } /> }
                     />
                     <Route
                         path='*'

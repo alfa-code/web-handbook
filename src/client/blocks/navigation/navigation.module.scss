@@ -1,0 +1,148 @@
+@import "Src/client/breakpoints.scss";
+
+.navigation {
+  width: 336px;
+  height: 100%;
+
+  @include media("<desktop-2") {
+    width: 265px;
+  }
+}
+
+.navigationCategory {
+  &Inner {
+    display: flex;
+    align-items: center;
+    margin-top: var(--space-s);
+    padding: 17px 35px 17px 66px;
+    cursor: pointer;
+
+    @include media("<desktop-2") {
+      padding: var(--space-s) var(--space-m) var(--space-s) var(--space-l);
+    }
+
+    .svgIcon {
+      fill: #b6bcc3;
+      margin-right: 18px;
+    }
+    &IconActive {
+      margin-right: 18px;
+      display: none;
+    }
+    &Name {
+      font-family: var(--fontSecondary);
+      font-weight: 500;
+      color: var(--textParagraphs);
+      font-size: var(--font-size-1);
+      line-height: var(--line-height-2);
+
+      &:hover {
+        color: var(--uiRed);
+      }
+    }
+    .arrowIcon {
+      margin-left: auto;
+    }
+  }
+  &Collapse {
+    overflow: hidden;
+    height: 0;
+    max-height: 0;
+    padding-left: 50px;
+    flex-direction: column;
+    transition: all 0.5s;
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: var(--disabledColor);
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: var(--primary);
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    &Item {
+      display: flex;
+      align-items: center;
+      margin-top: var(--space-s);
+      padding: 4px 20px;
+      color: var(--textParagraphs);
+      position: relative;
+
+      &Caret {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &Icon {
+        margin-right: 7.5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      &Name {
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-caption);
+        color: var(--textParagraphs);
+      }
+      &:hover {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      &Collapse {
+        display: none;
+        font-size: var(--font-size-small);
+        line-height: var(--line-height-caption);
+        color: var(--textParagraphs);
+        padding-left: 60px;
+        li {
+					margin-top: 13px;
+					
+					a {
+						color: var(--textParagraphs);
+					}
+        }
+      }
+    }
+    .dropdown.active {
+      .navigationCategoryCollapseItemCollapse {
+        display: block;
+      }
+      .navigationCategoryCollapseItemCaret {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.navigationCategory.active {
+  .navigationCategoryInner {
+    border-bottom: 1px solid var(--background);
+    .svgIcon {
+      fill: var(--uiRed);
+    }
+    &Name {
+      color: var(--primary);
+    }
+    .arrowIcon {
+      transform: rotate(180deg);
+    }
+  }
+  .navigationCategoryCollapse {
+    overflow: auto;
+    height: auto;
+    max-height: 500px;
+  }
+}
+
