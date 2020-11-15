@@ -10,15 +10,17 @@
     font-style: normal;
     font-weight: 400;
     src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local("Roboto"), local("Roboto-Regular"),
+    src:
+        local("Roboto"),
+        local("Roboto-Regular"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot?#iefix")
-            format("embedded-opentype"),
+        format("embedded-opentype"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff2")
-            format("woff2"),
+        format("woff2"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff")
-            format("woff"),
+        format("woff"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.ttf")
-            format("truetype"); /* Safari, Android, iOS */
+        format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
@@ -28,13 +30,15 @@
     font-style: normal;
     font-weight: 700;
     src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
-    src: local("Roboto Bold"), local("Roboto-Bold"),
+    src:
+        local("Roboto Bold"),
+        local("Roboto-Bold"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot?#iefix")
-            format("embedded-opentype"),
+        format("embedded-opentype"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff2") format("woff2"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff") format("woff"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.ttf")
-            format("truetype"); /* Safari, Android, iOS */
+        format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Roboto/roboto-v20-cyrillic_latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
@@ -44,14 +48,16 @@
     font-style: normal;
     font-weight: 400;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
-    src: local("Rubik"), local("Rubik-Regular"),
+    src:
+        local("Rubik"),
+        local("Rubik-Regular"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot?#iefix")
-            format("embedded-opentype"),
+        format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff2")
-            format("woff2"),
+        format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.ttf")
-            format("truetype"); /* Safari, Android, iOS */
+        format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.svg#Rubik') format('svg'); /* Legacy iOS */
 }
 
@@ -61,9 +67,11 @@
     font-style: normal;
     font-weight: 500;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot"); /* IE9 Compat Modes */
-    src: local("Rubik Medium"), local("Rubik-Medium"),
+    src:
+        local("Rubik Medium"),
+        local("Rubik-Medium"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot?#iefix")
-            format("embedded-opentype"),
+        format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff2") format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.ttf") format("truetype"); /* Safari, Android, iOS */
@@ -76,19 +84,21 @@
     font-style: normal;
     font-weight: 700;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
-    src: local("Rubik Bold"), local("Rubik-Bold"),
+    src:
+        local("Rubik Bold"),
+        local("Rubik-Bold"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot?#iefix")
-            format("embedded-opentype"),
+        format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff2") format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.ttf") format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Rubik/rubik-v9-cyrillic_latin-700.svg#Rubik') format('svg'); /* Legacy iOS */
 }
 
-html {
-    font-family: "Roboto", sans-serif;
+.html {
 
     min-width: 320px;
+    font-family: "Roboto", sans-serif;
 
     color: var(--text-primary);
 
@@ -112,7 +122,7 @@ html {
     --textParagraphs: #546271;
     --textSecondary: #6d7986;
     --textTetriary: #b5bbc2;
-    --inverse: #ffffff;
+    --inverse: #fff;
     // Brand
     --brandRed: #ef3124;
     --uiRed: #f04539;
@@ -133,7 +143,7 @@ html {
     --illustrationRed: #ff5c5c;
     // Hover
     --hoverBrandRed: #d92c21;
-    --hoverPrimary: #000000;
+    --hoverPrimary: #000;
     --disabledColor: #d3d6d8;
 
     // Переменные для шрифтов
@@ -161,7 +171,7 @@ html {
     --text-secondary: #6d7986;
     --text-tetriary: #b5bbc2;
     --text-green: #13a463;
-    --text-inverse: #ffffff;
+    --text-inverse: #fff;
 
     --brand-red: #ef3124;
     --brand-primary: #172a3f;
@@ -175,7 +185,7 @@ html {
     --background-2: #dae6ff;
     --background-3: #d6f5f2;
     --background-green: #13a463;
-    --background-white: #ffffff;
+    --background-white: #fff;
 
     --illustrations-blue: #4480ff;
     --illustration-yellow: #ffb96f;
@@ -183,12 +193,12 @@ html {
     --illustration-red: #ff5c5c;
 
     --hover-brand-red: #d92c21;
-    --hover-primary: #000000;
+    --hover-primary: #000;
 
     --disabled: #d3d4d8;
 
     /* Elevation */
-    --elevation: 0px 10px 24px rgba(23, 42, 63, 0.1);
+    --elevation: 0 10px 24px rgba(23, 42, 63, 0.1);
 
     /* Text Styles */
     --text-heading-1: 48px;
@@ -255,7 +265,7 @@ html {
     --gap-6xl: 72px;
 
     @include media("<desktop-3") {
-        --width-base-container-additional: 0px;
+        --width-base-container-additional: 0;
     }
 
     @include media(">desktop-1", "<desktop-3") {
@@ -270,18 +280,21 @@ html {
 }
 
 body {
+    max-width: 1920px;
+    margin: auto;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
     line-height: 22px;
-    max-width: 1920px;
-    margin: auto;
 }
+
 a {
     text-decoration: none;
 }
+
 a:hover {
     text-decoration: none;
 }
+
 img {
     max-width: 100%;
 }
@@ -297,18 +310,23 @@ img {
 .mt-1 {
     margin-top: var(--space-xs);
 }
+
 .mt-2 {
     margin-top: var(--space-s);
 }
+
 .mt-3 {
     margin-top: var(--space-m);
 }
+
 .mt-4 {
     margin-top: var(--space-l);
 }
+
 .mt-5 {
     margin-top: var(--space-xl);
 }
+
 .mt-6 {
     margin-top: var(--space-xxl);
 }
@@ -316,37 +334,39 @@ img {
 .mr-1 {
     margin-right: var(--space-xs);
 }
+
 .mr-2 {
     margin-right: var(--space-s);
 }
+
 .mr-3 {
     margin-right: var(--space-m);
 }
+
 .mr-4 {
     margin-right: var(--space-l);
 }
+
 .mr-5 {
     margin-right: var(--space-xl);
 }
+
 .mr-6 {
     margin-right: var(--space-xxl);
 }
+
 .disabled {
-    user-select: none;
     pointer-events: none;
-    touch-action: none;
+    user-select: none;
     filter: grayscale(100%);
     opacity: 0.3;
-}
-
-img {
-    max-width: 100%;
+    touch-action: none;
 }
 
 @mixin hoverShadow {
     &:hover {
-        transition: box-shadow 0.25s;
         box-shadow: 0 10px 24px rgba(23, 42, 63, 0.1);
+        transition: box-shadow 0.25s;
     }
 }
 
@@ -355,107 +375,119 @@ img {
 // TEXT
 .text-heading-2 {
     font-family: var(--fontSecondary);
-    font-weight: 700;
-    color: var(--textPrimary);
     font-size: var(--font-size-5);
+    font-weight: 700;
     line-height: var(--font-size-6);
+    color: var(--textPrimary);
 }
+
 .text-heading-4 {
     font-family: var(--fontSecondary);
-    font-weight: 700;
-    color: var(--textPrimary);
     font-size: var(--font-size-3);
+    font-weight: 700;
     line-height: var(--line-height-3);
+    color: var(--textPrimary);
 }
+
 .text-heading-5 {
     font-family: var(--fontSecondary);
-    font-weight: 500;
-    color: var(--textParagraphs);
     font-size: var(--font-size-1);
+    font-weight: 500;
     line-height: var(--line-height-2);
+    color: var(--textParagraphs);
 }
+
 .text-heading-6 {
     font-family: var(--fontSecondary);
-    font-weight: 500;
-    color: var(--secondary);
     font-size: var(--font-size-1);
+    font-weight: 500;
     line-height: 20px;
+    color: var(--secondary);
 }
+
 .text-subheading {
     font-family: var(--fontPrimary);
-    font-weight: 400;
-    color: var(--textParagraphs);
     font-size: var(--font-size-3);
+    font-weight: 400;
     line-height: 31px;
+    color: var(--textParagraphs);
 }
+
 .text-body-1 {
     font-family: var(--fontPrimary);
-    color: var(--textPrimary);
     font-size: var(--font-size-2);
     line-height: 25px;
+    color: var(--textPrimary);
 }
+
 .text-body-2 {
     font-family: var(--fontPrimary);
-    color: var(--textParagraphs);
     font-size: var(--font-size-1);
     line-height: var(--line-height-2);
+    color: var(--textParagraphs);
 
     b {
-        color: var(--primary);
         font-weight: 500;
+        color: var(--primary);
     }
 }
+
 .text-body-3 {
     font-family: var(--fontSecondary);
-    color: var(--textSecondary);
     font-size: var(--font-size-small);
     line-height: var(--line-height-caption);
+    color: var(--textSecondary);
 }
+
 .text-navigation {
     font-family: var(--fontPrimary);
     font-size: var(--font-size-1);
-    color: var(--textParagraphs);
     line-height: var(--line-height-2);
+    color: var(--textParagraphs);
     text-decoration: none;
 }
 // LINKS
 .link-navigation {
     font-family: var(--fontPrimary);
     font-size: var(--font-size-1);
-    color: var(--textPrimary);
     line-height: var(--line-height-2);
+    color: var(--textPrimary);
     text-decoration: none;
 }
+
 .link-navigation:hover {
     color: var(--textPrimary);
     text-decoration: none;
 }
+
 .link-body-1 {
     font-family: var(--fontPrimary);
-    color: var(--textParagraphs);
     font-size: var(--font-size-2);
     line-height: 25px;
+    color: var(--textParagraphs);
 
     &:hover {
-        text-decoration: none;
         color: var(--textPrimary);
+        text-decoration: none;
     }
 }
+
 .link-body-2 {
     font-family: var(--fontPrimary);
-    color: var(--textPrimary);
     font-size: var(--font-size-1);
     line-height: var(--line-height-2);
+    color: var(--textPrimary);
     text-decoration: underline;
 
     &:hover {
-        text-decoration: none;
         color: var(--textPrimary);
+        text-decoration: none;
     }
 }
+
 .link-body-3 {
     font-family: var(--fontSecondary);
-    color: var(--textPrimary);
     font-size: var(--font-size-small);
     line-height: var(--line-height-caption);
+    color: var(--textPrimary);
 }

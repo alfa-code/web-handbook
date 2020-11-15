@@ -6,3 +6,4 @@ yarn-error.log
 tls/
 .jwt-secret
 .vscode
+yarn-error.log

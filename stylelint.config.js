@@ -1,8 +1,8 @@
 module.exports = {
-    extends: 'stylelint-config-airbnb',
+    extends: '@alfa-code/alfa-code-presets/stylelint/index.js',
     rules: {
-        indentation: 4,
-        'max-nesting-depth': 3,
-        'number-leading-zero': null
+        'font-family-name-quotes': 'always-unless-keyword',
+        'selector-max-type': 1,
+        'primer/no-override': false
     }
 };
