@@ -58,9 +58,12 @@ const cssSidebar = {
     ]
 };
 
-export const Sidebar = () => {
+export const Sidebar = (props: Props) => {
     let sidebar = null;
-    const key = "main"
+    const key: any = "main";
+
+    console.log('type', props.type)
+
     switch (key) {
         case "main":
             sidebar = mainSidebar;
