@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@alfa-code/alfa-code-presets@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-presets/-/alfa-code-presets-1.1.0.tgz#18f43b0ef9cd0ac458daae8f6ad9ec74eee35693"
-  integrity sha512-H2M2y4fkraYRpSyjabhy2Vmq6hRhjBv8rJGud7iVVN2wHoO/lAXCiAmEawVAkpn7f4ImEO/LDYO4Ha4tn/XwPw==
+"@alfa-code/alfa-code-presets@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-presets/-/alfa-code-presets-1.1.1.tgz#a84528a2f9bd96293e5848b2da273d59f4df5c33"
+  integrity sha512-aT8+75h4SeOxIdfZAOOlir941dqiq7N0ZcxbaX27qI0b8Qu/wBFx48mpV+BdDclMYGU0mP7rMucByUSAHXyJtA==
   dependencies:
     "@primer/css" "^15.2.0"
     stylelint "^13.7.2"
