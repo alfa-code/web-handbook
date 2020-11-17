@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
-import { Props } from './props';
+import { Link } from "react-router-dom";
 
 import { Logo, Icon } from 'Components/index';
 
+import { Props } from './props';
 import styles from './header.module.scss';
 
 export const Header = () => {
@@ -13,15 +14,30 @@ export const Header = () => {
         <header className={ styles.header }>
             <Logo />
             <div className={ styles.headerMenu }>
-                <a href="#" className={ styles.headerMenuLink }>Главное</a>
+                <Link
+                    to="/"
+                    className={ styles.headerMenuLink }
+                >
+                    Главное
+                </Link>
                 <div className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
                     onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
                     HTML 
                     <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
 
                     <div className={ styles.dropdownInner } >
-                        <a href="#" className={ styles.dropdownInnerLink }>HTML справочник</a>
-                        <a href="#" className={ styles.dropdownInnerLink }>HTML рецепты</a>
+                        <Link
+                            to="/html"
+                            className={ styles.dropdownInnerLink }
+                        >
+                            HTML справочник
+                        </Link>
+                        <Link
+                            to="/"
+                            className={ styles.dropdownInnerLink }
+                        >
+                            HTML рецепты
+                        </Link>
                     </div>
                 </div>
                 <div className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
@@ -30,8 +46,18 @@ export const Header = () => {
                     <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
 
                     <div className={ styles.dropdownInner }>
-                        <a href="#" className={ styles.dropdownInnerLink }>CSS справочник</a>
-                        <a href="#" className={ styles.dropdownInnerLink }>CSS рецепты</a>
+                        <Link
+                            to="/css"
+                            className={ styles.dropdownInnerLink }
+                        >
+                            CSS справочник
+                        </Link>
+                        <Link
+                            to="/"
+                            className={ styles.dropdownInnerLink }
+                        >
+                            CSS рецепты
+                        </Link>
                     </div>
                 </div>
             </div>

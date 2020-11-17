@@ -13,7 +13,14 @@ import { createRootReducer } from 'Src/reducers';
 
 import { rootSaga } from 'Src/sagas';
 
-import { Main, NotFound, Directory, Recipes, HtmlTagPage } from 'Pages/index';
+import {
+    Main,
+    NotFound,
+    Directory,
+    Recipes,
+    HtmlTagPage,
+    CssRulePage
+} from 'Pages/index';
 
 import CONSTANTS from './constants';
 
@@ -81,7 +88,17 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/html/:htmlTag'
-                        component={ () => <HtmlTagPage /> }
+                        component={ HtmlTagPage }
+                    />
+                    <Route
+                        exact
+                        path='/css'
+                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                    />
+                    <Route
+                        exact
+                        path='/css/:cssRule'
+                        component={ CssRulePage }
                     />
                     <Route
                         exact
