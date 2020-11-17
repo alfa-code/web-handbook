@@ -9,5 +9,20 @@
     display: flex;
     flex-direction: column;
     margin-left: $space-l;
+
+    &ContentText {
+      margin-top: $space-m;
+    }
+  }
+  @include media("<phone-2") {
+    img {
+      width: 35%;
+    }
+    .pageTopContent {
+      margin-left: $space-s;
+    }
+    .pageTopContentText {
+      margin-top: 0;
+    }
   }
 }

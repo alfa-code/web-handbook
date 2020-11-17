@@ -25,6 +25,8 @@ import {
     Property 
 } from 'Pages/index';
 
+import { Header, Navigation, Footer } from 'Blocks/index';
+
 import CONSTANTS from './constants';
 
 const composeEnhancers = composeWithDevTools({});
@@ -76,63 +78,93 @@ type Props = {
 export default class App extends React.Component<Props> {
     getMainContent() {
         return (
-            <>
-                <Switch>
-                    <Route
-                        exact
-                        path='/'
-                        component={ Main }
-                    />
-                    <Route
-                        exact
-                        path='/directory-html'
-                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
-                    />
-                    <Route
-                        exact
-                        path='/recipes'
-                        component={ () => <Recipes themes={ CONSTANTS.themes } /> }
-                    />
-                    <Route
-                        exact
-                        path='/tag'
-                        component={ () => <Tag /> }
-                    />
-                    <Route
-                        exact
-                        path='/attribute'
-                        component={ () => <Attribute /> }
-                    />
-                    <Route
-                        exact
-                        path='/tag-types'
-                        component={ () => <Category 
-                            title={CONSTANTS.tagTypes.title}
-                            types={CONSTANTS.tagTypes.types} /> }
-                    />
-                    <Route
-                        exact
-                        path='/recipes-theme'
-                        component={ () => <RecipesTheme 
-                            theme={CONSTANTS.themes[0]} /> }
-                    />
-                    <Route
-                        exact
-                        path='/recipe'
-                        component={ () => <Recipe
-                            title="Как убрать полосы прокрутки?" /> }
-                    />
-                    <Route
-                        exact
-                        path='/property'
-                        component={ () => <Property /> }
-                    />
-                    <Route
-                        path='*'
-                        component={ NotFound }
-                    />
-                </Switch>
-            </>
+            <div className="layout">
+                <Header  />
+                <Navigation />
+                <div className="content">
+                    <>
+                        <Switch>
+                            <Route
+                                exact
+                                path='/'
+                                component={ Main }
+                            />
+
+                            <Route
+                                exact
+                                path='/directory-html'
+                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                            />
+                            <Route
+                                exact
+                                path='/directory-css'
+                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                            />
+                            
+                            <Route
+                                exact
+                                path='/recipes-html'
+                                component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                            />
+                            <Route
+                                exact
+                                path='/recipes-css'
+                                component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                            />
+                            <Route
+                                exact
+                                path='/recipes/theme'
+                                component={ () => <RecipesTheme 
+                                    theme={CONSTANTS.themes[0]} /> }
+                            />
+                            <Route
+                                exact
+                                path='/recipes/theme/recipe'
+                                component={ () => <Recipe
+                                    title="Как убрать полосы прокрутки?" /> }
+                            />
+
+                            <Route
+                                exact
+                                path='/tag-types'
+                                component={ () => <Category 
+                                    title={CONSTANTS.tagTypes.title}
+                                    types={CONSTANTS.tagTypes.types} /> }
+                            />
+                            <Route
+                                exact
+                                path='/tag'
+                                component={ () => <Tag /> }
+                            />
+                            <Route
+                                exact
+                                path='/attribute'
+                                component={ () => <Attribute /> }
+                            />
+                            
+                            
+                            <Route
+                                exact
+                                path='/category'
+                                component={ () => <Category 
+                                    title={CONSTANTS.tagTypes.title}
+                                    types={CONSTANTS.tagTypes.types} /> }
+                            />
+                            <Route
+                                exact
+                                path='/property'
+                                component={ () => <Property /> }
+                            />
+                            
+                            <Route
+                                path='*'
+                                component={ NotFound }
+                            />
+                        </Switch>
+                    </>
+                </div>
+                <Footer />
+            </div>
         );
     }
 

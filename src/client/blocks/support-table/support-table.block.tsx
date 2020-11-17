@@ -22,7 +22,7 @@ export const SupportTable = ({ ie, chrome, safari, firefox, opera, android, ios 
                     <tr>
                         <th>
                             <img src={iebrowserIcon} alt="Internet Explorer" />
-                            <span>Internet Explorer</span>
+                            <span>IE</span>
                         </th>
                         <th>
                             <img src={chromebrowserIcon} alt="Chrome" />

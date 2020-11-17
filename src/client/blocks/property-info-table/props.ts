@@ -1,5 +1,8 @@
 type OwnProps = {
-	title?: string,
+	info: {
+		title?: string,
+		value?: string
+	}[]
 }
 
 export type Props = OwnProps;

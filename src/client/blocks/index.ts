@@ -11,4 +11,7 @@ export * from './directory-info';
 export * from './support-table';
 export * from './specification-table';
 export * from './attributes-table';
+export * from './property-code-table';
+export * from './property-info-table';
+export * from './property-version-table';
 export * from './breadcrumbs';

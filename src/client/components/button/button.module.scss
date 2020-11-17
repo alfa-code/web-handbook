@@ -10,6 +10,8 @@
   line-height: 19px;
   border-radius: 4px;
   transition: all 0.5s;
+  display: inline-flex;
+  align-items: center;
 
   &:hover,
   &:active {

@@ -1,9 +1,10 @@
 type OwnProps = {
 	themes: {
 		title?: string,
+		url?: string,
 		recipes: {
 			text?: string,
-			url?: string
+			url?: string,
 		}[]
 	}[]
 }

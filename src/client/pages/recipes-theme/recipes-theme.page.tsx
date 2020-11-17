@@ -4,43 +4,36 @@ import { Props } from './props';
 
 import styles from './recipes-theme.module.scss';
 
-import { Header, Navigation, Sidebar, Footer, PageTop, Breadcrumbs } from 'Blocks/index';
+import { Sidebar, Breadcrumbs } from 'Blocks/index';
+import { Link } from 'react-router-dom';
 
 export const RecipesTheme = ({theme} : Props) => {
     return (
-        <div>
-            <Header  />
-            <div className="layout">
-                <Navigation />
-                <div className="content">
+        <div className="page">
 
-                    <div className="page">
-
-                        <div className="pageContent">
-                            <Breadcrumbs path={["Главное", "HTML справочник "]} />
-                        
-                            <div className="mt-4 text-heading-2">
-                                {theme.title}
-                            </div>
-
-                            { theme.recipes.map((recipe, key) => {
-                                return (
-                                    <div>
-                                        <div className="mt-5 text-heading-4">
-                                            { recipe.text }
-                                        </div>
-                                        <div className="mt-3 text-body-2">
-                                            { recipe.description }
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <Sidebar />
-                    </div>
+            <div className="pageContent">
+                <Breadcrumbs path={["Главное", "HTML справочник "]} />
+            
+                <div className="mt-4 text-heading-2">
+                    {theme.title}
                 </div>
+
+                { theme.recipes.map((recipe, key) => {
+                    return (
+                        <div>
+                            <div className={ styles.recipeLink }>
+                                <Link to={recipe.url} className="text-heading-4">
+                                    { recipe.text }
+                                </Link>
+                            </div>
+                            <div className="mt-3 text-body-2">
+                                { recipe.description }
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
-            <Footer />
+            <Sidebar />
         </div>
     );
 }

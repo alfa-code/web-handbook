@@ -3,6 +3,7 @@ import React from 'react';
 import { Props } from './props';
 
 import styles from './attributes-table.module.scss';
+import { Link } from 'react-router-dom';
 
 export const AttributesTable = ({attributes} : Props) => {
     return (
@@ -19,9 +20,9 @@ export const AttributesTable = ({attributes} : Props) => {
                         return (
                             <tr key={key}>
                                 <td>
-                                    <a className="link-body-2" href="#">
+                                    <Link className="link-body-2" to="/attribute">
                                         {item.title}
-                                    </a>
+                                    </Link>
                                 </td>
                                 <td>
                                     <span className="text-body-2">{item.description}</span>

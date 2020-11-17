@@ -93,10 +93,16 @@ const navInfo = [
 ]
 
 export const Navigation = () => {
+    const [showNavigation, setShowNavigation] = useState(false);
     const [activeDirectory, setActiveDirectory] = useState("");
     const navigation = navInfo;
     return (
-        <nav className={ styles.navigation }>
+        <nav className={ [styles.navigation, showNavigation ? styles.open : ""].join('') }>
+            
+            <div onClick={() => {setShowNavigation(showNavigation ? false : true)}} className={ styles.navigationCollapseBtn }>
+                &gt;
+            </div>
+
             { navigation.map(directory => {
                 return (
                     <div 

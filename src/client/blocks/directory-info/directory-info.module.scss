@@ -14,6 +14,12 @@
     li {
       margin-top: $space-s;
       flex: 0 1 25%;
+      
+      @include media("<tablet-1") {
+        flex: 0 1 50%;
+      }
     }
+
+    
   }
 }

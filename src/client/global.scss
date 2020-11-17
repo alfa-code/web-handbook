@@ -207,22 +207,64 @@ a:hover {
 img {
     max-width: 100%;
 }
-
-.layout {
+.d-flex {
     display: flex;
-
+} 
+.align-center {
+    align-items: center;
+}
+.layout {
+    max-width: 1920px;
+    min-width: 320px;
+    display: grid;
+    grid-template-columns: 336px calc(100% - 336px);
+    grid-template-areas: 
+        "h h"
+        "n c"
+        "n f"
+    ;
+    @include media("<desktop-2") {
+        grid-template-columns: 265px calc(100% - 265px);
+        grid-template-areas: 
+        "h h"
+        "n c"
+        "f f"
+    ;
+    }
+    @include media("<tablet-2") {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+        "h h"
+        "n n"
+        "c c"
+        "f f"
+    ;
+    }
     .content {
         flex: 1 1;
+        grid-area: c;
     }
 }
 .page {
     padding: $space-xxl 0;
     display: flex;
     background: $lightBackground;
+    
+    @include media("<desktop-2") {
+        padding: $space-xl 0;
+    }
+
+    @include media("<tablet-2") {
+        padding: $space-m 0;
+    }
 }
 .pageContent {
     flex: 1 1;
     padding: 0 $space-l;
+
+    @include media("<tablet-2") {
+        padding: 0 $space-s;
+    }
 }
 
 .mt-1 {
@@ -272,7 +314,43 @@ img {
 .mr-6 {
     margin-right: $space-xxl;
 }
+.ml-1 {
+    margin-left: $space-xs;
+}
 
+.ml-2 {
+    margin-left: $space-s;
+}
+
+.ml-3 {
+    margin-left: $space-m;
+}
+
+.ml-4 {
+    margin-left: $space-l;
+}
+
+.ml-5 {
+    margin-left: $space-xl;
+}
+
+.ml-6 {
+    margin-left: $space-xxl;
+}
+@include media("<desktop-2") {
+
+}
+@include media("<tablet-2") {
+    .mt-sm-3 {
+        margin-top: $space-m;
+    }   
+    .mt-sm-2 {
+        margin-top: $space-s;
+    }
+}
+.illustration {
+    text-align: center;
+}
 .disabled {
     pointer-events: none;
     user-select: none;
@@ -297,6 +375,13 @@ img {
     font-weight: 700;
     line-height: $font-size-6;
     color: $textPrimary;
+
+    @include media("<desktop-2") {
+        font-size: $font-size-4; 
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-2; 
+    }
 }
 
 .text-heading-4 {
@@ -305,6 +390,12 @@ img {
     font-weight: 700;
     line-height: $line-height-3;
     color: $textPrimary;
+    @include media("<desktop-2") {
+        font-size: $font-size-2; 
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-1; 
+    }
 }
 
 .text-heading-5 {
@@ -329,6 +420,13 @@ img {
     font-weight: 400;
     line-height: 31px;
     color: $textParagraphs;
+
+    @include media("<desktop-2") {
+        font-size: $font-size-1; 
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-small; 
+    }
 }
 
 .text-body-1 {
@@ -347,6 +445,9 @@ img {
     b {
         font-weight: 500;
         color: $primary;
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-small; 
     }
 }
 
@@ -387,6 +488,9 @@ img {
     &:hover {
         color: $textPrimary;
         text-decoration: none;
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-1; 
     }
 }
 

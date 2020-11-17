@@ -12,6 +12,9 @@
     padding-right: $space-s;
     // max-width: 230px;
   }
+  @include media("<desktop-1") {
+    display: none;
+  }
 
   &Item {
     display: flex;

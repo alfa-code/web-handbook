@@ -9,8 +9,8 @@ import styles from './footer.module.scss';
 export class Footer extends Component<Props> {
     render() {
         return (
-            <footer>
-                <div className={ styles.footer }>
+            <footer className={ styles.footer }>
+                <div className={ styles.footerInner }>
                     <div className={ [styles.footerColumn, 'mt-5'].join(' ') }>
                         <Logo />
 
@@ -20,10 +20,9 @@ export class Footer extends Component<Props> {
                         </div>
                 
                         <div className="mt-3 text-body-3">
-                            Наши условия 
-                            <a href="#" className="link-body-3">использования</a>
+                            Наши условия <a href="#" className="link-body-3 mr-1">использования</a>
                             и
-                            <a href="#" className="link-body-3">конфиденциальности</a>
+                            <a href="#" className="link-body-3 ml-1">конфиденциальности</a>
                         </div>
                     </div>
                 
@@ -56,10 +55,12 @@ export class Footer extends Component<Props> {
                             Напишите нам если у вас есть предложение <br/> 
                             или заметили ошибку
                         </div>
-                        <div className="mt-3">
+                        <a href="#" className="link-navigation d-flex align-center mt-3"> 
                             <Icon size="16" icon="email-icon"></Icon>
-                            <a href="#" className="link-navigation">web_handbook.info@alfacode.ru</a>
-                        </div>
+                            <div className="ml-2">
+                                web_handbook.info@alfacode.ru
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div className={ styles.footerBottom }>

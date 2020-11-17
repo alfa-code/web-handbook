@@ -1,14 +1,26 @@
 @import "Src/client/breakpoints.scss";
 
 .navigation {
-  width: 336px;
+  // min-width: 336px;
   height: 100%;
+  grid-area: n;
 
-  @include media("<desktop-2") {
-    width: 265px;
-  }
+  // @include media("<desktop-2") {
+  //   min-width: 265px;
+  // }
 }
+.navigationCollapseBtn {
+  display: none;
+  text-align: center;
+  font-size: 30px;
+  padding: 16px 16px 0 16px;
+  cursor: pointer;
+  color: $Gray;
 
+  // @include media("<desktop-1") {
+  //   display: block;
+  // }
+}
 .navigationCategory {
   &Inner {
     display: flex;
@@ -20,7 +32,6 @@
     @include media("<desktop-2") {
       padding: $space-s $space-m $space-s $space-l;
     }
-
     .svgIcon {
       fill: #b6bcc3;
       margin-right: 18px;
@@ -35,6 +46,10 @@
       color: $textParagraphs;
       font-size: $font-size-1;
       line-height: $line-height-2;
+      
+      @include media("<desktop-1") {
+        // display: none;
+      }
 
       &:hover {
         color: $uiRed;
@@ -42,6 +57,9 @@
     }
     .arrowIcon {
       margin-left: auto;
+      @include media("<desktop-1") {
+        // display: none;
+      }
     }
   }
   &Collapse {
@@ -144,5 +162,8 @@
     height: auto;
     max-height: 500px;
   }
+}
+.open {
+
 }
 

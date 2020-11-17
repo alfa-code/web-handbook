@@ -1,9 +1,16 @@
 @import "Src/client/breakpoints.scss";
 
 .mainPage {
-    padding: $space-xxl 0 0;
-    display: flex;
-  
+  padding: $space-xxl 0 0;
+  display: flex;
+    
+    @include media("<desktop-2") {
+      padding: $space-xl 0 0;
+    }
+    @include media("<tablet-2") {
+      background: $lightBackground;
+    }
+
     .mainBg {
       position: absolute;
       width: calc(100% - 64px - 57px);
@@ -33,7 +40,7 @@
       padding: $space-l $space-l $space-xl;
       background: $background2;
       border-radius: 4px;
-  
+      
       img {
         margin-top: -64px;
         width: 50%;
@@ -53,6 +60,13 @@
         .text-subheading {
           margin-top: $space-s;
           font-size: 16px;
+        }
+      }
+      @include media("<tablet-2") {
+        flex-direction: column;
+        justify-content: center;
+        img {
+          width: 100%;
         }
       }
     }
