@@ -20,7 +20,8 @@ export const Header = () => {
                 >
                     Главное
                 </Link>
-                <div className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
+                <div
+className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
                     onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
                     HTML 
                     <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
@@ -40,7 +41,8 @@ export const Header = () => {
                         </Link>
                     </div>
                 </div>
-                <div className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
+                <div
+className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
                     onClick={() => setActiveDropdown(activeDropdown == "CSS" ? "" : "CSS")}>
                     CSS 
                     <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
