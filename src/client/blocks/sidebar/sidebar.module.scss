@@ -1,42 +1,43 @@
 @import "Src/client/breakpoints.scss";
+
 .pageSide {
-  padding-right: var(--space-xxl);
-  padding-bottom: var(--space-xxl);
+  padding-right: $space-xxl;
+  padding-bottom: $space-xxl;
   max-width: 272px;
   min-width: 272px;
   width: 100%;
   box-sizing: content-box;
 
   @include media("<desktop-2") {
-    padding-right: var(--space-s);
+    padding-right: $space-s;
     // max-width: 230px;
   }
 
   &Item {
     display: flex;
     align-items: flex-start;
-    margin-top: var(--space-s);
+    margin-top: $space-s;
     max-width: 272px;
     .svgIcon {
       margin-right: 8px;
-      fill: var(--Gray);
+      fill: $Gray;
     }
 
     .tag {
-      margin-left: var(--space-xs);
+      margin-left: $space-xs;
     }
 
     &:hover {
       text-decoration: none;
 
       .svgIcon {
-        fill: var(--uiRed);
+        fill: $uiRed;
       }
     }
   }
 
   &PromoCard {
-    padding: var(--space-m);
+    padding: $space-m;
     position: relative;
     width: 100%;
     height: 363px;

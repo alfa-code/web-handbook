@@ -21,52 +21,51 @@ export class Main extends PureComponent<Props> {
                     <div className="content">
                         <div className={ styles.mainPage }>
 	
-                        <div className={ styles.mainPageContent }>
-                            <div className={ styles.mainBg }></div>
+                            <div className={ styles.mainPageContent }>
+                                <div className={ styles.mainBg }></div>
 
-                            <div className={ styles.mainPageTop }>
-                                <img src={ MainSvg } alt="Main" />
-                                <div className={ styles.mainPageTopContent }>
-                                    <div className="text-heading-2">
-                                        Web Handbook
+                                <div className={ styles.mainPageTop }>
+                                    <img src={ MainSvg } alt="Main" />
+                                    <div className={ styles.mainPageTopContent }>
+                                        <div className="text-heading-2">
+                                            Web Handbook
+                                        </div>
+                                        <div className="text-subheading">
+                                            Это профессиональный ресурс для начинающих <br />
+                                            и практикующих фронт-энд разработчиков.
+                                        </div> 
                                     </div>
-                                    <div className="text-subheading">
-                                        Это профессиональный ресурс для начинающих <br />
-                                        и практикующих фронт-энд разработчиков.
-                                    </div> 
+                                </div>
+                            
+                                <div className={ styles.mainPageLinks }>
+                                    <MainPageLink 
+                                        title="HTML справочник"
+                                        subTitle="Все HTML теги"
+                                        image={ HTMLImage1 }
+                                        url="#" />
+                                    
+                                    <MainPageLink 
+                                        title="CSS справочник"
+                                        subTitle="Все свойства"
+                                        image={ CSSImage1 }
+                                        url="#" />
+
+                                    <MainPageLink 
+                                        title="HTML рецепты"
+                                        subTitle="Набор руководств по HTML"
+                                        image={ HTMLImage2 }
+                                        url="#" />
+
+                                    <MainPageLink 
+                                        title="CSS рецепты"
+                                        subTitle="Набор руководств по СSS"
+                                        image={ CSSImage2 }
+                                        url="#" />
                                 </div>
                             </div>
-                        
-                            <div className={ styles.mainPageLinks }>
-                                <MainPageLink 
-                                    title="HTML справочник"
-                                    subTitle="Все HTML теги"
-                                    image={ HTMLImage1 }
-                                    url="#" />
-                                
-                                <MainPageLink 
-                                    title="CSS справочник"
-                                    subTitle="Все свойства"
-                                    image={ CSSImage1 }
-                                    url="#" />
+                            <Sidebar />
 
-                                <MainPageLink 
-                                    title="HTML рецепты"
-                                    subTitle="Набор руководств по HTML"
-                                    image={ HTMLImage2 }
-                                    url="#" />
-
-                                <MainPageLink 
-                                    title="CSS рецепты"
-                                    subTitle="Набор руководств по СSS"
-                                    image={ CSSImage2 }
-                                    url="#" />
-                            </div>
                         </div>
-                        <Sidebar />
-
-                    </div>
-
                         <Footer />
                     </div>
                 </div>

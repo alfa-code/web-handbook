@@ -1,9 +1,11 @@
+@import "Src/client/breakpoints.scss";
+
 .mainPageLink {
-  padding: var(--space-l);
-  background: var(--inverse);
+  padding: $space-l;
+  background: $inverse;
   border-radius: 4px;
   display: flex;
-  margin-top: var(--space-l);
+  margin-top: $space-l;
   flex: 0 1 calc(50% - 16px);
 
   &Content {
@@ -14,7 +16,7 @@
       flex: 1 1;
       justify-content: flex-end;
       // margin-top: 45px;
-      color: var(--brandRed);
+      color: $brandRed;
       display: block;
     }
   }

@@ -18,3 +18,96 @@ $breakpoints: (
     desktop-2: $desktop-2,
     desktop-3: $desktop-3
 );
+
+$descktopWidth: 1400px;
+
+// Переменные для отступов
+
+$space-xxs: 4px;
+$space-xs: 8px;
+$space-s: 16px;
+$space-m: 24px;
+$space-l: 32px;
+$space-xl: 48px;
+$space-xxl: 64px;
+$space-xxxl: 128px;
+
+// Переменные для цветов
+
+// Typography colors
+$textPrimary: #172a3f;
+$textParagraphs: #546271;
+$textSecondary: #6d7986;
+$textTetriary: #b5bbc2;
+$inverse: #fff;
+// Brand
+$brandRed: #ef3124;
+$uiRed: #f04539;
+$primary: #0b1f35;
+$secondary: #858f9a;
+$Gray: #b6bcc3;
+// Surface / Background
+$background: #f3f4f5;
+$lightBackground: #f9fafa;
+$background1: #fef9d2;
+$background2: #dae6ff;
+$background3: #d6f5f2;
+$background4: #f5d6d6;
+// Illustrations
+$illustrationBlue: #4480ff;
+$illustrationYellow: #ffb96f;
+$illustrationGreen: #40b198;
+$illustrationRed: #ff5c5c;
+// Hover
+$hoverBrandRed: #d92c21;
+$hoverPrimary: #000;
+$disabledColor: #d3d6d8;
+
+// Переменные для шрифтов
+$fontPrimary: "Roboto", sans-serif;
+$fontSecondary: "Rubik", sans-serif;
+
+$font-size-caption: 12px;
+$line-height-caption: 18px;
+
+$font-size-small: 13px;
+$font-size-1: 16px;
+$font-size-2: 18px;
+$line-height-2: 22px;
+
+$font-size-3: 22px;
+$line-height-3: 26px;
+
+$font-size-4: 30px;
+$font-size-5: 40px;
+$font-size-6: 48px;
+
+/* Colors */
+$text-primary: #172a3f;
+$text-paragraphs: #546271;
+$text-secondary: #6d7986;
+$text-tetriary: #b5bbc2;
+$text-green: #13a463;
+$text-inverse: #fff;
+
+$brand-red: #ef3124;
+$brand-primary: #172a3f;
+$brand-secondary: #858f9a;
+$brand-gray: #b6bcc3;
+$brand-black: #0b1f35;
+
+$background-main: #f3f4f5;
+$background-light: #f9fafa;
+$background-1: #fef9d2;
+$background-2: #dae6ff;
+$background-3: #d6f5f2;
+$background-green: #13a463;
+$background-white: #fff;
+
+$illustrations-blue: #4480ff;
+$illustration-yellow: #ffb96f;
+$illustration-green: #40b198;
+$illustration-red: #ff5c5c;
+
+$hover-brand-red: #d92c21;
+$hover-primary: #000;

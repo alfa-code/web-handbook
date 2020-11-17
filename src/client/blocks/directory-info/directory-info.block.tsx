@@ -16,7 +16,7 @@ export const DirectoryInfo = ({ directory } : Props) => {
             </div>
             <ul>
                 { directory.items.map((item, i) => 
-                    <li key={ i }>
+                    <li key={ i } className="text-body-1">
                         <a className="text-body-1" href={ item.url }>{ item.text }</a>
                         { item.tag ? 
                             <Tag 

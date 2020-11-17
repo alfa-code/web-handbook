@@ -1,16 +1,16 @@
 @import "Src/client/breakpoints.scss";
 
 .footer {
-  background: var(--lightBackground);
+  background: $lightBackground;
   display: flex;
-  padding: 0 var(--space-l) var(--space-xxl) var(--space-l);
+  padding: 0 $space-l $space-xxl $space-l;
 
   &Column {
-    margin-right: var(--space-l);
+    margin-right: $space-l;
     padding-right: 86px;
 
     @include media("<desktop-2") {
-      padding-right: var(--space-l);
+      padding-right: $space-l;
     }
 
     &:last-child {
@@ -20,10 +20,10 @@
   }
 }
 .footerBottom {
-  background: var(--background);
+  background: $background;
   height: 128px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--textParagraphs) !important;
+  color: $textParagraphs !important;
 }

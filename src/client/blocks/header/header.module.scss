@@ -4,11 +4,11 @@
   display: flex;
   height: 96px;
   align-items: center;
-  padding: 0 var(--space-l) 0 var(--space-xxl);
+  padding: 0 $space-l 0 $space-xxl;
   border-bottom: 1px solid #f3f4f5;
 
   @include media("<desktop-2") {
-    padding: 0 var(--space-l);
+    padding: 0 $space-l;
   }
 
   .headerMenu {
@@ -16,35 +16,35 @@
     display: flex;
 
     .headerMenuLink {
-      margin: 0 var(--space-l);
+      margin: 0 $space-l;
       padding: 36px 0;
-      color: var(--primary);
+      color: $primary;
       transition: all 0.5s;
 
 			&:hover {
 				text-decoration: none;
-				color: var(--uiRed);
+				color: $uiRed;
 			}
 
 			&.active {
-				box-shadow: 0 2px 0 0 var(--brandRed);
+				box-shadow: 0 2px 0 0 $brandRed;
 			}
     }
 
     .dropdown {
       position: relative;
-      margin: 0 var(--space-l);
+      margin: 0 $space-l;
       padding: 36px 0;
-      color: var(--primary);
+      color: $primary;
       transition: all 0.5s;
       cursor: pointer;
       display: flex;
       align-items: center;
 
       &:hover {
-        color: var(--uiRed);
+        color: $uiRed;
         svg {
-          fill: var(--uiRed);
+          fill: $uiRed;
         }
       }
 
@@ -61,14 +61,14 @@
 
         .dropdownInnerLink {
           width: 100%;
-          padding: var(--space-s);
-          border-bottom: 1px solid var(--background);
-          color: var(--primary);
+          padding: $space-s;
+          border-bottom: 1px solid $background;
+          color: $primary;
           transition: all 0.5s;
 
           &:hover {
             text-decoration: none;
-            color: var(--uiRed);
+            color: $uiRed;
           }
 
           &:last-child {
@@ -78,7 +78,7 @@
 			}
     }
 		.dropdown.active {
-			box-shadow: 0 2px 0 0 var(--brandRed);
+			box-shadow: 0 2px 0 0 $brandRed;
 		}
 
 		.dropdown.active {
@@ -93,21 +93,21 @@
 			position: relative;
 		
 			.inputWrapperInput {
-				padding: 0 40px 0 var(--space-s);
+				padding: 0 40px 0 $space-s;
 				height: 40px;
 				width: 376px;
-				border: 1px solid var(--Gray);
+				border: 1px solid $Gray;
 				box-sizing: border-box;
 				border-radius: 4px;
 				background: none;
-				color: var(--textParagraphs);
+				color: $textParagraphs;
 		
 				&:active {
-					border: 1px solid var(--primary);
+					border: 1px solid $primary;
 				}
 		
 				&::placeholder {
-					color: var(--textTetriary);
+					color: $textTetriary;
 				}
 			}
 			.inputWrapperIcon {
@@ -119,12 +119,12 @@
 				cursor: pointer;
 				
 				.svgIcon {
-					fill: var(--primary);
+					fill: $primary;
 				}
 			}
 			.inputWrapperIcon:hover {
 				.svgIcon {
-					fill: var(--uiRed);
+					fill: $uiRed;
 				}
 			}
 		}

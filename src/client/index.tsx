@@ -1,3 +1,4 @@
+import './breakpoints.scss';
 import './global.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';

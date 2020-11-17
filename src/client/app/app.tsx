@@ -12,7 +12,18 @@ import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 import { createRootReducer } from 'Src/reducers';
 import { rootSaga } from 'Src/sagas';
 
-import { Main, NotFound, Directory, Recipes } from 'Pages/index';
+import { 
+    Main, 
+    NotFound, 
+    Directory, 
+    Recipes, 
+    Tag, 
+    Attribute,
+    Category, 
+    RecipesTheme,
+    Recipe,
+    Property 
+} from 'Pages/index';
 
 import CONSTANTS from './constants';
 
@@ -81,6 +92,40 @@ export default class App extends React.Component<Props> {
                         exact
                         path='/recipes'
                         component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                    />
+                    <Route
+                        exact
+                        path='/tag'
+                        component={ () => <Tag /> }
+                    />
+                    <Route
+                        exact
+                        path='/attribute'
+                        component={ () => <Attribute /> }
+                    />
+                    <Route
+                        exact
+                        path='/tag-types'
+                        component={ () => <Category 
+                            title={CONSTANTS.tagTypes.title}
+                            types={CONSTANTS.tagTypes.types} /> }
+                    />
+                    <Route
+                        exact
+                        path='/recipes-theme'
+                        component={ () => <RecipesTheme 
+                            theme={CONSTANTS.themes[0]} /> }
+                    />
+                    <Route
+                        exact
+                        path='/recipe'
+                        component={ () => <Recipe
+                            title="Как убрать полосы прокрутки?" /> }
+                    />
+                    <Route
+                        exact
+                        path='/property'
+                        component={ () => <Property /> }
                     />
                     <Route
                         path='*'

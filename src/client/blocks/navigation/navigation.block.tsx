@@ -119,9 +119,9 @@ export const Navigation = () => {
 
                                 { directory.categories.map((category, i) => {
                                     return (
-                                        <div className={ [ styles.dropdown, styles.active ].join(' ') } key={ i }>
+                                        <div className={ [ styles.dropdown ].join(' ') } key={ i }>
                                             <div className={ styles.navigationCategoryCollapseItem }>
-                                                { () => {
+                                                {/* { () => {
                                                     if(category.childrens.length > 0) {
                                                         return (
                                                         <div className={ styles.navigationCategoryCollapseItemCaret }>
@@ -129,7 +129,7 @@ export const Navigation = () => {
                                                         </div>
                                                         )
                                                     }
-                                                }}
+                                                }} */}
                                                 <div className={ styles.navigationCategoryCollapseItemIcon }>
                                                     <Icon className={styles.svgIcon} size="16" icon="document-icon" />
                                                 </div>
@@ -137,17 +137,17 @@ export const Navigation = () => {
                                                     { category.name }
                                                 </a>
                                             </div>
-                                            { category.childrens !== undefined ? (
+                                            {/* { category.childrens !== undefined ? 
                                                 <ul className={ [styles.navigationCategoryCollapseItemCollapse, styles.dropdownInner, styles.active].join(' ') }>
-                                                    { category.childrens.map(item => {
+                                                    { category.childrens.map((item, i) => {
                                                         return (
-                                                            <li key="item.text">
+                                                            <li key={i}>
                                                                 <a href={ item.url }>{ item.text }</a>
                                                             </li>
                                                         )
                                                     }) }
                                                 </ul>
-                                            ) : "" }
+                                             : null } */}
                                         </div>
                                     )
                                 }) }

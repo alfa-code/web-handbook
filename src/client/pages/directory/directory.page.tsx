@@ -13,14 +13,12 @@ export const Directory = ({ directory } : Props) => {
             <div className="layout">
                 <Navigation />
                 <div className="content">
-
-                    <PageTop 
-                        title={directory.title} 
-                        description={directory.description} 
-                        img={directory.img} />
-
-                    <div className={ styles.page }>
-                        <div className={ styles.pageContent }>
+                    <div className="page">
+                        <div className="pageContent">
+                            <PageTop 
+                                title={directory.title} 
+                                description={directory.description} 
+                                img={directory.img} />
                             { directory.lists.map(list => 
                                  <div>
                                      { list.title ?
@@ -40,11 +38,9 @@ export const Directory = ({ directory } : Props) => {
                                 )
                             }
                         </div> 
+                        <Sidebar />
                     </div>
-
-
                 </div>
-                <Sidebar />
             </div>
             <Footer />
         </div>

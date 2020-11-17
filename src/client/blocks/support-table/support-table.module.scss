@@ -1,0 +1,48 @@
+@import "Src/client/breakpoints.scss";
+
+table.support {
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 16px;
+  color: #172a3f;
+  width: 100%;
+
+  tr {
+    display: flex;
+    width: 100%;
+    td,
+    th {
+      display: flex;
+      align-items: center;
+      width: calc(100% / 7);
+      padding: 19px $space-s;
+
+      img,
+      .svg-icon {
+        margin-right: 10px;
+      }
+    }
+
+    th {
+      font-weight: normal;
+      background: $inverse;
+      border-right: 1px solid $Gray;
+      border-bottom: 1px solid $Gray;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    td {
+      border-right: 1px solid $Gray;
+
+      &:last-child {
+        border-right: none;
+      }
+      .svg-icon {
+        fill: #0b1f35;
+      }
+    }
+  }
+}
