@@ -26,8 +26,8 @@ export default {
 							{ text: "<address>", url: "#" },
 							{ text: "<applet>", url: "#" },
 							{ text: "<area>", url: "#" },
-							{ text: "<article>", url: "#", tag: { text: "HTML5", className: "red"} },
-							{ text: "<aside>", url: "#", tag: { text: "HTML5", className: "red"} },
+							{ text: "<article>", url: "#", tag: { text: "HTML5", className: "red" } },
+							{ text: "<aside>", url: "#", tag: { text: "HTML5", className: "red" } },
 							{ text: "<audio>", url: "#" }
 						]
 					}

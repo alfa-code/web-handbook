@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-import { Props } from './props';
-
 import { Logo, Icon } from 'Components/index';
 
+import { Props } from './props';
 import styles from './header.module.scss';
 import { NavLink } from 'react-router-dom';
 
@@ -31,8 +30,8 @@ export const Header = () => {
                     </div>
 
                     <div className={ styles.dropdownInner } >
-                        <NavLink activeClassName={ styles.active } to="/directory-html" className={ styles.dropdownInnerLink }>HTML справочник</NavLink>
-                        <NavLink activeClassName={ styles.active } to="/recipes-html" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/html" className={ styles.dropdownInnerLink }>HTML справочник</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/html/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink>
                     </div>
                 </div>
                 <div className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
@@ -43,8 +42,8 @@ export const Header = () => {
                     </div>
 
                     <div className={ styles.dropdownInner }>
-                        <NavLink activeClassName={ styles.active } to="/directory-css" className={ styles.dropdownInnerLink }>CSS справочник</NavLink>
-                        <NavLink activeClassName={ styles.active } to="/recipes-css" className={ styles.dropdownInnerLink }>CSS рецепты</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/css" className={ styles.dropdownInnerLink }>CSS справочник</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/css/recipes" className={ styles.dropdownInnerLink }>CSS рецепты</NavLink>
                     </div>
                 </div>
             </div>

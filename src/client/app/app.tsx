@@ -10,6 +10,7 @@ import { createBrowserHistory, createMemoryHistory  } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import { createRootReducer } from 'Src/reducers';
+
 import { rootSaga } from 'Src/sagas';
 
 import { 
@@ -24,8 +25,6 @@ import {
     Recipe,
     Property 
 } from 'Pages/index';
-
-import { Header, Navigation, Footer } from 'Blocks/index';
 
 import CONSTANTS from './constants';
 
@@ -78,11 +77,7 @@ type Props = {
 export default class App extends React.Component<Props> {
     getMainContent() {
         return (
-            <div className="layout">
-                <Header  />
-                <Navigation />
-                <div className="content">
-                    <>
+            <>
                         <Switch>
                             <Route
                                 exact
@@ -92,23 +87,23 @@ export default class App extends React.Component<Props> {
 
                             <Route
                                 exact
-                                path='/directory-html'
+                                path='/html'
                                 component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="html" /> }
                             />
                             <Route
                                 exact
-                                path='/directory-css'
+                                path='/css'
                                 component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="css" /> }
                             />
                             
                             <Route
                                 exact
-                                path='/recipes-html'
+                                path='/html/recipes'
                                 component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
                             />
                             <Route
                                 exact
-                                path='/recipes-css'
+                                path='/css/recipes'
                                 component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
                             />
                             <Route
@@ -135,7 +130,7 @@ export default class App extends React.Component<Props> {
                             />
                             <Route
                                 exact
-                                path='/tag'
+                                path='/html/:htmlTag'
                                 component={ () => <Tag /> }
                             />
                             <Route
@@ -155,7 +150,7 @@ export default class App extends React.Component<Props> {
                             />
                             <Route
                                 exact
-                                path='/property'
+                                path='/css/:cssRule'
                                 component={ () => <Property /> }
                             />
                             
@@ -165,9 +160,6 @@ export default class App extends React.Component<Props> {
                             />
                         </Switch>
                     </>
-                </div>
-                <Footer />
-            </div>
         );
     }
 
