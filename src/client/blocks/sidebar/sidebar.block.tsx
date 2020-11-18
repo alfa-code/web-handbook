@@ -74,7 +74,7 @@ const cssSidebar = {
     ]
 };
 
-export const Sidebar = ({type}: Props) => {
+export const Sidebar = ({ type }: Props) => {
     let sidebar = null;
     switch (type) {
         case "main":

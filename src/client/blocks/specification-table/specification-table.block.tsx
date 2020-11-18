@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import styles from './specification-table.module.scss';
 
-export const SpecificationTable = ({html, xhtml} : Props) => {
+export const SpecificationTable = ({ html, xhtml } : Props) => {
     return (
         <div className={ styles.specificationTableWrapper }>
             <table className={ styles.specification }>

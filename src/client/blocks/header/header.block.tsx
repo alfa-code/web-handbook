@@ -22,7 +22,8 @@ export const Header = () => {
                 <div className={ styles.headerMenuLink }>
                     <NavLink activeClassName={ styles.active } exact to="/" className={ styles.headerMenuLink }>Главное</NavLink>
                 </div>
-                <div className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
+                <div
+className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
                     onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
                     <div className={ styles.dropdownActivator }>
                         HTML 
@@ -34,7 +35,8 @@ export const Header = () => {
                         <NavLink activeClassName={ styles.active } to="/html/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink>
                     </div>
                 </div>
-                <div className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
+                <div
+className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
                     onClick={() => setActiveDropdown(activeDropdown == "CSS" ? "" : "CSS")}>
                     <div className={ styles.dropdownActivator }>
                         CSS 

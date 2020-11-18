@@ -132,7 +132,8 @@ export const Navigation = () => {
     }
     const renderList2 = (category, i) => {
         return (
-            <div className={ [ styles.dropdown, activeCategory == category.name ? styles.active : null ].join(' ') } key={ i }
+            <div
+className={ [ styles.dropdown, activeCategory == category.name ? styles.active : null ].join(' ') } key={ i }
                 onClick={(e) => {
                     e.stopPropagation();
                     setActiveCategory(activeCategory == category.name ? "" : category.name)

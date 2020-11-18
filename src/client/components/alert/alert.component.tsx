@@ -6,7 +6,7 @@ import { Icon } from 'Components/index';
 
 import styles from './alert.module.scss';
 
-export const Alert = ({message} : Props) => {
+export const Alert = ({ message } : Props) => {
     return (
         <div className={ styles.alert }>
             <div className={ styles.alertIcon }>

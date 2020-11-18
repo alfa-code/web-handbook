@@ -12,7 +12,7 @@ import styles from './recipe.module.scss';
 import { Alert } from 'Src/client/components';
 import { Layout } from 'Pages/index';
 
-export const Recipe = ({title, type} : Props) => {
+export const Recipe = ({ title, type } : Props) => {
     return (
         <Layout>
             <div className="page">

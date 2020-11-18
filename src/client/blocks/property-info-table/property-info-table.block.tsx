@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import styles from './property-info-table.module.scss';
 
-export const PropertyInfoTable = ({info} : Props) => {
+export const PropertyInfoTable = ({ info } : Props) => {
     return (
         <div className={ styles.cssTableWrapper }>
             <table>

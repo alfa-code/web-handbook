@@ -56,10 +56,10 @@ export const Property = () => {
 
                     <div className="mt-3">
                         <PropertyInfoTable info={[
-                            { title: "Значение по умолчанию", value: "Нет"},
-                            { title: "Наследуется", value: "Нет"},
-                            { title: "Применяется", value: "Ко всем элементам"},
-                            { title: "Ссылка на спецификацию", value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"}
+                            { title: "Значение по умолчанию", value: "Нет" },
+                            { title: "Наследуется", value: "Нет" },
+                            { title: "Применяется", value: "Ко всем элементам" },
+                            { title: "Ссылка на спецификацию", value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules" }
                         ]} />
                     </div>
 

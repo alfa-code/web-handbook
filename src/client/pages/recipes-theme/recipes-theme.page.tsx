@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 import { Layout } from 'Pages/index';
 
-export const RecipesTheme = ({theme, type} : Props) => {
+export const RecipesTheme = ({ theme, type } : Props) => {
     return (
         <Layout>
             <div className="page">

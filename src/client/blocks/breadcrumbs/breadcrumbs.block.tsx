@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import styles from './breadcrumbs.module.scss';
 
-export const Breadcrumbs = ({path} : Props) => {
+export const Breadcrumbs = ({ path } : Props) => {
     return (
         <div className={ styles.breadcrumbs }>
             { path.map((item, key) => 

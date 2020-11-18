@@ -5,7 +5,7 @@ import { Props } from './props';
 import styles from './attributes-table.module.scss';
 import { Link } from 'react-router-dom';
 
-export const AttributesTable = ({attributes} : Props) => {
+export const AttributesTable = ({ attributes } : Props) => {
     return (
         <div className="tableWrapper">
             <table cellSpacing="0" className={ styles.attributes } >

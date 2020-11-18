@@ -8,7 +8,7 @@ import styles from './category.module.scss';
 import { Link } from 'react-router-dom';
 import { Layout } from 'Pages/index';
 
-export const Category = ({title, types, type}) => {
+export const Category = ({ title, types, type }) => {
     return (
         <Layout>
             <div className="page">
