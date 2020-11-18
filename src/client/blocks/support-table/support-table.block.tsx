@@ -10,7 +10,7 @@ import firefoxbrowserIcon from 'Assets/images/firefox-browser-icon.svg';
 import androidIcon from 'Assets/images/android-icon.svg';
 import iosIcon from 'Assets/images/ios-icon.svg';
 
-import { Icon } from 'Components/Index';
+import { Icon } from 'Components/index';
 
 import styles from './support-table.module.scss';
 
