@@ -93,34 +93,35 @@ export default class App extends React.Component<Props> {
                             <Route
                                 exact
                                 path='/directory-html'
-                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="html" /> }
                             />
                             <Route
                                 exact
                                 path='/directory-css'
-                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="css" /> }
                             />
                             
                             <Route
                                 exact
                                 path='/recipes-html'
-                                component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                                component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
                             />
                             <Route
                                 exact
                                 path='/recipes-css'
-                                component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                                component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
                             />
                             <Route
                                 exact
                                 path='/recipes/theme'
                                 component={ () => <RecipesTheme 
-                                    theme={CONSTANTS.themes[0]} /> }
+                                    theme={CONSTANTS.themes[0]}  type="html" /> }
                             />
                             <Route
                                 exact
                                 path='/recipes/theme/recipe'
                                 component={ () => <Recipe
+                                    type="html"
                                     title="Как убрать полосы прокрутки?" /> }
                             />
 
@@ -128,6 +129,7 @@ export default class App extends React.Component<Props> {
                                 exact
                                 path='/tag-types'
                                 component={ () => <Category 
+                                    type="html"
                                     title={CONSTANTS.tagTypes.title}
                                     types={CONSTANTS.tagTypes.types} /> }
                             />
@@ -147,6 +149,7 @@ export default class App extends React.Component<Props> {
                                 exact
                                 path='/category'
                                 component={ () => <Category 
+                                    type="css"
                                     title={CONSTANTS.tagTypes.title}
                                     types={CONSTANTS.tagTypes.types} /> }
                             />

@@ -102,7 +102,7 @@ export const Attribute = () => {
                 */}
             </div>
             
-            <Sidebar />
+            <Sidebar type="html" />
         </div>
     );
 }

@@ -7,7 +7,7 @@ import { Sidebar, Breadcrumbs } from 'Blocks/index';
 import styles from './category.module.scss';
 import { Link } from 'react-router-dom';
 
-export const Category = ({title, types}) => {
+export const Category = ({title, types, type}) => {
     return (
         <div className="page">
             <div className="pageContent">
@@ -33,7 +33,7 @@ export const Category = ({title, types}) => {
                 })
                 }
             </div>
-            <Sidebar />
+            <Sidebar type={type} />
         </div>
     );
 }

@@ -95,6 +95,8 @@ const navInfo = [
 export const Navigation = () => {
     const [showNavigation, setShowNavigation] = useState(false);
     const [activeDirectory, setActiveDirectory] = useState("");
+    const [activeCategory, setActiveCategory] = useState("");
+    
     const navigation = navInfo;
     return (
         <nav className={ [styles.navigation, showNavigation ? styles.open : ""].join('') }>
@@ -125,17 +127,18 @@ export const Navigation = () => {
 
                                 { directory.categories.map((category, i) => {
                                     return (
-                                        <div className={ [ styles.dropdown ].join(' ') } key={ i }>
+                                        <div className={ [ styles.dropdown, activeCategory == category.name ? styles.active : null ].join(' ') } key={ i }
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setActiveCategory(activeCategory == category.name ? "" : category.name)
+                                        }}>
                                             <div className={ styles.navigationCategoryCollapseItem }>
-                                                {/* { () => {
-                                                    if(category.childrens.length > 0) {
-                                                        return (
-                                                        <div className={ styles.navigationCategoryCollapseItemCaret }>
-                                                            <img src={carretDown} width="16" height="16" alt="carret down" />
-                                                        </div>
-                                                        )
-                                                    }
-                                                }} */}
+                                                { category.childrens !== undefined ? 
+                                                    <div className={ styles.navigationCategoryCollapseItemCaret }>
+                                                        <img src={carretDown} width="16" height="16" alt="carret down" />
+                                                    </div>
+                                                    : null
+                                                }
                                                 <div className={ styles.navigationCategoryCollapseItemIcon }>
                                                     <Icon className={styles.svgIcon} size="16" icon="document-icon" />
                                                 </div>
@@ -143,7 +146,7 @@ export const Navigation = () => {
                                                     { category.name }
                                                 </a>
                                             </div>
-                                            {/* { category.childrens !== undefined ? 
+                                            { category.childrens !== undefined ? 
                                                 <ul className={ [styles.navigationCategoryCollapseItemCollapse, styles.dropdownInner, styles.active].join(' ') }>
                                                     { category.childrens.map((item, i) => {
                                                         return (
@@ -153,7 +156,7 @@ export const Navigation = () => {
                                                         )
                                                     }) }
                                                 </ul>
-                                             : null } */}
+                                             : null }
                                         </div>
                                     )
                                 }) }

@@ -58,7 +58,7 @@ export class Main extends PureComponent<Props> {
                             url="#" />
                     </div>
                 </div>
-                <Sidebar />
+                <Sidebar type="main" />
 
             </div>
         );

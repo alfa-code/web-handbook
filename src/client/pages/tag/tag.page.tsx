@@ -119,7 +119,7 @@ export const Tag = () => {
                     {/* <include src='src/templates/components/common/comments.html'></include> */}
                 </div>
             </div>
-            <Sidebar />
+            <Sidebar type="html" />
         </div>
     );
 }

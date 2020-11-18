@@ -7,7 +7,8 @@ type OwnProps = {
 			url?: string,
 			description?: string
 		}[]
-	}
+	},
+	type?: string
 }
 
 export type Props = OwnProps;

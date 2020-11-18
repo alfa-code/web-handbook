@@ -100,8 +100,8 @@
 
       &Caret {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 5px;
+        left: 2px;
       }
 
       &Icon {
@@ -135,6 +135,9 @@
       }
     }
     .dropdown.active {
+      .navigationCategoryCollapseItem {
+        background: $lightBackground;;
+      }
       .navigationCategoryCollapseItemCollapse {
         display: block;
       }

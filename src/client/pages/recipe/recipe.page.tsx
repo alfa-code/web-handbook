@@ -11,7 +11,7 @@ import styles from './recipe.module.scss';
 
 import { Alert } from 'Src/client/components';
 
-export const Recipe = ({title} : Props) => {
+export const Recipe = ({title, type} : Props) => {
     return (
         <div className="page">
 
@@ -93,7 +93,7 @@ export const Recipe = ({title} : Props) => {
                 </div> */}
 
             </div>
-            <Sidebar />
+            <Sidebar type={type} />
         </div>
     );
 }

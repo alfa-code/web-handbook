@@ -9,7 +9,7 @@ import PageTopImage from 'Assets/images/html-instruments.svg'
 import styles from './recipes.module.scss';
 import { Link } from 'react-router-dom';
 
-export const Recipes = ({themes} : Props) => {
+export const Recipes = ({themes, type} : Props) => {
     return (
         <div className="page">
 
@@ -38,7 +38,7 @@ export const Recipes = ({themes} : Props) => {
                     <include src='src/templates/components/common/comments.html'></include>
                 </div> */}
             </div>
-            <Sidebar />
+            <Sidebar type={type} />
         </div>
     );
 }

@@ -153,7 +153,7 @@ export const Property = () => {
                 </div> */}
 
             </div>
-            <Sidebar />
+            <Sidebar type="css" />
         </div>
     );
 }

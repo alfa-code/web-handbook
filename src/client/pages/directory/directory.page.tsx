@@ -6,7 +6,7 @@ import { Sidebar, PageTop, DirectoryInfo } from 'Blocks/index';
 
 import styles from './directory.module.scss';
 
-export const Directory = ({ directory } : Props) => {
+export const Directory = ({ directory, type } : Props) => {
     return (
         <div className="page">
             <div className="pageContent">
@@ -33,7 +33,7 @@ export const Directory = ({ directory } : Props) => {
                     )
                 }
             </div> 
-            <Sidebar />
+            <Sidebar type={type} />
         </div>
     );
 }
