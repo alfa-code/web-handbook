@@ -205,49 +205,51 @@ a:hover {
 img {
     max-width: 100%;
 }
+
 .d-flex {
     display: flex;
-} 
+}
+
 .align-center {
     align-items: center;
 }
+
 .layout {
-    max-width: 1920px;
-    min-width: 320px;
     display: grid;
+    min-width: 320px;
+    max-width: 1920px;
     grid-template-columns: 336px calc(100% - 336px);
-    grid-template-areas: 
+    grid-template-areas:
         "h h"
         "n c"
-        "n f"
-    ;
+        "n f";
     @include media("<desktop-2") {
         grid-template-columns: 265px calc(100% - 265px);
-        grid-template-areas: 
-        "h h"
-        "n c"
-        "f f"
-    ;
+        grid-template-areas:
+            "h h"
+            "n c"
+            "f f";
     }
     @include media("<tablet-2") {
         grid-template-columns: 100%;
-        grid-template-areas: 
-        "h h"
-        "n n"
-        "c c"
-        "f f"
-    ;
+        grid-template-areas:
+            "h h"
+            "n n"
+            "c c"
+            "f f";
     }
+
     .content {
         flex: 1 1;
         grid-area: c;
     }
 }
+
 .page {
-    padding: $space-xxl 0;
     display: flex;
+    padding: $space-xxl 0;
     background: $lightBackground;
-    
+
     @include media("<desktop-2") {
         padding: $space-xl 0;
     }
@@ -256,6 +258,7 @@ img {
         padding: $space-m 0;
     }
 }
+
 .pageContent {
     flex: 1 1;
     padding: 0 $space-l;
@@ -312,6 +315,7 @@ img {
 .mr-6 {
     margin-right: $space-xxl;
 }
+
 .ml-1 {
     margin-left: $space-xs;
 }
@@ -335,20 +339,25 @@ img {
 .ml-6 {
     margin-left: $space-xxl;
 }
-@include media("<desktop-2") {
 
-}
+// @include media("<desktop-2") {
+
+// }
+
 @include media("<tablet-2") {
     .mt-sm-3 {
         margin-top: $space-m;
-    }   
+    }
+
     .mt-sm-2 {
         margin-top: $space-s;
     }
 }
+
 .illustration {
     text-align: center;
 }
+
 .disabled {
     pointer-events: none;
     user-select: none;
@@ -375,10 +384,10 @@ img {
     color: $textPrimary;
 
     @include media("<desktop-2") {
-        font-size: $font-size-4; 
+        font-size: $font-size-4;
     }
     @include media("<tablet-2") {
-        font-size: $font-size-2; 
+        font-size: $font-size-2;
     }
 }
 
@@ -389,10 +398,10 @@ img {
     line-height: $line-height-3;
     color: $textPrimary;
     @include media("<desktop-2") {
-        font-size: $font-size-2; 
+        font-size: $font-size-2;
     }
     @include media("<tablet-2") {
-        font-size: $font-size-1; 
+        font-size: $font-size-1;
     }
 }
 
@@ -420,10 +429,10 @@ img {
     color: $textParagraphs;
 
     @include media("<desktop-2") {
-        font-size: $font-size-1; 
+        font-size: $font-size-1;
     }
     @include media("<tablet-2") {
-        font-size: $font-size-small; 
+        font-size: $font-size-small;
     }
 }
 
@@ -445,7 +454,7 @@ img {
         color: $primary;
     }
     @include media("<tablet-2") {
-        font-size: $font-size-small; 
+        font-size: $font-size-small;
     }
 }
 
@@ -488,7 +497,7 @@ img {
         text-decoration: none;
     }
     @include media("<tablet-2") {
-        font-size: $font-size-1; 
+        font-size: $font-size-1;
     }
 }
 
@@ -513,21 +522,20 @@ img {
 }
 
 .code {
-    background: $background;
-    border-radius: 4px;
     padding: $space-m;
     font-size: 16px;
     line-height: 22px;
-    color
-    : #546271;
+    color: #546271;
+    background: $background;
+    border-radius: 4px;
 }
 
 .tableWrapper {
-    border: 1px solid $Gray;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -khtml-border-radius: 4px;
     display: block;
     overflow: hidden;
-  }
+    border: 1px solid $Gray;
+    border-radius: 4px;
+    border-radius: 4px;
+    border-radius: 4px;
+    border-radius: 4px;
+}
