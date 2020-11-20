@@ -1,4 +1,10 @@
-const initialState: any = {
+type InitialState = {
+    htmlTags: {
+        [key: string]: string[]
+    }
+}
+
+const initialState: InitialState = {
     htmlTags: {}
 }
 

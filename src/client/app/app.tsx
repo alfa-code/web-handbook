@@ -9,21 +9,23 @@ import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
+import { HtmlListContainer } from 'Containers/html-list-container';
+import { CssListContainer } from 'Containers/css-list-container';
+
 import { createRootReducer } from 'Src/reducers';
 
 import { rootSaga } from 'Src/sagas';
 
-import { 
-    Main, 
-    NotFound, 
-    Directory, 
-    Recipes, 
-    Tag, 
+import {
+    Main,
+    NotFound,
+    Recipes,
+    Tag,
     Attribute,
-    Category, 
+    Category,
     RecipesTheme,
     Recipe,
-    Property 
+    Property
 } from 'Pages/index';
 
 import CONSTANTS from './constants';
@@ -87,12 +89,12 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/html'
-                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="html" /> }
+                        component={ HtmlListContainer }
                     />
                     <Route
                         exact
                         path='/css'
-                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="css" /> }
+                        component={ CssListContainer }
                     />
                     <Route
                         exact
@@ -107,7 +109,7 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/recipes/theme'
-                        component={ () => <RecipesTheme 
+                        component={ () => <RecipesTheme
                             theme={CONSTANTS.themes[0]}  type="html" /> }
                     />
                     <Route
@@ -120,7 +122,7 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/tag-types'
-                        component={ () => <Category 
+                        component={ () => <Category
                             type="html"
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
@@ -138,7 +140,7 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/category'
-                        component={ () => <Category 
+                        component={ () => <Category
                             type="css"
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }

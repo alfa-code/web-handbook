@@ -18,6 +18,5 @@ export function getHtmlTagsListByAlphabet() {
         }
     });
 
-
     return filteredHtmlTags;
 }

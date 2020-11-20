@@ -2,31 +2,40 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { Tag } from 'Components/index';
+import { Link } from 'react-router-dom';
+
+// import { Tag } from 'Components/index';
 
 import styles from './directory-info.module.scss';
 
-export const DirectoryInfo = ({ directory } : Props) => {
+export const DirectoryInfo = (props: Props) => {
+    const {
+        directory: {
+            title,
+            items,
+            currentPath,
+        }
+    } = props;
+
     return (
         <div className={ styles.directoryList }>
             <div className={ styles.directoryListTop }>
                 <div className="text-heading-4">
-                    { directory.title }
+                    { title }
                 </div>
             </div>
             <ul>
-                { directory.items.map((item, i) => 
+                { items.map((thing, i) =>
                     <li key={ i } className="text-body-1">
-                        <a className="text-body-1" href={ item.url }>{ item.text }</a>
-                        { item.tag ? 
-                            <Tag 
-                                text={ item.tag.text}
-                                className={ item.tag.className}
-                            />
-                            : null }
+                        <Link
+                            className="text-body-1"
+                            to={ `${currentPath}/${thing}` }
+                        >
+                                { thing }
+                        </Link>
                     </li>
                 )}
             </ul>
-    </div>
+        </div>
     );
 }
