@@ -7,10 +7,8 @@ const example = {
     "d": ["datalist", "dd", "del", "details", "dfn", "dialog", "dir", "div", "dl", "dt"],
     "e": ["em", "embed"],
     "f": ["fieldset", "figcaption", "figure", "font", "footer", "form", "frame", "frameset"],
-    "g": [],
     "h": ["h1", "h2", "h3", "h4", "h5", "h6", "head", "header", "hr", "html"],
     "i": ["i", "iframe", "img", "input", "ins"],
-    "j": [],
     "k": ["kbd", "keygen"],
     "l": ["label", "legend", "li", "link"],
     "m": ["main", "map", "mark", "menu", "menuitem", "meta", "meter"],
@@ -24,9 +22,6 @@ const example = {
     "u": ["u", "ul"],
     "v": ["var", "video"],
     "w": ["wbr"],
-    "x": [],
-    "y": [],
-    "z": [] 
 };
 
 test('Test filter html tags function', () => {
