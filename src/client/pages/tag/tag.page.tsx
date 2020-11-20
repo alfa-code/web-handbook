@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Props } from './props';
+// import { Props } from './props';
 
 import { Button } from 'Components/index';
 
@@ -8,7 +8,7 @@ import { Sidebar, Breadcrumbs, SupportTable, SpecificationTable, AttributesTable
 
 import VideoImg from "Assets/images/video-player.png";
 
-import styles from './tag.module.scss';
+// import styles from './tag.module.scss';
 import { Layout } from 'Pages/index';
 
 export const Tag = () => {
@@ -82,19 +82,58 @@ export const Tag = () => {
                     <div className="mt-3 mt-sm-2">
                         <AttributesTable
                             attributes={[
-                                { title: "accesskey", description: "Активация ссылки с помощью комбинации клавиш." },
-                                { title: "coords", description: "Устанавливает координаты активной области." },
-                                { title: "download", description: "Предлагает скачать указанный по ссылке файл." },
-                                { title: "href", description: "Задает адрес документа, на который следует перейти." },
-                                { title: "hreflang", description: "Идентифицирует язык текста по ссылке." },
-                                { title: "name", description: "Устанавливает имя якоря внутри документа." },
-                                { title: "rel", description: "Отношения между ссылаемым и текущим документами." },
-                                { title: "rev", description: "Отношения между текущим и ссылаемым документами." },
-                                { title: "shape", description: "Задает форму активной области ссылки для изображений." },
-                                { title: "tabindex", description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab." },
-                                { title: "target", description: "Имя окна или фрейма, куда браузер будет загружать документ." },
-                                { title: "title", description: "Добавляет всплывающую подсказку к тексту ссылки." },
-                                { title: "type", description: "Указывает MIME-тип документа, на который ведёт ссылка." }
+                                {
+ title      : "accesskey",
+description: "Активация ссылки с помощью комбинации клавиш." 
+},
+                                {
+ title      : "coords",
+description: "Устанавливает координаты активной области." 
+},
+                                {
+ title      : "download",
+description: "Предлагает скачать указанный по ссылке файл." 
+},
+                                {
+ title      : "href",
+description: "Задает адрес документа, на который следует перейти." 
+},
+                                {
+ title      : "hreflang",
+description: "Идентифицирует язык текста по ссылке." 
+},
+                                {
+ title      : "name",
+description: "Устанавливает имя якоря внутри документа." 
+},
+                                {
+ title      : "rel",
+description: "Отношения между ссылаемым и текущим документами." 
+},
+                                {
+ title      : "rev",
+description: "Отношения между текущим и ссылаемым документами." 
+},
+                                {
+ title      : "shape",
+description: "Задает форму активной области ссылки для изображений." 
+},
+                                {
+ title      : "tabindex",
+description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab." 
+},
+                                {
+ title      : "target",
+description: "Имя окна или фрейма, куда браузер будет загружать документ." 
+},
+                                {
+ title      : "title",
+description: "Добавляет всплывающую подсказку к тексту ссылки." 
+},
+                                {
+ title      : "type",
+description: "Указывает MIME-тип документа, на который ведёт ссылка." 
+}
                             ]}
                         />
                     </div>

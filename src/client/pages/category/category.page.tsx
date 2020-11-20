@@ -4,11 +4,13 @@ import { Props } from './props';
 
 import { Sidebar, Breadcrumbs } from 'Blocks/index';
 
-import styles from './category.module.scss';
+// import styles from './category.module.scss';
 import { Link } from 'react-router-dom';
 import { Layout } from 'Pages/index';
 
-export const Category = ({ title, types, type }) => {
+export const Category = (props: Props) => {
+    const { title, types, type } = props;
+
     return (
         <Layout>
             <div className="page">

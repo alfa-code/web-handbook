@@ -2,7 +2,7 @@ type OwnProps = {
 	title?: string,
 	types?: {
 		type?: string,
-		descrition?: string
+		description?: string
 	}[],
 	type?: string
 }

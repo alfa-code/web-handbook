@@ -26,7 +26,7 @@ export default function readAssetsManifest(): any {
     };
   } catch (e) {
     return {
-      js: [],
+      js : [],
       css: [],
     };
   }

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Props } from './props';
+// import { Props } from './props';
 
 import styles from './property-code-table.module.scss';
 
-export const PropertyCodeTable = ({} : Props) => {
+export const PropertyCodeTable = () => {
     return (
         <div>
             <div className={ styles.cssTableWrapper }>
@@ -26,11 +26,11 @@ export const PropertyCodeTable = ({} : Props) => {
                                 <td>
                                     BODY 
                                         <br />
-                                        /* Серый цвет текста */
+                                        { /* Серый цвет текста */ }
                                         <br />
                                         color: silver; 
                                         <br />
-                                        /* Размер текста 8 пунктов */ 
+                                        { /* Размер текста 8 пунктов */ }
                                         <br />
                                         font-size: 8pt
                                         <br />
@@ -39,11 +39,11 @@ export const PropertyCodeTable = ({} : Props) => {
                                 <td>
                                     BODY 
                                         <br />
-                                        /* Серый цвет текста */
+                                        { /* Серый цвет текста */ }
                                         <br />
                                         color: #000; 
                                         <br />
-                                        /* Размер текста 8 пунктов */ 
+                                        { /* Размер текста 8 пунктов */ }
                                         <br />
                                         font-size: 12pt
                                         <br />

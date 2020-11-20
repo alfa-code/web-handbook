@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { Props } from './props';
+// import { Props } from './props';
 
 import styles from './property-version-table.module.scss';
 import { Icon } from 'Src/client/components';
 
-export const PropertyVersionTable = ({} : Props) => {
+export const PropertyVersionTable = () => {
     return (
         <div className={ styles.cssTableWrapper }>
             <table className={ styles.versionTable }>
