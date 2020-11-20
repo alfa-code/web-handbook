@@ -83,55 +83,55 @@ export const Tag = () => {
                         <AttributesTable
                             attributes={[
                                 {
- title      : "accesskey",
+ title: "accesskey",
 description: "Активация ссылки с помощью комбинации клавиш." 
 },
                                 {
- title      : "coords",
+ title: "coords",
 description: "Устанавливает координаты активной области." 
 },
                                 {
- title      : "download",
+ title: "download",
 description: "Предлагает скачать указанный по ссылке файл." 
 },
                                 {
- title      : "href",
+ title: "href",
 description: "Задает адрес документа, на который следует перейти." 
 },
                                 {
- title      : "hreflang",
+ title: "hreflang",
 description: "Идентифицирует язык текста по ссылке." 
 },
                                 {
- title      : "name",
+ title: "name",
 description: "Устанавливает имя якоря внутри документа." 
 },
                                 {
- title      : "rel",
+ title: "rel",
 description: "Отношения между ссылаемым и текущим документами." 
 },
                                 {
- title      : "rev",
+ title: "rev",
 description: "Отношения между текущим и ссылаемым документами." 
 },
                                 {
- title      : "shape",
+ title: "shape",
 description: "Задает форму активной области ссылки для изображений." 
 },
                                 {
- title      : "tabindex",
+ title: "tabindex",
 description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab." 
 },
                                 {
- title      : "target",
+ title: "target",
 description: "Имя окна или фрейма, куда браузер будет загружать документ." 
 },
                                 {
- title      : "title",
+ title: "title",
 description: "Добавляет всплывающую подсказку к тексту ссылки." 
 },
                                 {
- title      : "type",
+ title: "type",
 description: "Указывает MIME-тип документа, на который ведёт ссылка." 
 }
                             ]}

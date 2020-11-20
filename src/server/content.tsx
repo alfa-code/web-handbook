@@ -23,9 +23,9 @@ export async function getContent(request: any) {
         >
             <App
                 location={{
- pathname: request.url.pathname,
-hash    : request.url.pathname 
-}}
+                    pathname: request.url.pathname,
+                    hash: request.url.pathname
+                }}
                 context={context}
             />
         </AppHtml>,

@@ -1,16 +1,16 @@
 export const assetsRoutePlugin = {
-    name    : 'assetsRoutePlugin',
-    version : '1.0.0',
+    name: 'assetsRoutePlugin',
+    version: '1.0.0',
     register: async function (server, options) {
         server.route({
-            method : 'GET',
-            path   : '/assets/{param*}',
+            method: 'GET',
+            path: '/assets/{param*}',
             options,
             handler: {
                 directory: {
-                    path           : '.',
+                    path: '.',
                     redirectToSlash: true,
-                    index          : true,
+                    index: true,
                 },
             },
         });

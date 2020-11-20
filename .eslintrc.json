@@ -11,8 +11,7 @@
             },
             "multiLine": {
                 "beforeColon": false,
-                "afterColon": true,
-                "align": "colon"
+                "afterColon": true
             }
         }]
     }

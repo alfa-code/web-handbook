@@ -35,11 +35,11 @@ export function getServerPlugins() {
         //     plugin: getUserAuthParams
         // },
         {
-            plugin : assetsRoutePlugin,
+            plugin: assetsRoutePlugin,
             options: { auth: false, }
         },
         {
-            plugin : anyRoutePlugin,
+            plugin: anyRoutePlugin,
             options: { auth: false }
         },
     ];

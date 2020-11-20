@@ -11,242 +11,242 @@ import styles from './navigation.module.scss';
 
 const navInfo = [
     {
-        categoryName   : "HTML справочник",
+        categoryName: "HTML справочник",
         categoryIconUrl: "html-icon",
-        categories     : [
+        categories: [
             {
  name: "Все теги",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!-- -->",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!DOCTYPE>",
-url : "#" 
+url: "#" 
 },
             {
-                name     : "<a>",
-url      : "#",
+                name: "<a>",
+url: "#",
 childrens: [
                     {
- url : "href",
+ url: "href",
 text: "title" 
 },
                 ]
             },
             {
  name: "<abbr>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<acronym>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<address>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<applet>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 }
         ]
     },
     {
-        categoryName   : "HTML рецепты",
+        categoryName: "HTML рецепты",
         categoryIconUrl: "html-receipe-icon",
-        categories     : [
+        categories: [
             {
  name: "Все теги",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!-- -->",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!DOCTYPE>",
-url : "#" 
+url: "#" 
 },
             {
-                name     : "<a>",
-url      : "#",
+                name: "<a>",
+url: "#",
 childrens: [
                     {
- url : "href",
+ url: "href",
 text: "title" 
 },
                 ]
             },
             {
  name: "<abbr>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<acronym>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<address>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<applet>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 }
         ]
     },
     {
-        categoryName   : "CSS справочник",
+        categoryName: "CSS справочник",
         categoryIconUrl: "css-icon",
-        categories     : [
+        categories: [
             {
  name: "Все теги",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!-- -->",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!DOCTYPE>",
-url : "#" 
+url: "#" 
 },
             {
-                name     : "<a>",
-url      : "#",
+                name: "<a>",
+url: "#",
 childrens: [
                     {
- url : "href",
+ url: "href",
 text: "title" 
 },
                 ]
             },
             {
  name: "<abbr>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<acronym>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<address>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<applet>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 }
         ]
     },
     {
-        categoryName   : "CSS рецепты",
+        categoryName: "CSS рецепты",
         categoryIconUrl: "css-receipe-icon",
-        categories     : [
+        categories: [
             {
  name: "Все теги",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!-- -->",
-url : "#" 
+url: "#" 
 },
             {
  name: "<!DOCTYPE>",
-url : "#" 
+url: "#" 
 },
             {
-                name     : "<a>",
-url      : "#",
+                name: "<a>",
+url: "#",
 childrens: [
                     {
- url : "href",
+ url: "href",
 text: "title" 
 },
                 ]
             },
             {
  name: "<abbr>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<acronym>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<address>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<applet>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<area>",
-url : "#" 
+url: "#" 
 },
             {
  name: "<article>",
-url : "#" 
+url: "#" 
 }
         ]
     }

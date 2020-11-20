@@ -45,8 +45,8 @@ try {
 
 const loggerReduxLogger = createLogger({
     collapsed: true,
-    duration : true,
-    diff     : true
+    duration: true,
+    diff: true
 });
 
 let history;
