@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import { Sidebar, PageTop, DirectoryInfo } from 'Blocks/index';
 
-import styles from './directory.module.scss';
+// import styles from './directory.module.scss';
 import { Layout } from 'Pages/index';
 
 export const Directory = ({ directory, type } : Props) => {
@@ -16,8 +16,8 @@ export const Directory = ({ directory, type } : Props) => {
                         title={directory.title} 
                         description={directory.description} 
                         img={directory.img} />
-                    { directory.lists.map(list => 
-                            <div>
+                    { directory.lists.map((list, i) => 
+                            <div key={ i }>
                                 { list.title ?
                                     (<div className="text-heading-4">
                                         { list.title }
@@ -29,7 +29,7 @@ export const Directory = ({ directory, type } : Props) => {
                                     </div>) : null
                                 }
                                 { list.items.map((item, i) => 
-                                    <DirectoryInfo directory={item} />
+                                    <DirectoryInfo directory={item} key={ i }/>
                                 ) }
                             </div>
                         )

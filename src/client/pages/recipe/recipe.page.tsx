@@ -7,7 +7,7 @@ import { Sidebar, Breadcrumbs, SupportTable } from 'Blocks/index';
 import Illustration1 from 'Assets/images/illustration-1.png';
 import Illustration2 from 'Assets/images/illustration-2.png';
 
-import styles from './recipe.module.scss';
+// import styles from './recipe.module.scss';
 
 import { Alert } from 'Src/client/components';
 import { Layout } from 'Pages/index';
@@ -76,7 +76,7 @@ export const Recipe = ({ title, type } : Props) => {
                     </div>
 
                     <div className="mt-3 mt-sm-2 text-body-2">
-                        Данный пример работает только для слоев, у которых ширина задана явно в процентах или пикселах через свойство width. Чтобы обтекание не распространялось дальше на последующие элементы, необходимо применить свойство clear, оно отменяет действие float. В примере для этой цели создается «пустой» элемент &lt; div class="clear" &gt;.
+                        Данный пример работает только для слоев, у которых ширина задана явно в процентах или пикселах через свойство width. Чтобы обтекание не распространялось дальше на последующие элементы, необходимо применить свойство clear, оно отменяет действие float. В примере для этой цели создается «пустой» элемент ...
                     </div>
 
                     <div className="mt-3 mt-sm-2">

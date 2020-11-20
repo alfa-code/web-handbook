@@ -12,20 +12,16 @@ const SERVER_PORT = 3000;
 const SERVER_HOST = '0.0.0.0';
 
 const server = new Hapi.Server({
-    port: SERVER_PORT,
-    host: SERVER_HOST,
-    routes: {
-        files: {
-            relativeTo: path.join(rootPath, '.build/', 'assets/'),
-        },
-    },
-    state: {
+    port  : SERVER_PORT,
+    host  : SERVER_HOST,
+    routes: { files: { relativeTo: path.join(rootPath, '.build/', 'assets/'), }, },
+    state : {
         strictHeader: true,
         ignoreErrors: false,
-        isSecure: false,
-        isHttpOnly: true,
-        isSameSite: 'Lax',
-        encoding: 'none'
+        isSecure    : false,
+        isHttpOnly  : true,
+        isSameSite  : 'Lax',
+        encoding    : 'none'
     }
 });
 

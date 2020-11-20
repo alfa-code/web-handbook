@@ -23,7 +23,7 @@ export const RecipesTheme = ({ theme, type } : Props) => {
 
                     { theme.recipes.map((recipe, key) => {
                         return (
-                            <div>
+                            <div key={ key }>
                                 <div className={ styles.recipeLink }>
                                     <Link to={recipe.url} className="text-heading-4">
                                         { recipe.text }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { Logo, Icon } from 'Components/index';
 
-import { Props } from './props';
+// import { Props } from './props';
 import styles from './header.module.scss';
 import { NavLink } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ export const Header = () => {
     const [activeHeader, setActiveHeader] = useState(false)
     const [activeSearch, setActiveSearch] = useState(false)
 
-    const activateSearch = (val) => {
-        setActiveSearch(val);
-    }
+    // const activateSearch = (val) => {
+    //     setActiveSearch(val);
+    // }
 
     return (
         <header className={ styles.header }>

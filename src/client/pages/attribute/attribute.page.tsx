@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Props } from './props';
+// import { Props } from './props';
 
 import { Sidebar, Breadcrumbs, SupportTable, SpecificationTable } from 'Blocks/index';
 
-import styles from './attribute.module.scss';
+// import styles from './attribute.module.scss';
 import { Layout } from 'Pages/index';
 
 export const Attribute = () => {

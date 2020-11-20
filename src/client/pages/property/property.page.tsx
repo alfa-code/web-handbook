@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Props } from './props';
+// import { Props } from './props';
 
 import { Sidebar, Breadcrumbs, SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
 
@@ -10,7 +10,7 @@ import Illustration2 from 'Assets/images/illustration-2.png';
 
 import { Button } from 'Components/index';
 
-import styles from './property.module.scss';
+// import styles from './property.module.scss';
 
 import { Layout } from 'Pages/index';
 
@@ -56,15 +56,27 @@ export const Property = () => {
 
                     <div className="mt-3">
                         <PropertyInfoTable info={[
-                            { title: "Значение по умолчанию", value: "Нет" },
-                            { title: "Наследуется", value: "Нет" },
-                            { title: "Применяется", value: "Ко всем элементам" },
-                            { title: "Ссылка на спецификацию", value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules" }
+                            {
+ title: "Значение по умолчанию",
+value: "Нет" 
+},
+                            {
+ title: "Наследуется",
+value: "Нет" 
+},
+                            {
+ title: "Применяется",
+value: "Ко всем элементам" 
+},
+                            {
+ title: "Ссылка на спецификацию",
+value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules" 
+}
                         ]} />
                     </div>
 
                     <div className="mt-5 text-heading-4">
-                        Версии CSS"
+                        Версии CSS
                     </div>
 
                     <div className="mt-3">
@@ -102,7 +114,7 @@ export const Property = () => {
                     </div>
 
                     <div className="mt-3 mt-sm-2 text-body-2">
-                        Данный пример работает только для слоев, у которых ширина задана явно в процентах или пикселах через свойство width. Чтобы обтекание не распространялось дальше на последующие элементы, необходимо применить свойство clear, оно отменяет действие float. В примере для этой цели создается «пустой» элемент &lt; div class="clear" &gt;.
+                        Данный пример работает только для слоев, у которых ширина задана явно в процентах или пикселах через свойство width. Чтобы обтекание не распространялось дальше на последующие элементы, необходимо применить свойство clear, оно отменяет действие float. В примере для этой цели создается «пустой» элемент
                     </div>
 
                     

@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger';
 import { ToastContainer } from 'react-toastify';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import { createBrowserHistory, createMemoryHistory  } from 'history';
+import { createBrowserHistory, createMemoryHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import { createRootReducer } from 'Src/reducers';
@@ -45,8 +45,8 @@ try {
 
 const loggerReduxLogger = createLogger({
     collapsed: true,
-    duration: true,
-    diff: true
+    duration : true,
+    diff     : true
 });
 
 let history;
@@ -78,88 +78,82 @@ export default class App extends React.Component<Props> {
     getMainContent() {
         return (
             <>
-                        <Switch>
-                            <Route
-                                exact
-                                path='/'
-                                component={ Main }
-                            />
-
-                            <Route
-                                exact
-                                path='/html'
-                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="html" /> }
-                            />
-                            <Route
-                                exact
-                                path='/css'
-                                component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="css" /> }
-                            />
-                            
-                            <Route
-                                exact
-                                path='/html/recipes'
-                                component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
-                            />
-                            <Route
-                                exact
-                                path='/css/recipes'
-                                component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
-                            />
-                            <Route
-                                exact
-                                path='/recipes/theme'
-                                component={ () => <RecipesTheme 
-                                    theme={CONSTANTS.themes[0]}  type="html" /> }
-                            />
-                            <Route
-                                exact
-                                path='/recipes/theme/recipe'
-                                component={ () => <Recipe
-                                    type="html"
-                                    title="Как убрать полосы прокрутки?" /> }
-                            />
-
-                            <Route
-                                exact
-                                path='/tag-types'
-                                component={ () => <Category 
-                                    type="html"
-                                    title={CONSTANTS.tagTypes.title}
-                                    types={CONSTANTS.tagTypes.types} /> }
-                            />
-                            <Route
-                                exact
-                                path='/html/:htmlTag'
-                                component={ () => <Tag /> }
-                            />
-                            <Route
-                                exact
-                                path='/attribute'
-                                component={ () => <Attribute /> }
-                            />
-                            
-                            
-                            <Route
-                                exact
-                                path='/category'
-                                component={ () => <Category 
-                                    type="css"
-                                    title={CONSTANTS.tagTypes.title}
-                                    types={CONSTANTS.tagTypes.types} /> }
-                            />
-                            <Route
-                                exact
-                                path='/css/:cssRule'
-                                component={ () => <Property /> }
-                            />
-                            
-                            <Route
-                                path='*'
-                                component={ NotFound }
-                            />
-                        </Switch>
-                    </>
+                <Switch>
+                    <Route
+                        exact
+                        path='/'
+                        component={ Main }
+                    />
+                    <Route
+                        exact
+                        path='/html'
+                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="html" /> }
+                    />
+                    <Route
+                        exact
+                        path='/css'
+                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } type="css" /> }
+                    />
+                    <Route
+                        exact
+                        path='/html/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
+                    />
+                    <Route
+                        exact
+                        path='/css/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
+                    />
+                    <Route
+                        exact
+                        path='/recipes/theme'
+                        component={ () => <RecipesTheme 
+                            theme={CONSTANTS.themes[0]}  type="html" /> }
+                    />
+                    <Route
+                        exact
+                        path='/recipes/theme/recipe'
+                        component={ () => <Recipe
+                            type="html"
+                            title="Как убрать полосы прокрутки?" /> }
+                    />
+                    <Route
+                        exact
+                        path='/tag-types'
+                        component={ () => <Category 
+                            type="html"
+                            title={CONSTANTS.tagTypes.title}
+                            types={CONSTANTS.tagTypes.types} /> }
+                    />
+                    <Route
+                        exact
+                        path='/html/:htmlTag'
+                        component={ () => <Tag /> }
+                    />
+                    <Route
+                        exact
+                        path='/attribute'
+                        component={ () => <Attribute /> }
+                    />
+                    <Route
+                        exact
+                        path='/category'
+                        component={ () => <Category 
+                            type="css"
+                            title={CONSTANTS.tagTypes.title}
+                            types={CONSTANTS.tagTypes.types} /> }
+                    />
+                    <Route
+                        exact
+                        path='/css/:cssRule'
+                        component={ () => <Property /> }
+                    />
+                    <Route
+                        path='*'
+                        component={ NotFound }
+                    />
+                </Switch>
+            </>
         );
     }
 
