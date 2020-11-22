@@ -1,9 +1,16 @@
 @import "Src/client/breakpoints.scss";
 
 .mainPage {
-    padding: var(--space-xxl) 0 0;
-    display: flex;
-  
+  padding: $space-xxl 0 0;
+  display: flex;
+    
+    @include media("<desktop-2") {
+      padding: $space-xl 0 0;
+    }
+    @include media("<tablet-2") {
+      background: $lightBackground;
+    }
+
     .mainBg {
       position: absolute;
       width: calc(100% - 64px - 57px);
@@ -11,7 +18,7 @@
       top: 27px;
       right: calc(64px + 57px);
       z-index: -1;
-      background: var(--lightBackground);
+      background: $lightBackground;
   
       @include media("<desktop-2") {
         right: calc(16px + 57px);
@@ -21,38 +28,45 @@
   
     .mainPageContent {
       position: relative;
-      padding: 0 var(--space-xxl);
+      padding: 0 $space-xxl;
   
       @include media("<desktop-2") {
-        padding: 0 var(--space-m);
+        padding: 0 $space-m;
       }
     }
     .mainPageTop {
       display: flex;
       align-items: center;
-      padding: var(--space-l) var(--space-l) var(--space-xl);
-      background: var(--background2);
+      padding: $space-l $space-l $space-xl;
+      background: $background2;
       border-radius: 4px;
-  
+      
       img {
         margin-top: -64px;
         width: 50%;
       }
       .text-subheading {
-        margin-top: var(--space-m);
+        margin-top: $space-m;
       }
   
       @include media("<desktop-2") {
         & {
-          padding: var(--space-m) var(--space-m) var(--space-l);
+          padding: $space-m $space-m $space-l;
         }
   
         img {
           width: 45%;
         }
         .text-subheading {
-          margin-top: var(--space-s);
+          margin-top: $space-s;
           font-size: 16px;
+        }
+      }
+      @include media("<tablet-2") {
+        flex-direction: column;
+        justify-content: center;
+        img {
+          width: 100%;
         }
       }
     }

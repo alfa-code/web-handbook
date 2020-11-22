@@ -1,6 +1,18 @@
 {
     "extends": "./node_modules/@alfa-code/alfa-code-presets/eslint",
     "rules": {
-        "react/jsx-first-prop-new-line": 2
+        "react/jsx-first-prop-new-line": 2,
+        "object-property-newline": [2, { "allowMultiplePropertiesPerLine": false }],
+        "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
+        "key-spacing": [2, {
+            "singleLine": {
+                "beforeColon": false,
+                "afterColon": true
+            },
+            "multiLine": {
+                "beforeColon": false,
+                "afterColon": true
+            }
+        }]
     }
 }

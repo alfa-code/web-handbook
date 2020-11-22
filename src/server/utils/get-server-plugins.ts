@@ -3,6 +3,8 @@ import Inert from '@hapi/inert';
 // import Vision from '@hapi/vision'
 // import HapiSwagger from 'hapi-swagger';
 
+import { htmlApiPlugin } from 'Src/server/plugins/api/html-api.plugin';
+
 import { anyRoutePlugin } from 'Src/server/plugins/routes/any-route';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
 
@@ -35,16 +37,16 @@ export function getServerPlugins() {
         //     plugin: getUserAuthParams
         // },
         {
+            plugin: htmlApiPlugin,
+            options: {}
+        },
+        {
             plugin: assetsRoutePlugin,
-            options: {
-                auth: false,
-            }
+            options: { auth: false, }
         },
         {
             plugin: anyRoutePlugin,
-            options: {
-                auth: false
-            }
+            options: { auth: false }
         },
     ];
 

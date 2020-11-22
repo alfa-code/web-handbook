@@ -6,8 +6,14 @@ import { createLogger } from 'redux-logger';
 import { ToastContainer } from 'react-toastify';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import { createBrowserHistory, createMemoryHistory  } from 'history';
+import { createBrowserHistory, createMemoryHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+
+import {
+    HtmlListContainer,
+    CssListContainer,
+    TagPageContainer
+} from 'Containers/index';
 
 import { createRootReducer } from 'Src/reducers';
 
@@ -16,10 +22,12 @@ import { rootSaga } from 'Src/sagas';
 import {
     Main,
     NotFound,
-    Directory,
     Recipes,
-    HtmlTagPage,
-    CssRulePage
+    Attribute,
+    Category,
+    RecipesTheme,
+    Recipe,
+    Property
 } from 'Pages/index';
 
 import CONSTANTS from './constants';
@@ -83,28 +91,72 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/html'
-                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                        component={ HtmlListContainer }
+                    />
+                    <Route
+                        exact
+                        path='/html/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
                     />
                     <Route
                         exact
                         path='/html/:htmlTag'
-                        component={ HtmlTagPage }
+                        component={ TagPageContainer }
                     />
+
+                    {/* TODO: Этот функционал выкатим вторым этапом */}
                     <Route
                         exact
                         path='/css'
-                        component={ () => <Directory directory={ CONSTANTS.directoryHTML } /> }
+                        component={ CssListContainer }
+                    />
+                    <Route
+                        exact
+                        path='/css/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
                     />
                     <Route
                         exact
                         path='/css/:cssRule'
-                        component={ CssRulePage }
+                        component={ () => <Property /> }
+                    />
+
+                    {/* TODO: Статьи выкатим третьим этапом */}
+                    <Route
+                        exact
+                        path='/recipes/theme'
+                        component={ () => <RecipesTheme
+                            theme={CONSTANTS.themes[0]}  type="html" /> }
                     />
                     <Route
                         exact
-                        path='/recipes'
-                        component={ () => <Recipes themes={ CONSTANTS.themes } /> }
+                        path='/recipes/theme/recipe'
+                        component={ () => <Recipe
+                            type="html"
+                            title="Как убрать полосы прокрутки?" /> }
                     />
+                    <Route
+                        exact
+                        path='/tag-types'
+                        component={ () => <Category
+                            type="html"
+                            title={CONSTANTS.tagTypes.title}
+                            types={CONSTANTS.tagTypes.types} /> }
+                    />
+                    <Route
+                        exact
+                        path='/attribute'
+                        component={ () => <Attribute /> }
+                    />
+                    <Route
+                        exact
+                        path='/category'
+                        component={ () => <Category
+                            type="css"
+                            title={CONSTANTS.tagTypes.title}
+                            types={CONSTANTS.tagTypes.types} /> }
+                    />
+
                     <Route
                         path='*'
                         component={ NotFound }

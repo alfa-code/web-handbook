@@ -1,26 +1,37 @@
 @import "Src/client/breakpoints.scss";
 
 .navigation {
-  width: 336px;
+  // min-width: 336px;
   height: 100%;
+  grid-area: n;
 
-  @include media("<desktop-2") {
-    width: 265px;
-  }
+  // @include media("<desktop-2") {
+  //   min-width: 265px;
+  // }
 }
+.navigationCollapseBtn {
+  display: none;
+  text-align: center;
+  font-size: 30px;
+  padding: 16px 16px 0 16px;
+  cursor: pointer;
+  color: $Gray;
 
+  // @include media("<desktop-1") {
+  //   display: block;
+  // }
+}
 .navigationCategory {
   &Inner {
     display: flex;
     align-items: center;
-    margin-top: var(--space-s);
+    margin-top: $space-s;
     padding: 17px 35px 17px 66px;
     cursor: pointer;
 
     @include media("<desktop-2") {
-      padding: var(--space-s) var(--space-m) var(--space-s) var(--space-l);
+      padding: $space-s $space-m $space-s $space-l;
     }
-
     .svgIcon {
       fill: #b6bcc3;
       margin-right: 18px;
@@ -30,18 +41,25 @@
       display: none;
     }
     &Name {
-      font-family: var(--fontSecondary);
+      font-family: $fontSecondary;
       font-weight: 500;
-      color: var(--textParagraphs);
-      font-size: var(--font-size-1);
-      line-height: var(--line-height-2);
+      color: $textParagraphs;
+      font-size: $font-size-1;
+      line-height: $line-height-2;
+      
+      @include media("<desktop-1") {
+        // display: none;
+      }
 
       &:hover {
-        color: var(--uiRed);
+        color: $uiRed;
       }
     }
     .arrowIcon {
       margin-left: auto;
+      @include media("<desktop-1") {
+        // display: none;
+      }
     }
   }
   &Collapse {
@@ -59,12 +77,12 @@
 
     /* Track */
     &::-webkit-scrollbar-track {
-      background: var(--disabledColor);
+      background: $disabledColor;
     }
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: var(--primary);
+      background: $primary;
     }
 
     /* Handle on hover */
@@ -75,15 +93,15 @@
     &Item {
       display: flex;
       align-items: center;
-      margin-top: var(--space-s);
+      margin-top: $space-s;
       padding: 4px 20px;
-      color: var(--textParagraphs);
+      color: $textParagraphs;
       position: relative;
 
       &Caret {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 5px;
+        left: 2px;
       }
 
       &Icon {
@@ -93,30 +111,33 @@
         justify-content: center;
       }
       &Name {
-        font-size: var(--font-size-small);
-        line-height: var(--line-height-caption);
-        color: var(--textParagraphs);
+        font-size: $font-size-small;
+        line-height: $line-height-caption;
+        color: $textParagraphs;
       }
       &:hover {
-        color: var(--primary);
+        color: $primary;
         text-decoration: none;
       }
       &Collapse {
         display: none;
-        font-size: var(--font-size-small);
-        line-height: var(--line-height-caption);
-        color: var(--textParagraphs);
+        font-size: $font-size-small;
+        line-height: $line-height-caption;
+        color: $textParagraphs;
         padding-left: 60px;
         li {
 					margin-top: 13px;
 					
 					a {
-						color: var(--textParagraphs);
+						color: $textParagraphs;
 					}
         }
       }
     }
     .dropdown.active {
+      .navigationCategoryCollapseItem {
+        background: $lightBackground;;
+      }
       .navigationCategoryCollapseItemCollapse {
         display: block;
       }
@@ -128,12 +149,12 @@
 }
 .navigationCategory.active {
   .navigationCategoryInner {
-    border-bottom: 1px solid var(--background);
+    border-bottom: 1px solid $background;
     .svgIcon {
-      fill: var(--uiRed);
+      fill: $uiRed;
     }
     &Name {
-      color: var(--primary);
+      color: $primary;
     }
     .arrowIcon {
       transform: rotate(180deg);
@@ -144,5 +165,8 @@
     height: auto;
     max-height: 500px;
   }
+}
+.open {
+
 }
 

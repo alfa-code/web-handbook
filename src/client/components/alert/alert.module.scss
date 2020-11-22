@@ -1,0 +1,9 @@
+@import "Src/client/breakpoints.scss";
+
+.alert {
+  display: flex;
+
+  &Icon {
+    margin-right: $space-xs;
+  }
+}

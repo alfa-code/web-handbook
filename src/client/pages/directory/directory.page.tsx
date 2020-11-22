@@ -2,40 +2,62 @@ import React from 'react';
 
 import { Props } from './props';
 
+import { Sidebar, PageTop, DirectoryInfo } from 'Blocks/index';
+
+// import styles from './directory.module.scss';
 import { Layout } from 'Pages/index';
-import { PageTop, DirectoryInfo } from 'Blocks/index';
 
-import styles from './directory.module.scss';
+export const Directory = (props: Props) => {
+    const { directory } = props;
 
-export const Directory = ({ directory }: Props) => {
+    const {
+        title,
+        img,
+        description,
+        lists,
+        type,
+        currentPath,
+    } = directory;
+
     return (
         <Layout>
-            <PageTop
-                title={directory.title}
-                description={directory.description}
-                img={directory.img}
-            />
-            <div className={styles.page}>
-                <div className={styles.pageContent}>
-                    {directory.lists.map((list, i) =>
-                        <div key={i}>
-                            {list.title ?
-                                (<div className="text-heading-4">
-                                    { list.title}
-                                </div>) : null
-                            }
-                            {list.subtitle ?
-                                (<div className="mt-3 text-body-2">
-                                    { list.subtitle}
-                                </div>) : null
-                            }
-                            {list.items.map((item, i) =>
-                                <DirectoryInfo directory={item} key={i} />
+            <div className="page">
+                <div className="pageContent">
+                    <PageTop
+                        title={title}
+                        description={description}
+                        img={img}
+                    />
+                        { lists.map((list, i) => {
+                            const { title, subtitle, items } = list;
+                            const htmlKeys = Object.keys(items);
+                            return (
+                                <div key={ i }>
+                                    { title ?
+                                        (<div className="text-heading-4">
+                                            { title }
+                                        </div>) : null
+                                    }
+                                    { subtitle ?
+                                        (<div className="mt-3 text-body-2">
+                                            { subtitle }
+                                        </div>) : null
+                                    }
+                                    { htmlKeys.map((key, i) =>
+                                        <DirectoryInfo
+                                            directory={{
+                                                title: key,
+                                                items: items[key],
+                                                currentPath,
+                                            }}
+                                            key={ i }
+                                        />
+                                    ) }
+                                </div>
                             )}
-                        </div>
-                    )
-                    }
+                        )}
                 </div>
+                <Sidebar type={type} />
             </div>
         </Layout>
     );

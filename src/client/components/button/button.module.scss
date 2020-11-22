@@ -1,37 +1,40 @@
+@import "Src/client/breakpoints.scss";
 .btn {
   padding: 14px 32px 15px;
-  background: var(--brandRed);
+  background: $brandRed;
   display: inline-block;
-  color: var(--inverse);
+  color: $inverse;
   font-family: Roboto;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   border-radius: 4px;
   transition: all 0.5s;
+  display: inline-flex;
+  align-items: center;
 
   &:hover,
   &:active {
     text-decoration: none;
-    background: var(--hoverBrandRed);
+    background: $hoverBrandRed;
   }
 
   &:disabled {
-    background: var(--disabledColor);
+    background: $disabledColor;
   }
 }
 
-.btn.btnGreen {
+.btnGreen {
   background: #13a463;
-  fill: var(--inverse);
-  color: var(--inverse);
+  fill: $inverse;
+  color: $inverse;
 
   &:hover {
     text-decoration: none;
-    background: var(--hoverBrandRed);
+    background: $hoverBrandRed;
   }
   &:active {
     text-decoration: none;
-    background: var(--brandRed);
+    background: $brandRed;
   }
 }

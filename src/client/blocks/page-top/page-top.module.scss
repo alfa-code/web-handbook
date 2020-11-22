@@ -1,11 +1,28 @@
+@import "Src/client/breakpoints.scss";
+
 .pageTop {
   display: flex;
   align-items: center;
-  margin: var(--space-l) 0 var(--space-s);
+  margin: $space-l 0 $space-s;
 
   &Content {
     display: flex;
     flex-direction: column;
-    margin-left: var(--space-l);
+    margin-left: $space-l;
+
+    &ContentText {
+      margin-top: $space-m;
+    }
+  }
+  @include media("<phone-2") {
+    img {
+      width: 35%;
+    }
+    .pageTopContent {
+      margin-left: $space-s;
+    }
+    .pageTopContentText {
+      margin-top: 0;
+    }
   }
 }

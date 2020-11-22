@@ -1,0 +1,13 @@
+@import "Src/client/breakpoints.scss";
+
+.recipesList {
+  padding-left: 20px;
+  li {
+    color: $textParagraphs;
+    margin-top: $space-m;
+
+    @include media("<tablet-2") {
+      margin-top: $space-s;
+    }
+  }
+}

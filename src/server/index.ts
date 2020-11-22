@@ -1,4 +1,3 @@
-// import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
 import path from 'path';
 
@@ -14,11 +13,7 @@ const SERVER_HOST = '0.0.0.0';
 const server = new Hapi.Server({
     port: SERVER_PORT,
     host: SERVER_HOST,
-    routes: {
-        files: {
-            relativeTo: path.join(rootPath, '.build/', 'assets/'),
-        },
-    },
+    routes: { files: { relativeTo: path.join(rootPath, '.build/', 'assets/'), }, },
     state: {
         strictHeader: true,
         ignoreErrors: false,

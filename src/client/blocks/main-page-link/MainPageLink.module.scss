@@ -1,27 +1,58 @@
+@import "Src/client/breakpoints.scss";
+
 .mainPageLink {
-  padding: var(--space-l);
-  background: var(--inverse);
+  padding: $space-l;
+  background: $inverse;
   border-radius: 4px;
   display: flex;
-  margin-top: var(--space-l);
+  margin-top: $space-l;
   flex: 0 1 calc(50% - 16px);
+  position: relative;
+  @include media("<tablet-2") {
+    flex: 0 1 100%;
+    flex-direction: row-reverse;
+    padding: $space-m $space-s;
+    justify-content: flex-end;
+  }
 
   &Content {
     display: flex;
     flex-direction: column;
-
+    
     &Link {
       flex: 1 1;
-      justify-content: flex-end;
-      // margin-top: 45px;
-      color: var(--brandRed);
-      display: block;
+      align-items: flex-end;
+      color: $brandRed;
+      display: flex;
+      
+      @include media("<tablet-2") {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        span {
+          display: none;
+        }
+      }
     }
   }
   img {
     margin-left: auto;
     width: 30%;
-    min-width: 168px;
-    min-height: 128px;
+    max-width: 168px;
+    max-height: 128px;
+
+    @include media("<desktop-2") {
+      width: 40%;
+    }
+    
+    @include media("<tablet-2") {
+      width: 40%;
+      max-width: 73.5px;
+      max-height: 56px;
+      margin: 0 $space-l 0 0;
+    }
   }
 }

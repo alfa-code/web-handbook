@@ -12,7 +12,7 @@ export const PageTop = ({ title, description, img } : Props) => {
                 <div className="text-heading-2">
                     { title }
                 </div>
-                <div className="text-subheading mt-3">
+                <div className={["text-subheading", styles.pageTopContentText].join(' ')}>
                     { description }
                 </div>
             </div>

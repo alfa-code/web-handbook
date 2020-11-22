@@ -73,9 +73,9 @@ npm run lint
 Эти команды можно запустить в разных окнах терминала. Для удобства терминал можно разделить на несколько окон.
 
 ```javascript
-npm run build:client:dev:watch
-npm run build:server:dev:watch
-npm run start:server:nodemon
+yarn run build:client:dev:watch
+yarn run build:server:dev:watch
+yarn run start:server:nodemon
 ```
 
 ![Image of Terminal](https://github.com/alfa-code/web-handbook/blob/master/src/assets/images/localhost.jpg?raw=true))

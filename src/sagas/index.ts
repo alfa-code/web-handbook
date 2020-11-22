@@ -1,6 +1,9 @@
-import { all } from 'redux-saga/effects'
+import { all } from 'redux-saga/effects';
+
+import { htmlSaga } from './html.saga';
 
 export function* rootSaga() {
-
-    yield all([]);
+    yield all([
+        htmlSaga(),
+    ]);
 }

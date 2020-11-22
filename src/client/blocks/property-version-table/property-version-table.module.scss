@@ -1,0 +1,55 @@
+@import "Src/client/breakpoints.scss";
+
+.cssTableWrapper {
+  border: 1px solid $Gray;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  display: inline-block;
+  overflow: hidden;
+
+  table {
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px solid $Gray;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    th,
+    td {
+      border-right: 1px solid $Gray;
+      padding: $space-s $space-m;
+      &:last-child {
+        border-right: none;
+      }
+    }
+    th {
+      font-weight: normal;
+      color: $primary;
+      background: $inverse;
+    }
+  }
+
+  .versionTable {
+    th,
+    td {
+      text-align: center;
+      padding: $space-s $space-l;
+    }
+    th {
+      color: $textParagraphs;
+    }
+    td {
+      .svgIcon {
+        fill: $primary;
+      }
+    }
+  }
+}
+.tableLabel {
+  text-align: center;
+}
