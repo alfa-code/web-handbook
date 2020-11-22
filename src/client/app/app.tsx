@@ -93,19 +93,33 @@ export default class App extends React.Component<Props> {
                     />
                     <Route
                         exact
-                        path='/css'
-                        component={ CssListContainer }
+                        path='/html/recipes'
+                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
                     />
                     <Route
                         exact
-                        path='/html/recipes'
-                        component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
+                        path='/html/:htmlTag'
+                        component={ Tag }
+                    />
+
+                    {/* TODO: Этот функционал выкатим вторым этапом */}
+                    <Route
+                        exact
+                        path='/css'
+                        component={ CssListContainer }
                     />
                     <Route
                         exact
                         path='/css/recipes'
                         component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
                     />
+                    <Route
+                        exact
+                        path='/css/:cssRule'
+                        component={ () => <Property /> }
+                    />
+
+                    {/* TODO: Статьи выкатим третьим этапом */}
                     <Route
                         exact
                         path='/recipes/theme'
@@ -129,11 +143,6 @@ export default class App extends React.Component<Props> {
                     />
                     <Route
                         exact
-                        path='/html/:htmlTag'
-                        component={ () => <Tag /> }
-                    />
-                    <Route
-                        exact
                         path='/attribute'
                         component={ () => <Attribute /> }
                     />
@@ -145,11 +154,7 @@ export default class App extends React.Component<Props> {
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
                     />
-                    <Route
-                        exact
-                        path='/css/:cssRule'
-                        component={ () => <Property /> }
-                    />
+
                     <Route
                         path='*'
                         component={ NotFound }

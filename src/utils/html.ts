@@ -20,3 +20,7 @@ export function getHtmlTagsListByAlphabet() {
 
     return filteredHtmlTags;
 }
+
+export function isHtmlTagExists(tag) {
+    return !!HTML_TAGS_LIST[tag];
+}

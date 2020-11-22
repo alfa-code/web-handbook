@@ -1,4 +1,3 @@
-// import HapiAuthJWT2 from 'hapi-auth-jwt2';
 import Hapi from '@hapi/hapi'
 import path from 'path';
 

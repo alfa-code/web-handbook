@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server';
 
 import AppHtml from 'Components/app-html';
 
-import { getHtmlTagsListByAlphabet } from 'Utils/html'
+import { getHtmlTagsListByAlphabet } from 'Utils/html';
 
 import App from 'Src/client/app/app';
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
