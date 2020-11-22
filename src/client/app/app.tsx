@@ -9,8 +9,11 @@ import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory, createMemoryHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
-import { HtmlListContainer } from 'Containers/html-list-container';
-import { CssListContainer } from 'Containers/css-list-container';
+import {
+    HtmlListContainer,
+    CssListContainer,
+    TagPageContainer
+} from 'Containers/index';
 
 import { createRootReducer } from 'Src/reducers';
 
@@ -20,7 +23,6 @@ import {
     Main,
     NotFound,
     Recipes,
-    Tag,
     Attribute,
     Category,
     RecipesTheme,
@@ -99,7 +101,7 @@ export default class App extends React.Component<Props> {
                     <Route
                         exact
                         path='/html/:htmlTag'
-                        component={ Tag }
+                        component={ TagPageContainer }
                     />
 
                     {/* TODO: Этот функционал выкатим вторым этапом */}

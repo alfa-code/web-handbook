@@ -1,6 +1,7 @@
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
 
-// import { Props } from './props';
+import { Props } from './props';
 
 import { Button } from 'Components/index';
 
@@ -11,7 +12,11 @@ import VideoImg from "Assets/images/video-player.png";
 // import styles from './tag.module.scss';
 import { Layout } from 'Pages/index';
 
-export const Tag = () => {
+export const Tag = (props: Props) => {
+    const { tagInfo, loading } = props;
+    console.log('tagInfo', tagInfo)
+    // const { ta } = tagInfo;
+
     return (
         <Layout>
             <div className="page">
@@ -19,32 +24,36 @@ export const Tag = () => {
                     <Breadcrumbs path={["Главное", "HTML справочник ", "Тег <a>"]} />
 
                     <div className="mt-4 text-heading-2">
-                        Тег &lt; a &gt;
+                        Тег { loading ? (<Skeleton count={1} />) : ('&lt; a &gt;') }
                     </div>
 
                     <div className="mt-4">
                         <span className="text-body-3">Тип тега: </span>
-                        <a href="#" className="link-body-3">Строчные элементы</a>
+                        <a href="#" className="link-body-3">
+                            { loading ? (<Skeleton count={1} width={100} />) : ('Строчные элементы') }
+                        </a>
                     </div>
 
-                    <div className="mt-4">
+                    {/* <div className="mt-4">
                         <img src={VideoImg} alt="Video" />
                     </div>
 
                     <div className="mt-4">
                         <Button className="btnGreen" text="Показывать видео" icon="check-icon" />
-                    </div>
+                    </div> */}
 
                     <div className="mt-4">
-                        <SupportTable
-                            ie="1.0+"
-                            chrome="1.0+"
-                            opera="2.0+"
-                            safari="1.0+"
-                            firefox="1.0+"
-                            android="1.0+"
-                            ios="1.0+"
+                        { loading ? (<Skeleton count={4} />) : (
+                            <SupportTable
+                                ie="1.0+"
+                                chrome="1.0+"
+                                opera="2.0+"
+                                safari="1.0+"
+                                firefox="1.0+"
+                                android="1.0+"
+                                ios="1.0+"
                             />
+                        ) }
                     </div>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
@@ -52,27 +61,34 @@ export const Tag = () => {
                     </div>
 
                     <div className="mt-3 mt-sm-2">
-                        <SpecificationTable
-                            html={["3.2", "4.01", "5.0"]}
-                            xhtml={["1.0", "1.1"]} />
+                        { loading ? (<Skeleton count={4} />) : (
+                            <SpecificationTable
+                                html={["3.2", "4.01", "5.0"]}
+                                xhtml={["1.0", "1.1"]}
+                            />
+                        ) }
                     </div>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
                         Описание
                     </div>
 
-                    <div className="mt-3 mt-sm-2 text-body-2">
-                        Тег &lt; a &gt; является одним из важных элементов HTML и предназначен для создания ссылок. В зависимости от присутствия атрибутов name или href тег &lt; a &gt; устанавливает ссылку или якорь. Якорем называется закладка внутри страницы, которую можно указать в качестве цели ссылки. При использовании ссылки, которая указывает на якорь, происходит переход к закладке внутри веб-страницы. <br /><br/>
-                        Для создания ссылки необходимо сообщить браузеру, что является ссылкой, а также указать адрес документа, на который следует сделать ссылку. В качестве значения атрибута href используется адрес документа (URL, Universal Resource Locator, универсальный указатель ресурсов), на который происходит переход. Адрес ссылки может быть абсолютным и относительным. Абсолютные адреса работают везде и всюду независимо от имени сайта или веб-страницы, где прописана ссылка. Относительные ссылки, как следует из их названия, построены относительно текущего документа или корня сайта.
-                    </div>
+                    <p className="mt-3 mt-sm-2 text-body-2">
+                        { loading ? (<Skeleton count={ 10 } />) : (`
+                            Тег &lt; a &gt; является одним из важных элементов HTML и предназначен для создания ссылок. В зависимости от присутствия атрибутов name или href тег &lt; a &gt; устанавливает ссылку или якорь. Якорем называется закладка внутри страницы, которую можно указать в качестве цели ссылки. При использовании ссылки, которая указывает на якорь, происходит переход к закладке внутри веб-страницы. <br /><br/>
+                            Для создания ссылки необходимо сообщить браузеру, что является ссылкой, а также указать адрес документа, на который следует сделать ссылку. В качестве значения атрибута href используется адрес документа (URL, Universal Resource Locator, универсальный указатель ресурсов), на который происходит переход. Адрес ссылки может быть абсолютным и относительным. Абсолютные адреса работают везде и всюду независимо от имени сайта или веб-страницы, где прописана ссылка. Относительные ссылки, как следует из их названия, построены относительно текущего документа или корня сайта.
+                        `) }
+                    </p>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
                         Синтаксис
                     </div>
                     <div className="mt-3 mt-sm-2">
-                        <div className="code">
-                            {"<!DOCTYPE html> <br> <html>"}
-                        </div>
+                        { loading ? (<Skeleton count={1} />) : (
+                            <div className="code">
+                                {"<!DOCTYPE html> <br> <html>"}
+                            </div>
+                        ) }
                     </div>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
@@ -80,6 +96,7 @@ export const Tag = () => {
                     </div>
 
                     <div className="mt-3 mt-sm-2">
+                        { loading ? (<Skeleton count={4} />) : (
                         <AttributesTable
                             attributes={[
                                 {
@@ -136,6 +153,7 @@ description: "Указывает MIME-тип документа, на котор
 }
                             ]}
                         />
+                        ) }
                     </div>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
@@ -143,7 +161,11 @@ description: "Указывает MIME-тип документа, на котор
                     </div>
 
                     <div className="mt-3 mt-sm-2 text-body-2">
-                        Обязателен.
+                        { loading ? (<Skeleton count={1} />) : (
+                            <div className="code">
+                                { 'Обязателен.' }
+                            </div>
+                        ) }
                     </div>
 
                     <div className="mt-5 mt-sm-3 text-heading-4">
@@ -151,9 +173,11 @@ description: "Указывает MIME-тип документа, на котор
                     </div>
 
                     <div className="mt-3 mt-sm-2">
-                        <div className="code">
-                            {"<!DOCTYPE html> <br> <html>"}
-                        </div>
+                        { loading ? (<Skeleton count={4} />) : (
+                            <div className="code">
+                                {"<!DOCTYPE html> <br> <html>"}
+                            </div>
+                        ) }
                     </div>
 
                     <div className="mt-6">
