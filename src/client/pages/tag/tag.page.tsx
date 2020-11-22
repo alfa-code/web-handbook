@@ -48,6 +48,16 @@ export class Tag extends React.PureComponent<Props> {
     //     });
     // }
 
+    renderOmissions = (omissions: string[] = []) => {
+        return omissions.map((omission, i) => {
+            return (
+                <p key={ i }>
+                    { omission }
+                </p>
+            )
+        });
+    }
+
     renderAttributes = () => {
         const {
             tagInfo = {},
@@ -90,17 +100,12 @@ export class Tag extends React.PureComponent<Props> {
 
     render() {
         const {
-            tagInfo = {},
+            tagInfo,
             loading,
             htmlTag
         } = this.props;
 
-        const {
-            tagName = '',
-            description = '',
-            syntax,
-            content_attributes,
-        } = tagInfo;
+        console.log('tagInfo', tagInfo)
 
         const isTagExists = isHtmlTagExists(htmlTag);
         if (!isTagExists) {
@@ -108,12 +113,32 @@ export class Tag extends React.PureComponent<Props> {
                 <Layout>
                     <div className="page">
                         <div className="pageContent">
-                            Данного тега не существует
+                            Данного тега не существует.
                         </div>
                     </div>
                 </Layout>
             )
         }
+
+        if (!tagInfo && !loading) {
+            return (
+                <Layout>
+                    <div className="page">
+                        <div className="pageContent">
+                            Данные временно отсутствуют.
+                        </div>
+                    </div>
+                </Layout>
+            )
+        }
+
+        const {
+            tagName = '',
+            description = '',
+            syntax,
+            content_attributes,
+            tag_omission,
+        } = tagInfo || {};
 
         return (
             <Layout>
@@ -173,6 +198,14 @@ export class Tag extends React.PureComponent<Props> {
 
                         <div className="mt-3 mt-sm-2 text-body-2">
                             { loading ? (<Skeleton count={ 10 } />) : (this.renderDescription(description)) }
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Пропуски
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            { loading ? (<Skeleton count={ 2 } />) : (this.renderOmissions(tag_omission)) }
                         </div>
 
                         {/* <div className="mt-5 mt-sm-3 text-heading-4">
