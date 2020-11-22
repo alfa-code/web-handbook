@@ -48,6 +48,46 @@ export class Tag extends React.PureComponent<Props> {
     //     });
     // }
 
+    renderAttributes = () => {
+        const {
+            tagInfo = {},
+            loading,
+        } = this.props;
+
+        const {
+            content_attributes = {},
+        } = tagInfo;
+
+        const attributes = [];
+
+        if (content_attributes.custom_attributes) {
+            attributes.push(...content_attributes.custom_attributes);
+        }
+
+        if (content_attributes.global_attributes) {
+            attributes.unshift({
+                name: 'global',
+                description: 'Глобальные атрибуты'
+            })
+        }
+
+        return (
+            <div>
+                <div className="mt-5 mt-sm-3 text-heading-4">
+                    Атрибуты
+                </div>
+
+                <div className="mt-3 mt-sm-2">
+                    { loading ? (<Skeleton count={4} />) : (
+                        <AttributesTable
+                            attributes={ attributes }
+                        />
+                    ) }
+                </div>
+            </div>
+        )
+    }
+
     render() {
         const {
             tagInfo = {},
@@ -58,7 +98,8 @@ export class Tag extends React.PureComponent<Props> {
         const {
             tagName = '',
             description = '',
-            // syntax,
+            syntax,
+            content_attributes,
         } = tagInfo;
 
         const isTagExists = isHtmlTagExists(htmlTag);
@@ -145,70 +186,7 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        {/* <div className="mt-5 mt-sm-3 text-heading-4">
-                            Атрибуты
-                        </div>
-
-                        <div className="mt-3 mt-sm-2">
-                            { loading ? (<Skeleton count={4} />) : (
-                            <AttributesTable
-                                attributes={[
-                                    {
-    title: "accesskey",
-    description: "Активация ссылки с помощью комбинации клавиш."
-    },
-                                    {
-    title: "coords",
-    description: "Устанавливает координаты активной области."
-    },
-                                    {
-    title: "download",
-    description: "Предлагает скачать указанный по ссылке файл."
-    },
-                                    {
-    title: "href",
-    description: "Задает адрес документа, на который следует перейти."
-    },
-                                    {
-    title: "hreflang",
-    description: "Идентифицирует язык текста по ссылке."
-    },
-                                    {
-    title: "name",
-    description: "Устанавливает имя якоря внутри документа."
-    },
-                                    {
-    title: "rel",
-    description: "Отношения между ссылаемым и текущим документами."
-    },
-                                    {
-    title: "rev",
-    description: "Отношения между текущим и ссылаемым документами."
-    },
-                                    {
-    title: "shape",
-    description: "Задает форму активной области ссылки для изображений."
-    },
-                                    {
-    title: "tabindex",
-    description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab."
-    },
-                                    {
-    title: "target",
-    description: "Имя окна или фрейма, куда браузер будет загружать документ."
-    },
-                                    {
-    title: "title",
-    description: "Добавляет всплывающую подсказку к тексту ссылки."
-    },
-                                    {
-    title: "type",
-    description: "Указывает MIME-тип документа, на который ведёт ссылка."
-    }
-                                ]}
-                            />
-                            ) }
-                        </div> */}
+                        { this.renderAttributes() }
 
                         {/* <div className="mt-5 mt-sm-3 text-heading-4">
                             Закрывающий тег

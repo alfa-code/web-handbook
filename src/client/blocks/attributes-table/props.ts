@@ -1,6 +1,6 @@
 type OwnProps = {
 	attributes?: {
-		title?: string,
+		name: string,
 		description?: string
 	}[]
 }

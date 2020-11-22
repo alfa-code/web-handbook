@@ -21,7 +21,7 @@ export const AttributesTable = ({ attributes } : Props) => {
                             <tr key={key}>
                                 <td>
                                     <Link className="link-body-2" to="/attribute">
-                                        {item.title}
+                                        {item.name}
                                     </Link>
                                 </td>
                                 <td>
