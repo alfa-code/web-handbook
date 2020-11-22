@@ -98,6 +98,16 @@ export class Tag extends React.PureComponent<Props> {
         )
     }
 
+    renderCategories = (categories) => {
+        return categories.map((category, i) => {
+            return (
+                <p key={ i }>
+                    { category }
+                </p>
+            )
+        });
+    }
+
     render() {
         const {
             tagInfo,
@@ -137,7 +147,9 @@ export class Tag extends React.PureComponent<Props> {
             description = '',
             syntax,
             content_attributes,
+            content_model = '',
             tag_omission,
+            categories,
         } = tagInfo || {};
 
         return (
@@ -198,6 +210,27 @@ export class Tag extends React.PureComponent<Props> {
 
                         <div className="mt-3 mt-sm-2 text-body-2">
                             { loading ? (<Skeleton count={ 10 } />) : (this.renderDescription(description)) }
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Категории
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            { loading ? (<Skeleton count={ 10 } />) : (this.renderCategories(categories)) }
+                        </div>
+
+                        <div
+                            className="mt-5 mt-sm-3 text-heading-4"
+                            title="Описание того, какой контент должен быть включен в качестве потомков элемента."
+                        >
+                            Модель контента
+                        </div>
+
+                        <div className="mt-3 mt-sm-2">
+                            { loading ? (<Skeleton count={4} />) : (
+                                content_model
+                            ) }
                         </div>
 
                         <div className="mt-5 mt-sm-3 text-heading-4">
