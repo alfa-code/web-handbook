@@ -18,7 +18,8 @@ export async function getContent(request: any) {
 
     const initialState = {
         UI: {
-            htmlTags: getHtmlTagsListByAlphabet(),
+            htmlTagsList: getHtmlTagsListByAlphabet(),
+            htmlTagsInfo: {}
         },
     }
 

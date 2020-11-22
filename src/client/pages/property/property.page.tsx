@@ -26,7 +26,7 @@ export const Property = () => {
                     </div>
 
                     <div className="mt-4">
-                        <span className="text-body-3">Тип тега:</span>
+                        <span className="text-body-3">Тип тега: </span>
                         <a href="#" className="link-body-3">Строчные элементы</a>
                     </div>
 
@@ -39,7 +39,7 @@ export const Property = () => {
                     </div>
 
                     <div className="mt-4">
-                        <SupportTable  
+                        <SupportTable
                             ie="1.0+"
                             chrome="1.0+"
                             opera="2.0+"
@@ -58,19 +58,19 @@ export const Property = () => {
                         <PropertyInfoTable info={[
                             {
  title: "Значение по умолчанию",
-value: "Нет" 
+value: "Нет"
 },
                             {
  title: "Наследуется",
-value: "Нет" 
+value: "Нет"
 },
                             {
  title: "Применяется",
-value: "Ко всем элементам" 
+value: "Ко всем элементам"
 },
                             {
  title: "Ссылка на спецификацию",
-value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules" 
+value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
 }
                         ]} />
                     </div>
@@ -98,7 +98,7 @@ value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
                             <li>!important добавлен в пользовательский стиль — будет применяться стиль пользователя.</li>
                             <li>!important нет как в авторском стиле, так и стиле пользователя — будет применяться стиль автора.</li>
                             <li>!important содержится в авторском стиле и стиле пользователя — будет применяться стиль пользователя.</li>
-                        </ul> 
+                        </ul>
                         Итог от применения !important в общем случае показан в табл. 1.
                     </div>
 
@@ -109,7 +109,7 @@ value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
                     <div className="mt-3 mt-sm-2 illustration">
                         <img src={Illustration1} alt="illustration" />
                         <div className="mt-3 text-body-3">
-                            Рис. 1. Слои, располагающиеся по горизонтали с помощью float    
+                            Рис. 1. Слои, располагающиеся по горизонтали с помощью float
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@ value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
                         Данный пример работает только для слоев, у которых ширина задана явно в процентах или пикселах через свойство width. Чтобы обтекание не распространялось дальше на последующие элементы, необходимо применить свойство clear, оно отменяет действие float. В примере для этой цели создается «пустой» элемент
                     </div>
 
-                    
+
                     <div className="mt-3 mt-sm-2 illustration">
                         <img src={Illustration2} alt="illustration" />
                         <div className="mt-3 text-body-3">
@@ -161,7 +161,7 @@ value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
                     <div className="mt-3 text-body-3">
                         При добавлении !important к значению стилевого свойства его важность повышается. Если переопределить значение того же свойства без !important, оно будет игнорироваться браузерами. Но только не в Intenet Explorer версии 6 и ниже.
                     </div>
-                    
+
                     {/* <div className="mt-6">
                         <include src='src/templates/components/common/comments.html'></include>
                     </div> */}

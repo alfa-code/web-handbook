@@ -17,13 +17,13 @@ export const Tag = () => {
             <div className="page">
                 <div className="pageContent">
                     <Breadcrumbs path={["Главное", "HTML справочник ", "Тег <a>"]} />
-                    
+
                     <div className="mt-4 text-heading-2">
                         Тег &lt; a &gt;
                     </div>
 
                     <div className="mt-4">
-                        <span className="text-body-3">Тип тега:</span>
+                        <span className="text-body-3">Тип тега: </span>
                         <a href="#" className="link-body-3">Строчные элементы</a>
                     </div>
 
@@ -36,7 +36,7 @@ export const Tag = () => {
                     </div>
 
                     <div className="mt-4">
-                        <SupportTable  
+                        <SupportTable
                             ie="1.0+"
                             chrome="1.0+"
                             opera="2.0+"
@@ -52,8 +52,8 @@ export const Tag = () => {
                     </div>
 
                     <div className="mt-3 mt-sm-2">
-                        <SpecificationTable 
-                            html={["3.2", "4.01", "5.0"]} 
+                        <SpecificationTable
+                            html={["3.2", "4.01", "5.0"]}
                             xhtml={["1.0", "1.1"]} />
                     </div>
 
@@ -84,55 +84,55 @@ export const Tag = () => {
                             attributes={[
                                 {
  title: "accesskey",
-description: "Активация ссылки с помощью комбинации клавиш." 
+description: "Активация ссылки с помощью комбинации клавиш."
 },
                                 {
  title: "coords",
-description: "Устанавливает координаты активной области." 
+description: "Устанавливает координаты активной области."
 },
                                 {
  title: "download",
-description: "Предлагает скачать указанный по ссылке файл." 
+description: "Предлагает скачать указанный по ссылке файл."
 },
                                 {
  title: "href",
-description: "Задает адрес документа, на который следует перейти." 
+description: "Задает адрес документа, на который следует перейти."
 },
                                 {
  title: "hreflang",
-description: "Идентифицирует язык текста по ссылке." 
+description: "Идентифицирует язык текста по ссылке."
 },
                                 {
  title: "name",
-description: "Устанавливает имя якоря внутри документа." 
+description: "Устанавливает имя якоря внутри документа."
 },
                                 {
  title: "rel",
-description: "Отношения между ссылаемым и текущим документами." 
+description: "Отношения между ссылаемым и текущим документами."
 },
                                 {
  title: "rev",
-description: "Отношения между текущим и ссылаемым документами." 
+description: "Отношения между текущим и ссылаемым документами."
 },
                                 {
  title: "shape",
-description: "Задает форму активной области ссылки для изображений." 
+description: "Задает форму активной области ссылки для изображений."
 },
                                 {
  title: "tabindex",
-description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab." 
+description: "Определяет последовательность перехода между ссылками при нажатии на кнопку Tab."
 },
                                 {
  title: "target",
-description: "Имя окна или фрейма, куда браузер будет загружать документ." 
+description: "Имя окна или фрейма, куда браузер будет загружать документ."
 },
                                 {
  title: "title",
-description: "Добавляет всплывающую подсказку к тексту ссылки." 
+description: "Добавляет всплывающую подсказку к тексту ссылки."
 },
                                 {
  title: "type",
-description: "Указывает MIME-тип документа, на который ведёт ссылка." 
+description: "Указывает MIME-тип документа, на который ведёт ссылка."
 }
                             ]}
                         />
@@ -155,7 +155,7 @@ description: "Указывает MIME-тип документа, на котор
                             {"<!DOCTYPE html> <br> <html>"}
                         </div>
                     </div>
-                    
+
                     <div className="mt-6">
                         {/* <include src='src/templates/components/common/comments.html'></include> */}
                     </div>

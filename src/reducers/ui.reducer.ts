@@ -1,11 +1,23 @@
 type InitialState = {
-    htmlTags: {
-        [key: string]: string[]
+    htmlTagsList: {
+        [key: string]: string[];
+    },
+    htmlTagsInfo: {
+        isLoading: boolean;
+        list: {
+            [key: string]: {
+                [key: string]: any
+            }
+        }
     }
 }
 
 const initialState: InitialState = {
-    htmlTags: {}
+    htmlTagsList: {},
+    htmlTagsInfo: {
+        isLoading: false,
+        list: {}
+    }
 }
 
 export function uiReducer(state = initialState, action) {
