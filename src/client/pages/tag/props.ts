@@ -3,6 +3,7 @@ type OwnProps = {
     loading: boolean;
     /** Данные о теге */
     tagInfo: any;
+    htmlTag: string;
 }
 
 export type Props = OwnProps;

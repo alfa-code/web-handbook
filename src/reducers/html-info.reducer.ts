@@ -23,6 +23,18 @@ export function htmlInfoReducer(state = initialState, action) {
                 isLoading: loading
             }
         }
+        case HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO_SUCCESS: {
+            const { data } = action.payload;
+            return {
+                ...state,
+                list: {
+                    ...state.list,
+                    [data.tagName]: {
+                        ...data
+                    }
+                }
+            }
+        }
         default:
             return {
                 ...state

@@ -1,6 +1,7 @@
 export const HTML_ACTION_TYPES = {
     TOGGLE_HTML_TAG_INFO_LOADING: 'TOGGLE_HTML_TAG_INFO_LOADING',
-    FETCH_HTML_TAG_INFO: 'FETCH_HTML_TAG_INFO'
+    FETCH_HTML_TAG_INFO: 'FETCH_HTML_TAG_INFO',
+    FETCH_HTML_TAG_INFO_SUCCESS: 'FETCH_HTML_TAG_INFO_SUCCESS',
 }
 
 export function fetchHtmlTagInfoAC(htmlTag: string) {
@@ -8,6 +9,15 @@ export function fetchHtmlTagInfoAC(htmlTag: string) {
         type: HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO,
         payload: {
             htmlTag
+        }
+    }
+}
+
+export function fetchHtmlTagInfoSuccessAC(data) {
+    return {
+        type: HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO_SUCCESS,
+        payload: {
+            data
         }
     }
 }

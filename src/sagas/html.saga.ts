@@ -1,13 +1,36 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import axios from 'axios';
 
-import { HTML_ACTION_TYPES, toggleHtmlTagInfoLoadingAC } from 'Actions/index';
+import {
+    HTML_ACTION_TYPES,
+    toggleHtmlTagInfoLoadingAC,
+    fetchHtmlTagInfoSuccessAC
+} from 'Actions/index';
 
-function* fetchHtmlTagInfo(_action) {
+function fetchHtml(htmlTag: string) {
+    return axios({
+      method: 'get',
+      url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/main.json`
+    });
+  }
+
+function* fetchHtmlTagInfo(action) {
     yield put(toggleHtmlTagInfoLoadingAC(true));
+
+    const { payload: { htmlTag } } = action;
+    try {
+        const response = yield call(fetchHtml, htmlTag);
+        const { data } = response;
+
+        if (data) {
+            yield put(fetchHtmlTagInfoSuccessAC(data));
+            yield put(toggleHtmlTagInfoLoadingAC(false));
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export function* htmlSaga() {
-    yield takeEvery(HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO, fetchHtmlTagInfo);
-    // yield takeLatest(HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING, toggle);
+    yield takeLatest(HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO, fetchHtmlTagInfo);
 }

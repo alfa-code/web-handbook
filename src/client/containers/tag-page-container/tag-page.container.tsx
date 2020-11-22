@@ -22,22 +22,25 @@ class Container extends Component<Props> {
             fetchHtmlTagInfoDA
         } = this.props;
 
-        const { match: { params: { htmlTag } } } = this.props;
+        const { htmlTag } = this.props;
 
-        if (!isHtmlTagsInfoLoading && !tagInfo) {
+        if (!isHtmlTagsInfoLoading && !tagInfo && htmlTag) {
             fetchHtmlTagInfoDA(htmlTag);
         }
     }
 
     render() {
-        const { isHtmlTagsInfoLoading, tagInfo } = this.props;
-
-        console.log('isHtmlTagsInfoLoading', isHtmlTagsInfoLoading)
+        const {
+            isHtmlTagsInfoLoading,
+            tagInfo,
+            htmlTag,
+        } = this.props;
 
         return (
             <Tag
                 loading={ isHtmlTagsInfoLoading }
                 tagInfo={ tagInfo }
+                htmlTag={ htmlTag }
             />
         );
     }
@@ -45,9 +48,13 @@ class Container extends Component<Props> {
 
 const mapStateToProps = (state, ownProps) => {
     const { match: { params: { htmlTag } } } = ownProps;
+
+    console.log('htmlTag', htmlTag)
+
     return {
         isHtmlTagsInfoLoading: selectIsHtmlTagsInfoLoading(state),
-        tagInfo: selectHtmlTagInfo(state, htmlTag)
+        tagInfo: selectHtmlTagInfo(state, htmlTag),
+        htmlTag
     }
 }
 
