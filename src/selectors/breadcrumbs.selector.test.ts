@@ -11,11 +11,11 @@ const testState = {
 const testBreadcrumbs_1 = [
     {
         name: 'HTML справочник',
-        url: '/html'
+        url: '/html-list'
     },
     {
         name: 'Тег <body>',
-        url: '/html/body'
+        url: '/html-list/body'
     }
   ];
 
