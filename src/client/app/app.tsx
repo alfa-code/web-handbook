@@ -90,34 +90,34 @@ export default class App extends React.Component<Props> {
                     />
                     <Route
                         exact
-                        path='/html'
+                        path='/html-list'
                         component={ HtmlListContainer }
                     />
                     <Route
                         exact
-                        path='/html/recipes'
+                        path='/html-list/recipes'
                         component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
                     />
                     <Route
                         exact
-                        path='/html/:htmlTag'
+                        path='/html-list/:htmlTag'
                         component={ TagPageContainer }
                     />
 
                     {/* TODO: Этот функционал выкатим вторым этапом */}
                     <Route
                         exact
-                        path='/css'
+                        path='/css-list'
                         component={ CssListContainer }
                     />
                     <Route
                         exact
-                        path='/css/recipes'
+                        path='/css-list/recipes'
                         component={ () => <Recipes themes={ CONSTANTS.themes }  type="css" /> }
                     />
                     <Route
                         exact
-                        path='/css/:cssRule'
+                        path='/css-list/:cssRule'
                         component={ () => <Property /> }
                     />
 

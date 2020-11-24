@@ -6,8 +6,14 @@
   color: $secondary;
   font-size: $font-size-small;
   line-height: $line-height-caption;
+}
 
-  &Separator {
+.breadcrumbsItem {
+    &:visited {
+        color: $secondary;
+    }
+}
+
+.breadcrumbsSeparator {
     margin: 0 $space-xs;
-  }
 }

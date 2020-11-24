@@ -2,7 +2,9 @@ import React from 'react';
 
 // import { Props } from './props';
 
-import { Sidebar, Breadcrumbs, SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+
+import { Sidebar, SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
 
 import VideoImg from "Assets/images/video-player.png";
 import Illustration1 from 'Assets/images/illustration-1.png';
@@ -19,7 +21,7 @@ export const Property = () => {
         <Layout>
             <div className="page">
                 <div className="pageContent">
-                    <Breadcrumbs path={["Главное", "CSS справочник"]} />
+                    <BreadcrumbsContainer />
 
                     <div className="mt-4 text-heading-2">
                         Cвойство !important

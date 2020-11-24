@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { Sidebar, Breadcrumbs, SupportTable } from 'Blocks/index';
+import { Sidebar, SupportTable } from 'Blocks/index';
+
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import Illustration1 from 'Assets/images/illustration-1.png';
 import Illustration2 from 'Assets/images/illustration-2.png';
@@ -18,7 +20,7 @@ export const Recipe = ({ title, type } : Props) => {
             <div className="page">
 
                 <div className="pageContent">
-                    <Breadcrumbs path={["Главное", "HTML рецепты ", "Структура"]} />
+                    <BreadcrumbsContainer />
 
                     <div className="mt-4 text-heading-2">
                         {title}
@@ -30,7 +32,7 @@ export const Recipe = ({ title, type } : Props) => {
                     </div>
 
                     <div className="mt-4">
-                        <SupportTable  
+                        <SupportTable
                             ie="1.0+"
                             chrome="1.0+"
                             opera="2.0+"
@@ -71,7 +73,7 @@ export const Recipe = ({ title, type } : Props) => {
                     <div className="mt-3 mt-sm-2 illustration">
                         <img src={Illustration1} alt="illustration" />
                         <div className="mt-3 text-body-3">
-                            Рис. 1. Слои, располагающиеся по горизонтали с помощью float    
+                            Рис. 1. Слои, располагающиеся по горизонтали с помощью float
                         </div>
                     </div>
 
@@ -82,7 +84,7 @@ export const Recipe = ({ title, type } : Props) => {
                     <div className="mt-3 mt-sm-2">
                         <Alert message="При уменьшении размеров окна браузера до определенной величины, слои сверстанные по указанной методике перестают располагаться по горизонтали и «перескакивают» вниз друг под друга (рис. 2). Чтобы этого не происходило, воспользуйтесь стилевым свойством min-width." />
                     </div>
-                    
+
                     <div className="mt-3 mt-sm-2 illustration">
                         <img src={Illustration2} alt="illustration" />
                         <div className="mt-3 text-body-3">

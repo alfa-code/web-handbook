@@ -2,7 +2,9 @@ import React from 'react';
 
 // import { Props } from './props';
 
-import { Sidebar, Breadcrumbs, SupportTable, SpecificationTable } from 'Blocks/index';
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+
+import { Sidebar, SupportTable, SpecificationTable } from 'Blocks/index';
 
 // import styles from './attribute.module.scss';
 import { Layout } from 'Pages/index';
@@ -12,8 +14,7 @@ export const Attribute = () => {
         <Layout>
             <div className="page">
                 <div className="pageContent">
-                    <Breadcrumbs path={["Главное", "HTML справочник ", "Тег <a>"]} />
-
+                    <BreadcrumbsContainer />
 
                     <div className="mt-4 text-heading-2">
                         Атрибут href
