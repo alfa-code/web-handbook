@@ -1,22 +1,24 @@
 @import "Src/client/breakpoints.scss";
 
 .logo {
-	margin-right: 57px;
+    margin-right: 57px;
 
-	.logoMobile {
-		display: none;
-	}
+    .logoMobile {
+        display: none;
+    }
 
-	@include media("<tablet-2") {
-		margin-right: 0;
-		.logoMobile {
-			display: block;
-			position: absolute;
-			top: 16px;
-			left: 24px;
-		}
-		.logoDesktop {
-			display: none;
-		}
-  }
+    @include media("<tablet-2") {
+        margin-right: 0;
+
+        .logoMobile {
+            position: absolute;
+            top: 16px;
+            left: 24px;
+            display: block;
+        }
+
+        .logoDesktop {
+            display: none;
+        }
+    }
 }

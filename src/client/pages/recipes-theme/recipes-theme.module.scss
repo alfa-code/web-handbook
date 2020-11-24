@@ -1,12 +1,12 @@
 @import "Src/client/breakpoints.scss";
 
 .recipeLink {
-	margin-top: $space-xl;
+    margin-top: $space-xl;
 
-	@include media("<desktop-2") {
-		margin-top: $space-l;
-	}
-	@include media("<tablet-2") {
-		margin-top: $space-m;
-	}
+    @include media("<desktop-2") {
+        margin-top: $space-l;
+    }
+    @include media("<tablet-2") {
+        margin-top: $space-m;
+    }
 }

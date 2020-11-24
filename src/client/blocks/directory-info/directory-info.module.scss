@@ -1,25 +1,25 @@
 @import "Src/client/breakpoints.scss";
 
 .directoryList {
-  margin-top: $space-l;
-  &Top {
-    padding-bottom: 4px;
-    border-bottom: 1px solid $Gray;
-  }
+    margin-top: $space-l;
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 19px;
-    li {
-      margin-top: $space-s;
-      flex: 0 1 25%;
-      
-      @include media("<tablet-1") {
-        flex: 0 1 50%;
-      }
+    .directoryListTop {
+        padding-bottom: 4px;
+        border-bottom: 1px solid $Gray;
     }
 
-    
-  }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 19px;
+
+        li {
+            margin-top: $space-s;
+            flex: 0 1 25%;
+
+            @include media("<tablet-1") {
+                flex: 0 1 50%;
+            }
+        }
+    }
 }

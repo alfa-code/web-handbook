@@ -1,239 +1,252 @@
 @import "Src/client/breakpoints.scss";
 
 .header {
-  display: flex;
-  height: 96px;
-  align-items: center;
-  padding: 0 $space-l 0 $space-xxl;
-  border-bottom: 1px solid #f3f4f5;
-  grid-area: h;
-  position: relative;
-
-  @include media("<desktop-2") {
-    padding: 0 $space-l;
-  }
-  @include media("<tablet-2") {
-    padding: 0 $space-m;
-    background: $primary;
-    height: 64px;
-  }
-  .headerMenu {
-    height: calc(100% - 1px);
+    position: relative;
     display: flex;
+    height: 96px;
+    padding: 0 $space-l 0 $space-xxl;
+    border-bottom: 1px solid #f3f4f5;
+    align-items: center;
+    grid-area: h;
+
+    @include media("<desktop-2") {
+        padding: 0 $space-l;
+    }
     @include media("<tablet-2") {
-      display: none;
-      
-      &.activeHeader {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: auto;
-        text-align: center;
-        padding: 0;
-        background: $inverse;
-        z-index: 10;
-        padding-bottom: $space-s;
-      }
-    }
-    .headerMenuLink {
-      margin: 0 $space-l;
-      padding: 36px 0;
-      color: $primary;
-      transition: all 0.5s;
-      @include media("<tablet-2") {
-        margin: 0;
-        padding: $space-s 0 0;
-      }
-
-			&:hover {
-				text-decoration: none;
-				color: $uiRed;
-			}
-
-			&.active {
-				box-shadow: 0 2px 0 0 $brandRed;
-			}
+        height: 64px;
+        padding: 0 $space-m;
+        background: $primary;
     }
 
-    .dropdown {
-      position: relative;
-      margin: 0 $space-l;
-      padding: 36px 0;
-      color: $primary;
-      transition: all 0.5s;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      .dropdownActivator {
+    .headerMenu {
         display: flex;
-        align-items: center;
-      }
+        height: calc(100% - 1px);
+        @include media("<tablet-2") {
+            display: none;
 
-      @include media("<tablet-2") {
-        margin: 0;
-        justify-content: center;
-        padding: 0;
+            &.activeHeader {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 10;
+                display: block;
+                width: 100%;
+                height: auto;
+                padding: 0;
+                padding-bottom: $space-s;
+                text-align: center;
+                background: $inverse;
+            }
+        }
+
+        .headerMenuLink {
+            padding: 36px 0;
+            margin: 0 $space-l;
+            color: $primary;
+            transition: all 0.5s;
+            @include media("<tablet-2") {
+                padding: $space-s 0 0;
+                margin: 0;
+            }
+
+            &:hover {
+                color: $uiRed;
+                text-decoration: none;
+            }
+
+            &.active {
+                box-shadow: 0 2px 0 0 $brandRed;
+            }
+        }
+
+        .dropdown {
+            position: relative;
+            display: flex;
+            padding: 36px 0;
+            margin: 0 $space-l;
+            color: $primary;
+            cursor: pointer;
+            transition: all 0.5s;
+            align-items: center;
+
+            .dropdownActivator {
+                display: flex;
+                align-items: center;
+            }
+
+            @include media("<tablet-2") {
+                padding: 0;
+                margin: 0;
+                flex-direction: column;
+                justify-content: center;
+
+                .dropdownActivator {
+                    display: none;
+                }
+            }
+
+            svg {
+                fill: $textPrimary;
+            }
+
+            &:hover {
+                color: $uiRed;
+
+                svg {
+                    fill: $uiRed;
+                }
+            }
+
+            .dropdownInner {
+                position: absolute;
+                top: 75px;
+                left: -55px;
+                z-index: 10;
+                display: none;
+                width: 169px;
+                flex-direction: column;
+                background: #fff;
+                box-shadow: 0 10px 24px rgba(23, 42, 63, 0.1);
+
+                @include media("<tablet-2") {
+                    position: relative;
+                    top: unset;
+                    left: unset;
+                    display: flex;
+                    width: 100%;
+                    box-shadow: unset;
+                }
+
+                .dropdownInnerLink {
+                    width: 100%;
+                    padding: $space-s;
+                    color: $primary;
+                    border-bottom: 1px solid $background;
+                    transition: all 0.5s;
+
+                    @include media("<tablet-2") {
+                        padding: $space-s $space-s 0;
+                        border-bottom: none;
+                    }
+
+                    &:hover {
+                        color: $uiRed;
+                        text-decoration: none;
+                    }
+
+                    &.active {
+                        color: $brandRed;
+                        text-decoration: none;
+                    }
+
+                    &:last-child {
+                        border-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .dropdown.active {
+            box-shadow: 0 2px 0 0 $brandRed;
+        }
+
+        .dropdown.active {
+            .dropdownInner {
+                display: flex;
+            }
+        }
+    }
+
+    .headerSearch {
+        margin-left: auto;
+        transition: all 1s;
+
+        .inputWrapper {
+            position: relative;
+            height: 40px;
+
+            .inputWrapperInput {
+                width: 376px;
+                height: 40px;
+                box-sizing: border-box;
+                padding: 0 40px 0 $space-s;
+                color: $textParagraphs;
+                background: none;
+                border: 1px solid $Gray;
+                border-radius: 4px;
+
+                &:active {
+                    border: 1px solid $primary;
+                }
+
+                &::placeholder {
+                    color: $textTetriary;
+                }
+
+                @include media("<tablet-2") {
+                    display: none;
+                    width: 100%;
+                }
+            }
+
+            .inputWrapperIcon {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+
+                .svgIcon {
+                    fill: $primary;
+                }
+                @include media("<tablet-2") {
+                    .svgIcon {
+                        fill: $inverse;
+                    }
+                }
+            }
+
+            .inputWrapperIcon:hover {
+                .svgIcon {
+                    fill: $uiRed;
+                }
+            }
+        }
+
+        &.mobileActiveSearch {
+            z-index: 10;
+            margin-right: auto;
+            margin-left: 0;
+            @include media("<tablet-2") {
+                .inputWrapperInput {
+                    display: block;
+                    background: $inverse;
+                }
+
+                .inputWrapperIcon {
+                    .svgIcon {
+                        fill: $primary;
+                    }
+                }
+            }
+        }
+    }
+
+    .headerBtn {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        padding: 5px 2px;
+        margin-left: $space-s;
         flex-direction: column;
-        .dropdownActivator {
-          display: none;
+        justify-content: space-between;
+
+        div {
+            width: 100%;
+            height: 2px;
+            background: $inverse;
+            border-radius: 10px;
         }
-      }
-
-      svg {
-        fill: $textPrimary
-      }
-
-      &:hover {
-        color: $uiRed;
-        svg {
-          fill: $uiRed;
-        }
-      }
-
-      .dropdownInner {
-        flex-direction: column;
-        width: 169px;
-        position: absolute;
-        top: 75px;
-        left: -55px;
-        background: #ffffff;
-        box-shadow: 0px 10px 24px rgba(23, 42, 63, 0.1);
-        z-index: 10;
-        display: none;
-
-        @include media("<tablet-2") {
-          position: relative;
-          top: unset;
-          left: unset;
-          width: 100%;
-          box-shadow: unset;
-          display: flex;
-        }
-
-        .dropdownInnerLink {
-          width: 100%;
-          padding: $space-s;
-          border-bottom: 1px solid $background;
-          color: $primary;
-          transition: all 0.5s;
-
-          @include media("<tablet-2") {
-            padding: $space-s $space-s 0;
-            border-bottom: none;
-          }
-
-          &:hover {
-            text-decoration: none;
-            color: $uiRed;
-          }
-          &.active {
-            text-decoration: none;
-            color: $brandRed;
-          }
-
-          &:last-child {
-            border-bottom: 0;
-          }
-        }
-			}
     }
-		.dropdown.active {
-			box-shadow: 0 2px 0 0 $brandRed;
-		}
-
-		.dropdown.active {
-			.dropdownInner {
-				display: flex;
-			}
-		}
-  }
-  .headerSearch {
-    transition: all 1s;
-		margin-left: auto;
-		.inputWrapper {
-			position: relative;
-      height: 40px;
-
-			.inputWrapperInput {
-				padding: 0 40px 0 $space-s;
-				height: 40px;
-				width: 376px;
-				border: 1px solid $Gray;
-				box-sizing: border-box;
-				border-radius: 4px;
-				background: none;
-        color: $textParagraphs;
-		
-				&:active {
-					border: 1px solid $primary;
-				}
-		
-				&::placeholder {
-					color: $textTetriary;
-        }
-        
-        @include media("<tablet-2") {
-          display: none;
-          width: 100%;
-        }
-      }
-			.inputWrapperIcon {
-				position: absolute;
-				width: 20px;
-				height: 20px;
-				top: 10px;
-				right: 10px;
-				cursor: pointer;
-				
-				.svgIcon {
-					fill: $primary;
-        }
-        @include media("<tablet-2") {
-          .svgIcon {
-            fill: $inverse;
-          }
-        }
-			}
-			.inputWrapperIcon:hover {
-				.svgIcon {
-					fill: $uiRed;
-				}
-      }
-		}
-    &.mobileActiveSearch {
-      z-index: 10;
-      margin-left: 0;
-      margin-right: auto;
-      @include media("<tablet-2") {
-        .inputWrapperInput {
-          display: block;
-          background: $inverse;
-        }
-        .inputWrapperIcon {
-          .svgIcon {
-            fill: $primary;
-          }
-        }
-      }
-    }
-		
-  }
-  .headerBtn {
-    width: 24px;
-    height: 24px;
-    padding: 5px 2px;
-    margin-left: $space-s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    div {
-      width: 100%;
-      height: 2px;
-      background: $inverse;
-      border-radius: 10px;
-    }
-  }
 }

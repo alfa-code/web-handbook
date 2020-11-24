@@ -1,79 +1,83 @@
 @import "Src/client/breakpoints.scss";
 
 .mainPage {
-  padding: $space-xxl 0 0;
-  display: flex;
-    
+    display: flex;
+    padding: $space-xxl 0 0;
+
     @include media("<desktop-2") {
-      padding: $space-xl 0 0;
+        padding: $space-xl 0 0;
     }
     @include media("<tablet-2") {
-      background: $lightBackground;
+        background: $lightBackground;
     }
 
     .mainBg {
-      position: absolute;
-      width: calc(100% - 64px - 57px);
-      height: calc(100% - 27px);
-      top: 27px;
-      right: calc(64px + 57px);
-      z-index: -1;
-      background: $lightBackground;
-  
-      @include media("<desktop-2") {
-        right: calc(16px + 57px);
-        width: calc(100% - 16px - 57px);
-      }
+        position: absolute;
+        top: 27px;
+        right: calc(64px + 57px);
+        z-index: -1;
+        width: calc(100% - 64px - 57px);
+        height: calc(100% - 27px);
+        background: $lightBackground;
+
+        @include media("<desktop-2") {
+            right: calc(16px + 57px);
+            width: calc(100% - 16px - 57px);
+        }
     }
-  
+
     .mainPageContent {
-      position: relative;
-      padding: 0 $space-xxl;
-  
-      @include media("<desktop-2") {
-        padding: 0 $space-m;
-      }
+        position: relative;
+        padding: 0 $space-xxl;
+
+        @include media("<desktop-2") {
+            padding: 0 $space-m;
+        }
     }
+
     .mainPageTop {
-      display: flex;
-      align-items: center;
-      padding: $space-l $space-l $space-xl;
-      background: $background2;
-      border-radius: 4px;
-      
-      img {
-        margin-top: -64px;
-        width: 50%;
-      }
-      .text-subheading {
-        margin-top: $space-m;
-      }
-  
-      @include media("<desktop-2") {
-        & {
-          padding: $space-m $space-m $space-l;
-        }
-  
+        display: flex;
+        padding: $space-l $space-l $space-xl;
+        background: $background2;
+        border-radius: 4px;
+        align-items: center;
+
         img {
-          width: 45%;
+            width: 50%;
+            margin-top: -64px;
         }
+
         .text-subheading {
-          margin-top: $space-s;
-          font-size: 16px;
+            margin-top: $space-m;
         }
-      }
-      @include media("<tablet-2") {
-        flex-direction: column;
-        justify-content: center;
-        img {
-          width: 100%;
+
+        @include media("<desktop-2") {
+            & {
+                padding: $space-m $space-m $space-l;
+            }
+
+            img {
+                width: 45%;
+            }
+
+            .text-subheading {
+                margin-top: $space-s;
+                font-size: 16px;
+            }
         }
-      }
+        @include media("<tablet-2") {
+            flex-direction: column;
+            justify-content: center;
+
+            img {
+                width: 100%;
+            }
+        }
     }
+
     .mainPageLinks {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
-  }
-  
+}

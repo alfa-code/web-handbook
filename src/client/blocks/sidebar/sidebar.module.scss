@@ -1,49 +1,50 @@
 @import "Src/client/breakpoints.scss";
 
 .pageSide {
-  padding-right: $space-xxl;
-  padding-bottom: $space-xxl;
-  max-width: 272px;
-  min-width: 272px;
-  width: 100%;
-  box-sizing: content-box;
-
-  @include media("<desktop-2") {
-    padding-right: $space-s;
-    // max-width: 230px;
-  }
-  @include media("<desktop-1") {
-    display: none;
-  }
-
-  &Item {
-    display: flex;
-    align-items: flex-start;
-    margin-top: $space-s;
-    max-width: 272px;
-    .svgIcon {
-      margin-right: 8px;
-      fill: $Gray;
-    }
-
-    .tag {
-      margin-left: $space-xs;
-    }
-
-    &:hover {
-      text-decoration: none;
-
-      .svgIcon {
-        fill: $uiRed;
-      }
-    }
-  }
-
-  &PromoCard {
-    padding: $space-m;
-    position: relative;
     width: 100%;
-    height: 363px;
-    background: url('Assets/images/banner.png') center;
-  }
+    min-width: 272px;
+    max-width: 272px;
+    box-sizing: content-box;
+    padding-right: $space-xxl;
+    padding-bottom: $space-xxl;
+
+    @include media("<desktop-2") {
+        padding-right: $space-s;
+        // max-width: 230px;
+    }
+    @include media("<desktop-1") {
+        display: none;
+    }
+
+    .pageSideItem {
+        display: flex;
+        max-width: 272px;
+        margin-top: $space-s;
+        align-items: flex-start;
+
+        .svgIcon {
+            margin-right: 8px;
+            fill: $Gray;
+        }
+
+        .tag {
+            margin-left: $space-xs;
+        }
+
+        &:hover {
+            text-decoration: none;
+
+            .svgIcon {
+                fill: $uiRed;
+            }
+        }
+    }
+
+    .pageSidePromoCard {
+        position: relative;
+        width: 100%;
+        height: 363px;
+        padding: $space-m;
+        background: url("Assets/images/banner.png") center;
+    }
 }

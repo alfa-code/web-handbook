@@ -1,21 +1,23 @@
 @import "Src/client/breakpoints.scss";
 
 .tag {
-  border-radius: 4px;
-  padding: 0 4px;
-  font-family: Roboto;
-  font-weight: 500;
-  font-size: 13px;
-  line-height: 18px;
-  height: 18px;
-  display: inline-block;
-  margin: 0 $space-xs;
+    display: inline-block;
+    height: 18px;
+    padding: 0 4px;
+    margin: 0 $space-xs;
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    border-radius: 4px;
 }
+
 .tag.green {
-  color: #13a463;
-  background: $background3;
+    color: #13a463;
+    background: $background3;
 }
+
 .tag.red {
-  background: $background4;
-  color: $brandRed;
+    color: $brandRed;
+    background: $background4;
 }

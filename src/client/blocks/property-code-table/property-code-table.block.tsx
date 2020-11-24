@@ -23,6 +23,7 @@ export const PropertyCodeTable = () => {
                         </tr>
                         { [1,2,3].map(item => {return (
                             <tr key={item}>
+                                {/* TODO: Поменять ключи */}
                                 <td>
                                     BODY 
                                         <br />

@@ -18,23 +18,22 @@ export const DirectoryInfo = (props: Props) => {
     } = props;
 
     return (
-        <div className={ styles.directoryList }>
-            <div className={ styles.directoryListTop }>
-                <div className="text-heading-4">
-                    { title }
-                </div>
+        <div className={styles.directoryList}>
+            <div className={styles.directoryListTop}>
+                <div className="text-heading-4">{title}</div>
             </div>
             <ul>
-                { items.map((thing, i) =>
-                    <li key={ i } className="text-body-1">
+                {items.map((thing, i) => (
+                    <li key={i} className="text-body-1">
+                        {/* TODO: Поменять ключи */}
                         <Link
                             className="text-body-1"
-                            to={ `${currentPath}/${thing}` }
+                            to={`${currentPath}/${thing}`}
                         >
-                                { thing }
+                            {thing}
                         </Link>
                     </li>
-                )}
+                ))}
             </ul>
         </div>
     );

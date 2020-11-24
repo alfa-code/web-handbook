@@ -1,13 +1,13 @@
 @import "Src/client/breakpoints.scss";
 
 .breadcrumbs {
-  display: flex;
-  align-items: center;
-  color: $secondary;
-  font-size: $font-size-small;
-  line-height: $line-height-caption;
+    display: flex;
+    font-size: $font-size-small;
+    line-height: $line-height-caption;
+    color: $secondary;
+    align-items: center;
 
-  &Separator {
-    margin: 0 $space-xs;
-  }
+    .breadcrumbsSeparator {
+        margin: 0 $space-xs;
+    }
 }

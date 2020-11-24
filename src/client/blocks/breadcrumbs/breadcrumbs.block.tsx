@@ -9,7 +9,10 @@ export const Breadcrumbs = ({ path } : Props) => {
         <div className={ styles.breadcrumbs }>
             { path.map((item, key) => 
                 <span key={key}>
-                    <span className={ styles.breadcrumbsItem }>{item}</span>
+                    {/* TODO: Поменять ключи */}
+                    <span className={styles.breadcrumbsItem}>
+                        {item}
+                    </span>
                     <span className={ styles.breadcrumbsSeparator }>/</span>
                 </span>
             )}

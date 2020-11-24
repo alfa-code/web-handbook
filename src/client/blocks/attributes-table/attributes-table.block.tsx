@@ -19,16 +19,22 @@ export const AttributesTable = ({ attributes } : Props) => {
                     { attributes.map((item, key) => {
                         return (
                             <tr key={key}>
+                                {/* TODO: Поменять ключи */}
                                 <td>
-                                    <Link className="link-body-2" to="/attribute">
+                                    <Link
+                                        className="link-body-2"
+                                        to="/attribute"
+                                    >
                                         {item.name}
                                     </Link>
                                 </td>
                                 <td>
-                                    <span className="text-body-2">{item.description}</span>
+                                    <span className="text-body-2">
+                                        {item.description}
+                                    </span>
                                 </td>
                             </tr>
-                        )
+                        );
                     }) }
                 </tbody>
             </table>
