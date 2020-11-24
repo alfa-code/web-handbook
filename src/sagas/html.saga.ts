@@ -1,5 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+
+import { HtmlTagResponce } from 'Types/index';
 
 import {
     HTML_ACTION_TYPES,
@@ -19,7 +21,7 @@ function* fetchHtmlTagInfo(action) {
 
     const { payload: { htmlTag } } = action;
     try {
-        const response = yield call(fetchHtml, htmlTag);
+        const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
         const { data } = response;
 
         if (data) {

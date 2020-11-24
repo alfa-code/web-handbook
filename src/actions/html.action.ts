@@ -1,3 +1,5 @@
+import { HtmlTagResponce } from 'Types/index';
+
 export const HTML_ACTION_TYPES = {
     TOGGLE_HTML_TAG_INFO_LOADING: 'TOGGLE_HTML_TAG_INFO_LOADING',
     FETCH_HTML_TAG_INFO: 'FETCH_HTML_TAG_INFO',
@@ -13,7 +15,7 @@ export function fetchHtmlTagInfoAC(htmlTag: string) {
     }
 }
 
-export function fetchHtmlTagInfoSuccessAC(data) {
+export function fetchHtmlTagInfoSuccessAC(data: HtmlTagResponce) {
     return {
         type: HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO_SUCCESS,
         payload: {

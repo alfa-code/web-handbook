@@ -1,3 +1,5 @@
+import { Action } from 'Types/index';
+
 import { HTML_ACTION_TYPES } from 'Actions/index';
 
 type InitialState = {
@@ -14,7 +16,7 @@ const initialState: InitialState = {
     list: {}
 }
 
-export function htmlInfoReducer(state = initialState, action) {
+export function htmlInfoReducer(state = initialState, action: Action) {
     switch (action.type) {
         case HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING: {
             const { loading } = action.payload;
