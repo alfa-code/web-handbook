@@ -14,7 +14,7 @@ const testBreadcrumbs_1 = [
         url: '/html'
     },
     {
-        name: 'body',
+        name: 'Тег <body>',
         url: '/html/body'
     }
   ];
