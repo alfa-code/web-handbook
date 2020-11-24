@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+
 import { Props } from './props';
 
 import styles from './recipes-theme.module.scss';
@@ -15,7 +17,7 @@ export const RecipesTheme = ({ theme, type } : Props) => {
             <div className="page">
 
                 <div className="pageContent">
-                    <Breadcrumbs path={["Главное", "HTML справочник "]} />
+                    <BreadcrumbsContainer />
 
                     <div className="mt-4 text-heading-2">
                         {theme.title}

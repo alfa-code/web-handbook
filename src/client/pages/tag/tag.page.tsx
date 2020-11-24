@@ -3,9 +3,9 @@ import Skeleton from 'react-loading-skeleton';
 
 import { Props } from './props';
 
-// import { Button } from 'Components/index';
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import { Sidebar, Breadcrumbs, SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
+import { Sidebar, SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
 // import VideoImg from "Assets/images/video-player.png";
 import { isHtmlTagExists } from 'Utils/html';
@@ -145,7 +145,6 @@ export class Tag extends React.PureComponent<Props> {
         const {
             tagName = '',
             description = '',
-            syntax,
             content_attributes,
             content_model = '',
             tag_omission,
@@ -156,7 +155,7 @@ export class Tag extends React.PureComponent<Props> {
             <Layout>
                 <div className="page">
                     <div className="pageContent">
-                        <Breadcrumbs path={["Главное", "HTML справочник ", `Тег <${htmlTag}>`]} />
+                        <BreadcrumbsContainer />
 
                         <div className="mt-4 text-heading-2">
                             Тег { loading ? (<Skeleton count={1} />) : (`<${tagName}>`) }
