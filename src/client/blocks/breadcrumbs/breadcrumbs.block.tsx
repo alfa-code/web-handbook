@@ -24,7 +24,7 @@ export const Breadcrumbs = ({ breadcrumbs } : Props) => {
                 <span key={ key }>
                     <Link
                         className={ styles.breadcrumbsItem }
-                        to="/attribute"
+                        to={ item.url }
                     >
                         { item.name }
                     </Link>

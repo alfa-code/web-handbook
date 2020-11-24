@@ -5,7 +5,7 @@ export const routes = {
     },
     'html-list': {
         name: 'HTML справочник',
-        pathPart: '/html'
+        pathPart: '/html-list'
     },
     'css-list': {
         name: 'HTML справочник',
