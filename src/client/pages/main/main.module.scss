@@ -21,9 +21,7 @@
         margin-top: $space-m;
     }
     @include media("<desktop-2") {
-        & {
-            padding: $space-m $space-m $space-l;
-        }
+        padding: $space-m $space-m $space-l;
         img {
             width: 45%;
         }
@@ -33,6 +31,7 @@
         }
     }
     @include media("<tablet-2") {
+        padding: $space-xl $space-m $space-l;
         flex-direction: column;
         justify-content: center;
 

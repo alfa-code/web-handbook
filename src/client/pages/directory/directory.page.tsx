@@ -28,34 +28,35 @@ export const Directory = (props: Props) => {
                         description={description}
                         img={img}
                     />
-                        { lists.map((list, i) => {
-                            const { title, subtitle, items } = list;
-                            const htmlKeys = Object.keys(items);
-                            return (
-                                <div key={ i }>
-                                    { title ?
-                                        (<div className="text-heading-4">
-                                            { title }
-                                        </div>) : null
-                                    }
-                                    { subtitle ?
-                                        (<div className="mt-3 text-body-2">
-                                            { subtitle }
-                                        </div>) : null
-                                    }
-                                    { htmlKeys.map((key, i) =>
-                                        <DirectoryInfo
-                                            directory={{
-                                                title: key,
-                                                items: items[key],
-                                                currentPath,
-                                            }}
-                                            key={ i }
-                                        />
-                                    ) }
-                                </div>
-                            )}
-                        )}
+                    {JSON.stringify(lists)}
+                    {lists.map((list, i) => {
+                        const { title, subtitle, items } = list;
+                        const htmlKeys = Object.keys(items);
+                        return (
+                            <div key={i}>
+                                {title ? (
+                                    <div className="text-heading-4">
+                                        {title}
+                                    </div>
+                                ) : null}
+                                {subtitle ? (
+                                    <div className="mt-3 text-body-2">
+                                        {subtitle}
+                                    </div>
+                                ) : null}
+                                {htmlKeys.map((key, i) => (
+                                    <DirectoryInfo
+                                        directory={{
+                                            title: key,
+                                            items: items[key],
+                                            currentPath,
+                                        }}
+                                        key={i}
+                                    />
+                                ))}
+                            </div>
+                        );
+                    })}
                 </div>
                 <Sidebar type={type} />
             </div>

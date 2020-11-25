@@ -8,12 +8,9 @@
     }
 
     @include media("<tablet-2") {
-        margin-right: 0;
+        margin-right: auto;
 
         .logoMobile {
-            position: absolute;
-            top: 16px;
-            left: 24px;
             display: block;
         }
 

@@ -354,8 +354,7 @@ export const Navigation = () => {
                     <ul
                         className={[
                             styles.navigationCategoryCollapseItemCollapse,
-                            styles.dropdownInner,
-                            styles.active,
+                            styles.dropdownInner
                         ].join(" ")}
                     >
                         {category.childrens.map((item, i) => {

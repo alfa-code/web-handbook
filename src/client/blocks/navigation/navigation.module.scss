@@ -5,9 +5,9 @@
     height: 100%;
     grid-area: n;
 
-    // @include media("<desktop-2") {
-    //   min-width: 265px;
-    // }
+    @include media("<tablet-2") {
+        display: none;
+    }
 }
 
 .navigationCollapseBtn {
@@ -70,7 +70,6 @@
     }
 
     .navigationCategoryCollapse {
-        height: 0;
         max-height: 0;
         padding-left: 50px;
         overflow: hidden;
@@ -123,37 +122,62 @@
                 font-size: $font-size-small;
                 line-height: $line-height-caption;
                 color: $textParagraphs;
+
+                &:hover {
+                    color: $uiRed;
+                }
             }
 
             &:hover {
                 color: $primary;
                 text-decoration: none;
             }
+        }
+        .navigationCategoryCollapseItemCollapse {
+            max-height: 0;
+            margin: 0;
+            padding-left: 60px;
+            font-size: $font-size-small;
+            line-height: $line-height-caption;
+            color: $textParagraphs;
+            overflow: hidden;
+            transition: all 0.5s;
 
-            .navigationCategoryCollapseItemCollapse {
-                display: none;
-                padding-left: 60px;
-                font-size: $font-size-small;
-                line-height: $line-height-caption;
-                color: $textParagraphs;
+            li {
+                margin-top: 13px;
 
-                li {
-                    margin-top: 13px;
-
-                    a {
-                        color: $textParagraphs;
-                    }
+                a {
+                    color: $textParagraphs;
                 }
             }
         }
-
         .dropdown.active {
             .navigationCategoryCollapseItem {
                 background: $lightBackground;
             }
 
             .navigationCategoryCollapseItemCollapse {
-                display: block;
+                max-height: 200px;
+                overflow-y: auto;
+                /* width */
+                &::-webkit-scrollbar {
+                    width: 4px;
+                }
+
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    background: $disabledColor;
+                }
+
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: $primary;
+                }
+
+                /* Handle on hover */
+                &::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
             }
 
             .navigationCategoryCollapseItemCaret {
