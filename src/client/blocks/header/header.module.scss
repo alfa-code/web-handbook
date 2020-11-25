@@ -226,8 +226,7 @@
 
             .inputWrapper {
                 padding: $space-s;
-                border-bottom: 1px solid #F3F4F5;
-                
+                border-bottom: 1px solid #f3f4f5;
             }
             @include media("<tablet-2") {
                 .inputWrapperInput {

@@ -10,22 +10,20 @@
     font-style: normal;
     font-weight: 400;
     src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
-    src:
-        local("Roboto"),
-        local("Roboto-Regular"),
+    src: local("Roboto"), local("Roboto-Regular"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
+            format("embedded-opentype"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff2")
-        format("woff2"),
+            format("woff2"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.woff")
-        format("woff"),
+            format("woff"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.ttf")
-        format("truetype"); /* Safari, Android, iOS */
+            format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
 // TODO: Подключить Roboto 500 как и другие шрифты
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 /* roboto-700 - cyrillic_latin */
 @font-face {
@@ -33,15 +31,13 @@
     font-style: normal;
     font-weight: 700;
     src: url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
-    src:
-        local("Roboto Bold"),
-        local("Roboto-Bold"),
+    src: local("Roboto Bold"), local("Roboto-Bold"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.eot?#iefix")
-        format("embedded-opentype"),
+            format("embedded-opentype"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff2") format("woff2"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.woff") format("woff"),
         url("~Fonts/Roboto/roboto-v20-cyrillic_latin-700.ttf")
-        format("truetype"); /* Safari, Android, iOS */
+            format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Roboto/roboto-v20-cyrillic_latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
@@ -51,16 +47,14 @@
     font-style: normal;
     font-weight: 400;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot"); /* IE9 Compat Modes */
-    src:
-        local("Rubik"),
-        local("Rubik-Regular"),
+    src: local("Rubik"), local("Rubik-Regular"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.eot?#iefix")
-        format("embedded-opentype"),
+            format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff2")
-        format("woff2"),
+            format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.ttf")
-        format("truetype"); /* Safari, Android, iOS */
+            format("truetype"); /* Safari, Android, iOS */
     // url('~Fonts/Rubik/rubik-v9-cyrillic_latin-regular.svg#Rubik') format('svg'); /* Legacy iOS */
 }
 
@@ -70,11 +64,9 @@
     font-style: normal;
     font-weight: 500;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot"); /* IE9 Compat Modes */
-    src:
-        local("Rubik Medium"),
-        local("Rubik-Medium"),
+    src: local("Rubik Medium"), local("Rubik-Medium"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.eot?#iefix")
-        format("embedded-opentype"),
+            format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff2") format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-500.ttf") format("truetype"); /* Safari, Android, iOS */
@@ -87,11 +79,9 @@
     font-style: normal;
     font-weight: 700;
     src: url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot"); /* IE9 Compat Modes */
-    src:
-        local("Rubik Bold"),
-        local("Rubik-Bold"),
+    src: local("Rubik Bold"), local("Rubik-Bold"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.eot?#iefix")
-        format("embedded-opentype"),
+            format("embedded-opentype"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff2") format("woff2"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.woff") format("woff"),
         url("~Fonts/Rubik/rubik-v9-cyrillic_latin-700.ttf") format("truetype"); /* Safari, Android, iOS */
@@ -99,7 +89,6 @@
 }
 
 html {
-
     min-width: 320px;
     font-family: "Roboto", sans-serif;
 
