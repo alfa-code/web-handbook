@@ -41,7 +41,7 @@
         &:nth-child(4) {
             grid-area: c4;
         }
-        padding-right: 86px;
+        // padding-right: 86px;
         margin-right: $space-l;
 
         &:last-child {
@@ -49,7 +49,7 @@
             margin-right: 0;
         }
         @include media("<desktop-2") {
-            padding-right: $space-l;
+            // padding-right: $space-l;
         }
         @include media("<tablet-2") {
             padding: $space-s 0;
@@ -58,6 +58,13 @@
             &:last-child {
                 margin-right: auto;
             }
+        }
+    }
+
+    .logo {
+        margin-right: 57px;
+        @include media("<tablet-2") {
+            margin-right: 0;
         }
     }
 }

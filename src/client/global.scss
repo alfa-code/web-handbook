@@ -24,6 +24,9 @@
     // url('~Fonts/Roboto/roboto-v20-cyrillic_latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
 }
 
+// TODO: Подключить Roboto 500 как и другие шрифты
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 /* roboto-700 - cyrillic_latin */
 @font-face {
     font-family: "Roboto";
@@ -268,6 +271,9 @@ img {
     }
 }
 
+.text-underline {
+    text-decoration: underline;
+}
 .mt-1 {
     margin-top: $space-xs;
 }
@@ -473,6 +479,24 @@ img {
     text-decoration: none;
 }
 // LINKS
+.link-heading-4 {
+    font-family: $fontSecondary;
+    font-size: $font-size-3;
+    font-weight: 700;
+    line-height: $line-height-3;
+    color: $textPrimary;
+    transition: color 0.25s;
+    &:hover {
+        color: $uiRed;
+    }
+
+    @include media("<desktop-2") {
+        font-size: $font-size-2;
+    }
+    @include media("<tablet-2") {
+        font-size: $font-size-1;
+    }
+}
 .link-navigation {
     font-family: $fontPrimary;
     font-size: $font-size-1;

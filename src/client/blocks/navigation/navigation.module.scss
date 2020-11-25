@@ -109,6 +109,7 @@
                 position: absolute;
                 top: 5px;
                 left: 2px;
+                transform: rotate(-90deg);
             }
 
             .navigationCategoryCollapseItemIcon {
@@ -156,7 +157,7 @@
             }
 
             .navigationCategoryCollapseItemCaret {
-                transform: rotate(180deg);
+                transform: rotate(0);
             }
         }
     }

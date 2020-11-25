@@ -21,7 +21,7 @@ export const Attribute = () => {
 
                     <div className="mt-4">
                         <span className="text-body-3">Тип тега: </span>
-                        <a href="#" className="link-body-3">Строчные элементы</a>
+                        <a href="#" className="link-body-3 ml-1">Строчные элементы</a>
                     </div>
 
                     <div className="mt-4">
