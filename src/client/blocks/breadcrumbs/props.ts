@@ -1,5 +1,7 @@
+import { selectBreadCrumbs } from 'Selectors/index';
+
 type OwnProps = {
-	path?: string[]
+	breadcrumbs: ReturnType<typeof selectBreadCrumbs>;
 }
 
 export type Props = OwnProps;

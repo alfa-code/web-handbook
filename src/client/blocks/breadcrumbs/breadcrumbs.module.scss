@@ -2,12 +2,18 @@
 
 .breadcrumbs {
     display: flex;
-    font-size: $font-size-small;
-    line-height: $line-height-caption;
-    color: $secondary;
     align-items: center;
+    font-size: $font-size-small;
+    color: $secondary;
+    line-height: $line-height-caption;
+}
 
-    .breadcrumbsSeparator {
-        margin: 0 $space-xs;
+.breadcrumbsItem {
+    &:visited {
+        color: $secondary;
     }
+}
+
+.breadcrumbsSeparator {
+    margin: 0 $space-xs;
 }

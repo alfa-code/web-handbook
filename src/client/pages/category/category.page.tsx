@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { Sidebar, Breadcrumbs } from 'Blocks/index';
+import { Sidebar } from 'Blocks/index';
+
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 // import styles from './category.module.scss';
 import { Link } from 'react-router-dom';
@@ -15,8 +17,8 @@ export const Category = (props: Props) => {
         <Layout>
             <div className="page">
                 <div className="pageContent">
-                    <Breadcrumbs path={["Главное", "HTML справочник "]} />
-                    
+                    <BreadcrumbsContainer />
+
                     <div className="mt-4">
                         <div className="text-heading-2">{title}</div>
                     </div>

@@ -6,8 +6,7 @@ import { Layout } from 'Pages/index';
 
 // import styles from './html-tag.module.scss';
 
-export const HtmlTagPage = (props) => {
-    console.log('props', props)
+export const HtmlTagPage = (_props) => {
     return (
         <Layout>
             dfgdfgdfg

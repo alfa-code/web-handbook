@@ -44,93 +44,38 @@ export const Header = () => {
                     </NavLink>
                 </div>
                 <div
-                    className={[
-                        "dropdown",
-                        styles.dropdown,
-                        activeDropdown == "HTML" ? styles.active : "",
-                    ].join(" ")}
-                    onClick={(e) => toggleDropdowm(e, "HTML")}
-                >
-                    <div className={styles.dropdownActivator}>
+className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
+                    onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
+                    <div className={ styles.dropdownActivator }>
                         HTML
-                        <Icon
-                            className={styles.svgIcon}
-                            size="16"
-                            icon="arrow-down"
-                        />
+                        <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
                     </div>
 
-                    <div className={styles.dropdownInner}>
-                        <NavLink
-                            activeClassName={styles.active}
-                            to="/html"
-                            className={styles.dropdownInnerLink}
-                        >
-                            HTML справочник
-                        </NavLink>
-                        <NavLink
-                            activeClassName={styles.active}
-                            to="/html/recipes"
-                            className={styles.dropdownInnerLink}
-                        >
-                            HTML рецепты
-                        </NavLink>
+                    <div className={ styles.dropdownInner } >
+                        <NavLink activeClassName={ styles.active } to="/html-list" className={ styles.dropdownInnerLink }>HTML справочник</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/html-list/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink>
                     </div>
                 </div>
                 <div
-                    className={[
-                        "dropdown",
-                        styles.dropdown,
-                        activeDropdown == "CSS" ? styles.active : "",
-                    ].join(" ")}
-                    onClick={(e) => toggleDropdowm(e, "CSS")}
-                >
-                    <div className={styles.dropdownActivator}>
+className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
+                    onClick={() => setActiveDropdown(activeDropdown == "CSS" ? "" : "CSS")}>
+                    <div className={ styles.dropdownActivator }>
                         CSS
-                        <Icon
-                            className={styles.svgIcon}
-                            size="16"
-                            icon="arrow-down"
-                        />
+                        <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
                     </div>
 
-                    <div className={styles.dropdownInner}>
-                        <NavLink
-                            activeClassName={styles.active}
-                            to="/css"
-                            className={styles.dropdownInnerLink}
-                        >
-                            CSS справочник
-                        </NavLink>
-                        <NavLink
-                            activeClassName={styles.active}
-                            to="/css/recipes"
-                            className={styles.dropdownInnerLink}
-                        >
-                            CSS рецепты
-                        </NavLink>
+                    <div className={ styles.dropdownInner }>
+                        <NavLink activeClassName={ styles.active } to="/css-list" className={ styles.dropdownInnerLink }>CSS справочник</NavLink>
+                        <NavLink activeClassName={ styles.active } to="/css-list/recipes" className={ styles.dropdownInnerLink }>CSS рецепты</NavLink>
                     </div>
                 </div>
             </div>
 
-            <div
-                className={[
-                    styles.headerSearch,
-                    activeSearch ? styles.mobileActiveSearch : "",
-                ].join(" ")}
-            >
-                <div className={styles.inputWrapper}>
-                    <input
-                        className={styles.inputWrapperInput}
-                        type="text"
-                        placeholder="Поиск по сайту"
-                    />
-                    <div className={styles.inputWrapperIcon}>
-                        <Icon
-                            className={styles.svgIcon}
-                            size="24"
-                            icon="search-icon"
-                        />
+            <div className={ [styles.headerSearch, activeSearch ? styles.mobileActiveSearch : ""].join(" ") }>
+                <div className={ styles.inputWrapper }>
+                    <input className={ styles.inputWrapperInput } type="text" placeholder="Поиск по сайту" />
+                    <div className={ styles.inputWrapperIcon } onClick={() => {setActiveSearch(!activeSearch)}}>
+                        <Icon className={styles.svgIcon} size="24" icon="search-icon" />
                     </div>
                 </div>
             </div>

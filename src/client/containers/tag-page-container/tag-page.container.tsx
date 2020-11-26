@@ -7,7 +7,7 @@ import { fetchHtmlTagInfoAC } from 'Actions/index';
 
 import {
     selectIsHtmlTagsInfoLoading,
-    selectHtmlTagInfo
+    selectHtmlTagInfo,
 } from 'Selectors/index';
 
 import { Props } from './props';
@@ -54,12 +54,12 @@ const mapStateToProps = (state, ownProps) => {
     return {
         isHtmlTagsInfoLoading: selectIsHtmlTagsInfoLoading(state),
         tagInfo: selectHtmlTagInfo(state, htmlTag),
-        htmlTag
+        htmlTag,
     }
 }
 
 const mapDispatchToProps = {
-    fetchHtmlTagInfoDA: fetchHtmlTagInfoAC
+    fetchHtmlTagInfoDA: fetchHtmlTagInfoAC,
 }
 
 export const TagPageContainer = connect(mapStateToProps, mapDispatchToProps)(Container);
