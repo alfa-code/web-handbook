@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import LogoImage from 'Assets/icons/logo/logo.svg';
-import LogoImageMobile from 'Assets/icons/logo/logo_mobile.svg';
+import LogoImage from "Assets/icons/logo/logo.svg";
+import LogoImageMobile from "Assets/icons/logo/logo_mobile.svg";
 
-import { Props } from './props';
+import { Props } from "./props";
 
-import styles from './logo.module.scss';
+import styles from "./logo.module.scss";
 
 export class Logo extends Component<Props> {
     render() {

@@ -1,26 +1,28 @@
 @import "Src/client/breakpoints.scss";
 
 table.attributes {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 
-  tr {
-    border-bottom: 1px solid $Gray;
-  }
-  tbody {
-    tr:last-child {
-      border-bottom: none;
+    tr {
+        border-bottom: 1px solid $Gray;
     }
-  }
 
-  th {
-    padding: 19px $space-m;
-    color: $textPrimary;
-    size: 14px;
-    line-height: 16px;
-    background: $inverse;
-  }
-  td {
-    padding: $space-s $space-m;
-  }
+    tbody {
+        tr:last-child {
+            border-bottom: none;
+        }
+    }
+
+    th {
+        padding: 19px $space-m;
+        line-height: 16px;
+        color: $textPrimary;
+        background: $inverse;
+        size: 14px;
+    }
+
+    td {
+        padding: $space-s $space-m;
+    }
 }

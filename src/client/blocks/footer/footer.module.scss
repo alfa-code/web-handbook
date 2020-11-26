@@ -1,72 +1,79 @@
 @import "Src/client/breakpoints.scss";
 
 .footer {
-  grid-area: f;
-  
-  .footerInner {
-    background: $lightBackground;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 
-      "c1 c2 c3 c4"  
-    ;
-    justify-content: center;
-    padding: 0 $space-l $space-xxl $space-l;
+    grid-area: f;
 
-    @include media("<tablet-2") {
-      grid-template-columns: 1fr 1fr ;
-      grid-template-areas: 
-        "c1 c4"  
-        "c2 c3" 
-      ;
-    }
-    @include media("<tablet-1") {
-      grid-template-areas: 
-        "c1 c1" 
-        "c2 c3"
-        "c4 c4"  
-      ;
-    }
-  }
+    .footerInner {
+        display: grid;
+        padding: 0 $space-l $space-xxl $space-l;
+        background: $lightBackground;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: "c1 c2 c3 c4";
+        justify-content: center;
 
-  &Column {
-    &:nth-child(1) {
-      grid-area: c1;
+        @include media("<tablet-2") {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "c1 c4"
+                "c2 c3";
+        }
+        @include media("<tablet-1") {
+            grid-template-areas:
+                "c1 c1"
+                "c2 c3"
+                "c4 c4";
+        }
     }
-    &:nth-child(2) {
-      grid-area: c2;
-    }
-    &:nth-child(3) {
-      grid-area: c3;
-    }
-    &:nth-child(4) {
-      grid-area: c4;
-    }
-    margin-right: $space-l;
-    padding-right: 86px;
 
-    
-    &:last-child {
-      padding-right: 0;
-      margin-right: 0;
+    .footerColumn {
+        &:nth-child(1) {
+            grid-area: c1;
+        }
+
+        &:nth-child(2) {
+            grid-area: c2;
+        }
+
+        &:nth-child(3) {
+            grid-area: c3;
+        }
+
+        &:nth-child(4) {
+            grid-area: c4;
+        }
+        // padding-right: 86px;
+        margin-right: $space-l;
+
+        &:last-child {
+            padding-right: 0;
+            margin-right: 0;
+        }
+        @include media("<desktop-2") {
+            // padding-right: $space-l;
+        }
+        @include media("<tablet-2") {
+            padding: $space-s 0;
+            margin: auto;
+
+            &:last-child {
+                margin-right: auto;
+            }
+        }
     }
-    @include media("<desktop-2") {
-      padding-right: $space-l;
+
+    .logo {
+        margin-right: 57px;
+        @include media("<tablet-2") {
+            margin-right: 0;
+        }
     }
-    @include media("<tablet-2") {
-      margin: auto;
-      padding: $space-s 0;
-      &:last-child {
-        margin-right: auto;
-      }
-    }
-  }
 }
+
 .footerBottom {
-  background: $background;
-  height: 128px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $textParagraphs !important;
+    display: flex;
+    height: 128px;
+    color: $textParagraphs !important;
+    background: $background;
+    align-items: center;
+    justify-content: center;
 }

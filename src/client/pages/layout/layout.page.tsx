@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { useState } from "react";
 
-import { Header, Navigation, Footer } from 'Blocks/index';
+import { Header, Navigation, Footer } from "Blocks/index";
 
-import { Props } from './props';
+import { Props } from "./props";
 
 export const Layout = (props: Props) => {
     const { children } = props;
     return (
         <div className="layout">
-            <Header  />
+            <Header />
             <Navigation />
-            <div className="content">
-                { children }
-            </div>
+            <div className="content">{children}</div>
             <Footer />
         </div>
     );
-}
+};

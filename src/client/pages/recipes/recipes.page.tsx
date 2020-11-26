@@ -1,22 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { Props } from './props';
+import { Props } from "./props";
 
 import { Sidebar, PageTop } from 'Blocks/index';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import PageTopImage from 'Assets/images/html-instruments.svg'
+import PageTopImage from "Assets/images/html-instruments.svg";
 
-import styles from './recipes.module.scss';
-import { Link } from 'react-router-dom';
-import { Layout } from 'Pages/index';
+import styles from "./recipes.module.scss";
+import { Link } from "react-router-dom";
+import { Layout } from "Pages/index";
 
-export const Recipes = ({ themes, type } : Props) => {
+export const Recipes = ({ themes, type }: Props) => {
     return (
         <Layout>
             <div className="page">
-
                 <div className="pageContent">
                     <BreadcrumbsContainer />
                     <PageTop
@@ -43,7 +42,7 @@ export const Recipes = ({ themes, type } : Props) => {
                     </div> */}
                 </div>
                 <Sidebar type={type} />
-                </div>
+            </div>
         </Layout>
     );
-}
+};

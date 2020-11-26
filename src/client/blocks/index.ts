@@ -5,6 +5,7 @@ export * from './footer';
 export * from './main-page-link';
 export * from './page-top';
 export * from './directory-info';
+export * from './directory-list';
 
 export * from './support-table';
 export * from './specification-table';
