@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header, Footer } from 'Blocks/index';
-import { Sidebar } from 'Blocks/index';
+// import { Sidebar } from 'Blocks/index';
 
 import { NavigationContainer } from 'Containers/navigation-container';
 
@@ -14,7 +14,7 @@ export const Layout = (props: Props) => {
             <Header />
             <NavigationContainer />
             <div className="content">{children}</div>
-            <Sidebar type="main" />
+            {/* <Sidebar type="main" /> */}
             <Footer />
         </div>
     );

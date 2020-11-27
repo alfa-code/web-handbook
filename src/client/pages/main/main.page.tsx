@@ -37,10 +37,10 @@ export class Main extends PureComponent<Props> {
                                 title="HTML справочник"
                                 subTitle="Все HTML теги"
                                 image={HTMLImage1}
-                                url="#"
+                                url="/html-list"
                             />
 
-                            <MainPageLink
+                            {/* <MainPageLink
                                 title="CSS справочник"
                                 subTitle="Все свойства"
                                 image={CSSImage1}
@@ -59,7 +59,7 @@ export class Main extends PureComponent<Props> {
                                 subTitle="Набор руководств по СSS"
                                 image={CSSImage2}
                                 url="#"
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>

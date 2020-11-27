@@ -10,7 +10,7 @@ export const MainPageLink = (props: Props) => {
         title,
         subTitle,
         image,
-        // url
+        url
     }= props;
 
     return (
@@ -19,7 +19,7 @@ export const MainPageLink = (props: Props) => {
                 <div className="text-heading-4">{title}</div>
                 <div className="mt-2 text-body-2">{subTitle}</div>
                 <Link
-                    to="/directory-html"
+                    to={ url }
                     className={styles.mainPageLinkContentLink}
                 >
                     <div className={styles.mainPageLinkContentLinkInner}>

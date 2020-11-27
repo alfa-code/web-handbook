@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 import { Props } from "./props";
 
-import { Icon } from "Components/index";
+import { Link } from 'react-router-dom';
+
+// import { Icon } from "Components/index";
 import LogoImage from "Assets/icons/logo/logo.svg";
 
 import styles from "./footer.module.scss";
@@ -13,19 +15,22 @@ export class Footer extends Component<Props> {
             <footer className={styles.footer}>
                 <div className={styles.footerInner}>
                     <div className={[styles.footerColumn, "mt-5"].join(" ")}>
-                        <a href="#" className={styles.logo}>
+                        <Link
+                            to="/"
+                            className={styles.logo}
+                        >
                             <img
                                 src={LogoImage}
                                 alt="Logo"
                             />
-                        </a>
+                        </Link>
 
                         <div className="mt-1 text-body-3">
                             Профессиональный ресурс для начинающих <br />и
                             практикующих фронт-энд разработчиков.
                         </div>
 
-                        <div className="mt-3 text-body-3">
+                        {/* <div className="mt-3 text-body-3">
                             Наши условия{" "}
                             <a
                                 href="#"
@@ -40,25 +45,25 @@ export class Footer extends Component<Props> {
                             >
                                 конфиденциальности
                             </a>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className={[styles.footerColumn, "mt-6"].join(" ")}>
                         <div className="text-heading-4">HTML</div>
 
                         <div className="mt-3">
-                            <a href="#" className="link-navigation">
+                            <Link to="/html-list" className="link-navigation">
                                 HTML справочник
-                            </a>
+                            </Link>
                         </div>
-                        <div className="mt-3">
+                        {/* <div className="mt-3">
                             <a href="#" className="link-navigation">
                                 HTML руководства
                             </a>
-                        </div>
+                        </div> */}
                     </div>
 
-                    <div className={[styles.footerColumn, "mt-6"].join(" ")}>
+                    {/* <div className={[styles.footerColumn, "mt-6"].join(" ")}>
                         <div className="text-heading-4">CSS</div>
 
                         <div className="mt-3">
@@ -71,9 +76,9 @@ export class Footer extends Component<Props> {
                                 CSS руководства
                             </a>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className={[styles.footerColumn, "mt-6"].join(" ")}>
+                    {/* <div className={[styles.footerColumn, "mt-6"].join(" ")}>
                         <div className="text-heading-4">Связаться с нами</div>
 
                         <div className="mt-2 text-body-2">
@@ -89,7 +94,7 @@ export class Footer extends Component<Props> {
                                 web_handbook.info@alfacode.ru
                             </div>
                         </a>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.footerBottom}>
                     <div className="text-navigation">«Web Handbook» 2020</div>

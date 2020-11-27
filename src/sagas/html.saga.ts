@@ -6,7 +6,8 @@ import { HtmlTagResponce } from 'Types/index';
 import {
     HTML_ACTION_TYPES,
     toggleHtmlTagInfoLoadingAC,
-    fetchHtmlTagInfoSuccessAC
+    fetchHtmlTagInfoSuccessAC,
+    fetchHtmlTagInfoErrorAC
 } from 'Actions/index';
 
 function fetchHtml(htmlTag: string) {
@@ -29,7 +30,8 @@ function* fetchHtmlTagInfo(action) {
             yield put(toggleHtmlTagInfoLoadingAC(false));
         }
     } catch (error) {
-        console.log(error);
+        yield put(fetchHtmlTagInfoErrorAC());
+        yield put(toggleHtmlTagInfoLoadingAC(false));
     }
 }
 

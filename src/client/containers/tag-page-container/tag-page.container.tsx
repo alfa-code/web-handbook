@@ -49,8 +49,6 @@ class Container extends Component<Props> {
 const mapStateToProps = (state, ownProps) => {
     const { match: { params: { htmlTag } } } = ownProps;
 
-    console.log('htmlTag', htmlTag)
-
     return {
         isHtmlTagsInfoLoading: selectIsHtmlTagsInfoLoading(state),
         tagInfo: selectHtmlTagInfo(state, htmlTag),

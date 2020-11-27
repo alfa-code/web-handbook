@@ -115,8 +115,6 @@ export class Tag extends React.PureComponent<Props> {
             htmlTag
         } = this.props;
 
-        console.log('tagInfo', tagInfo)
-
         const isTagExists = isHtmlTagExists(htmlTag);
         if (!isTagExists) {
             return (
