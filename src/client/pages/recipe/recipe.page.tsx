@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { Sidebar, SupportTable } from 'Blocks/index';
+import { SupportTable } from 'Blocks/index';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
@@ -97,7 +97,6 @@ export const Recipe = ({ title, type } : Props) => {
                     </div> */}
 
                 </div>
-                <Sidebar type={type} />
                 </div>
         </Layout>
     );

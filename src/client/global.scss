@@ -179,7 +179,7 @@ html {
 }
 
 body {
-    max-width: 1920px;
+    // max-width: 1920px;
     margin: auto;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
@@ -209,18 +209,18 @@ img {
 .layout {
     display: grid;
     min-width: 320px;
-    max-width: 1920px;
-    grid-template-columns: 336px calc(100% - 336px);
+    // max-width: 1920px;
+    grid-template-columns: 336px calc(100% - 336px - 336px);
     grid-template-areas:
-        "h h"
-        "n c"
-        "n f";
+        "h h h"
+        "n c s"
+        "n f f";
     @include media("<desktop-2") {
         grid-template-columns: 265px calc(100% - 265px);
         grid-template-areas:
-            "h h"
-            "n c"
-            "f f";
+            "h h h"
+            "n c s"
+            "f f f";
     }
     @include media("<tablet-2") {
         grid-template-columns: 100%;

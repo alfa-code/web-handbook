@@ -4,7 +4,7 @@ import React from 'react';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import { Sidebar, SupportTable, SpecificationTable } from 'Blocks/index';
+import { SupportTable, SpecificationTable } from 'Blocks/index';
 
 // import styles from './attribute.module.scss';
 import { Layout } from 'Pages/index';
@@ -104,8 +104,6 @@ export const Attribute = () => {
                     </div>
                     */}
                 </div>
-
-                <Sidebar type="html" />
             </div>
         </Layout>
     );

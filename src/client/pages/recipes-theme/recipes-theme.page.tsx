@@ -6,7 +6,7 @@ import { Props } from './props';
 
 import styles from './recipes-theme.module.scss';
 
-import { Sidebar, Breadcrumbs } from 'Blocks/index';
+import { Breadcrumbs } from 'Blocks/index';
 import { Link } from 'react-router-dom';
 
 import { Layout } from 'Pages/index';
@@ -38,7 +38,6 @@ export const RecipesTheme = ({ theme, type } : Props) => {
                         )
                     })}
                 </div>
-                <Sidebar type={type} />
                 </div>
         </Layout>
     );

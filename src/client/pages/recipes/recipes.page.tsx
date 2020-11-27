@@ -2,7 +2,7 @@ import React from "react";
 
 import { Props } from "./props";
 
-import { Sidebar, PageTop } from 'Blocks/index';
+import { PageTop } from 'Blocks/index';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
@@ -41,7 +41,6 @@ export const Recipes = ({ themes, type }: Props) => {
                         <include src='src/templates/components/common/comments.html'></include>
                     </div> */}
                 </div>
-                <Sidebar type={type} />
             </div>
         </Layout>
     );

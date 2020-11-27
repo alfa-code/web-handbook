@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import { Sidebar, MainPageLink } from "Blocks/index";
+import { MainPageLink } from "Blocks/index";
 import { Layout } from "Pages/index";
 import HTMLImage1 from "Assets/images/html-directory.svg";
 import HTMLImage2 from "Assets/images/html-instruments.svg";
@@ -62,7 +62,6 @@ export class Main extends PureComponent<Props> {
                             />
                         </div>
                     </div>
-                    <Sidebar type="main" />
                 </div>
             </Layout>
         );

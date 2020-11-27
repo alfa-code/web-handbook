@@ -5,7 +5,7 @@ import { Props } from './props';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import { Sidebar, SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
+import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
 // import VideoImg from "Assets/images/video-player.png";
 import { isHtmlTagExists } from 'Utils/html';
@@ -281,7 +281,6 @@ export class Tag extends React.PureComponent<Props> {
                             {/* <include src='src/templates/components/common/comments.html'></include> */}
                         </div>
                     </div>
-                    <Sidebar type="html" />
                 </div>
             </Layout>
         );

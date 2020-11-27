@@ -2,7 +2,7 @@ import React from "react";
 
 import { Props } from "./props";
 
-import { Sidebar, PageTop, DirectoryList } from "Blocks/index";
+import { PageTop, DirectoryList } from "Blocks/index";
 
 // import styles from './directory.module.scss';
 import { Layout } from "Pages/index";
@@ -34,7 +34,6 @@ export const Directory = (props: Props) => {
                         );
                     })}
                 </div>
-                <Sidebar type={type} />
             </div>
         </Layout>
     );

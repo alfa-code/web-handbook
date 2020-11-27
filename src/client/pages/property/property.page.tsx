@@ -4,7 +4,7 @@ import React from 'react';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import { Sidebar, SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
+import { SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
 
 import VideoImg from "Assets/images/video-player.png";
 import Illustration1 from 'Assets/images/illustration-1.png';
@@ -169,7 +169,6 @@ value: "http://www.w3.org/TR/CSS21/cascade.html#important-rules"
                     </div> */}
 
                 </div>
-                <Sidebar type="css" />
                 </div>
         </Layout>
     );

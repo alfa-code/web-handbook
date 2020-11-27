@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { Sidebar } from 'Blocks/index';
-
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 // import styles from './category.module.scss';
@@ -39,7 +37,6 @@ export const Category = (props: Props) => {
                     })
                     }
                 </div>
-                <Sidebar type={type} />
             </div>
         </Layout>
     );
