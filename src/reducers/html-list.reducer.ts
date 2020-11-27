@@ -1,11 +1,8 @@
 type InitialState = {
-    htmlTagsList: {
-        [key: string]: string[];
-    },
+    [key: string]: string[];
 }
 
 const initialState: InitialState = {
-    htmlTagsList: {},
 }
 
 export function htmlListReducer(state = initialState, action) {

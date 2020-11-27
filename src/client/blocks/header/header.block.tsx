@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 import { Logo, Icon } from "Components/index";
+import { NavigationContainer } from 'Containers/navigation-container';
 
 // import { Props } from './props';
 import styles from "./header.module.scss";
 import { NavLink } from "react-router-dom";
-import { Navigation } from "Blocks/index";
 
 export const Header = () => {
     const [activeDropdown, setActiveDropdown] = useState("");
@@ -40,11 +40,11 @@ export const Header = () => {
                         to="/"
                         className={styles.headerMenuLink}
                     >
-                        Главное
+                        Главная
                     </NavLink>
                 </div>
                 <div
-className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
+                    className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
                     onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
                     <div className={ styles.dropdownActivator }>
                         HTML
@@ -53,11 +53,11 @@ className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].joi
 
                     <div className={ styles.dropdownInner } >
                         <NavLink activeClassName={ styles.active } to="/html-list" className={ styles.dropdownInnerLink }>HTML справочник</NavLink>
-                        <NavLink activeClassName={ styles.active } to="/html-list/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink>
+                        {/* <NavLink activeClassName={ styles.active } to="/html-list/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink> */}
                     </div>
                 </div>
-                <div
-className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
+                {/* <div
+                    className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
                     onClick={() => setActiveDropdown(activeDropdown == "CSS" ? "" : "CSS")}>
                     <div className={ styles.dropdownActivator }>
                         CSS
@@ -68,18 +68,18 @@ className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join
                         <NavLink activeClassName={ styles.active } to="/css-list" className={ styles.dropdownInnerLink }>CSS справочник</NavLink>
                         <NavLink activeClassName={ styles.active } to="/css-list/recipes" className={ styles.dropdownInnerLink }>CSS рецепты</NavLink>
                     </div>
-                </div>
+                </div> */}
             </div>
 
-            <div className={ [styles.headerSearch, activeSearch ? styles.mobileActiveSearch : ""].join(" ") }>
+            {/* <div className={ [styles.headerSearch, activeSearch ? styles.mobileActiveSearch : ""].join(" ") }>
                 <div className={ styles.inputWrapper }>
                     <input className={ styles.inputWrapperInput } type="text" placeholder="Поиск по сайту" />
                     <div className={ styles.inputWrapperIcon } onClick={() => {setActiveSearch(!activeSearch)}}>
                         <Icon className={styles.svgIcon} size="24" icon="search-icon" />
                     </div>
                 </div>
-            </div>
-            <div
+            </div> */}
+            {/* <div
                 className={styles.headerBtn}
                 onClick={() => {
                     document.body.style.overflow = !activeHeader
@@ -93,7 +93,7 @@ className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join
                     size="24px"
                     icon={activeSearch ? "close-icon" : "search-icon"}
                 />
-            </div>
+            </div> */}
             <div
                 className={styles.headerBtn}
                 onClick={() => {
@@ -115,7 +115,7 @@ className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join
                     activeHeader ? styles.activeHeader : "",
                 ].join(" ")}
             >
-                <Navigation />
+                <NavigationContainer />
             </div>
         </header>
     );

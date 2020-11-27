@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-// import { Props } from './props';
+import { Link } from 'react-router-dom';
 
-import carretDown from "Assets/images/carret-down.png";
+
+import { Props } from './props';
+
+// import carretDown from "Assets/images/carret-down.png";
 import arrowDown from "Assets/images/arrow-down.svg";
 
 import { Icon } from "Components/index";
@@ -13,246 +16,190 @@ const navInfo = [
     {
         categoryName: "HTML справочник",
         categoryIconUrl: "html-icon",
-        categories: [
-            {
-                name: "Все теги",
-                url: "#",
-            },
-            {
-                name: "<!-- -->",
-                url: "#",
-            },
-            {
-                name: "<!DOCTYPE>",
-                url: "#",
-            },
-            {
-                name: "<a>",
-                url: "#",
-                childrens: [
-                    {
-                        url: "href",
-                        text: "title",
-                    },
-                ],
-            },
-            {
-                name: "<abbr>",
-                url: "#",
-            },
-            {
-                name: "<acronym>",
-                url: "#",
-            },
-            {
-                name: "<address>",
-                url: "#",
-            },
-            {
-                name: "<applet>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-        ],
     },
-    {
-        categoryName: "HTML рецепты",
-        categoryIconUrl: "html-receipe-icon",
-        categories: [
-            {
-                name: "Все теги",
-                url: "#",
-            },
-            {
-                name: "<!-- -->",
-                url: "#",
-            },
-            {
-                name: "<!DOCTYPE>",
-                url: "#",
-            },
-            {
-                name: "<a>",
-                url: "#",
-                childrens: [
-                    {
-                        url: "href",
-                        text: "title",
-                    },
-                ],
-            },
-            {
-                name: "<abbr>",
-                url: "#",
-            },
-            {
-                name: "<acronym>",
-                url: "#",
-            },
-            {
-                name: "<address>",
-                url: "#",
-            },
-            {
-                name: "<applet>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-        ],
-    },
-    {
-        categoryName: "CSS справочник",
-        categoryIconUrl: "css-icon",
-        categories: [
-            {
-                name: "Все теги",
-                url: "#",
-            },
-            {
-                name: "<!-- -->",
-                url: "#",
-            },
-            {
-                name: "<!DOCTYPE>",
-                url: "#",
-            },
-            {
-                name: "<a>",
-                url: "#",
-                childrens: [
-                    {
-                        url: "href",
-                        text: "title",
-                    },
-                ],
-            },
-            {
-                name: "<abbr>",
-                url: "#",
-            },
-            {
-                name: "<acronym>",
-                url: "#",
-            },
-            {
-                name: "<address>",
-                url: "#",
-            },
-            {
-                name: "<applet>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-        ],
-    },
-    {
-        categoryName: "CSS рецепты",
-        categoryIconUrl: "css-receipe-icon",
-        categories: [
-            {
-                name: "Все теги",
-                url: "#",
-            },
-            {
-                name: "<!-- -->",
-                url: "#",
-            },
-            {
-                name: "<!DOCTYPE>",
-                url: "#",
-            },
-            {
-                name: "<a>",
-                url: "#",
-                childrens: [
-                    {
-                        url: "href",
-                        text: "title",
-                    },
-                ],
-            },
-            {
-                name: "<abbr>",
-                url: "#",
-            },
-            {
-                name: "<acronym>",
-                url: "#",
-            },
-            {
-                name: "<address>",
-                url: "#",
-            },
-            {
-                name: "<applet>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-            {
-                name: "<area>",
-                url: "#",
-            },
-            {
-                name: "<article>",
-                url: "#",
-            },
-        ],
-    },
+    // {
+    //     categoryName: "HTML рецепты",
+    //     categoryIconUrl: "html-receipe-icon",
+    //     categories: [
+    //         {
+    //             name: "Все теги",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!-- -->",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!DOCTYPE>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<a>",
+    //             url: "#",
+    //             childrens: [
+    //                 {
+    //                     url: "href",
+    //                     text: "title",
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: "<abbr>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<acronym>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<address>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<applet>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //     ],
+    // },
+    // {
+    //     categoryName: "CSS справочник",
+    //     categoryIconUrl: "css-icon",
+    //     categories: [
+    //         {
+    //             name: "Все теги",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!-- -->",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!DOCTYPE>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<a>",
+    //             url: "#",
+    //             childrens: [
+    //                 {
+    //                     url: "href",
+    //                     text: "title",
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: "<abbr>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<acronym>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<address>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<applet>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //     ],
+    // },
+    // {
+    //     categoryName: "CSS рецепты",
+    //     categoryIconUrl: "css-receipe-icon",
+    //     categories: [
+    //         {
+    //             name: "Все теги",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!-- -->",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<!DOCTYPE>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<a>",
+    //             url: "#",
+    //             childrens: [
+    //                 {
+    //                     url: "href",
+    //                     text: "title",
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             name: "<abbr>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<acronym>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<address>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<applet>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<area>",
+    //             url: "#",
+    //         },
+    //         {
+    //             name: "<article>",
+    //             url: "#",
+    //         },
+    //     ],
+    // },
 ];
 
-export const Navigation = () => {
+export const Navigation = (props: Props) => {
     // const [showNavigation, setShowNavigation] = useState(false);
     const [activeDirectory, setActiveDirectory] = useState("");
     const [activeCategory, setActiveCategory] = useState("");
@@ -276,7 +223,6 @@ export const Navigation = () => {
                 ].join(" ")}
                 key={directory.categoryName}
             >
-                {/* TODO: Поменять ключи */}
                 <div className={styles.navigationCategoryInner}>
                     <Icon
                         className={styles.svgIcon}
@@ -298,44 +244,30 @@ export const Navigation = () => {
                         styles.dropdownInner,
                     ].join(" ")}
                 >
-                    {directory.categories.map((category, i) => {
-                        return renderList2(category, i);
+                    { props.tags.map((tag, i) => {
+                        return renderList2(tag, i);
                     })}
                 </div>
             </div>
         );
     };
-    const renderList2 = (category, i) => {
+
+    const renderList2 = (tag, i) => {
         return (
             <div
                 className={[
                     styles.dropdown,
-                    activeCategory == category.name ? styles.active : null,
+                    // activeCategory == tag ? styles.active : null,
                 ].join(" ")}
                 key={i}
-                onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveCategory(
-                        activeCategory == category.name ? "" : category.name
-                    );
-                }}
+                // onClick={(e) => {
+                //     e.stopPropagation();
+                //     setActiveCategory(
+                //         activeCategory == category.name ? "" : category.name
+                //     );
+                // }}
             >
-                {/* TODO: Поменять ключи */}
                 <div className={styles.navigationCategoryCollapseItem}>
-                    {category.childrens !== undefined ? (
-                        <div
-                            className={
-                                styles.navigationCategoryCollapseItemCaret
-                            }
-                        >
-                            <img
-                                src={carretDown}
-                                width="16"
-                                height="16"
-                                alt="carret down"
-                            />
-                        </div>
-                    ) : null}
                     <div className={styles.navigationCategoryCollapseItemIcon}>
                         <Icon
                             className={styles.svgIcon}
@@ -343,33 +275,18 @@ export const Navigation = () => {
                             icon="document-icon"
                         />
                     </div>
-                    <a
+                    <Link
                         className={styles.navigationCategoryCollapseItemName}
-                        href={category.url}
+                        to={ `/html-list/${tag}` }
                     >
-                        {category.name}
-                    </a>
+                        { tag }
+                    </Link>
                 </div>
-                {category.childrens !== undefined ? (
-                    <ul
-                        className={[
-                            styles.navigationCategoryCollapseItemCollapse,
-                            styles.dropdownInner
-                        ].join(" ")}
-                    >
-                        {category.childrens.map((item, i) => {
-                            return (
-                                <li key={i}>
-                                    {/* TODO: Поменять ключи */}
-                                    <a href={item.url}>{item.text}</a>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                ) : null}
+
             </div>
         );
     };
+
     const navigation = navInfo;
     return (
         <nav className={styles.navigation}>

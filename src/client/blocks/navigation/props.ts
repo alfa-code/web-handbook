@@ -1,4 +1,5 @@
 type OwnProps = {
+    tags: string[];
     navigation?: {
         categoryName?: string,
         categoryIconUrl?: string,
