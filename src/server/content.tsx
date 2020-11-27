@@ -17,6 +17,14 @@ export async function getContent(request: any) {
     const context = {};
 
     const initialState = {
+        app: {
+            settings: {
+                features: {
+                    htmlRules: false,
+                    cssRules: false,
+                }
+            }
+        },
         UI: {
             htmlTagsList: getHtmlTagsListByAlphabet(),
             htmlTagsInfo: {}
