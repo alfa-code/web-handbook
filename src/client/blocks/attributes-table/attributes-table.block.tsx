@@ -21,12 +21,13 @@ export const AttributesTable = ({ attributes } : Props) => {
                             <tr key={key}>
                                 {/* TODO: Поменять ключи */}
                                 <td>
-                                    <Link
+                                    {/* <Link
                                         className="link-body-2"
                                         to="/attribute"
                                     >
                                         {item.name}
-                                    </Link>
+                                    </Link> */}
+                                    { item.name }
                                 </td>
                                 <td>
                                     <span className="text-body-2">
