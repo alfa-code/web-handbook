@@ -521,6 +521,10 @@ img {
     color: $textPrimary;
     text-decoration: underline;
 
+    @include media("<tablet-2") {
+        font-size: $font-size-small;
+    }
+
     &:hover {
         color: $textPrimary;
         text-decoration: none;

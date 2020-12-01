@@ -20,9 +20,21 @@ table.attributes {
         color: $textPrimary;
         background: $inverse;
         size: 14px;
+        font-weight: normal;
+        text-align: left;
+
+        @include media("<tablet-2") {
+            padding: 10px;
+            size: 12px;
+        }
     }
 
     td {
         padding: $space-s $space-m;
+
+        @include media("<tablet-2") {
+            padding: 10px;
+            size: 12px;
+        }
     }
 }
