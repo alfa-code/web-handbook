@@ -17,192 +17,14 @@ const navInfo = [
         categoryName: "HTML справочник",
         categoryIconUrl: "html-icon",
     },
-    // {
-    //     categoryName: "HTML рецепты",
-    //     categoryIconUrl: "html-receipe-icon",
-    //     categories: [
-    //         {
-    //             name: "Все теги",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!-- -->",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!DOCTYPE>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<a>",
-    //             url: "#",
-    //             childrens: [
-    //                 {
-    //                     url: "href",
-    //                     text: "title",
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: "<abbr>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<acronym>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<address>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<applet>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //     ],
-    // },
-    // {
-    //     categoryName: "CSS справочник",
-    //     categoryIconUrl: "css-icon",
-    //     categories: [
-    //         {
-    //             name: "Все теги",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!-- -->",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!DOCTYPE>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<a>",
-    //             url: "#",
-    //             childrens: [
-    //                 {
-    //                     url: "href",
-    //                     text: "title",
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: "<abbr>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<acronym>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<address>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<applet>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //     ],
-    // },
-    // {
-    //     categoryName: "CSS рецепты",
-    //     categoryIconUrl: "css-receipe-icon",
-    //     categories: [
-    //         {
-    //             name: "Все теги",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!-- -->",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<!DOCTYPE>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<a>",
-    //             url: "#",
-    //             childrens: [
-    //                 {
-    //                     url: "href",
-    //                     text: "title",
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             name: "<abbr>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<acronym>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<address>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<applet>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<area>",
-    //             url: "#",
-    //         },
-    //         {
-    //             name: "<article>",
-    //             url: "#",
-    //         },
-    //     ],
-    // },
 ];
 
 export const Navigation = (props: Props) => {
     // const [showNavigation, setShowNavigation] = useState(false);
     const [activeDirectory, setActiveDirectory] = useState("");
-    const [activeCategory, setActiveCategory] = useState("");
+    // const [activeCategory, setActiveCategory] = useState("");
+
+    const { closeMobileMenuCallback } = props;
 
     const renderList1 = (directory) => {
         return (
@@ -278,6 +100,7 @@ export const Navigation = (props: Props) => {
                     <Link
                         className={styles.navigationCategoryCollapseItemName}
                         to={ `/html-list/${tag}` }
+                        onClick={ closeMobileMenuCallback }
                     >
                         { tag }
                     </Link>
@@ -294,7 +117,7 @@ export const Navigation = (props: Props) => {
                 &gt;
             </div> */}
 
-            {navigation.map((directory) => {
+            { navigation.map((directory) => {
                 return renderList1(directory);
             })}
         </nav>

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 import { Navigation } from 'Blocks/index';
 
-import { selectHtmlTagsFlatList } from 'Selectors/index'
+import { selectHtmlTagsFlatList } from 'Selectors/index';
+import { toggleMobileMenuStateAC } from 'Actions/index';
 
 import { Props } from './props';
 
@@ -11,9 +12,14 @@ import { Props } from './props';
 
 class Container extends Component<Props> {
     render() {
+        const { toggleMobileMenuStateAD, tags } = this.props;
+
         return (
             <Navigation
-                tags={ this.props.tags }
+                tags={ tags }
+                closeMobileMenuCallback={ () => {
+                    toggleMobileMenuStateAD(false);
+                } }
             />
         );
     }
@@ -26,6 +32,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
+    toggleMobileMenuStateAD: toggleMobileMenuStateAC
 }
 
 export const NavigationContainer = connect(mapStateToProps, mapDispatchToProps)(Container);

@@ -1,7 +1,7 @@
 import { toggleMobileMenuStateAC } from 'Actions/index';
 
 type MapStateToProps = {
-    tags: string[]
+    isMobileMenuOpened: boolean
 }
 
 type MapDispatchToProps = {

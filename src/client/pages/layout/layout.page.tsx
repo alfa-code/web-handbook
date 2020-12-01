@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Header, Footer } from 'Blocks/index';
+import { Footer } from 'Blocks/index';
+import { HeaderContainer } from 'Containers/index';
 // import { Sidebar } from 'Blocks/index';
 
 import { NavigationContainer } from 'Containers/navigation-container';
@@ -11,7 +12,7 @@ export const Layout = (props: Props) => {
     const { children } = props;
     return (
         <div className="layout">
-            <Header />
+            <HeaderContainer />
             <NavigationContainer />
             <div className="content">{children}</div>
             {/* <Sidebar type="main" /> */}

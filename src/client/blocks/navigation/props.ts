@@ -11,7 +11,8 @@ type OwnProps = {
                 url?: string
             }[]
         }[],
-    }[]
+    }[],
+    closeMobileMenuCallback: any;
 }
 
 export type Props = OwnProps;

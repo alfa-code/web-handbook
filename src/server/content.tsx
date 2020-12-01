@@ -27,7 +27,10 @@ export async function getContent(request: any) {
         },
         UI: {
             htmlTagsList: getHtmlTagsListByAlphabet(),
-            htmlTagsInfo: {}
+            htmlTagsInfo: {},
+            mobileMenu: {
+                isOpened: false
+            }
         },
     }
 

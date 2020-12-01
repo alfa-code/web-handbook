@@ -3,31 +3,33 @@ import React, { useState } from "react";
 import { Logo, Icon } from "Components/index";
 import { NavigationContainer } from 'Containers/navigation-container';
 
-// import { Props } from './props';
+import { Props } from './props';
 import styles from "./header.module.scss";
 import { NavLink } from "react-router-dom";
 
-export const Header = () => {
+export const Header = (props: Props) => {
     const [activeDropdown, setActiveDropdown] = useState("");
-    const [activeHeader, setActiveHeader] = useState(false);
-    const [activeSearch, setActiveSearch] = useState(false);
+    // const [activeSearch, setActiveSearch] = useState(false);
 
-    function closeDropdowm(e) {
-        if (e.target.closest(".dropdown")) {
-            return;
-        }
-        setActiveDropdown("");
-    }
-    const toggleDropdowm = (e, key) => {
-        if (activeDropdown == key) {
-            setActiveDropdown("");
-            document.body.onclick = null;
-        } else {
-            setActiveDropdown(key);
-            document.body.onclick = closeDropdowm;
-        }
-        e.stopPropagation();
-    };
+    const { isMobileMenuOpened, toggleMobileMenuStateAD } = props;
+
+    // function closeDropdowm(e) {
+    //     if (e.target.closest(".dropdown")) {
+    //         return;
+    //     }
+    //     setActiveDropdown("");
+    // }
+
+    // const toggleDropdowm = (e, key) => {
+    //     if (activeDropdown == key) {
+    //         setActiveDropdown("");
+    //         document.body.onclick = null;
+    //     } else {
+    //         setActiveDropdown(key);
+    //         document.body.onclick = closeDropdowm;
+    //     }
+    //     e.stopPropagation();
+    // };
 
     return (
         <header className={styles.header}>
@@ -97,22 +99,28 @@ export const Header = () => {
             <div
                 className={styles.headerBtn}
                 onClick={() => {
-                    document.body.style.overflow = !activeHeader
+                    document.body.style.overflow = !isMobileMenuOpened
                         ? "hidden"
                         : "auto";
-                    if (activeSearch) setActiveSearch(false);
-                    setActiveHeader(!activeHeader);
+
+                    // if (activeSearch) {
+                    //     setActiveSearch(false);
+                    // }
+
+                    // setActiveHeader(!activeHeader);
+
+                    toggleMobileMenuStateAD(!isMobileMenuOpened);
                 }}
             >
                 <Icon
                     size="24px"
-                    icon={activeHeader ? "close-icon" : "menu-icon"}
+                    icon={isMobileMenuOpened ? "close-icon" : "menu-icon"}
                 />
             </div>
             <div
                 className={[
                     styles.navigationMobile,
-                    activeHeader ? styles.activeHeader : "",
+                    isMobileMenuOpened ? styles.activeHeader : "",
                 ].join(" ")}
             >
                 <NavigationContainer />
