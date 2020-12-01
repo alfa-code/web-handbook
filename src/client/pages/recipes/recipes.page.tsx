@@ -26,7 +26,12 @@ export const Recipes = ({ themes, type }: Props) => {
 
                     { themes.map((theme, i) =>
                         <div key={ i }>
-                            <Link to={theme.url} className="mt-5 text-heading-4">{ theme.title }</Link>
+                            <Link
+                                to={theme.url}
+                                className="mt-5 text-heading-4"
+                            >
+                                { theme.title }
+                            </Link>
                             <ul className={ styles.recipesList }>
                                 { theme.recipes.map((recipe, i) =>
                                     <li key={ i }>

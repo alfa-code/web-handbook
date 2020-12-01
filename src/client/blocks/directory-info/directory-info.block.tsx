@@ -2,6 +2,8 @@ import React from "react";
 
 import { Props } from "./props";
 
+import urljoin from 'url-join';
+
 import { Link } from "react-router-dom";
 
 // import { Tag } from 'Components/index';
@@ -26,7 +28,7 @@ export const DirectoryInfo = (props: Props) => {
                               {/* TODO: Поменять ключи */}
                               <Link
                                   className="text-body-1"
-                                  to={`${currentPath}${thing}`}
+                                  to={urljoin(currentPath, thing)}
                               >
                                   {thing}
                               </Link>
