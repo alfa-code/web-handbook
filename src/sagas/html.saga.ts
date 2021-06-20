@@ -10,12 +10,29 @@ import {
     fetchHtmlTagInfoErrorAC
 } from 'Actions/index';
 
+function mapTagStructureToObject(data: HtmlTagResponce) {
+    const { tagName, structure } = data;
+    if (!structure) {
+        return {}
+    }
+
+    const mappedObj: any = {
+        tagName
+    };
+    structure.forEach((item) => {
+        const { type, value } = item;
+        mappedObj[type] = value;
+    });
+
+    return mappedObj;
+}
+
 function fetchHtml(htmlTag: string) {
     return axios({
       method: 'get',
       url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/main.json`
     });
-  }
+}
 
 function* fetchHtmlTagInfo(action) {
     yield put(toggleHtmlTagInfoLoadingAC(true));
@@ -25,8 +42,10 @@ function* fetchHtmlTagInfo(action) {
         const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
         const { data } = response;
 
-        if (data) {
-            yield put(fetchHtmlTagInfoSuccessAC(data));
+        const mappedData = mapTagStructureToObject(data);
+
+        if (mappedData) {
+            yield put(fetchHtmlTagInfoSuccessAC(mappedData));
             yield put(toggleHtmlTagInfoLoadingAC(false));
         }
     } catch (error) {
