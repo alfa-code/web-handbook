@@ -3,8 +3,9 @@
 .mainPageContent {
     position: relative;
     padding: 0 $space-xxl;
+
     @include media("<desktop-2") {
-        padding: 0 $space-m;
+        padding: 0 $space-m $space-m;
     }
 }
 .mainPageTop {

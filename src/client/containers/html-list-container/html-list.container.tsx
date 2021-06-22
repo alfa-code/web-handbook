@@ -21,10 +21,10 @@ class Container extends Component<Props> {
             <Directory
                 directory={ {
                     title: 'HTML справочник',
-                    description: 'Ознакомься с описанием HTML-тегов',
+                    description: 'Ознакомься с описанием HTML элементов',
                     img: htmlDirectoryImage,
                     lists: [{
-                        title: 'Все теги',
+                        title: 'Список всех html элементов',
                         subtitle: '',
                         items: htmlTags
                     }],

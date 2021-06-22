@@ -255,6 +255,7 @@ img {
 
     @include media("<desktop-2") {
         padding: $space-xl 0;
+        justify-content: center;
     }
 
     @include media("<tablet-2") {

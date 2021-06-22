@@ -33,6 +33,7 @@ export class Main extends PureComponent<Props> {
                         </div>
 
                         <div className={styles.mainPageLinks}>
+
                             <MainPageLink
                                 title="HTML справочник"
                                 subTitle="Все HTML теги"

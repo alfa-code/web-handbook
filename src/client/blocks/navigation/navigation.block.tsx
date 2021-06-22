@@ -21,7 +21,7 @@ const navInfo = [
 
 export const Navigation = (props: Props) => {
     // const [showNavigation, setShowNavigation] = useState(false);
-    const [activeDirectory, setActiveDirectory] = useState("");
+    const [activeDirectory, setActiveDirectory] = useState("HTML справочник");
     // const [activeCategory, setActiveCategory] = useState("");
 
     const { closeMobileMenuCallback } = props;
