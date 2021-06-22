@@ -13,7 +13,7 @@ export const Alert = ({ message } : Props) => {
                 <Icon size="24" icon="alert-icon" />
             </div>
             <div className="text-body-2">
-                {message}
+                { message }
             </div>
         </div>
     );
