@@ -19,14 +19,26 @@ class Container extends Component<Props> {
         const {
             isHtmlTagsInfoLoading,
             tagInfo,
-            fetchHtmlTagInfoDA
+            fetchHtmlTagInfoDA,
+            htmlTag
         } = this.props;
-
-        const { htmlTag } = this.props;
 
         if (!isHtmlTagsInfoLoading && !tagInfo && htmlTag) {
             fetchHtmlTagInfoDA(htmlTag);
         }
+    }
+
+    shouldComponentUpdate = (nextProps) => {
+        const {
+            fetchHtmlTagInfoDA,
+            htmlTag
+        } = this.props;
+
+        if (nextProps.htmlTag !== htmlTag) {
+            fetchHtmlTagInfoDA(nextProps.htmlTag);
+        }
+
+        return true;
     }
 
     render() {

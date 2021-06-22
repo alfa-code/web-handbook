@@ -1,5 +1,7 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
+import JsxParser from 'react-jsx-parser';
+import { Link } from 'react-router-dom';
 
 import { Props } from './props';
 
@@ -12,25 +14,34 @@ import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index'
 // import VideoImg from "Assets/images/video-player.png";
 import { isHtmlTagExists } from 'Utils/html';
 
-// import styles from './tag.module.scss';
 import { Layout } from 'Pages/index';
 
+import styles from './tag.module.scss';
 export class Tag extends React.PureComponent<Props> {
     renderDescription(descriptions) {
         if (typeof descriptions === 'string') {
             return (
-                <p>
-                    { descriptions }
-                </p>
+                <div className={ styles.paragraph }>
+                    <JsxParser
+                        components={{ Link }}
+                        jsx={ descriptions }
+                    />
+                </div>
             )
         }
 
         if (Array.isArray(descriptions)) {
             return descriptions.map((description, i) => {
                 return (
-                    <p key={ i }>
-                        { description }
-                    </p>
+                    <div
+                        className={ styles.paragraph }
+                        key={ i }
+                    >
+                        <JsxParser
+                            components={{ Link }}
+                            jsx={ description }
+                        />
+                    </div>
                 )
             });
         }
