@@ -29,13 +29,6 @@ export const Navigation = (props: Props) => {
     const renderList1 = (directory) => {
         return (
             <div
-                onClick={() =>
-                    setActiveDirectory(
-                        activeDirectory == directory.categoryName
-                            ? ""
-                            : directory.categoryName
-                    )
-                }
                 className={[
                     styles.navigationCategory,
                     styles.dropdown,
@@ -43,22 +36,33 @@ export const Navigation = (props: Props) => {
                         ? styles.active
                         : null,
                 ].join(" ")}
-                key={directory.categoryName}
+                key={ directory.categoryName }
             >
                 <div className={styles.navigationCategoryInner}>
-                    <Icon
-                        className={styles.svgIcon}
-                        size="24"
-                        icon={directory.categoryIconUrl}
-                    />
-                    <div className={styles.navigationCategoryInnerName}>
-                        {directory.categoryName}
-                    </div>
-                    <img
-                        className={styles.arrowIcon}
-                        src={arrowDown}
-                        alt="arrow down"
-                    />
+                    <button
+                        className={styles.navigationCategoryInnerName}
+                        onClick={() =>
+                            setActiveDirectory(
+                                activeDirectory == directory.categoryName
+                                    ? ""
+                                    : directory.categoryName
+                            )
+                        }
+                    >
+                        <div className={styles.buttonInner}>
+                            <Icon
+                                className={styles.svgIcon}
+                                size="24"
+                                icon={directory.categoryIconUrl}
+                            />
+                            { directory.categoryName }
+                        </div>
+                        <img
+                            className={styles.arrowIcon}
+                            src={arrowDown}
+                            alt="arrow down"
+                        />
+                    </button>
                 </div>
                 <div
                     className={[
