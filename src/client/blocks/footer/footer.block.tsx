@@ -26,8 +26,7 @@ export class Footer extends Component<Props> {
                         </Link>
 
                         <div className="mt-1 text-body-3">
-                            Профессиональный ресурс для начинающих <br />и
-                            практикующих фронт-энд разработчиков.
+                            Карманный веб справочник для начинающих и практикующих веб разработчиков.
                         </div>
 
                         {/* <div className="mt-3 text-body-3">

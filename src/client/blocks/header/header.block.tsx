@@ -45,19 +45,34 @@ export const Header = (props: Props) => {
                         Главная
                     </NavLink>
                 </div>
-                <div
+                <div className={styles.headerMenuLink}>
+                    <NavLink
+                        activeClassName={styles.active}
+                        exact
+                        to="/html-list"
+                        className={styles.headerMenuLink}
+                    >
+                        HTML справочник
+                    </NavLink>
+                </div>
+                {/* <div
                     className={ [styles.dropdown, activeDropdown == "HTML" ? styles.active : ""].join(' ') }
-                    onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}>
+                    onClick={() => setActiveDropdown(activeDropdown == "HTML" ? "" : "HTML")}
+                >
                     <div className={ styles.dropdownActivator }>
                         HTML
                         <Icon className={styles.svgIcon} size="16" icon="arrow-down"/>
                     </div>
-
                     <div className={ styles.dropdownInner } >
-                        <NavLink activeClassName={ styles.active } to="/html-list" className={ styles.dropdownInnerLink }>HTML справочник</NavLink>
-                        {/* <NavLink activeClassName={ styles.active } to="/html-list/recipes" className={ styles.dropdownInnerLink }>HTML рецепты</NavLink> */}
+                        <NavLink
+                            activeClassName={ styles.active }
+                            to="/html-list"
+                            className={ styles.dropdownInnerLink }
+                        >
+                                HTML справочник
+                        </NavLink>
                     </div>
-                </div>
+                </div> */}
                 {/* <div
                     className={ [styles.dropdown, activeDropdown == "CSS" ? styles.active : ""].join(' ')}
                     onClick={() => setActiveDropdown(activeDropdown == "CSS" ? "" : "CSS")}>

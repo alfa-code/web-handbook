@@ -21,14 +21,12 @@ export class Main extends PureComponent<Props> {
                         <div className={styles.mainPageTop}>
                             <img src={MainSvg} alt="Main" />
                             <div className={styles.mainPageTopContent}>
-                                <div className="text-heading-2">
+                                <span className="text-heading-2">
                                     Web Handbook
-                                </div>
-                                <div className="text-subheading">
-                                    Это профессиональный ресурс для начинающих{" "}
-                                    <br />и практикующих фронт-энд
-                                    разработчиков.
-                                </div>
+                                </span>
+                                <h1 className="text-subheading">
+                                    Карманный справочник html элементов, css стилей и других веб технологий.
+                                </h1>
                             </div>
                         </div>
 
