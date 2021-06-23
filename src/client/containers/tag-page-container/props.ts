@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { fetchHtmlTagInfoAC } from 'Actions/index';
+import { fetchHtmlTagInfoAsync } from 'Actions/index';
 
 type MapStateToProps = {
     isHtmlTagsInfoLoading: boolean;
@@ -11,7 +11,7 @@ type MapDispatchToProps = {
 };
 
 type OwnProps = {
-    fetchHtmlTagInfoDA: typeof fetchHtmlTagInfoAC;
+    fetchHtmlTagInfoDA: typeof fetchHtmlTagInfoAsync.request;
 }
 
 export type Props = OwnProps & MapStateToProps & MapDispatchToProps & RouteComponentProps<{ htmlTag: string }>;

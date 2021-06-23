@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Tag } from 'Pages/index';
 
-import { fetchHtmlTagInfoAC } from 'Actions/index';
+import { fetchHtmlTagInfoAsync } from 'Actions/index';
 
 import {
     selectIsHtmlTagsInfoLoading,
@@ -69,7 +69,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    fetchHtmlTagInfoDA: fetchHtmlTagInfoAC,
+    fetchHtmlTagInfoDA: fetchHtmlTagInfoAsync.request,
 }
 
 export const TagPageContainer = connect(mapStateToProps, mapDispatchToProps)(Container);

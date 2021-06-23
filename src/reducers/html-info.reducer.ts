@@ -1,6 +1,7 @@
-import { Action } from 'Types/index';
+import { createReducer } from 'typesafe-actions';
 
-import { HTML_ACTION_TYPES } from 'Actions/index';
+import { HTML_ACTION_TYPES, fetchHtmlTagInfoAsync } from 'Actions/index';
+
 
 type InitialState = {
     isLoading: boolean;
@@ -16,30 +17,23 @@ const initialState: InitialState = {
     list: {}
 }
 
-export function htmlInfoReducer(state = initialState, action: Action) {
-    switch (action.type) {
-        case HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING: {
-            const { loading } = action.payload;
-            return {
-                ...state,
-                isLoading: loading
-            }
-        }
-        case HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO_SUCCESS: {
-            const { data } = action.payload;
-            return {
-                ...state,
-                list: {
-                    ...state.list,
-                    [data.tagName]: {
-                        ...data
-                    }
+export const htmlInfoReducer = createReducer(initialState)
+    .handleAction(fetchHtmlTagInfoAsync.success, (state, action) => {
+        const { payload } = action;
+        return {
+            ...state,
+            list: {
+                ...state.list,
+                [payload.tagName]: {
+                    ...payload
                 }
             }
         }
-        default:
-            return {
-                ...state
-            }
+    })
+    .handleAction(HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING, (state, action) => {
+        const { loading } = action.payload;
+        return {
+            ...state,
+            isLoading: loading
         }
-  }
+    });

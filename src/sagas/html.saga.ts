@@ -4,10 +4,8 @@ import axios, { AxiosResponse } from 'axios';
 import { HtmlTagResponce } from 'Types/index';
 
 import {
-    HTML_ACTION_TYPES,
     toggleHtmlTagInfoLoadingAC,
-    fetchHtmlTagInfoSuccessAC,
-    fetchHtmlTagInfoErrorAC
+    fetchHtmlTagInfoAsync
 } from 'Actions/index';
 
 function mapTagStructureToObject(data: HtmlTagResponce) {
@@ -29,8 +27,8 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 
 function fetchHtml(htmlTag: string) {
     return axios({
-      method: 'get',
-      url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/main.json`
+        method: 'get',
+        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/main.json`
     });
 }
 
@@ -45,15 +43,16 @@ function* fetchHtmlTagInfo(action) {
         const mappedData = mapTagStructureToObject(data);
 
         if (mappedData) {
-            yield put(fetchHtmlTagInfoSuccessAC(mappedData));
+            yield put(fetchHtmlTagInfoAsync.success(mappedData));
             yield put(toggleHtmlTagInfoLoadingAC(false));
         }
     } catch (error) {
-        yield put(fetchHtmlTagInfoErrorAC());
+        yield put(fetchHtmlTagInfoAsync.failure(error));
         yield put(toggleHtmlTagInfoLoadingAC(false));
     }
 }
 
 export function* htmlSaga() {
-    yield takeLatest(HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO, fetchHtmlTagInfo);
+    // yield takeLatest(HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO, fetchHtmlTagInfo);
+    yield takeLatest(fetchHtmlTagInfoAsync.request, fetchHtmlTagInfo);
 }
