@@ -34,7 +34,7 @@ export const DirectoryInfo = (props: Props) => {
                                     className="text-body-1"
                                     to={urljoin(currentPath, name)}
                                 >
-                                    { name }
+                                    { `<${name}>` }
                                     { obsolete && (
                                         <div className={styles.label}>
                                             устарел
