@@ -12,7 +12,7 @@ import { Alert } from 'Src/client/components';
 import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
 // import VideoImg from "Assets/images/video-player.png";
-import { isHtmlTagExists } from 'Utils/html';
+// import { isHtmlTagExists } from 'Utils/html';
 
 import { Layout } from 'Pages/index';
 
@@ -149,18 +149,18 @@ export class Tag extends React.PureComponent<Props> {
             htmlTag
         } = this.props;
 
-        const isTagExists = isHtmlTagExists(htmlTag);
-        if (!isTagExists) {
-            return (
-                <Layout>
-                    <div className="page">
-                        <div className="pageContent">
-                            Данного тега не существует.
-                        </div>
-                    </div>
-                </Layout>
-            )
-        }
+        // const isTagExists = isHtmlTagExists(htmlTag);
+        // if (!isTagExists) {
+        //     return (
+        //         <Layout>
+        //             <div className="page">
+        //                 <div className="pageContent">
+        //                     Данного тега не существует.
+        //                 </div>
+        //             </div>
+        //         </Layout>
+        //     )
+        // }
 
         if (!tagInfo && !loading) {
             return (

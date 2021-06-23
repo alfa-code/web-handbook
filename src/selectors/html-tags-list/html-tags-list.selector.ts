@@ -1,18 +1,22 @@
 import get from 'lodash/get';
 
 export function selectHtmlTagsList(state) {
-    return get(state, ['UI', 'htmlTagsList'], {});
+    return get(state, ['UI', 'htmlTagsList', 'list'], []);
 }
 
+/**
+ * Данный селектор выбирает массив объектов html тегов и преобразует в плоский массив строк/элементов.
+ * @param state Стейт приложения
+ * @returns Массив строк (html элементов) - данный список элементов нужен для рендеренги списка тегов и меню
+ */
 export function selectHtmlTagsFlatList(state): string[] {
-    const htmlTagsList = get(state, ['UI', 'htmlTagsList'], {});
-    const flatHtmlTagsList = [];
-    const alphabet = Object.keys(htmlTagsList);
+    const htmlTagsList = selectHtmlTagsList(state);
 
-    alphabet.forEach((letter) => {
-        htmlTagsList[letter].forEach(element => {
-            flatHtmlTagsList.push(element);
-        });
+    const flatHtmlTagsList = [];
+
+    htmlTagsList.forEach((htmlElem) => {
+        flatHtmlTagsList.push(htmlElem.name);
     });
+
     return flatHtmlTagsList;
 }

@@ -4,11 +4,8 @@ type MapStateToProps = {
     htmlTags: any;
 }
 
-type MapDispatchToProps = {
-};
+type MapDispatchToProps = {};
 
-type OwnProps = {
-
-}
+type OwnProps = {}
 
 export type Props = RouteComponentProps & OwnProps & MapStateToProps & MapDispatchToProps;

@@ -19,7 +19,7 @@ export function selectBreadCrumbs(state) {
 
         if (!route && filteredSplittedPathname[i - 1] === 'html-list') {
             return {
-                name: `Тег <${crumb}>`,
+                name: `Элемент <${crumb}>`,
                 url: crumb
             }
         }

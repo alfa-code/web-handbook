@@ -1,26 +1,15 @@
-import { HTML_TAGS_LIST, ALPHABET } from 'Constants/index';
-
-export function getHtmlTagsListByAlphabet() {
+export function mapHtmlTagsListByAlphabet(htmlTagsList: Array<{ name: string; }>) {
     const filteredHtmlTags: {
         [key: string]: string[];
     } = {};
 
-    const htmlTags = Object.keys(HTML_TAGS_LIST);
-
-    ALPHABET.forEach((letter) => {
-        const tags = htmlTags.filter((htmlTag) => {
-            const regExp = new RegExp(`^${letter}`);
-            return htmlTag.match(regExp);
-        });
-
-        if (tags.length > 0) {
-            filteredHtmlTags[letter] = tags;
-        }
+    htmlTagsList.forEach((tag) => {
+        const { name } = tag;
+        const firstLetter = name.slice(0, 1);
+        filteredHtmlTags[firstLetter] ?
+            filteredHtmlTags[firstLetter].push(name) :
+            filteredHtmlTags[firstLetter] = [name];
     });
 
     return filteredHtmlTags;
-}
-
-export function isHtmlTagExists(tag) {
-    return !!HTML_TAGS_LIST[tag];
 }

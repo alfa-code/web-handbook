@@ -15,7 +15,10 @@ import { selectHtmlTagsList } from 'Selectors/index';
 
 class Container extends Component<Props> {
     render() {
-        const { htmlTags, match: { url } } = this.props;
+        const {
+            htmlTags,
+            match: { url },
+        } = this.props;
 
         return (
             <Directory
@@ -42,7 +45,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = {
-}
-
-export const HtmlListContainer = connect(mapStateToProps, mapDispatchToProps)(Container);
+export const HtmlListContainer = connect(mapStateToProps)(Container);

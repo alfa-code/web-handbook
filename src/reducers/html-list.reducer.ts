@@ -1,15 +1,20 @@
 type InitialState = {
-    [key: string]: string[];
+    [key: string]: string[] | boolean;
 }
 
 const initialState: InitialState = {
+    isHtmlElementsListLoaded: false,
+    list: [],
 }
 
 export function htmlListReducer(state = initialState, action) {
-    switch (action.type) {
-      default:
-        return {
-            ...state
+    const { type } = action;
+
+    switch (type) {
+        default: {
+            return {
+                ...state
+            }
         }
     }
-  }
+}

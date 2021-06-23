@@ -7,6 +7,8 @@ export const HTML_ACTION_TYPES = {
     FETCH_HTML_TAG_INFO_ERROR: 'FETCH_HTML_TAG_INFO_ERROR',
 }
 
+// *** fetchHtmlTagInfo *** //
+
 export function fetchHtmlTagInfoAC(htmlTag: string) {
     return {
         type: HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO,

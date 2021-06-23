@@ -4,6 +4,8 @@ import { Props } from "./props";
 
 import { PageTop, DirectoryList } from "Blocks/index";
 
+import { mapHtmlTagsListByAlphabet } from 'Utils/index';
+
 // import styles from './directory.module.scss';
 import { Layout } from "Pages/index";
 
@@ -23,12 +25,14 @@ export const Directory = (props: Props) => {
                     />
                     {lists.map((list, i) => {
                         const { title, subtitle, items } = list;
+                        const mappedItems = mapHtmlTagsListByAlphabet(items);
+
                         return (
                             <DirectoryList
                                 key={i}
                                 title={title}
                                 subtitle={subtitle}
-                                items={items}
+                                items={ mappedItems }
                                 currentPath={currentPath}
                             />
                         );

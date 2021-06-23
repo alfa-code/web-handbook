@@ -1,23 +1,40 @@
-import { ResponseToolkit } from '@hapi/hapi';
-// import axios from 'axios';
+import { ResponseToolkit, Request } from '@hapi/hapi';
+import axios, { AxiosResponse } from 'axios';
 
-import { getHtmlTagsListByAlphabet, /* isHtmlTagExists */ } from 'Utils/html';
+export const htmlApiPluginRoutes = {
+    getHtmlListRoute: '/api/htmlElements/list',
+}
 
+type HtmlTagsList = {
+    list: Array<{ name: string }>
+}
+
+/**
+ * Плагин Hapi - htmlApiPlugin
+ * Служит для получения данных по html. Например список тегов, информацию по тегу.
+ */
 export const htmlApiPlugin = {
     name: 'htmlApiPlugin',
     version: '1.0.0',
     register: async function (server, _options) {
-        let htmlTags;
+        // Переменная в замыкании хранит список всех тегов.
+        let htmlTagsList: HtmlTagsList | undefined;
 
         server.route({
             method: 'GET',
-            path: '/api/html/list',
-            handler: function (_request, h: ResponseToolkit) {
-                if (!htmlTags) {
-                    htmlTags = getHtmlTagsListByAlphabet();
+            path: htmlApiPluginRoutes.getHtmlListRoute,
+            handler: async (_request: Request, h: ResponseToolkit) => {
+                // Не запрошиваем повторно если список тегов уже есть.
+                if (!htmlTagsList) {
+                    const response: AxiosResponse<HtmlTagsList> = await axios({
+                        method: 'get',
+                        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/elements-list/elements-list.json`
+                    });
+
+                    htmlTagsList = response.data;
                 }
 
-                return h.response(htmlTags).code(200);
+                return h.response(htmlTagsList).code(200);
             }
         });
 
