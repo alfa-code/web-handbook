@@ -113,6 +113,35 @@ export class Tag extends React.PureComponent<Props> {
         });
     }
 
+    renderContentModel = (content_model: string | string[]) => {
+        if (typeof content_model === 'string') {
+            return (
+                <JsxParser
+                    components={{ Link }}
+                    jsx={ content_model }
+                />
+            )
+        }
+
+        if (Array.isArray(content_model)) {
+            return content_model.map((item, i) => {
+                return (
+                    <div
+                        className={ styles.paragraph }
+                        key={ i }
+                    >
+                        <JsxParser
+                            components={{ Link }}
+                            jsx={ item }
+                        />
+                    </div>
+                )
+            })
+        }
+        
+        return '---';
+    }
+
     render() {
         const {
             tagInfo,
@@ -227,7 +256,7 @@ export class Tag extends React.PureComponent<Props> {
                                         </div>
 
                                         <div className="mt-3 mt-sm-2">
-                                            { content_model }
+                                            { this.renderContentModel(content_model) }
                                         </div>
                                     </>
                                 ) }
