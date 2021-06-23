@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Navigation } from 'Blocks/index';
 
 import { selectHtmlTagsFlatList } from 'Selectors/index';
-import { toggleMobileMenuStateAC } from 'Actions/index';
+import { toggleMobileMenuAC } from 'Actions/index';
 
 import { Props } from './props';
 
@@ -32,7 +32,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    toggleMobileMenuStateAD: toggleMobileMenuStateAC
+    toggleMobileMenuStateAD: toggleMobileMenuAC
 }
 
 export const NavigationContainer = connect(mapStateToProps, mapDispatchToProps)(Container);

@@ -6,7 +6,7 @@ import { Props } from './props';
 import { Header } from 'Blocks/index';
 
 import { selectMobileMenuState } from 'Selectors/index';
-import { toggleMobileMenuStateAC } from 'Actions/index';
+import { toggleMobileMenuAC } from 'Actions/index';
 
 // import styles from './header.module.scss';
 
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    toggleMobileMenuStateAD: toggleMobileMenuStateAC
+    toggleMobileMenuStateAD: toggleMobileMenuAC
 }
 
 export const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Container);

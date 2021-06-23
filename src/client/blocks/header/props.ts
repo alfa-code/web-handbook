@@ -1,8 +1,8 @@
-import { toggleMobileMenuStateAC } from 'Actions/index';
+import { toggleMobileMenuAC } from 'Actions/index';
 
 type OwnProps = {
     isMobileMenuOpened: boolean;
-    toggleMobileMenuStateAD: typeof toggleMobileMenuStateAC
+    toggleMobileMenuStateAD: typeof toggleMobileMenuAC
 }
 
 export type Props = OwnProps;

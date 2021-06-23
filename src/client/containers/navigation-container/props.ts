@@ -1,11 +1,11 @@
-import { toggleMobileMenuStateAC } from 'Actions/index';
+import { toggleMobileMenuAC } from 'Actions/index';
 
 type MapStateToProps = {
     tags: string[]
 }
 
 type MapDispatchToProps = {
-    toggleMobileMenuStateAD: typeof toggleMobileMenuStateAC
+    toggleMobileMenuStateAD: typeof toggleMobileMenuAC
 };
 
 type OwnProps = {

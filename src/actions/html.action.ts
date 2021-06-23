@@ -1,3 +1,4 @@
+import { action } from 'typesafe-actions';
 import { HtmlTagResponce } from 'Types/index';
 
 export const HTML_ACTION_TYPES = {
