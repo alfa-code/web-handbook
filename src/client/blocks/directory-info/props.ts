@@ -1,7 +1,7 @@
 type OwnProps = {
     directory : {
         title?: string;
-        items: string[];
+        items: any;
         currentPath: string;
     }
 }

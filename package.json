@@ -51,7 +51,7 @@
         "html-react-parser": "^1.2.7",
         "include-media": "^1.4.9",
         "joi": "17.x",
-        "lodash": "^4.17.20",
+        "lodash": "^4.17.21",
         "normalize.css": "^8.0.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",

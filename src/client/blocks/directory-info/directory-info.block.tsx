@@ -23,17 +23,26 @@ export const DirectoryInfo = (props: Props) => {
             <ul>
                 {items.length
                     ? items.map((thing, i) => {
+                        const { name, obsolete } = thing;
                         return (
-                          <li key={i} className="text-body-1">
-                              {/* TODO: Поменять ключи */}
-                              <Link
-                                  className="text-body-1"
-                                  to={urljoin(currentPath, thing)}
-                              >
-                                  {thing}
-                              </Link>
-                          </li>
-                      )
+                            <li
+                                key={i}
+                                className="text-body-1"
+                            >
+                                {/* TODO: Поменять ключи */}
+                                <Link
+                                    className="text-body-1"
+                                    to={urljoin(currentPath, name)}
+                                >
+                                    { name }
+                                    { obsolete && (
+                                        <div className={styles.label}>
+                                            устарел
+                                        </div>
+                                    )}
+                                </Link>
+                            </li>
+                        )
                     })
                     : null}
             </ul>
