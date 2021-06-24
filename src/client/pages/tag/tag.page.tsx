@@ -1,13 +1,13 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
-import JsxParser from 'react-jsx-parser';
-import { Link } from 'react-router-dom';
 
 import { Props } from './props';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { Alert } from 'Src/client/components';
+
+import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
 import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
@@ -22,25 +22,21 @@ export class Tag extends React.PureComponent<Props> {
         if (typeof descriptions === 'string') {
             return (
                 <div className={ styles.paragraph }>
-                    <JsxParser
-                        components={{ Link }}
-                        jsx={ descriptions }
-                    />
+                    <JsxParserWrapper>
+                        { descriptions }
+                    </JsxParserWrapper>
                 </div>
             )
         }
 
         if (Array.isArray(descriptions)) {
-            return descriptions.map((description, i) => {
+            return descriptions.map((description: string, i) => {
                 return (
                     <div
                         className={ styles.paragraph }
                         key={ i }
                     >
-                        <JsxParser
-                            components={{ Link }}
-                            jsx={ description }
-                        />
+                        <JsxParserWrapper content={ description } />
                     </div>
                 )
             });
@@ -116,10 +112,7 @@ export class Tag extends React.PureComponent<Props> {
     renderContentModel = (content_model: string | string[]) => {
         if (typeof content_model === 'string') {
             return (
-                <JsxParser
-                    components={{ Link }}
-                    jsx={ content_model }
-                />
+                <JsxParserWrapper content={ content_model } />
             )
         }
 
@@ -130,10 +123,7 @@ export class Tag extends React.PureComponent<Props> {
                         className={ styles.paragraph }
                         key={ i }
                     >
-                        <JsxParser
-                            components={{ Link }}
-                            jsx={ item }
-                        />
+                        <JsxParserWrapper content={ item } />
                     </div>
                 )
             })
