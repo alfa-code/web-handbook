@@ -35,7 +35,7 @@ function fetchHtml(htmlTag: string) {
 function* fetchHtmlTagInfo(action) {
     yield put(toggleHtmlTagInfoLoadingAC(true));
 
-    const { payload: { htmlTag } } = action;
+    const htmlTag = action.payload;
     try {
         const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
         const { data } = response;
