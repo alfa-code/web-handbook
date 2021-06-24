@@ -1,0 +1,19 @@
+.noteBox {
+    color: green;
+    background: #DDFFDD;
+    font-style: italic;
+
+    margin-top: 2em;
+    padding: 1.5em 1em 1em 1em;
+
+    position: relative;
+}
+
+.label {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    background: green;
+    color: white;
+    padding: 4px 6px 4px 4px;
+}

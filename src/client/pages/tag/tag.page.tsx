@@ -11,6 +11,9 @@ import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
 import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
+import { NoteBox } from 'Components/note-box';
+import { ExampleBox } from 'Components/example-box';
+
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
 
@@ -235,6 +238,9 @@ export class Tag extends React.PureComponent<Props> {
                                         </div>
                                     </>
                                 ) }
+
+<NoteBox>dfgdfg</NoteBox>
+<ExampleBox>dfgdfg</ExampleBox>
 
                                 { content_model && (
                                     <>
