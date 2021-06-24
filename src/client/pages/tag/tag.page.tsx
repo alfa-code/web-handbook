@@ -11,8 +11,9 @@ import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
 import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
 
-import { NoteBox } from 'Components/note-box';
-import { ExampleBox } from 'Components/example-box';
+// import JsxParser from '../../../../../react-jsx-parser/source/index';
+
+
 
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
@@ -175,6 +176,7 @@ export class Tag extends React.PureComponent<Props> {
             tag_omission,
             categories,
             obsolete = false,
+            additionalDescription,
         } = tagInfo || {};
 
         return (
@@ -239,9 +241,6 @@ export class Tag extends React.PureComponent<Props> {
                                     </>
                                 ) }
 
-<NoteBox>dfgdfg</NoteBox>
-<ExampleBox>dfgdfg</ExampleBox>
-
                                 { content_model && (
                                     <>
                                         <div
@@ -274,6 +273,24 @@ export class Tag extends React.PureComponent<Props> {
                                         { this.renderAttributes(tagInfo) }
                                     </>
                                 ) }
+
+                                { additionalDescription && (
+                                    <JsxParserWrapper content={ additionalDescription } />
+                                ) }
+
+                                {/* <JsxParser
+                                    jsx={`
+                                        <h1>Header</h1>
+                                       <code>
+                                            """"
+                                            <a>22222222222</a>
+                                            """"
+                                       </code>
+                                    `}
+                                    onError={ (e) => {
+                                        console.log(e)
+                                    } }
+                                /> */}
                             </>
                         ) }
 

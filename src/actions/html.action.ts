@@ -12,6 +12,13 @@ export const fetchHtmlTagInfoAsync = createAsyncAction(
     'FETCH_HTML_TAG_INFO_CANCEL',
 )<string, HtmlTagResponce, Error, string>();
 
+export const fetchFullHtmlElementDescriptionAsync = createAsyncAction(
+    'FETCH_FULL_HTML_ELEMENT_DESCRIPTION_REQUEST',
+    'FETCH_FULL_HTML_ELEMENT_DESCRIPTION_SUCCESS',
+    'FETCH_FULL_HTML_ELEMENT_DESCRIPTION_ERROR',
+    'FETCH_FULL_HTML_ELEMENT_DESCRIPTION_CANCEL',
+)<string, {elementName: string; data: string; }, Error, string>();
+
 export function toggleHtmlTagInfoLoadingAC(loading: boolean) {
     return {
         type: HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING,

@@ -1,6 +1,10 @@
 import { createReducer } from 'typesafe-actions';
 
-import { HTML_ACTION_TYPES, fetchHtmlTagInfoAsync } from 'Actions/index';
+import {
+    HTML_ACTION_TYPES,
+    fetchHtmlTagInfoAsync,
+    fetchFullHtmlElementDescriptionAsync,
+} from 'Actions/index';
 
 
 type InitialState = {
@@ -35,5 +39,18 @@ export const htmlInfoReducer = createReducer(initialState)
         return {
             ...state,
             isLoading: loading
+        }
+    }) // Загружаем доп инфу по тегу
+    .handleAction(fetchFullHtmlElementDescriptionAsync.success, (state, action) => {
+        const { elementName, data } = action.payload;
+        return {
+            ...state,
+            list: {
+                ...state.list,
+                [elementName]: {
+                    ...state.list[elementName],
+                    additionalDescription: data,
+                }
+            }
         }
     });

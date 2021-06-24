@@ -5,7 +5,8 @@ import { HtmlTagResponce } from 'Types/index';
 
 import {
     toggleHtmlTagInfoLoadingAC,
-    fetchHtmlTagInfoAsync
+    fetchHtmlTagInfoAsync,
+    fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
 
 function mapTagStructureToObject(data: HtmlTagResponce) {
@@ -42,9 +43,14 @@ function* fetchHtmlTagInfo(action) {
 
         const mappedData = mapTagStructureToObject(data);
 
+        // Загружаем доп инфу по тегу если это необходимо
         if (mappedData) {
             yield put(fetchHtmlTagInfoAsync.success(mappedData));
             yield put(toggleHtmlTagInfoLoadingAC(false));
+
+            if (mappedData.fullDescription) {
+                yield put(fetchFullHtmlElementDescriptionAsync.request(mappedData.tagName))
+            }
         }
     } catch (error) {
         yield put(fetchHtmlTagInfoAsync.failure(error));
