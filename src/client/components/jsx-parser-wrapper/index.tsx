@@ -5,14 +5,19 @@ import { Link } from 'react-router-dom';
 
 import { NoteBox } from 'Components/note-box';
 import { ExampleBox } from 'Components/example-box';
-import { LinkElement } from 'Components/link-wrapper/link-element';
+import { LinkElement, LinkAttribute, LE, LA } from 'Components/link-wrapper/link-element';
+import { Code } from 'Components/code';
 
 export const JsxParserWrapper = ({ content, children }: { content?: string, children?: string }) => {
     const components = {
         Link,
         NoteBox,
         ExampleBox,
-        LinkElement
+        LinkElement,
+        LinkAttribute,
+        LE,
+        LA,
+        Code
     }
 
     const stringTojsx = children || content;
@@ -21,6 +26,9 @@ export const JsxParserWrapper = ({ content, children }: { content?: string, chil
         <JsxParser
             components={ components }
             jsx={ stringTojsx }
+            onError={ (e) => {
+                console.log(e)
+            } }
         />
     )
 }

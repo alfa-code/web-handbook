@@ -10,7 +10,7 @@ function fetchHtmlElementFullDescription(htmlTag: string) {
 }
 
 
-export function* someFunction(action) {
+export function* loadAdditionalDataForHtmlElement(action) {
     const { payload: elementName } = action;
 
     try {
@@ -28,5 +28,5 @@ export function* someFunction(action) {
 }
 
 export function* htmlElementFullDescriptionSagas() {
-    yield takeEvery(fetchFullHtmlElementDescriptionAsync.request, someFunction);
+    yield takeEvery(fetchFullHtmlElementDescriptionAsync.request, loadAdditionalDataForHtmlElement);
 }

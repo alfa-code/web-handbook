@@ -9,11 +9,11 @@ import { Alert } from 'Src/client/components';
 
 import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
-import { SupportTable, SpecificationTable, AttributesTable } from 'Blocks/index';
-
-// import JsxParser from '../../../../../react-jsx-parser/source/index';
-
-
+import {
+    // SupportTable,
+    // SpecificationTable, 
+    AttributesTable
+} from 'Blocks/index';
 
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
@@ -134,6 +134,38 @@ export class Tag extends React.PureComponent<Props> {
         }
         
         return '---';
+    }
+
+    renderAdditionalDescription = () => {
+        const {
+            tagInfo: { additionalDescription = {} } = {}
+        } = this.props;
+
+        const {
+            isDataLoaded, data
+        } = additionalDescription;
+
+        if (isDataLoaded === false) {
+            return (
+                <>
+                    <div className="mt-5 mt-sm-3 text-heading-4">
+                        Подробное описание
+                    </div>
+                    <Skeleton count={ 1 } />
+                </>
+            )
+        } else if (isDataLoaded && data ) {
+            return (
+                <>
+                    <div className="mt-5 mt-sm-3 text-heading-4">
+                        Подробное описание
+                    </div>
+                    <JsxParserWrapper content={ data } />
+                </>
+            )
+        }
+
+        return null;
     }
 
     render() {
@@ -274,23 +306,10 @@ export class Tag extends React.PureComponent<Props> {
                                     </>
                                 ) }
 
-                                { additionalDescription && (
-                                    <JsxParserWrapper content={ additionalDescription } />
-                                ) }
+                                
+                                { this.renderAdditionalDescription() }
 
-                                {/* <JsxParser
-                                    jsx={`
-                                        <h1>Header</h1>
-                                       <code>
-                                            """"
-                                            <a>22222222222</a>
-                                            """"
-                                       </code>
-                                    `}
-                                    onError={ (e) => {
-                                        console.log(e)
-                                    } }
-                                /> */}
+
                             </>
                         ) }
 

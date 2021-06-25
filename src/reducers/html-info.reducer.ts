@@ -41,6 +41,22 @@ export const htmlInfoReducer = createReducer(initialState)
             isLoading: loading
         }
     }) // Загружаем доп инфу по тегу
+    .handleAction(fetchFullHtmlElementDescriptionAsync.request, (state, action) => {
+        const { payload: elementName } = action;
+
+        return {
+            ...state,
+            list: {
+                ...state.list,
+                [elementName]: {
+                    ...state.list[elementName],
+                    additionalDescription: {
+                        isDataLoaded: false,
+                    },
+                }
+            }
+        }
+    })
     .handleAction(fetchFullHtmlElementDescriptionAsync.success, (state, action) => {
         const { elementName, data } = action.payload;
         return {
@@ -49,7 +65,10 @@ export const htmlInfoReducer = createReducer(initialState)
                 ...state.list,
                 [elementName]: {
                     ...state.list[elementName],
-                    additionalDescription: data,
+                    additionalDescription: {
+                        isDataLoaded: true,
+                        data
+                    },
                 }
             }
         }

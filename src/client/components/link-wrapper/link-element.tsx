@@ -8,3 +8,14 @@ export const LinkElement = ({ children }: { children: JSX.Element }) => {
         </Link>
     );
 }
+
+export const LinkAttribute = ({ children }: { children: JSX.Element }) => {
+    return (
+        <Link to={ `/attribute-list/${children.props.children}` }>
+            { children }
+        </Link>
+    );
+}
+
+export const LE = LinkElement;
+export const LA = LinkAttribute;
