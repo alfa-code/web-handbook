@@ -145,7 +145,12 @@ export default class App extends React.Component<Props> {
                     />
                     <Route
                         exact
-                        path='/attribute'
+                        path='/attribute-list'
+                        component={ () => <Attribute /> }
+                    />
+                    <Route
+                        exact
+                        path='/attribute-list/:attribute'
                         component={ () => <Attribute /> }
                     />
                     <Route

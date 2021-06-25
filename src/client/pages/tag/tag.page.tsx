@@ -151,7 +151,15 @@ export class Tag extends React.PureComponent<Props> {
                     <div className="mt-5 mt-sm-3 text-heading-4">
                         Подробное описание
                     </div>
-                    <Skeleton count={ 1 } />
+                    <br />
+                    <br />
+                    <Skeleton count={ 2 } />
+                    <br />
+                    <br />
+                    <Skeleton count={ 2 } />
+                    <br />
+                    <br />
+                    <Skeleton count={ 2 } />
                 </>
             )
         } else if (isDataLoaded && data ) {

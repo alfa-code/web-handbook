@@ -31,6 +31,13 @@ export function selectBreadCrumbs(state) {
             }
         }
 
+        if (!route && filteredSplittedPathname[i - 1] === 'attribute-list') {
+            return {
+                name: crumb,
+                url: crumb
+            }
+        }
+
         if (!route) {
             return undefined;
         }

@@ -16,7 +16,11 @@ export const Attribute = () => {
                 <div className="pageContent">
                     <BreadcrumbsContainer />
 
-                    <div className="mt-4 text-heading-2">
+                    <p>
+                        Контент временно отсутствует
+                    </p>
+
+                    {/* <div className="mt-4 text-heading-2">
                         Атрибут href
                     </div>
 
@@ -97,7 +101,7 @@ export const Attribute = () => {
                         <div className="code">
                             {"<!DOCTYPE html> <br> <html>"}
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <div className="mt-6">
                         <include src='src/templates/components/common/comments.html'></include>
