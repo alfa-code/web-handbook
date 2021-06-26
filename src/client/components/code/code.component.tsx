@@ -1,14 +1,16 @@
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import Refractor from 'react-refractor'
+
+import { markup } from './languages/markup';
 
 import { Props } from './props';
+
+Refractor.registerLanguage(markup)
+
 
 export const Code = ({ children }: Props) => {
     const string = children[1];
     return (
-        <SyntaxHighlighter language="html" style={docco}>
-            { string }
-        </SyntaxHighlighter>
+        <Refractor language="js" value={ string } />
     );
 };

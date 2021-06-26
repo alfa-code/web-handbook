@@ -6,6 +6,8 @@ import App from 'Src/client/app/app';
 import 'normalize.css';
 import 'react-toastify/dist/ReactToastify.css';
 
+import 'prismjs/themes/prism-coy.css';
+
 import './breakpoints.scss';
 import './global.scss';
 
