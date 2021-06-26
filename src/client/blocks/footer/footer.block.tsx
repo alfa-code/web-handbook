@@ -96,7 +96,7 @@ export class Footer extends Component<Props> {
                     </div> */}
                 </div>
                 <div className={styles.footerBottom}>
-                    <div className="text-navigation">«Web Handbook» 2020</div>
+                    <div className="text-navigation">«Web Handbook» 2021</div>
                 </div>
             </footer>
         );
