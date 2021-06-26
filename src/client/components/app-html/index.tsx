@@ -30,6 +30,9 @@ export default class AppHtml extends React.PureComponent<Props> {
         return (
             <html lang="ru">
                 <head>
+                    <title>
+                    Web Handbook - Cправочник по html, css и другим веб технологиям.
+                    </title>
                     <meta name="yandex-verification" content="804113b97f5f6426" />
                     <meta name="yandex-verification" content="c713d5ef58254482" />
                     <meta name="yandex-verification" content="804113b97f5f6426" />
