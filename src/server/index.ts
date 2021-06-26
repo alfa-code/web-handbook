@@ -13,7 +13,11 @@ const SERVER_HOST = '0.0.0.0';
 const server = new Hapi.Server({
     port: SERVER_PORT,
     host: SERVER_HOST,
-    routes: { files: { relativeTo: path.join(rootPath, '.build/', 'assets/'), }, },
+    routes: {
+        files: {
+            relativeTo: path.join(rootPath, '.build/', 'static/'),
+        },
+    },
     state: {
         strictHeader: true,
         ignoreErrors: false,

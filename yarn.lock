@@ -23,17 +23,16 @@
     stylelint-config-primer "^9.3.0"
     typescript-eslint "^0.0.1-alpha.0"
 
-"@alfa-code/alfa-code-scripts@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.3.tgz#1b4292ad505aae12ebd9e2e68238ac685cf9e612"
-  integrity sha512-9a42PvHOrZK8MGk/3IJbHciFvLXb+lec982gRLX9V9y1OPgsbkNI1uf8zGLI++2BgNXUDI3oUOoepzAT5YT1sw==
+"@alfa-code/alfa-code-scripts@1.0.4-rc.5":
+  version "1.0.4-rc.5"
+  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.4-rc.5.tgz#41d2eabc061c77393ebfb231fdd1b4fec5f76269"
+  integrity sha512-YPx40IFEHveSfp3GYFgx+COW03zqLRtPz6h+I/+CZPzsq9e1KpeneNvyNNQHEtGvfLNbhBurXiEF8PrV4zD2Gg==
   dependencies:
     "@types/yargs" "^17.0.0"
     assets-webpack-plugin "^7.1.0"
     chalk "^4.1.1"
     css-loader "^5.2.6"
     css-minimizer-webpack-plugin "^3.0.1"
-    file-loader "^6.2.0"
     html-webpack-plugin "^5.3.1"
     jest "^27.0.4"
     mini-css-extract-plugin "^1.6.0"
@@ -3838,14 +3837,6 @@ file-entry-cache@^6.0.1:
   integrity sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==
   dependencies:
     flat-cache "^3.0.4"
-
-file-loader@^6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-6.2.0.tgz#baef7cf8e1840df325e4390b4484879480eebe4d"
-  integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
-  dependencies:
-    loader-utils "^2.0.0"
-    schema-utils "^3.0.0"
 
 filesize@6.1.0:
   version "6.1.0"

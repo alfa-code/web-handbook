@@ -7,7 +7,10 @@ declare module "*.png";
 declare module "*.jpg";
 declare module "*.svg";
 declare module "*.pdf";
-declare module '*.scss';
+declare module '*.ico';
+declare module '*.xml';
+declare module '*.webmanifest';
 
 declare module '*.ttf';
 
+declare module '*.scss';
