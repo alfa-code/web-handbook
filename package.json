@@ -38,7 +38,7 @@
     },
     "homepage": "https://github.com/alfa-code/web-handbook#readme",
     "dependencies": {
-        "@alfa-code/alfa-code-scripts": "1.0.5",
+        "@alfa-code/alfa-code-scripts": "1.0.6",
         "@hapi/hapi": "^20.0.1",
         "@hapi/hoek": "^9.1.0",
         "@hapi/inert": "^6.0.2",

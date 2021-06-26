@@ -23,10 +23,10 @@
     stylelint-config-primer "^9.3.0"
     typescript-eslint "^0.0.1-alpha.0"
 
-"@alfa-code/alfa-code-scripts@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.5.tgz#4c84577581033d93d2f777800ba169a9e17c5369"
-  integrity sha512-dsav6L3mC2BIPF/5quakOiSBx6t0X/XcgC+OzpzSgWN8TE5AUaLZyZ+UK9Ylx7V20uAuvgPtLHtVfY1WJuMazQ==
+"@alfa-code/alfa-code-scripts@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.6.tgz#f284712a32afa5bd61bbdf4be530a2f409251b29"
+  integrity sha512-BqMYeSt5DtZWW08CPCheXjXhqsegvsFq+X+8U7cA8RPrMIPqmUDgH8rCU5w6SrJHfRgCzdHFzgEfGRPDrAlMIA==
   dependencies:
     "@types/yargs" "^17.0.0"
     assets-webpack-plugin "^7.1.0"
