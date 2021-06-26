@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { YandexMetrica } from './yandex-metrica';
+
 type Props = {
     children?: any;
     jsFiles: string[];
@@ -46,6 +48,7 @@ export default class AppHtml extends React.PureComponent<Props> {
                     }
                 </head>
                 <body>
+                    <YandexMetrica />
                     <div id="react-app">
                         {children}
                     </div>

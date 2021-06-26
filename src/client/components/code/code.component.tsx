@@ -19,7 +19,6 @@ export const Code = (props: Props) => {
 };
 
 const CodeHighlighter = ({ children }: Props) => {
-    throw new Error('test')
     const string = children[1];
     return (
         <Refractor language="js" value={ string } />
