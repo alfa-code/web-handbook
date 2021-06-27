@@ -4,7 +4,7 @@
     box-sizing: border-box;
 
     &:focus {
-        outline: 1px dashed black;
+        outline: 1px dashed #000;
     }
     // background-color: pink;
 }
@@ -100,8 +100,8 @@
 //     // url('~Fonts/Rubik/rubik-v9-cyrillic_latin-700.svg#Rubik') format('svg'); /* Legacy iOS */
 // }
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 html {
     min-width: 320px;

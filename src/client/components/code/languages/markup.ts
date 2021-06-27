@@ -91,14 +91,14 @@ export function markup(Prism) {
          * addInlined('style', 'css');
          */
         value: function addInlined(tagName, lang) {
-            var includedCdataInside = {}
+            const includedCdataInside = {}
             includedCdataInside['language-' + lang] = {
                 pattern: /(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,
                 lookbehind: true,
                 inside: Prism.languages[lang]
             }
             includedCdataInside['cdata'] = /^<!\[CDATA\[|\]\]>$/i
-            var inside = {
+            const inside = {
                 'included-cdata': {
                     pattern: /<!\[CDATA\[[\s\S]*?\]\]>/i,
                     inside: includedCdataInside
@@ -108,7 +108,7 @@ export function markup(Prism) {
                 pattern: /[\s\S]+/,
                 inside: Prism.languages[lang]
             }
-            var def = {}
+            const def = {}
             def[tagName] = {
                 pattern: RegExp(
                     /(<__[^>]*>)(?:<!\[CDATA\[(?:[^\]]|\](?!\]>))*\]\]>|(?!<!\[CDATA\[)[\s\S])*?(?=<\/__>)/.source.replace(

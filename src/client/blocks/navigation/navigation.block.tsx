@@ -70,9 +70,13 @@ export const Navigation = (props: Props) => {
                         styles.dropdownInner,
                     ].join(" ")}
                 >
-                    { props.tags.map((tag, i) => {
-                        return renderList2(tag, i);
-                    })}
+                    { (activeDirectory === directory.categoryName) && (
+                        props.tags.map((tag, i) => {
+                            return renderList2(tag, i);
+                        })
+                    )}
+
+                    
                 </div>
             </div>
         );

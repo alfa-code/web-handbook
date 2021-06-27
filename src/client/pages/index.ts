@@ -1,5 +1,4 @@
 export * from './main';
-export * from './directory';
 export * from './recipes';
 export * from './tag';
 export * from './attribute';

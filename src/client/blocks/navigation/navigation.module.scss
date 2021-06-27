@@ -58,7 +58,7 @@
         // padding-left: 14px;
         overflow: hidden;
         flex-direction: column;
-        transition: all 0.5s;
+        // transition: all 0.5s;
 
         /* width */
         &::-webkit-scrollbar {
@@ -125,7 +125,7 @@
             line-height: $line-height-caption;
             color: $textParagraphs;
             overflow: hidden;
-            transition: all 0.5s;
+            // transition: all 0.5s;
 
             li {
                 margin-top: 13px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import App from 'Src/client/app/app';
+import { App } from 'Src/client/app/app';
 import AppHtml from 'Components/app-html';
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 

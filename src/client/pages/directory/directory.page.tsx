@@ -9,7 +9,7 @@ import { mapHtmlTagsListByAlphabet } from 'Utils/index';
 // import styles from './directory.module.scss';
 import { Layout } from "Pages/index";
 
-export const Directory = (props: Props) => {
+const Directory = (props: Props) => {
     const { directory } = props;
 
     const { title, img, description, lists, type, currentPath } = directory;
@@ -42,3 +42,5 @@ export const Directory = (props: Props) => {
         </Layout>
     );
 };
+
+export default Directory;

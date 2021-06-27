@@ -9,7 +9,6 @@ function fetchHtmlElementFullDescription(htmlTag: string) {
     });
 }
 
-
 export function* loadAdditionalDataForHtmlElement(action) {
     const { payload: elementName } = action;
 
@@ -23,7 +22,7 @@ export function* loadAdditionalDataForHtmlElement(action) {
             })))
         }
     } catch (e) {
-
+        return null;
     }
 }
 

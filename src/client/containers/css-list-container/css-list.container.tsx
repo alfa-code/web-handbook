@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import loadable from '@loadable/component';
 
 import { Props } from './props';
-
-import {
-    Directory,
-} from 'Pages/index';
 
 import cssDirectoryImage from 'Assets/images/css-directory.svg';
 
@@ -13,12 +10,14 @@ import { selectHtmlTagsList } from 'Selectors/index';
 
 // import styles from './html-list.module.scss';
 
+const DirectoryLazy = loadable(() => import('Pages/directory/directory.page'));
+
 class Container extends Component<Props> {
     render() {
         const { htmlTags, match: { url } } = this.props;
 
         return (
-            <Directory
+            <DirectoryLazy
                 directory={ {
                     title: 'Css справочник',
                     description: 'Ознакомься с описанием CSS правил',

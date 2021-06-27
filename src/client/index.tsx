@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from 'Src/client/app/app';
+import { App } from 'Src/client/app/app';
 
 import 'normalize.css';
 import 'react-toastify/dist/ReactToastify.css';
