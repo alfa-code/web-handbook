@@ -9,6 +9,13 @@ import {
     fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
 
+// TODO: удалить после добавления всех тегов
+import Lockr from 'lockr';
+let branch: string = 'main';
+if (typeof window !== 'undefined') {
+    branch = Lockr.get('branch') || 'main';
+}
+
 function mapTagStructureToObject(data: HtmlTagResponce) {
     const { tagName, structure } = data;
     if (!structure) {
@@ -27,9 +34,10 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 }
 
 function fetchHtml(htmlTag: string) {
+    console.log('branch', branch)
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/main.json`
+        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/${branch}/materials/html/tags/${htmlTag}/main.json`
     });
 }
 

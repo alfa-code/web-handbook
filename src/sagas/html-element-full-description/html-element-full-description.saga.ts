@@ -2,10 +2,17 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import axios, { AxiosResponse } from 'axios';
 import { fetchFullHtmlElementDescriptionAsync } from 'Actions/html.action';
 
+// TODO: удалить после добавления всех тегов
+import Lockr from 'lockr';
+let branch: string = 'main';
+if (typeof window !== 'undefined') {
+    branch = Lockr.get('branch') || 'main';
+}
+
 function fetchHtmlElementFullDescription(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/tags/${htmlTag}/description.md`
+        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/${branch}/materials/html/tags/${htmlTag}/description.md`
     });
 }
 

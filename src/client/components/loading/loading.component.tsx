@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import { Props } from './props';
+import { Props } from './props';
 
 // import styles from './loading.module.scss';
 

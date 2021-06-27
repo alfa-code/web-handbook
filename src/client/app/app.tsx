@@ -32,6 +32,15 @@ import {
 
 import CONSTANTS from './constants';
 
+import Lockr from 'lockr';
+
+// TODO: Нужно удалить это после добавления всех тегов
+// https://github.com/tsironis/lockr
+if (typeof window !== 'undefined') {
+    // @ts-ignore
+    window.Lockr = Lockr;
+}
+
 const composeEnhancers = composeWithDevTools({});
 
 declare global {
@@ -161,7 +170,6 @@ export class App extends React.Component<Props> {
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
                     />
-
                     <Route
                         path='*'
                         component={ NotFound }
