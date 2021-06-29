@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 
 import { Footer } from 'Blocks/index';
 import { HeaderContainer } from 'Containers/index';
+
+// TODO: Временно выключено
 // import { Sidebar } from 'Blocks/index';
 
 import { NavigationContainer } from 'Containers/navigation-container';
@@ -27,17 +29,12 @@ import {
 
 import CONSTANTS from 'Src/client/app/constants';
 
-import { Props } from './props';
-
-export const Layout = (props: Props) => {
+export const Layout = () => {
     return (
         <div className="layout">
-            
             <HeaderContainer />
             <NavigationContainer />
-            
             <div className="content">
-                {/* { children } */}
                 <Switch>
                     <Route
                         exact
@@ -124,7 +121,7 @@ export const Layout = (props: Props) => {
                 </Switch>
             </div> 
 
-
+            {/* TODO: Временно выключил /> */}
             {/* <Sidebar type="main" /> */}
             <Footer />
         </div>
