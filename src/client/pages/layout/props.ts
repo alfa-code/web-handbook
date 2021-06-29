@@ -1,5 +1,3 @@
-type OwnProps = {
-    children: any;
-}
+type OwnProps = {}
 
 export type Props = OwnProps;

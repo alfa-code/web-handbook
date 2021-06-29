@@ -18,16 +18,14 @@ import {
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
 
-import { Layout } from 'Pages/index';
-
 import styles from './tag.module.scss';
 export class Tag extends React.PureComponent<Props> {
     renderDescription(descriptions) {
         if (typeof descriptions === 'string') {
             return (
-                <div className={ styles.paragraph }>
+                <div className={styles.paragraph}>
                     <JsxParserWrapper>
-                        { descriptions }
+                        {descriptions}
                     </JsxParserWrapper>
                 </div>
             )
@@ -37,10 +35,10 @@ export class Tag extends React.PureComponent<Props> {
             return descriptions.map((description: string, i) => {
                 return (
                     <div
-                        className={ styles.paragraph }
-                        key={ i }
+                        className={styles.paragraph}
+                        key={i}
                     >
-                        <JsxParserWrapper content={ description } />
+                        <JsxParserWrapper content={description} />
                     </div>
                 )
             });
@@ -64,8 +62,8 @@ export class Tag extends React.PureComponent<Props> {
     renderOmissions = (omissions: string[] = []) => {
         return omissions.map((omission, i) => {
             return (
-                <p key={ i }>
-                    { omission }
+                <p key={i}>
+                    {omission}
                 </p>
             )
         });
@@ -96,7 +94,7 @@ export class Tag extends React.PureComponent<Props> {
                 </div>
                 <div className="mt-3 mt-sm-2">
                     <AttributesTable
-                        attributes={ attributes }
+                        attributes={attributes}
                     />
                 </div>
             </div>
@@ -106,8 +104,8 @@ export class Tag extends React.PureComponent<Props> {
     renderCategories = (categories) => {
         return categories.map((category, i) => {
             return (
-                <p key={ i }>
-                    { category }
+                <p key={i}>
+                    {category}
                 </p>
             )
         });
@@ -116,7 +114,7 @@ export class Tag extends React.PureComponent<Props> {
     renderContentModel = (content_model: string | string[]) => {
         if (typeof content_model === 'string') {
             return (
-                <JsxParserWrapper content={ content_model } />
+                <JsxParserWrapper content={content_model} />
             )
         }
 
@@ -124,15 +122,15 @@ export class Tag extends React.PureComponent<Props> {
             return content_model.map((item, i) => {
                 return (
                     <div
-                        className={ styles.paragraph }
-                        key={ i }
+                        className={styles.paragraph}
+                        key={i}
                     >
-                        <JsxParserWrapper content={ item } />
+                        <JsxParserWrapper content={item} />
                     </div>
                 )
             })
         }
-        
+
         return '---';
     }
 
@@ -153,22 +151,22 @@ export class Tag extends React.PureComponent<Props> {
                     </div>
                     <br />
                     <br />
-                    <Skeleton count={ 2 } />
+                    <Skeleton count={2} />
                     <br />
                     <br />
-                    <Skeleton count={ 2 } />
+                    <Skeleton count={2} />
                     <br />
                     <br />
-                    <Skeleton count={ 2 } />
+                    <Skeleton count={2} />
                 </>
             )
-        } else if (isDataLoaded && data ) {
+        } else if (isDataLoaded && data) {
             return (
                 <>
                     <div className="mt-5 mt-sm-3 text-heading-4">
                         Подробное описание
                     </div>
-                    <JsxParserWrapper content={ data } />
+                    <JsxParserWrapper content={data} />
                 </>
             )
         }
@@ -198,13 +196,11 @@ export class Tag extends React.PureComponent<Props> {
 
         if (!tagInfo && !loading) {
             return (
-                <Layout>
-                    <div className="page">
-                        <div className="pageContent">
-                            Данные временно отсутствуют.
-                        </div>
+                <div className="page">
+                    <div className="pageContent">
+                        Данные временно отсутствуют.
                     </div>
-                </Layout>
+                </div>
             )
         }
 
@@ -220,117 +216,116 @@ export class Tag extends React.PureComponent<Props> {
         } = tagInfo || {};
 
         return (
-            <Layout>
-                <div className="page">
-                    <div className="pageContent">
-                        <BreadcrumbsContainer />
+            <div className="page">
+                <div className="pageContent">
+                    <BreadcrumbsContainer />
 
-                        { loading && (
-                            <>
-                                <div className="mt-4">
-                                    <Skeleton count={ 1 } />
-                                </div>
-                                <div className="mt-4 text-heading-2">
-                                    <Skeleton count={ 1 } />
-                                </div>
-                                <div className="mt-4">
-                                    <Skeleton count={ 1 } />
-                                </div>
-                                <div className="mt-4 text-heading-2">
-                                    <Skeleton count={ 1 } />
-                                </div>
-                                <div className="mt-4">
-                                    <Skeleton count={ 1 } />
-                                </div>
-                            </>
-                        ) }
+                    {loading && (
+                        <>
+                            <div className="mt-4">
+                                <Skeleton count={1} />
+                            </div>
+                            <div className="mt-4 text-heading-2">
+                                <Skeleton count={1} />
+                            </div>
+                            <div className="mt-4">
+                                <Skeleton count={1} />
+                            </div>
+                            <div className="mt-4 text-heading-2">
+                                <Skeleton count={1} />
+                            </div>
+                            <div className="mt-4">
+                                <Skeleton count={1} />
+                            </div>
+                        </>
+                    )}
 
-                        { !loading && (
-                            <>
-                                <div className="mt-4 text-heading-2">
-                                    Элемент { `<${tagName}>` }
-                                </div>
+                    {!loading && (
+                        <>
+                            <div className="mt-4 text-heading-2">
+                                Элемент {`<${tagName}>`}
+                            </div>
 
-                                { obsolete && (
-                                    <>
-                                        <br/>
-                                        <br/>
-                                        <Alert message="Данный элемент устарел и не должен использоваться!" />
-                                    </>
-                                ) }
+                            {obsolete && (
+                                <>
+                                    <br />
+                                    <br />
+                                    <Alert message="Данный элемент устарел и не должен использоваться!" />
+                                </>
+                            )}
 
-                                { description && (
-                                    <>
-                                        <div className="mt-5 mt-sm-3 text-heading-4">
-                                            Описание
-                                        </div>
-                                        <div className="mt-3 mt-sm-2 text-body-2">
-                                            { this.renderDescription(description) }
-                                        </div>
-                                    </>
-                                ) }
+                            {description && (
+                                <>
+                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                        Описание
+                                    </div>
+                                    <div className="mt-3 mt-sm-2 text-body-2">
+                                        {this.renderDescription(description)}
+                                    </div>
+                                </>
+                            )}
 
-                                { categories && (
-                                    <>
-                                        <div className="mt-5 mt-sm-3 text-heading-4">
-                                            Категории
-                                        </div>
-                                        <div className="mt-3 mt-sm-2 text-body-2">
-                                            { this.renderCategories(categories) }
-                                        </div>
-                                    </>
-                                ) }
+                            {categories && (
+                                <>
+                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                        Категории
+                                    </div>
+                                    <div className="mt-3 mt-sm-2 text-body-2">
+                                        {this.renderCategories(categories)}
+                                    </div>
+                                </>
+                            )}
 
-                                { content_model && (
-                                    <>
-                                        <div
-                                            className="mt-5 mt-sm-3 text-heading-4"
-                                            title="Описание того, какой контент должен быть включен в качестве потомков элемента."
-                                        >
-                                            Модель контента
-                                        </div>
+                            {content_model && (
+                                <>
+                                    <div
+                                        className="mt-5 mt-sm-3 text-heading-4"
+                                        title="Описание того, какой контент должен быть включен в качестве потомков элемента."
+                                    >
+                                        Модель контента
+                                    </div>
 
-                                        <div className="mt-3 mt-sm-2">
-                                            { this.renderContentModel(content_model) }
-                                        </div>
-                                    </>
-                                ) }
+                                    <div className="mt-3 mt-sm-2">
+                                        {this.renderContentModel(content_model)}
+                                    </div>
+                                </>
+                            )}
 
-                                { tag_omission && (
-                                    <>
-                                        <div className="mt-5 mt-sm-3 text-heading-4">
-                                            Пропуски
-                                        </div>
+                            {tag_omission && (
+                                <>
+                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                        Пропуски
+                                    </div>
 
-                                        <div className="mt-3 mt-sm-2 text-body-2">
-                                            { this.renderOmissions(tag_omission) }
-                                        </div>
-                                    </>
-                                ) }
+                                    <div className="mt-3 mt-sm-2 text-body-2">
+                                        {this.renderOmissions(tag_omission)}
+                                    </div>
+                                </>
+                            )}
 
-                                { tagInfo && (
-                                    <>
-                                        { this.renderAttributes(tagInfo) }
-                                    </>
-                                ) }
-
-                                
-                                { this.renderAdditionalDescription() }
+                            {tagInfo && (
+                                <>
+                                    {this.renderAttributes(tagInfo)}
+                                </>
+                            )}
 
 
-                            </>
-                        ) }
+                            {this.renderAdditionalDescription()}
+
+
+                        </>
+                    )}
 
 
 
-                        {/* <div className="mt-4">
+                    {/* <div className="mt-4">
                             <span className="text-body-3">Тип тега: </span>
                             <a href="#" className="link-body-3">
                                 { loading ? (<Skeleton count={1} width={100} />) : ('Строчные элементы') }
                             </a>
                         </div> */}
 
-                        {/* <div className="mt-4">
+                    {/* <div className="mt-4">
                             <img src={VideoImg} alt="Video" />
                         </div>
 
@@ -338,7 +333,7 @@ export class Tag extends React.PureComponent<Props> {
                             <Button className="btnGreen" text="Показывать видео" icon="check-icon" />
                         </div> */}
 
-                        {/* <div className="mt-4">
+                    {/* <div className="mt-4">
                             { loading ? (<Skeleton count={4} />) : (
                                 <SupportTable
                                     ie="1.0+"
@@ -352,7 +347,7 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        {/* <div className="mt-5 mt-sm-3 text-heading-4">
+                    {/* <div className="mt-5 mt-sm-3 text-heading-4">
                             Cпецификация
                         </div>
 
@@ -365,7 +360,7 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        {/* <div className="mt-5 mt-sm-3 text-heading-4">
+                    {/* <div className="mt-5 mt-sm-3 text-heading-4">
                             Синтаксис
                         </div>
                         <div className="mt-3 mt-sm-2">
@@ -376,9 +371,9 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        
 
-                        {/* <div className="mt-5 mt-sm-3 text-heading-4">
+
+                    {/* <div className="mt-5 mt-sm-3 text-heading-4">
                             Закрывающий тег
                         </div>
 
@@ -390,7 +385,7 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        {/* <div className="mt-5 mt-sm-3 text-heading-4">
+                    {/* <div className="mt-5 mt-sm-3 text-heading-4">
                             Пример
                         </div>
 
@@ -402,12 +397,11 @@ export class Tag extends React.PureComponent<Props> {
                             ) }
                         </div> */}
 
-                        {/* <div className="mt-6">
+                    {/* <div className="mt-6">
                             <include src='src/templates/components/common/comments.html'></include>
                         </div> */}
-                    </div>
                 </div>
-            </Layout>
+            </div>
         );
     }
 }

@@ -4,23 +4,21 @@ import React from 'react';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
-import { SupportTable, SpecificationTable } from 'Blocks/index';
+// import { SupportTable, SpecificationTable } from 'Blocks/index';
 
 // import styles from './attribute.module.scss';
-import { Layout } from 'Pages/index';
 
 export const Attribute = () => {
     return (
-        <Layout>
-            <div className="page">
-                <div className="pageContent">
-                    <BreadcrumbsContainer />
+        <div className="page">
+            <div className="pageContent">
+                <BreadcrumbsContainer />
 
-                    <p>
-                        Контент временно отсутствует
-                    </p>
+                <p>
+                    Контент временно отсутствует
+                </p>
 
-                    {/* <div className="mt-4 text-heading-2">
+                {/* <div className="mt-4 text-heading-2">
                         Атрибут href
                     </div>
 
@@ -103,12 +101,11 @@ export const Attribute = () => {
                         </div>
                     </div> */}
 
-                    {/* <div className="mt-6">
+                {/* <div className="mt-6">
                         <include src='src/templates/components/common/comments.html'></include>
                     </div>
                     */}
-                </div>
             </div>
-        </Layout>
+        </div>
     );
 }
