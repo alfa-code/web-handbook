@@ -224,31 +224,37 @@ img {
 .layout {
     display: grid;
     min-width: 320px;
-    // max-width: 1920px;
-    grid-template-columns: 336px calc(100% - 336px - 336px);
+    grid-template-columns: 336px calc(100% - 336px - 336px) 336px;
+
+    // h - header
+    // n - navigation
+    // f - footer
+    // c - content
     grid-template-areas:
         "h h h"
         "n c s"
         "n f f";
+
     @include media("<desktop-2") {
-        grid-template-columns: 265px calc(100% - 265px);
+        grid-template-columns: 265px calc(100% - 265px - 265px) 265px;
         grid-template-areas:
             "h h h"
-            "n c s"
+            "n c c"
             "f f f";
     }
+
     @include media("<tablet-2") {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "h h"
-            "n n"
-            "c c"
-            "f f";
+            "h"
+            "n"
+            "c"
+            "f";
     }
 
     .content {
-        flex: 1 1;
         grid-area: c;
+        overflow: hidden;
     }
 }
 
@@ -259,7 +265,7 @@ img {
 
     @include media("<desktop-2") {
         padding: $space-xl 0;
-        justify-content: center;
+        // justify-content: center;
     }
 
     @include media("<tablet-2") {
@@ -268,7 +274,8 @@ img {
 }
 
 .pageContent {
-    flex: 1 1;
+    // flex: 1 1;
+    max-width: 100%;
     padding: 0 $space-l;
 
     @include media("<tablet-2") {
