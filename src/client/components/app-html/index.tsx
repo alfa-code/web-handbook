@@ -18,7 +18,7 @@ export default class AppHtml extends React.PureComponent<Props> {
     getStoreScriptMarkup = () => {
         const { initialReduxState = {} } = this.props;
         // eslint-disable-next-line
-        return `if (window) { window.__PRELOADED_STATE__ = ${JSON.stringify(initialReduxState || {}).replace(/</g, '\\u003c')}}`;
+        return `if (window) { window.__PRELOADED_STATE__ = ${JSON.stringify(initialReduxState || {}).replace(/</g, '\\u003c')}}; window.__BUILD_MODE__ = "${process.env.NODE_ENV}"`;
     }
 
     render() {

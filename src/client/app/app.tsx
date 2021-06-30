@@ -29,6 +29,7 @@ const composeEnhancers = composeWithDevTools({});
 declare global {
     interface Window {
         __PRELOADED_STATE__: any;
+        __BUILD_MODE__: any;
     }
 }
 
@@ -39,12 +40,6 @@ try {
     initialState = {}
 }
 
-const loggerReduxLogger = createLogger({
-    collapsed: true,
-    duration: true,
-    diff: true
-});
-
 let history;
 if (typeof window !== 'undefined') {
     history = createBrowserHistory();
@@ -52,10 +47,29 @@ if (typeof window !== 'undefined') {
     history = createMemoryHistory();
 }
 
-const rootReducer = createRootReducer(history);
 const routerMiddlewar = routerMiddleware(history);
 const sagaMiddleware = createSagaMiddleware();
-const middleware = applyMiddleware(loggerReduxLogger, sagaMiddleware, routerMiddlewar);
+
+const middlewares = [
+    sagaMiddleware,
+    routerMiddlewar,
+];
+
+// Logger if needed
+if (typeof window !== 'undefined') {
+    if (window.__BUILD_MODE__ !== 'production') {
+        const loggerReduxLogger = createLogger({
+            collapsed: true,
+            duration: true,
+            diff: true
+        });
+        middlewares.push(loggerReduxLogger);
+    }
+}
+
+const middleware = applyMiddleware(...middlewares);
+
+const rootReducer = createRootReducer(history);
 
 const store = createStore(
     rootReducer,
