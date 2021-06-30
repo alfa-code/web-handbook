@@ -4,7 +4,9 @@ import { fetchFullHtmlElementDescriptionAsync } from 'Actions/html.action';
 
 // TODO: удалить после добавления всех тегов
 import Lockr from 'lockr';
-let branch: string = 'main';
+
+let branch = 'main';
+
 if (typeof window !== 'undefined') {
     branch = Lockr.get('branch') || 'main';
 }
@@ -17,7 +19,7 @@ function fetchHtmlElementFullDescription(htmlTag: string) {
 }
 
 export function* loadAdditionalDataForHtmlElement(action) {
-    const { payload: elementName } = action;
+    const elementName = action.payload;
 
     try {
         const { data }: AxiosResponse<any> = yield call(fetchHtmlElementFullDescription, elementName);

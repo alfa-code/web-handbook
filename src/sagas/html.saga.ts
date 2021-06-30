@@ -34,7 +34,6 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 }
 
 function fetchHtml(htmlTag: string) {
-    console.log('branch', branch)
     return axios({
         method: 'get',
         url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/${branch}/materials/html/tags/${htmlTag}/main.json`
