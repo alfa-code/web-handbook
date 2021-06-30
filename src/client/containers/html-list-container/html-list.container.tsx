@@ -24,29 +24,28 @@ class Container extends Component<Props> {
 
         try {
             return (
-                
                 <Suspense fallback={<Loading />}>
                     <DirectoryLazy
-                    directory={ {
-                        title: 'HTML справочник',
-                        description: 'Ознакомься с описанием HTML элементов',
-                        img: htmlDirectoryImage,
-                        lists: [{
-                            title: 'Список всех html элементов',
-                            subtitle: '',
-                            items: htmlTags
-                        }],
-                        type: 'html',
-                        currentPath: url,
-                    } }
-                />
+                        directory={ {
+                            title: 'HTML справочник',
+                            description: 'Ознакомься с описанием HTML элементов',
+                            img: htmlDirectoryImage,
+                            lists: [{
+                                title: 'Список всех html элементов',
+                                subtitle: '',
+                                items: htmlTags
+                            }],
+                            type: 'html',
+                            currentPath: url,
+                        } }
+                    />
                 </Suspense>
             );
         } catch (e) {
             return null;
         }
 
-        
+
     }
 }
 

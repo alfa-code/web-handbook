@@ -33,21 +33,37 @@ export async function getContent(request: any) {
         },
     }
 
-    const stringContent = renderToString(
-        <AppHtml
-            jsFiles={assets.js}
-            cssFiles={assets.css}
-            initialReduxState={ initialState }
-        >
-            <App
-                location={{
-                    pathname: request.url.pathname,
-                    hash: request.url.pathname
-                }}
-                context={context}
-            />
-        </AppHtml>,
-    );
+    try {
+        const stringContent = renderToString(
+            <AppHtml
+                jsFiles={assets.js}
+                cssFiles={assets.css}
+                initialReduxState={ initialState }
+            >
+                <App
+                    location={{
+                        pathname: request.url.pathname,
+                        hash: request.url.pathname
+                    }}
+                    context={context}
+                />
+            </AppHtml>,
+        );
 
-    return stringContent;
+        return stringContent;
+    } catch (e) {
+        console.log(e);
+
+        const stringContent = renderToString(
+            <AppHtml
+                jsFiles={assets.js}
+                cssFiles={assets.css}
+                initialReduxState={ initialState }
+            >
+                Загрузка...
+            </AppHtml>,
+        );
+
+        return stringContent;
+    }
 }
