@@ -11,9 +11,14 @@ import {
 
 // TODO: удалить после добавления всех тегов
 import Lockr from 'lockr';
-let branch: string = 'main';
+
+let branch = 'main';
+let repo = 'alfa-code/web-handbook-materials';
+
 if (typeof window !== 'undefined') {
-    branch = Lockr.get('branch') || 'main';
+    branch = Lockr.get('branch') || branch;
+
+    repo = Lockr.get('repo') || repo;
 }
 
 function mapTagStructureToObject(data: HtmlTagResponce) {
@@ -36,7 +41,7 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 function fetchHtml(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/${branch}/materials/html/tags/${htmlTag}/main.json`
+        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json`
     });
 }
 

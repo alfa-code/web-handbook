@@ -6,15 +6,18 @@ import { fetchFullHtmlElementDescriptionAsync } from 'Actions/html.action';
 import Lockr from 'lockr';
 
 let branch = 'main';
+let repo = 'alfa-code/web-handbook-materials';
 
 if (typeof window !== 'undefined') {
-    branch = Lockr.get('branch') || 'main';
+    branch = Lockr.get('branch') || branch;
+
+    repo = Lockr.get('repo') || repo;
 }
 
 function fetchHtmlElementFullDescription(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/${branch}/materials/html/tags/${htmlTag}/description.md`
+        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/description.md`
     });
 }
 
