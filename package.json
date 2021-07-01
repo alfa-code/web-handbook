@@ -69,7 +69,8 @@
         "redux-logger": "^3.0.6",
         "redux-saga": "^1.1.3",
         "typesafe-actions": "^5.1.0",
-        "url-join": "^4.0.1"
+        "url-join": "^4.0.1",
+        "uuid": "^8.3.2"
     },
     "devDependencies": {
         "@alfa-code/alfa-code-presets": "^1.1.6",

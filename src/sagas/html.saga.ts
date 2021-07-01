@@ -9,6 +9,8 @@ import {
     fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
 
+import { v1 as uuidv1 } from 'uuid';
+
 // TODO: удалить после добавления всех тегов
 import Lockr from 'lockr';
 
@@ -41,7 +43,7 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 function fetchHtml(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json`
+        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json?${uuidv1()}`
     });
 }
 
