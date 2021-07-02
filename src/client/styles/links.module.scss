@@ -1,0 +1,10 @@
+.listLink {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #172a3f;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

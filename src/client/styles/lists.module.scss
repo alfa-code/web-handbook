@@ -1,0 +1,43 @@
+
+@import "Src/client/breakpoints.scss";
+
+/* Стили блока сексии Алфавит/Заголовок и список элементов (элементов, атрибутов, css правил) */
+
+.listSectionHeader {
+    padding-bottom: 8px;
+    border-bottom: 1px solid $Gray;
+}
+
+.elementsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1em;
+    padding-left: 12px;
+
+    li {
+        max-width: 200px;
+
+        margin-top: 16px;
+        // flex: 0 1 25%;
+
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        line-height: 25px;
+        color: #172a3f;
+    }
+}
+
+.listSection {
+    & + & {
+        margin-top: 32px;
+    }
+}
+
+// https://stackoverflow.com/questions/2717480/css-selector-for-first-element-with-class
+* > .listSection {
+    margin-top: 60px;
+}
+
+* > .listSection ~ .listSection {
+    margin-top: 30px;
+}

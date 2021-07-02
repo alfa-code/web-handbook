@@ -8,11 +8,16 @@ import { PageTop } from 'Blocks/index';
 
 import { RootState } from 'Src/client/app/app';
 
+import { Link } from 'react-router-dom';
+
 import PageTopImage from "Assets/images/html-instruments.svg";
 
 import { Props } from './props';
 
 // import { SupportTable, SpecificationTable } from 'Blocks/index';
+
+import listStyles from "Src/client/styles/lists.module.scss";
+import linkStyles from "Src/client/styles/links.module.scss";
 
 // import styles from './attribute.module.scss';
 
@@ -33,8 +38,65 @@ class AttributeContainer extends Component<Props> {
         return sortedAttributes;
     }
 
+    renderGroupsOfAttributes = () => {
+        const sorted = this.sortAttributesByGroups();
+
+        const keys = Object.keys(sorted);
+
+        const makeListView = (key) => {
+            return (
+                <ul className={ listStyles.elementsList }>
+                    {
+                        (
+                            sorted[key].map(item => {
+                                return (
+                                    <li key={ item.name }>
+                                        <Link
+                                            to={ `/attribute-list/${item.name}` }
+                                            className={ linkStyles.listLink }
+                                        >
+                                            { item.name }
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        )
+                    }
+                </ul>
+            )
+        }
+
+        const makeSectionView = (key) => {
+            return (
+                <div
+                    key={ key }
+                    className={ listStyles.listSection }
+                >
+                    <h2 className={ listStyles.listSectionHeader }>
+                        { this.mapHeaderName(key) }
+                    </h2>
+                    <div>
+                        { makeListView(key) }
+                    </div>
+                </div>
+            )
+        }
+
+        return keys.map(makeSectionView);
+    }
+
+    mapHeaderName = (name) => {
+        switch (name) {
+            case 'global': {
+                return 'Глобальные атрибуты'
+            }
+            default: {
+                return name;
+            }
+        }
+    }
+
     render() {
-        console.log('sortAttributesByGroups', this.sortAttributesByGroups());
         return (
             <div className="page">
                 <div className="pageContent">
@@ -45,6 +107,8 @@ class AttributeContainer extends Component<Props> {
                         description="Список разбит на группы по типу атрибута"
                         img={ PageTopImage }
                     />
+
+                    { this.renderGroupsOfAttributes() }
 
                     {/* <div className="mt-4 text-heading-2">
                             Атрибут href

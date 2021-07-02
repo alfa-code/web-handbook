@@ -4,7 +4,7 @@ import { Props } from "./props";
 
 import { DirectoryInfo } from "Blocks/index";
 
-import styles from "./directory-list.module.scss";
+// import styles from "./directory-list.module.scss";
 
 export const DirectoryList = (props: Props) => {
     const { items } = props;

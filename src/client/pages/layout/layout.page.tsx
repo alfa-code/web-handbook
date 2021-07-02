@@ -104,7 +104,7 @@ export const Layout = () => {
                     <Route
                         exact
                         path='/attribute-list/:attribute'
-                        component={ () => <AttributesListPage /> }
+                        component={ () => <div>Контент временно отсутствует</div> }
                     />
                     <Route
                         exact
