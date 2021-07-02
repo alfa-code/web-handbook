@@ -1,7 +1,7 @@
 export * from './main';
 export * from './recipes';
 export * from './tag';
-export * from './attribute';
+// export * from './attribute';
 export * from './category';
 export * from './recipes-theme';
 export * from './recipe';

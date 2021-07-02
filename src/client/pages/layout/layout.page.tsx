@@ -12,6 +12,8 @@ import { NavigationContainer } from 'Containers/navigation-container';
 
 import { WorkInProgress } from 'Components/work-in-progress';
 
+import { ListPage } from 'Pages/list';
+
 import {
     HtmlListContainer,
     CssListContainer,
@@ -22,7 +24,7 @@ import {
     Main,
     NotFound,
     Recipes,
-    AttributesListPage,
+    // AttributesListPage,
     Category,
     RecipesTheme,
     Recipe,
@@ -98,11 +100,18 @@ export const Layout = () => {
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
                     />
-                    <Route
+
+                    {/* <Route
                         exact
                         path='/attribute-list'
                         component={ () => <AttributesListPage /> }
+                    /> */}
+                    <Route
+                        exact
+                        path='/attribute-list'
+                        component={ () => <ListPage type='attributes' /> }
                     />
+
                     <Route
                         exact
                         path='/attribute-list/:attribute'

@@ -19,3 +19,5 @@ export const PageTop = ({ title, description, img } : Props) => {
         </div>
     );
 }
+
+export default PageTop;

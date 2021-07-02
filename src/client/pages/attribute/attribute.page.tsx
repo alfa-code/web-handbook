@@ -118,5 +118,7 @@ const mapStateToProps = (state: RootState) => {
     };
 }
 
-export const AttributesListPage = connect(mapStateToProps)(AttributeContainer);
+const AttributesListPage = connect(mapStateToProps)(AttributeContainer);
+
+export default AttributesListPage;
 
