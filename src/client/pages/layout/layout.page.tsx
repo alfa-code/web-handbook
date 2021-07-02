@@ -15,8 +15,7 @@ import { WorkInProgress } from 'Components/work-in-progress';
 import { ListPage } from 'Pages/list';
 
 import {
-    HtmlListContainer,
-    CssListContainer,
+    // HtmlListContainer,
     TagPageContainer
 } from 'Containers/index';
 
@@ -25,10 +24,10 @@ import {
     NotFound,
     Recipes,
     // AttributesListPage,
-    Category,
-    RecipesTheme,
-    Recipe,
-    Property
+    // Category,
+    // RecipesTheme,
+    // Recipe,
+    // Property
 } from 'Pages/index';
 
 import CONSTANTS from 'Src/client/app/constants';
@@ -45,11 +44,20 @@ export const Layout = () => {
                         path='/'
                         component={ Main }
                     />
+                    {/* <Route
+                        exact
+                        path='/html-list'
+                        component={ ListPage }
+                    /> */}
+
                     <Route
                         exact
                         path='/html-list'
-                        component={ HtmlListContainer }
+                        render={ (routeProps) => (
+                            <ListPage type='elements' { ...routeProps } />
+                        )}
                     />
+
                     <Route
                         exact
                         path='/html-list/recipes'
@@ -62,7 +70,7 @@ export const Layout = () => {
                     />
 
                     {/* TODO: Этот функционал выкатим вторым этапом */}
-                    <Route
+                    {/* <Route
                         exact
                         path='/css-list'
                         component={ CssListContainer }
@@ -76,10 +84,10 @@ export const Layout = () => {
                         exact
                         path='/css-list/:cssRule'
                         component={ () => <Property /> }
-                    />
+                    /> */}
 
                     {/* TODO: Статьи выкатим третьим этапом */}
-                    <Route
+                    {/* <Route
                         exact
                         path='/recipes/theme'
                         component={ () => <RecipesTheme
@@ -99,17 +107,20 @@ export const Layout = () => {
                             type="html"
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
-                    />
+                    /> */}
 
                     {/* <Route
                         exact
                         path='/attribute-list'
                         component={ () => <AttributesListPage /> }
                     /> */}
+
                     <Route
                         exact
                         path='/attribute-list'
-                        component={ () => <ListPage type='attributes' /> }
+                        render={ (routeProps) => (
+                            <ListPage type='attributes' { ...routeProps } />
+                        )}
                     />
 
                     <Route
@@ -117,14 +128,14 @@ export const Layout = () => {
                         path='/attribute-list/:attribute'
                         component={ () => <WorkInProgress /> }
                     />
-                    <Route
+                    {/* <Route
                         exact
                         path='/category'
                         component={ () => <Category
                             type="css"
                             title={CONSTANTS.tagTypes.title}
                             types={CONSTANTS.tagTypes.types} /> }
-                    />
+                    /> */}
                     <Route
                         path='*'
                         component={ NotFound }

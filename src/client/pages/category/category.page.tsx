@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Props } from './props';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 // import styles from './category.module.scss';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ export const Category = (props: Props) => {
     return (
         <div className="page">
             <div className="pageContent">
-                <BreadcrumbsContainer />
+                {/* <BreadcrumbsContainer /> */}
 
                 <div className="mt-4">
                     <div className="text-heading-2">{title}</div>

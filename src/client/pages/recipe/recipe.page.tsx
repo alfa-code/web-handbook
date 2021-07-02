@@ -4,7 +4,7 @@ import { Props } from './props';
 
 import { SupportTable } from 'Blocks/index';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import Illustration1 from 'Assets/images/illustration-1.png';
 import Illustration2 from 'Assets/images/illustration-2.png';
@@ -17,7 +17,7 @@ export const Recipe = ({ title, type }: Props) => {
     return (
         <div className="page">
             <div className="pageContent">
-                <BreadcrumbsContainer />
+                {/* <BreadcrumbsContainer /> */}
 
                 <div className="mt-4 text-heading-2">
                     {title}

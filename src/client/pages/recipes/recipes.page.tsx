@@ -5,7 +5,7 @@ import { Props } from "./props";
 
 import { PageTop } from 'Blocks/index';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import PageTopImage from "Assets/images/html-instruments.svg";
 
@@ -15,7 +15,7 @@ export const Recipes = ({ themes, type }: Props) => {
     return (
         <div className="page">
             <div className="pageContent">
-                <BreadcrumbsContainer />
+                {/* <BreadcrumbsContainer /> */}
                 <PageTop
                     title="HTML рецепты"
                     description="Подборка полезных HTML рецептов"

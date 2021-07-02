@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 
 import { Props } from './props';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { Alert } from 'Src/client/components';
 
@@ -11,7 +11,7 @@ import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
 import {
     // SupportTable,
-    // SpecificationTable, 
+    // SpecificationTable,
     AttributesTable
 } from 'Blocks/index';
 
@@ -218,7 +218,7 @@ export class Tag extends React.PureComponent<Props> {
         return (
             <div className="page">
                 <div className="pageContent">
-                    <BreadcrumbsContainer />
+                    {/* <BreadcrumbsContainer /> */}
 
                     {loading && (
                         <>

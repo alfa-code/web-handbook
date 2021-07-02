@@ -2,7 +2,7 @@ import React from 'react';
 
 // import { Props } from './props';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { SupportTable, PropertyInfoTable, PropertyVersionTable, PropertyCodeTable } from 'Blocks/index';
 
@@ -18,7 +18,7 @@ export const Property = () => {
     return (
         <div className="page">
             <div className="pageContent">
-                <BreadcrumbsContainer />
+                {/* <BreadcrumbsContainer /> */}
 
                 <div className="mt-4 text-heading-2">
                     Cвойство !important

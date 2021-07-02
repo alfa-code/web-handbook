@@ -2,17 +2,25 @@ import React, { PureComponent } from 'react';
 
 import loadable from '@loadable/component';
 
+import { Loading } from 'Components/loading';
+
 import { Props } from './props';
 
 const AttributesListPage = loadable(() => import('Pages/attribute/attribute.page'), {
-    fallback: <div>Загрузка...</div>,
-})
+    fallback: <Loading />,
+});
 
-// import styles from './list.module.scss';
+const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'), {
+    fallback: <Loading />,
+});
 
 export class ListPage extends PureComponent<Props> {
     render() {
-        const { type } = this.props;
+        const {
+            type,
+            ...routeProps
+        } = this.props;
+
 
         switch (type) {
             case 'attributes': {
@@ -22,7 +30,7 @@ export class ListPage extends PureComponent<Props> {
             }
             case 'elements': {
                 return (
-                    <div>elements</div>
+                    <ElementsListPage {...routeProps}/>
                 )
             }
             default: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { Props } from './props';
 
@@ -13,7 +13,7 @@ export const RecipesTheme = ({ theme, type }: Props) => {
         <div className="page">
 
             <div className="pageContent">
-                <BreadcrumbsContainer />
+                {/* <BreadcrumbsContainer /> */}
 
                 <div className="mt-4 text-heading-2">
                     {theme.title}

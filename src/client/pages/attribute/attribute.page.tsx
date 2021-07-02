@@ -97,7 +97,7 @@ class AttributeContainer extends Component<Props> {
         return (
             <div className="page">
                 <div className="pageContent">
-                    <BreadcrumbsContainer />
+                <BreadcrumbsContainer />
                     <section>
                         <PageTop
                             title="Список HTML атрибутов"
