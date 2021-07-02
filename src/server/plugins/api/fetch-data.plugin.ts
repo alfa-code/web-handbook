@@ -1,5 +1,6 @@
 import { ResponseToolkit, Request, Server } from '@hapi/hapi';
 import axios, { AxiosResponse } from 'axios';
+import Boom from '@hapi/boom';
 
 import md5 from 'md5';
 
@@ -42,16 +43,20 @@ export const fetchDataApiPlugin = {
                 method,
                 path: clientToServerRoute,
                 handler: async (_request: Request, h: ResponseToolkit) => {
-                    if (!dataInMemory[dataNameHash]) {
-                        const response: AxiosResponse<any> = await axios({
-                            method: 'get',
-                            url: serverToServiceRoute, // `https://raw.githubusercontent.com/alfa-code/web-handbook-materials/main/materials/html/elements-list/elements-list.json`
-                        });
+                    try {
+                        if (!dataInMemory[dataNameHash]) {
+                            const response: AxiosResponse<any> = await axios({
+                                method: 'get',
+                                url: serverToServiceRoute,
+                            });
 
-                        dataInMemory[dataNameHash] = response.data;
+                            dataInMemory[dataNameHash] = response.data;
+                        }
+
+                        return h.response(dataInMemory[dataNameHash]).code(200);
+                    } catch (error) {
+                        return Boom.badImplementation('Ошибка при запросе axios', error);
                     }
-
-                    return h.response(dataInMemory[dataNameHash]).code(200);
                 }
             })
         });
