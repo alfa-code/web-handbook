@@ -10,6 +10,8 @@ import { HeaderContainer } from 'Containers/index';
 
 import { NavigationContainer } from 'Containers/navigation-container';
 
+import { WorkInProgress } from 'Components/work-in-progress';
+
 import {
     HtmlListContainer,
     CssListContainer,
@@ -104,7 +106,7 @@ export const Layout = () => {
                     <Route
                         exact
                         path='/attribute-list/:attribute'
-                        component={ () => <div>Контент временно отсутствует</div> }
+                        component={ () => <WorkInProgress /> }
                     />
                     <Route
                         exact

@@ -13,8 +13,6 @@ const Directory = (props: Props) => {
 
     const { title, img, description, lists, type, currentPath } = directory;
 
-    console.log('lists', lists)
-
     return (
         <div className="page">
             <div className="pageContent">
