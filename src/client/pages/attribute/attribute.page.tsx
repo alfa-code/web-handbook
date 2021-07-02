@@ -1,119 +1,148 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-// import { Props } from './props';
+import { ValuesType } from 'utility-types';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+
+import { PageTop } from 'Blocks/index';
+
+import { RootState } from 'Src/client/app/app';
+
+import PageTopImage from "Assets/images/html-instruments.svg";
+
+import { Props } from './props';
 
 // import { SupportTable, SpecificationTable } from 'Blocks/index';
 
 // import styles from './attribute.module.scss';
 
-export const AttributeContainer = () => {
-    return (
-        <div className="page">
-            <div className="pageContent">
-                <BreadcrumbsContainer />
+class AttributeContainer extends Component<Props> {
+    sortAttributesByGroups = () => {
+        const { htmlAttributesList } = this.props;
 
-                <p>
-                    Контент временно отсутствует
-                </p>
+        const sortedAttributes = {};
 
-                sdf
+        function sortByGroup(item: ValuesType<typeof htmlAttributesList>) {
+            const isArrayNeeded = !(typeof sortedAttributes[item.type]);
+            isArrayNeeded ? htmlAttributesList[item.type] = [item] : htmlAttributesList[item.type].push(item);
+        }
 
-                {/* <div className="mt-4 text-heading-2">
-                        Атрибут href
-                    </div>
+        htmlAttributesList.forEach(sortByGroup);
 
-                    <div className="mt-4">
-                        <span className="text-body-3">Тип тега: </span>
-                        <a href="#" className="link-body-3 ml-1">Строчные элементы</a>
-                    </div>
+        return sortedAttributes;
+    }
 
-                    <div className="mt-4">
-                        <SupportTable
-                            ie="1.0+"
-                            chrome="1.0+"
-                            opera="2.0+"
-                            safari="1.0+"
-                            firefox="1.0+"
-                            android="1.0+"
-                            ios="1.0+"
-                            />
-                    </div>
+    render() {
+        console.log('sortAttributesByGroups', this.sortAttributesByGroups());
+        return (
+            <div className="page">
+                <div className="pageContent">
+                    <BreadcrumbsContainer />
 
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Cпецификация
-                    </div>
+                    <PageTop
+                        title="Список HTML атрибутов"
+                        description="Список разбит на группы по типу атрибута"
+                        img={ PageTopImage }
+                    />
 
-                    <div className="mt-3 mt-sm-2">
-                        <SpecificationTable
-                            html={["3.2", "4.01", "5.0"]}
-                            xhtml={["1.0", "1.1"]} />
-                    </div>
-
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Описание
-                    </div>
-
-                    <div className="mt-3 mt-sm-2 text-body-2">
-                        Задает адрес документа, на который следует перейти. Поскольку в качестве адреса ссылки может использоваться документ любого типа, то результат перехода по ссылке зависит от конечного файла. Так, архивы (файлы с расширением zip или rar) будут сохраняться на локальный диск. По умолчанию новый документ загружается в текущее окно браузера, однако это свойство можно изменить с помощью атрибута target.
-                    </div>
-
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Синтаксис
-                    </div>
-
-                    <div className="mt-3 mt-sm-2">
-                        <div className="code">
-                            {"<!DOCTYPE html> <br> <html>"}
+                    {/* <div className="mt-4 text-heading-2">
+                            Атрибут href
                         </div>
-                    </div>
 
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Обязательный атрибут
-                    </div>
-
-                    <div className="mt-3 mt-sm-2 text-body-2">
-                        Обязателен для ссылок.
-                    </div>
-
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Значения
-                    </div>
-
-                    <div className="mt-3 mt-sm-2 text-body-2">
-                        В качестве значения принимается полный или относительный путь к файлу.
-                    </div>
-
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Значения по умолчанию
-                    </div>
-
-                    <div className="mt-3 mt-sm-2 text-body-2">
-                        Нет.
-                    </div>
-
-                    <div className="mt-5 mt-sm-3 text-heading-4">
-                        Пример
-                    </div>
-
-                    <div className="mt-3 mt-sm-2">
-                        <div className="code">
-                            {"<!DOCTYPE html> <br> <html>"}
+                        <div className="mt-4">
+                            <span className="text-body-3">Тип тега: </span>
+                            <a href="#" className="link-body-3 ml-1">Строчные элементы</a>
                         </div>
-                    </div> */}
 
-                {/* <div className="mt-6">
-                        <include src='src/templates/components/common/comments.html'></include>
-                    </div>
-                    */}
+                        <div className="mt-4">
+                            <SupportTable
+                                ie="1.0+"
+                                chrome="1.0+"
+                                opera="2.0+"
+                                safari="1.0+"
+                                firefox="1.0+"
+                                android="1.0+"
+                                ios="1.0+"
+                                />
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Cпецификация
+                        </div>
+
+                        <div className="mt-3 mt-sm-2">
+                            <SpecificationTable
+                                html={["3.2", "4.01", "5.0"]}
+                                xhtml={["1.0", "1.1"]} />
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Описание
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            Задает адрес документа, на который следует перейти. Поскольку в качестве адреса ссылки может использоваться документ любого типа, то результат перехода по ссылке зависит от конечного файла. Так, архивы (файлы с расширением zip или rar) будут сохраняться на локальный диск. По умолчанию новый документ загружается в текущее окно браузера, однако это свойство можно изменить с помощью атрибута target.
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Синтаксис
+                        </div>
+
+                        <div className="mt-3 mt-sm-2">
+                            <div className="code">
+                                {"<!DOCTYPE html> <br> <html>"}
+                            </div>
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Обязательный атрибут
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            Обязателен для ссылок.
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Значения
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            В качестве значения принимается полный или относительный путь к файлу.
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Значения по умолчанию
+                        </div>
+
+                        <div className="mt-3 mt-sm-2 text-body-2">
+                            Нет.
+                        </div>
+
+                        <div className="mt-5 mt-sm-3 text-heading-4">
+                            Пример
+                        </div>
+
+                        <div className="mt-3 mt-sm-2">
+                            <div className="code">
+                                {"<!DOCTYPE html> <br> <html>"}
+                            </div>
+                        </div> */}
+
+                    {/* <div className="mt-6">
+                            <include src='src/templates/components/common/comments.html'></include>
+                        </div>
+                        */}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-const mapStateToProps = (state) => {}
+const mapStateToProps = (state: RootState) => {
+    return {
+        htmlAttributesList: state?.data?.htmlAttributesList?.list || [],
+    };
+}
 
 export const AttributesListPage = connect(mapStateToProps)(AttributeContainer);
 

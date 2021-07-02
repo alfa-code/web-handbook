@@ -19,7 +19,8 @@ export const Recipes = ({ themes, type }: Props) => {
                 <PageTop
                     title="HTML рецепты"
                     description="Подборка полезных HTML рецептов"
-                    img={ PageTopImage } />
+                    img={ PageTopImage }
+                />
 
 
                 { themes.map((theme, i) =>
