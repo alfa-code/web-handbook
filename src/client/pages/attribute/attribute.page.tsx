@@ -14,13 +14,10 @@ import PageTopImage from "Assets/images/html-instruments.svg";
 
 import { Props } from './props';
 
-// import { SupportTable, SpecificationTable } from 'Blocks/index';
-
-import listStyles from "Src/client/styles/lists.module.scss";
-import linkStyles from "Src/client/styles/links.module.scss";
+import listStyles from 'Src/client/styles/lists.module.scss';
+import linkStyles from 'Src/client/styles/links.module.scss';
 
 // import styles from './attribute.module.scss';
-
 class AttributeContainer extends Component<Props> {
     sortAttributesByGroups = () => {
         const { htmlAttributesList } = this.props;

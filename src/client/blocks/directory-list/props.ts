@@ -1,6 +1,4 @@
 type OwnProps = {
-    title?: string;
-    subtitle?: string;
     items?: any;
     currentPath?: string;
 }

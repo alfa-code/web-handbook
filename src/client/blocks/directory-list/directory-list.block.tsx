@@ -12,16 +12,6 @@ export const DirectoryList = (props: Props) => {
 
     return (
         <div>
-            {props.title ? (
-                <div className="text-heading-4">
-                    {props.title}
-                </div>
-            ) : null}
-            {props.subtitle ? (
-                <div className="mt-3 text-body-2">
-                    {props.subtitle}
-                </div>
-            ) : null}
             {keys.map((key, i) => (
                 <DirectoryInfo
                     directory={{

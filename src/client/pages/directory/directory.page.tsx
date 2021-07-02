@@ -13,6 +13,8 @@ const Directory = (props: Props) => {
 
     const { title, img, description, lists, type, currentPath } = directory;
 
+    console.log('lists', lists)
+
     return (
         <div className="page">
             <div className="pageContent">
@@ -22,14 +24,12 @@ const Directory = (props: Props) => {
                     img={img}
                 />
                 {lists.map((list, i) => {
-                    const { title, subtitle, items } = list;
+                    const { items } = list;
                     const mappedItems = mapHtmlTagsListByAlphabet(items);
 
                     return (
                         <DirectoryList
                             key={i}
-                            title={title}
-                            subtitle={subtitle}
                             items={ mappedItems }
                             currentPath={currentPath}
                         />

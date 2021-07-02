@@ -6,8 +6,6 @@ import urljoin from 'url-join';
 
 import { Link } from "react-router-dom";
 
-// import { Tag } from 'Components/index';
-
 import styles from "./directory-info.module.scss";
 
 export const DirectoryInfo = (props: Props) => {
@@ -18,7 +16,9 @@ export const DirectoryInfo = (props: Props) => {
     return (
         <div className={styles.directoryList}>
             <div className={styles.directoryListTop}>
-                <div className="text-heading-4">{title}</div>
+                <div className="text-heading-4">
+                    { title }
+                </div>
             </div>
             <ul>
                 {items.length
