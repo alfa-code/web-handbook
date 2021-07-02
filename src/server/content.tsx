@@ -12,8 +12,13 @@ export async function getContent(request: any) {
     const context = {};
 
     // Получаем список всех html элементов для предзаполнения начального стейта.
-    const response = await request.server.inject('/api/htmlElements/list');
-    const htmlTagsList = response?.result;
+    const response_1 = await request.server.inject('/api/htmlElements/list');
+    const htmlTagsList = response_1?.result;
+
+    // Получаем список всех html атрибутов для предзаполнения начального стейта.
+
+    const response_2 = await request.server.inject('/api/html/attributes/list');
+    const htmlAttributesList = response_2?.result;
 
     const initialState = {
         app: {
@@ -22,6 +27,11 @@ export async function getContent(request: any) {
                     htmlRules: false,
                     cssRules: false,
                 }
+            }
+        },
+        data: {
+            htmlAttributesList: {
+                list: htmlAttributesList
             }
         },
         UI: {

@@ -37,8 +37,6 @@ export const fetchDataApiPlugin = {
 
             const dataNameHash = md5(clientToServerRoute);
 
-            console.log('dataNameHash', dataNameHash)
-
             server.route({
                 method,
                 path: clientToServerRoute,

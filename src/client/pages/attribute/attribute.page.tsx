@@ -23,8 +23,9 @@ class AttributeContainer extends Component<Props> {
         const sortedAttributes = {};
 
         function sortByGroup(item: ValuesType<typeof htmlAttributesList>) {
-            const isArrayNeeded = !(typeof sortedAttributes[item.type]);
-            isArrayNeeded ? htmlAttributesList[item.type] = [item] : htmlAttributesList[item.type].push(item);
+            const isArrayNeeded = !(sortedAttributes[item.type]);
+
+            isArrayNeeded ? (sortedAttributes[item.type] = [item]) : sortedAttributes[item.type].push(item);
         }
 
         htmlAttributesList.forEach(sortByGroup);
