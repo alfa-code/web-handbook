@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 // import { Props } from './props';
 
@@ -8,7 +9,7 @@ import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 // import styles from './attribute.module.scss';
 
-export const Attribute = () => {
+export const AttributeContainer = () => {
     return (
         <div className="page">
             <div className="pageContent">
@@ -17,6 +18,8 @@ export const Attribute = () => {
                 <p>
                     Контент временно отсутствует
                 </p>
+
+                sdf
 
                 {/* <div className="mt-4 text-heading-2">
                         Атрибут href
@@ -109,3 +112,8 @@ export const Attribute = () => {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {}
+
+export const AttributesListPage = connect(mapStateToProps)(AttributeContainer);
+

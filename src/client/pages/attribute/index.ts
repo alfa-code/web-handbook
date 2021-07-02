@@ -1,1 +1,1 @@
-export { Attribute } from './attribute.page';
+export { AttributesListPage } from './attribute.page';

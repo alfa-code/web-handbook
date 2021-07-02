@@ -20,7 +20,7 @@ import {
     Main,
     NotFound,
     Recipes,
-    Attribute,
+    AttributesListPage,
     Category,
     RecipesTheme,
     Recipe,
@@ -99,12 +99,12 @@ export const Layout = () => {
                     <Route
                         exact
                         path='/attribute-list'
-                        component={ () => <Attribute /> }
+                        component={ () => <AttributesListPage /> }
                     />
                     <Route
                         exact
                         path='/attribute-list/:attribute'
-                        component={ () => <Attribute /> }
+                        component={ () => <AttributesListPage /> }
                     />
                     <Route
                         exact
@@ -119,7 +119,7 @@ export const Layout = () => {
                         component={ NotFound }
                     />
                 </Switch>
-            </div> 
+            </div>
 
             {/* TODO: Временно выключил /> */}
             {/* <Sidebar type="main" /> */}
