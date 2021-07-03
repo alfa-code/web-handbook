@@ -41,7 +41,8 @@
             "Selectors/*": ["src/selectors/*"],
             "Types/*": ["src/types/*"],
             "Utils/*": ["src/utils/*"]
-        }
+        },
+        "typeRoots": [ "./src/typings/declarations.d.ts", "./node_modules/@types"]
     },
     "files": [
         "typings/declarations.d.ts"
