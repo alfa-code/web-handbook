@@ -43,7 +43,7 @@
             padding: 36px 0;
             margin: 0 $space-l;
             color: $primary;
-            transition: all 0.5s;
+
             @include media("<tablet-2") {
                 padding: $space-s 0 0;
                 margin: 0;

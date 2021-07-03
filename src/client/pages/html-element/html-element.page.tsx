@@ -11,6 +11,8 @@ import { Alert } from 'Src/client/components';
 
 import { fetchHtmlTagInfoAsync } from 'Actions/index';
 
+import { WorkInProgress } from 'Components/work-in-progress';
+
 import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
 
 import {
@@ -216,11 +218,7 @@ export class Component extends React.PureComponent<Props> {
 
         if (!tagInfo && !loading) {
             return (
-                <div className="page">
-                    <div className="pageContent">
-                        Данные временно отсутствуют.
-                    </div>
-                </div>
+                <WorkInProgress />
             )
         }
 
