@@ -3,11 +3,9 @@ import { createReducer } from 'typesafe-actions';
 import { AttributeInfo } from 'Src/types/api/attribute-info';
 
 import {
-    // HTML_ACTION_TYPES,
-    // fetchHtmlTagInfoAsync,
     fetchHtmlAttributeInfoAsync,
+    fetchHtmlAttributeDescriptionAsync,
 } from 'Actions/index';
-
 
 type InitialState = {
     isLoading: boolean;
@@ -47,5 +45,19 @@ export const attributesInfoReducer = createReducer(initialState)
         return {
             ...state,
             isLoading: false,
+        }
+    })
+    .handleAction(fetchHtmlAttributeDescriptionAsync.success, (state, action: ReturnType<typeof fetchHtmlAttributeDescriptionAsync.success>) => {
+        const { payload: { name, data } } = action;
+
+        return {
+            ...state,
+            list: {
+                ...state.list,
+                [name]: {
+                    ...state.list[name],
+                    additionalDescription: data
+                }
+            }
         }
     });

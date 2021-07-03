@@ -16,6 +16,10 @@ import { RootState } from 'Src/client/app/app';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
+import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
+
+import { CommonTable } from 'Components/common-table';
+
 import {
     selectIsHtmlAttributeInfoLoading,
     selectHtmlAttributeInfo,
@@ -24,7 +28,7 @@ import {
 
 import { Props } from './props';
 
-// import styles from './attribute-info.module.scss';
+import styles from './attribute-info.module.scss';
 
 class Component extends PureComponent<Props> {
     componentDidMount() {
@@ -38,6 +42,56 @@ class Component extends PureComponent<Props> {
         } = this.props;
 
         fetchHtmlAttributeInfoDA(htmlAttribute);
+    }
+
+    renderValuesTable = () => {
+        const {
+            values: {
+                values
+            }
+        } = this.props.htmlAttributeInfo;
+
+        console.log('values', values)
+
+        const mappedValues = values.map(({ name, meaning }) => [name, meaning])
+
+        return (
+            <CommonTable
+                headers={ ['Значение', 'Описание'] }
+                values={ mappedValues }
+            />
+        )
+    }
+
+    renderDescription(descriptions) {
+        if (typeof descriptions === 'string') {
+            return (
+                <>
+                    <div className={ styles.paragraph }>
+                        <JsxParserWrapper>
+                            {descriptions}
+                        </JsxParserWrapper>
+                    </div>
+                </>
+            )
+        }
+
+        if (Array.isArray(descriptions)) {
+            return descriptions.map((description: string, i) => {
+                return (
+                    <>
+                        <div
+                            className={styles.paragraph}
+                            key={i}
+                        >
+                            <JsxParserWrapper content={ description } />
+                        </div>
+                    </>
+                )
+            });
+        }
+
+        return '---';
     }
 
     render() {
@@ -63,6 +117,14 @@ class Component extends PureComponent<Props> {
         }
 
         if (htmlAttributeInfo) {
+            const { additionalDescription } = htmlAttributeInfo;
+            const { values: {
+                defaultValue,
+                values
+            } } = htmlAttributeInfo;
+
+            console.log('htmlAttributeInfo:', htmlAttributeInfo)
+
             return (
                 <div className="page">
                     <div className="pageContent">
@@ -70,9 +132,32 @@ class Component extends PureComponent<Props> {
                         <PageHeader>
                             HTML Атрибут { htmlAttributeInfo.name }
                         </PageHeader>
+                        <h2>
+                            Краткое описание
+                        </h2>
+                        <JsxParserWrapper content={ htmlAttributeInfo.description } />
+                        <h2>
+                            Тип атрибута
+                        </h2>
                         <p>
                             { htmlAttributeInfo.type }
                         </p>
+                        <h2>
+                            Значения
+                        </h2>
+                        <JsxParserWrapper content={ htmlAttributeInfo.values.description } />
+                        <br />
+                        { this.renderValuesTable() }
+                        <h2>
+                            Значение по умолчанию
+                        </h2>
+                        <p>
+                            { defaultValue }
+                        </p>
+                        <h2>
+                            Допонительное описание
+                        </h2>
+                        { additionalDescription ? this.renderDescription(additionalDescription) : null }
                     </div>
                 </div>
             );
