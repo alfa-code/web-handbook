@@ -43,3 +43,9 @@ export const attributesInfoReducer = createReducer(initialState)
             }
         }
     })
+    .handleAction(fetchHtmlAttributeInfoAsync.failure, (state, _action: ReturnType<typeof fetchHtmlAttributeInfoAsync.failure>) => {
+        return {
+            ...state,
+            isLoading: false,
+        }
+    });

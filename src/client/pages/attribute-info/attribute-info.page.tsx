@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 import Skeleton from 'react-loading-skeleton';
 
+import { WorkInProgress } from 'Components/work-in-progress';
+
 // import { PageTop, DirectoryList } from "Blocks/index";
 
 import { PageHeader } from 'Components/page-header';
@@ -76,11 +78,7 @@ class Component extends PureComponent<Props> {
             );
         }
 
-        return (
-            <div>
-                Дангные временно отсутствуют
-            </div>
-        )
+        return <WorkInProgress />
     }
 }
 
