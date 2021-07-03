@@ -1,13 +1,23 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 
+import { connect } from 'react-redux';
+
 import { Props } from './props';
 
 // import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { Alert } from 'Src/client/components';
 
+import { fetchHtmlTagInfoAsync } from 'Actions/index';
+
 import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
+
+import {
+    selectIsHtmlTagsInfoLoading,
+    selectHtmlTagInfo,
+} from 'Selectors/index';
+
 
 import {
     // SupportTable,
@@ -18,8 +28,16 @@ import {
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
 
-import styles from './tag.module.scss';
-export class Tag extends React.PureComponent<Props> {
+import styles from './html-element.module.scss';
+
+export class Component extends React.PureComponent<Props> {
+    componentDidMount = () => {
+        const { match: { params: { htmlTag } } } = this.props;
+        const { fetchHtmlTagInfoDA } = this.props;
+
+        fetchHtmlTagInfoDA(htmlTag);
+    }
+
     renderDescription(descriptions) {
         if (typeof descriptions === 'string') {
             return (
@@ -405,3 +423,25 @@ export class Tag extends React.PureComponent<Props> {
         );
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    const { match: { params: { htmlTag } } } = ownProps;
+
+    const isHtmlTagsInfoLoading = selectIsHtmlTagsInfoLoading(state);
+
+    const tagInfo = selectHtmlTagInfo(state, htmlTag);
+
+    return {
+        loading: isHtmlTagsInfoLoading,
+        tagInfo,
+        htmlTag,
+    }
+}
+
+const mapDispatchToProps = {
+    fetchHtmlTagInfoDA: fetchHtmlTagInfoAsync.request,
+}
+
+const HtmlElementPage = connect(mapStateToProps, mapDispatchToProps)(Component);
+
+export default HtmlElementPage;

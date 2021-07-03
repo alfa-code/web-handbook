@@ -10,14 +10,7 @@ import { HeaderContainer } from 'Containers/index';
 
 import { NavigationContainer } from 'Containers/navigation-container';
 
-import { WorkInProgress } from 'Components/work-in-progress';
-
-import { ListPage } from 'Pages/list';
-
-import {
-    // HtmlListContainer,
-    TagPageContainer
-} from 'Containers/index';
+import { LoadablePage } from 'Pages/loadable-page';
 
 import {
     Main,
@@ -54,7 +47,7 @@ export const Layout = () => {
                         exact
                         path='/html-list'
                         render={ (routeProps) => (
-                            <ListPage type='elements' { ...routeProps } />
+                            <LoadablePage type='elements-list' { ...routeProps } />
                         )}
                     />
 
@@ -66,7 +59,10 @@ export const Layout = () => {
                     <Route
                         exact
                         path='/html-list/:htmlTag'
-                        component={ TagPageContainer }
+                        // component={ TagPageContainer }
+                        render={ (routeProps) => (
+                            <LoadablePage type='element-info' { ...routeProps } />
+                        )}
                     />
 
                     {/* TODO: Этот функционал выкатим вторым этапом */}
@@ -119,14 +115,17 @@ export const Layout = () => {
                         exact
                         path='/attribute-list'
                         render={ (routeProps) => (
-                            <ListPage type='attributes' { ...routeProps } />
+                            <LoadablePage type='attributes-list' { ...routeProps } />
                         )}
                     />
 
                     <Route
                         exact
                         path='/attribute-list/:attribute'
-                        component={ () => <WorkInProgress /> }
+                        // component={ () => <WorkInProgress /> }
+                        render={ (routeProps) => (
+                            <LoadablePage type='attribute-info' { ...routeProps } />
+                        )}
                     />
                     {/* <Route
                         exact

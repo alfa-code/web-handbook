@@ -27,3 +27,10 @@ export function toggleHtmlTagInfoLoadingAC(loading: boolean) {
         }
     }
 }
+
+export const fetchHtmlAttributeInfoAsync = createAsyncAction(
+    'FETCH_HTML_ATTRIBUTE_INFO_REQUEST',
+    'FETCH_HTML_ATTRIBUTE_INFO_SUCCESS',
+    'FETCH_HTML_ATTRIBUTE_INFO_ERROR',
+    'FETCH_HTML_ATTRIBUTE_INFO_CANCEL',
+)<string, any, Error, string>();

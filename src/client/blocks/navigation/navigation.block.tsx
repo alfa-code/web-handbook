@@ -17,6 +17,10 @@ const navInfo = [
         categoryName: "HTML справочник",
         categoryIconUrl: "html-icon",
     },
+    // {
+    //     categoryName: "HTML атрибуты",
+    //     categoryIconUrl: "html-icon",
+    // },
 ];
 
 export const Navigation = (props: Props) => {
@@ -76,7 +80,7 @@ export const Navigation = (props: Props) => {
                         })
                     )}
 
-                    
+
                 </div>
             </div>
         );

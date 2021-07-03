@@ -14,23 +14,41 @@ const ElementsListPage = loadable(() => import('Pages/elements-list/elements-lis
     fallback: <Loading />,
 });
 
-export class ListPage extends PureComponent<Props> {
+const AttributeInfoPage = loadable(() => import('Pages/attribute-info'), {
+    fallback: <Loading />,
+});
+
+const HtmlElementPage = loadable(() => import('Pages/html-element'), {
+    fallback: <Loading />,
+});
+
+
+export class LoadablePage extends PureComponent<Props> {
     render() {
         const {
             type,
             ...routeProps
         } = this.props;
 
-
         switch (type) {
-            case 'attributes': {
+            case 'attributes-list': {
                 return (
                     <AttributesListPage />
                 )
             }
-            case 'elements': {
+            case 'elements-list': {
                 return (
-                    <ElementsListPage {...routeProps}/>
+                    <ElementsListPage {...routeProps} />
+                )
+            }
+            case 'element-info': {
+                return (
+                    <HtmlElementPage {...routeProps} />
+                )
+            }
+            case 'attribute-info': {
+                return (
+                    <AttributeInfoPage {...routeProps} />
                 )
             }
             default: {
