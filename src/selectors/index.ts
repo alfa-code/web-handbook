@@ -4,5 +4,6 @@ export * from './location.selector';
 export * from './breadcrumbs.selector';
 export * from './features.selector';
 export * from './ui/mobile-menu.selector';
+export * from './attributes.selector';
 
 

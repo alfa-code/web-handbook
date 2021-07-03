@@ -7,6 +7,7 @@ import { htmlListReducer } from './html-list.reducer';
 import { htmlInfoReducer } from './html-info.reducer';
 import { mobileMenuReducer } from './mobile-menu.reducer';
 import { htmlAttributesListReducer } from './html-attributes-list.reducer';
+import { attributesInfoReducer } from './attributes-info.reducer';
 
 export const createRootReducer = (history: History<any>) => combineReducers({
     app: appReducer,
@@ -15,6 +16,7 @@ export const createRootReducer = (history: History<any>) => combineReducers({
         htmlAttributesList: htmlAttributesListReducer,
         htmlTagsList: htmlListReducer,
         htmlTagsInfo: htmlInfoReducer,
+        attributesInfo: attributesInfoReducer,
     }),
     UI: combineReducers({
         mobileMenu: mobileMenuReducer

@@ -3,7 +3,7 @@ import Skeleton from 'react-loading-skeleton';
 
 import { connect } from 'react-redux';
 
-import { Props } from './props';
+import { PageHeader } from 'Components/page-header';
 
 import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
@@ -24,6 +24,8 @@ import {
     // SpecificationTable,
     AttributesTable
 } from 'Blocks/index';
+
+import { Props } from './props';
 
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
@@ -260,9 +262,9 @@ export class Component extends React.PureComponent<Props> {
 
                     {!loading && (
                         <>
-                            <div className="mt-4 text-heading-2">
+                            <PageHeader>
                                 Элемент {`<${tagName}>`}
-                            </div>
+                            </PageHeader>
 
                             {obsolete && (
                                 <>

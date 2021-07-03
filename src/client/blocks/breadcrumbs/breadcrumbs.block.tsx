@@ -16,21 +16,18 @@ export const Breadcrumbs = ({ breadcrumbs } : Props) => {
                 >
                     Главная
                 </Link>
-                <span className={ styles.breadcrumbsSeparator }>
-                    /
-                </span>
             </span>
             { breadcrumbs.map((item, key) =>
                 <span key={ key }>
+                    <span className={ styles.breadcrumbsSeparator }>
+                        /
+                    </span>
                     <Link
                         className={ styles.breadcrumbsItem }
                         to={ item.url }
                     >
                         { item.name }
                     </Link>
-                    <span className={ styles.breadcrumbsSeparator }>
-                        /
-                    </span>
                 </span>
             )}
         </div>
