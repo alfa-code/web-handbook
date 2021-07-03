@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { Props } from './props';
 
-// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { Alert } from 'Src/client/components';
 
@@ -236,7 +236,7 @@ export class Component extends React.PureComponent<Props> {
         return (
             <div className="page">
                 <div className="pageContent">
-                    {/* <BreadcrumbsContainer /> */}
+                    <BreadcrumbsContainer />
 
                     {loading && (
                         <>

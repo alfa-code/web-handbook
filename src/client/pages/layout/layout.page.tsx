@@ -121,7 +121,7 @@ export const Layout = () => {
 
                     <Route
                         exact
-                        path='/attribute-list/:attribute'
+                        path='/attribute-list/:htmlAttribute'
                         // component={ () => <WorkInProgress /> }
                         render={ (routeProps) => (
                             <LoadablePage type='attribute-info' { ...routeProps } />
