@@ -14,7 +14,6 @@ class AttributeInfoPage extends PureComponent<Props> {
             <div className="page">
                 <div className="pageContent">
                     <BreadcrumbsContainer />
-
                 </div>
             </div>
         );

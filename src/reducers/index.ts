@@ -13,10 +13,10 @@ export const createRootReducer = (history: History<any>) => combineReducers({
     router: connectRouter(history),
     data: combineReducers({
         htmlAttributesList: htmlAttributesListReducer,
-    }),
-    UI: combineReducers({
         htmlTagsList: htmlListReducer,
         htmlTagsInfo: htmlInfoReducer,
+    }),
+    UI: combineReducers({
         mobileMenu: mobileMenuReducer
     }),
 });

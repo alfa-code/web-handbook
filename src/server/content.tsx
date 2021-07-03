@@ -32,11 +32,11 @@ export async function getContent(request: any) {
         data: {
             htmlAttributesList: {
                 list: htmlAttributesList
-            }
-        },
-        UI: {
+            },
             htmlTagsList: htmlTagsList ? htmlTagsList : { list: [] },
             htmlTagsInfo: {},
+        },
+        UI: {
             mobileMenu: {
                 isOpened: false
             }
