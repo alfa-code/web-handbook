@@ -8,9 +8,29 @@ import { anyRoutePlugin } from 'Src/server/plugins/routes/any-route';
 import { assetsRoutePlugin } from 'Src/server/plugins/assets-plugin';
 
 import { fetchDataApiPlugin } from 'Src/server/plugins/api/fetch-data.plugin';
+import { robotsPlugin } from 'Src/server/plugins/robots.plugin';
 
 export function getServerPlugins() {
     const plugins: Array<ServerRegisterPluginObject<any>> = [
+        Inert,
+        {
+            plugin: robotsPlugin,
+            options: {
+                // // set to true to use server.log to report info about robots.txt and remote attempts to access it:
+                debug: false,
+                envs: {
+                    production: {
+                        // will disallow *all* robots from the path '/noDroidsAllowed':
+                        // '*': ['/noDroidsAllowed'],
+                        // // will disallow robot 'R2D2' from the indicated paths:
+                        // 'R2D2': ['/noDroidsAllowed', '/noR2D2Here']
+                    }
+                },
+                // tell hapi-robots which of the above envs to use:
+                env: 'production',
+                auth: false,
+            }
+        },
         // {
         //     plugin: HapiErrorPlugin,
         //     options: {
@@ -23,7 +43,7 @@ export function getServerPlugins() {
         //         }
         //     }
         // },
-        Inert,
+
         // Vision,
         // {
         //     plugin: HapiSwagger,

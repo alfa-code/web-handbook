@@ -12,5 +12,6 @@ declare module '*.xml';
 declare module '*.webmanifest';
 
 declare module '*.ttf';
+declare module '*.txt';
 
 declare module '*.scss';
