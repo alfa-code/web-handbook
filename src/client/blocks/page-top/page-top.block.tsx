@@ -11,7 +11,6 @@ export const PageTop = ({ title, description, img } : Props) => {
             <div className={ styles.pageTopContent }>
                 <h1
                     className="text-heading-2"
-                    tabIndex={ 0 }
                 >
                     { title }
                 </h1>

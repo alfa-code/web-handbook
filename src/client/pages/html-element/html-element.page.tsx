@@ -117,7 +117,6 @@ export class Component extends React.PureComponent<Props> {
             <div>
                 <h2
                     className="mt-5 mt-sm-3 text-heading-4"
-                    tabIndex={ 0 }
                 >
                     Атрибуты
                 </h2>
@@ -198,7 +197,6 @@ export class Component extends React.PureComponent<Props> {
                 <>
                     <h2
                         className="mt-5 mt-sm-3 text-heading-4"
-                        tabIndex={ 0 }
                     >
                         Подробное описание
                     </h2>
@@ -291,7 +289,6 @@ export class Component extends React.PureComponent<Props> {
                                     <h2
                                         className={ headersStyles.h2 }
                                         title="Описание"
-                                        tabIndex={ 0 }
                                     >
                                         Описание
                                     </h2>
@@ -306,7 +303,6 @@ export class Component extends React.PureComponent<Props> {
                                     <h2
                                         className={ headersStyles.h2 }
                                         title="Категории"
-                                        tabIndex={ 0 }
                                     >
                                         Категории
                                     </h2>
@@ -321,7 +317,6 @@ export class Component extends React.PureComponent<Props> {
                                     <h2
                                         className={ headersStyles.h2 }
                                         title="Описание того, какой контент должен быть включен в качестве потомков элемента."
-                                        tabIndex={ 0 }
                                     >
                                         Модель контента
                                     </h2>
@@ -336,7 +331,6 @@ export class Component extends React.PureComponent<Props> {
                                 <>
                                     <h2
                                         className="mt-5 mt-sm-3 text-heading-4"
-                                        tabIndex={ 0 }
                                     >
                                         Пропуски
                                     </h2>

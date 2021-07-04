@@ -31,7 +31,6 @@ export const Breadcrumbs = ({ breadcrumbs } : Props) => {
                         className={ styles.breadcrumbsItem }
                         to={ item.url }
                         tabIndex={ 0 }
-                        accessKey=" "
                     >
                         { item.name }
                     </Link>

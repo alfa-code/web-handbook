@@ -9,7 +9,6 @@ export class PageHeader extends Component<Props> {
         return (
             <h1
                 className={ styles.header }
-                tabIndex={ 0 }
             >
                 { this.props.children }
             </h1>

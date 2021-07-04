@@ -78,7 +78,6 @@ class AttributeContainer extends Component<Props> {
                 >
                     <h2
                         className={ listStyles.listSectionHeader }
-                        tabIndex={ 0 }
                     >
                         { this.mapHeaderName(key) }
                     </h2>

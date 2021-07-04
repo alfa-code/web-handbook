@@ -1,5 +1,7 @@
 {
-    "extends": "./node_modules/@alfa-code/alfa-code-presets/eslint",
+    "extends": [
+        "./node_modules/@alfa-code/alfa-code-presets/eslint"
+    ],
     "rules": {
         "react/jsx-first-prop-new-line": 2,
         "object-property-newline": [2, { "allowMultiplePropertiesPerLine": false }],

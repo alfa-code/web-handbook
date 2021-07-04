@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './note-box.module.scss';
 
-export const NoteBox = ({ children, label = 'Заметка' }) => {
+export const NoteBox = ({ children, label = 'Заметка' }: any) => {
     return (
         <div className={ styles.noteBox }>
             { children }

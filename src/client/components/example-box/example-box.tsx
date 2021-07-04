@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './example-box.module.scss';
 
-export const ExampleBox = ({ children, label = 'Пример' }) => {
+export const ExampleBox = ({ children, label = 'Пример' }: any) => {
     return (
         <div className={ styles.exampleBox }>
             { children }

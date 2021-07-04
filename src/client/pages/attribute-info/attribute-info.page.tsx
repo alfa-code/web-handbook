@@ -60,8 +60,8 @@ class Component extends PureComponent<Props> {
 
         return (
             <CommonTable
-                headers={ ['Значение', 'Описание'] }
-                values={ mappedValues }
+                headers={['Значение', 'Описание']}
+                values={mappedValues}
             />
         )
     }
@@ -70,7 +70,7 @@ class Component extends PureComponent<Props> {
         if (typeof descriptions === 'string') {
             return (
                 <>
-                    <div className={ styles.paragraph }>
+                    <div className={styles.paragraph}>
                         <JsxParserWrapper>
                             {descriptions}
                         </JsxParserWrapper>
@@ -87,7 +87,7 @@ class Component extends PureComponent<Props> {
                             className={styles.paragraph}
                             key={i}
                         >
-                            <JsxParserWrapper content={ description } />
+                            <JsxParserWrapper content={description} />
                         </div>
                     </>
                 )
@@ -121,10 +121,12 @@ class Component extends PureComponent<Props> {
 
         if (htmlAttributeInfo) {
             const { additionalDescription } = htmlAttributeInfo;
-            const { values: {
-                defaultValue,
-                values
-            } } = htmlAttributeInfo;
+            const {
+                values: {
+                    defaultValue,
+                    values
+                }
+            } = htmlAttributeInfo;
 
             console.log('htmlAttributeInfo:', htmlAttributeInfo)
 
@@ -133,34 +135,34 @@ class Component extends PureComponent<Props> {
                     <div className="pageContent">
                         <BreadcrumbsContainer />
                         <PageHeader>
-                            HTML Атрибут { htmlAttributeInfo.name }
+                            HTML Атрибут {htmlAttributeInfo.name}
                         </PageHeader>
                         <h2>
                             Краткое описание
                         </h2>
-                        <JsxParserWrapper content={ htmlAttributeInfo.description } />
+                        <JsxParserWrapper content={htmlAttributeInfo.description} />
                         <h2>
                             Тип атрибута
                         </h2>
                         <p>
-                            { htmlAttributeInfo.type }
+                            {htmlAttributeInfo.type}
                         </p>
                         <h2>
                             Значения
                         </h2>
-                        <JsxParserWrapper content={ htmlAttributeInfo.values.description } />
+                        <JsxParserWrapper content={htmlAttributeInfo.values.description} />
                         <br />
-                        { this.renderValuesTable() }
+                        {this.renderValuesTable()}
                         <h2>
                             Значение по умолчанию
                         </h2>
                         <p>
-                            { defaultValue }
+                            {defaultValue}
                         </p>
                         <h2>
                             Допонительное описание
                         </h2>
-                        { additionalDescription ? this.renderDescription(additionalDescription) : null }
+                        {additionalDescription ? this.renderDescription(additionalDescription) : null}
                     </div>
                 </div>
             );
