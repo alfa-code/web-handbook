@@ -31,15 +31,19 @@ export const DirectoryInfo = (props: Props) => {
                             >
                                 {/* TODO: Поменять ключи */}
                                 <Link
-                                    className="text-body-1"
-                                    to={urljoin(currentPath, name)}
+                                    className={ `
+                                        ${styles.link}
+                                        text-body-1 ${obsolete ? `${styles.label} ${styles.labelOld}`: ''}
+                                    ` }
+                                    to={ urljoin(currentPath, name) }
                                 >
                                     { `<${name}>` }
+                                    {/*
                                     { obsolete && (
                                         <div className={styles.label}>
                                             устарел
                                         </div>
-                                    )}
+                                    )} */}
                                 </Link>
                             </li>
                         )

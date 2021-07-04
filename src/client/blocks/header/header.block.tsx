@@ -34,7 +34,7 @@ export const Header = (props: Props) => {
     return (
         <header className={styles.header}>
             <Logo />
-            <div className={styles.headerMenu}>
+            <nav className={styles.headerMenu}>
                 <div className={styles.headerMenuLink}>
                     <NavLink
                         activeClassName={styles.active}
@@ -88,7 +88,7 @@ export const Header = (props: Props) => {
                         <NavLink activeClassName={ styles.active } to="/css-list/recipes" className={ styles.dropdownInnerLink }>CSS рецепты</NavLink>
                     </div>
                 </div> */}
-            </div>
+            </nav>
 
             {/* <div className={ [styles.headerSearch, activeSearch ? styles.mobileActiveSearch : ""].join(" ") }>
                 <div className={ styles.inputWrapper }>

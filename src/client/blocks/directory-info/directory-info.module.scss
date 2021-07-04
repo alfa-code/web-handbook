@@ -24,14 +24,28 @@
     }
 }
 
+.link {
+    text-decoration: none;
+}
+
 .label {
-    display: inline;
-    padding: 4px;
-    background-color: #F5D6D6;
-    color: #EF3124;
-    font-size: 13px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    margin-left: 4px;
-    font-weight: 500;
+    &::after {
+        display: inline;
+        padding: 4px;
+        background-color: #f5d6d6;
+        font-size: 13px;
+        color: #ef3124;
+        border-radius: 4px;
+        text-transform: uppercase;
+        margin-left: 4px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+.labelOld {
+    &::after {
+        content: "Устарел";
+        // display: inline-block;
+    }
 }

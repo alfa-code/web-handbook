@@ -30,7 +30,7 @@ export const Layout = () => {
         <div className="layout">
             <HeaderContainer />
             <NavigationContainer />
-            <div className="content">
+            <main className="content">
                 <Switch>
                     <Route
                         exact
@@ -140,7 +140,7 @@ export const Layout = () => {
                         component={ NotFound }
                     />
                 </Switch>
-            </div>
+            </main>
 
             {/* TODO: Временно выключил /> */}
             {/* <Sidebar type="main" /> */}
