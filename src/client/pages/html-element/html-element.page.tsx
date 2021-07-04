@@ -20,12 +20,7 @@ import {
     selectHtmlTagInfo,
 } from 'Selectors/index';
 
-
-import {
-    // SupportTable,
-    // SpecificationTable,
-    AttributesTable
-} from 'Blocks/index';
+import { CommonTable } from 'Components/common-table';
 
 import { Props } from './props';
 
@@ -96,17 +91,21 @@ export class Component extends React.PureComponent<Props> {
             content_attributes = {},
         } = tagInfo;
 
-        const attributes = [];
+        let attributes = [];
 
         if (content_attributes.custom_attributes) {
-            attributes.push(...content_attributes.custom_attributes);
+            const mappedAttributes = content_attributes.custom_attributes.map((item) => {
+                return Object.values(item);
+            });
+
+            attributes = [...attributes, ...mappedAttributes];
         }
 
         if (content_attributes.global_attributes) {
-            attributes.unshift({
-                name: 'global',
-                description: 'Глобальные атрибуты'
-            })
+            attributes.unshift([
+                'global',
+                'Глобальные атрибуты'
+            ]);
         }
 
         return (
@@ -115,8 +114,12 @@ export class Component extends React.PureComponent<Props> {
                     Атрибуты
                 </div>
                 <div className="mt-3 mt-sm-2">
-                    <AttributesTable
-                        attributes={attributes}
+                    {/* <AttributesTable
+                        attributes={ attributes }
+                    /> */}
+                    <CommonTable
+                        headers={ ['Имя', 'Описание'] }
+                        values={ attributes }
                     />
                 </div>
             </div>

@@ -4,6 +4,8 @@ import { Props } from './props';
 
 import styles from './common-table.module.scss';
 
+import { JsxParserWrapper } from 'Src/client/components/jsx-parser-wrapper';
+
 // import { Link } from 'react-router-dom';
 
 export const CommonTable = (props: Props) => {
@@ -29,7 +31,7 @@ export const CommonTable = (props: Props) => {
                 if(id <= length) {
                     tds.push(
                         <td key={ id }>
-                            { str }
+                            <JsxParserWrapper content={ str }/>
                         </td>
                     )
                 }
