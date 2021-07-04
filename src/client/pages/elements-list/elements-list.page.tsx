@@ -12,11 +12,17 @@ import { selectHtmlTagsList } from 'Selectors/index';
 
 import htmlDirectoryImage from 'Assets/images/html-directory.svg';
 
+import { DOCUMENT_TITLES } from 'Constants/document-titles';
+
 import { Props } from './props';
 
 // import styles from './elements-list.module.scss';
 
 class ElementsList extends PureComponent<Props> {
+    componentDidMount = () => {
+        document.title = DOCUMENT_TITLES.htmlElementsList;
+    }
+
     render() {
         const {
             htmlTags,

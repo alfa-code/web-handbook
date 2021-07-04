@@ -7,11 +7,17 @@ import HTMLImage1 from "Assets/images/html-directory.svg";
 // import CSSImage2 from "Assets/images/css-instruments.svg";
 import MainSvg from "Assets/images/main.svg";
 
+import { DOCUMENT_TITLES } from 'Constants/document-titles';
+
 import { Props } from "./props";
 
 import styles from "./main.module.scss";
 
 export class Main extends PureComponent<Props> {
+    componentDidMount = () => {
+        document.title = DOCUMENT_TITLES.main;
+    }
+
     render() {
         return (
             <div className="page">

@@ -25,6 +25,7 @@ import {
     selectHtmlAttributeInfo,
 } from 'Selectors/index';
 
+import { DOCUMENT_TITLES } from 'Constants/document-titles';
 
 import { Props } from './props';
 
@@ -42,6 +43,8 @@ class Component extends PureComponent<Props> {
         } = this.props;
 
         fetchHtmlAttributeInfoDA(htmlAttribute);
+
+        document.title = DOCUMENT_TITLES.htmlAttributeInfoPage(htmlAttribute);
     }
 
     renderValuesTable = () => {

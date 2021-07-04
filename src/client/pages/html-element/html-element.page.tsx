@@ -22,11 +22,14 @@ import {
 
 import { CommonTable } from 'Components/common-table';
 
+import { DOCUMENT_TITLES } from 'Constants/document-titles';
+
 import { Props } from './props';
 
 // import VideoImg from "Assets/images/video-player.png";
 // import { isHtmlTagExists } from 'Utils/html';
 
+import headersStyles from 'Src/client/styles/headers.module.scss';
 import styles from './html-element.module.scss';
 
 export class Component extends React.PureComponent<Props> {
@@ -35,6 +38,8 @@ export class Component extends React.PureComponent<Props> {
         const { fetchHtmlTagInfoDA } = this.props;
 
         fetchHtmlTagInfoDA(htmlTag);
+
+        document.title = DOCUMENT_TITLES.htmlElementInfoPage(htmlTag);
     }
 
     renderDescription(descriptions) {
@@ -110,9 +115,12 @@ export class Component extends React.PureComponent<Props> {
 
         return (
             <div>
-                <div className="mt-5 mt-sm-3 text-heading-4">
+                <h2
+                    className="mt-5 mt-sm-3 text-heading-4"
+                    tabIndex={ 0 }
+                >
                     Атрибуты
-                </div>
+                </h2>
                 <div className="mt-3 mt-sm-2">
                     {/* <AttributesTable
                         attributes={ attributes }
@@ -188,9 +196,12 @@ export class Component extends React.PureComponent<Props> {
         } else if (isDataLoaded && data) {
             return (
                 <>
-                    <div className="mt-5 mt-sm-3 text-heading-4">
+                    <h2
+                        className="mt-5 mt-sm-3 text-heading-4"
+                        tabIndex={ 0 }
+                    >
                         Подробное описание
-                    </div>
+                    </h2>
                     <JsxParserWrapper content={data} />
                 </>
             )
@@ -277,9 +288,13 @@ export class Component extends React.PureComponent<Props> {
 
                             {description && (
                                 <>
-                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                    <h2
+                                        className={ headersStyles.h2 }
+                                        title="Описание"
+                                        tabIndex={ 0 }
+                                    >
                                         Описание
-                                    </div>
+                                    </h2>
                                     <div className="mt-3 mt-sm-2 text-body-2">
                                         {this.renderDescription(description)}
                                     </div>
@@ -288,9 +303,13 @@ export class Component extends React.PureComponent<Props> {
 
                             {categories && (
                                 <>
-                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                    <h2
+                                        className={ headersStyles.h2 }
+                                        title="Категории"
+                                        tabIndex={ 0 }
+                                    >
                                         Категории
-                                    </div>
+                                    </h2>
                                     <div className="mt-3 mt-sm-2 text-body-2">
                                         {this.renderCategories(categories)}
                                     </div>
@@ -299,12 +318,13 @@ export class Component extends React.PureComponent<Props> {
 
                             {content_model && (
                                 <>
-                                    <div
-                                        className="mt-5 mt-sm-3 text-heading-4"
+                                    <h2
+                                        className={ headersStyles.h2 }
                                         title="Описание того, какой контент должен быть включен в качестве потомков элемента."
+                                        tabIndex={ 0 }
                                     >
                                         Модель контента
-                                    </div>
+                                    </h2>
 
                                     <div className="mt-3 mt-sm-2">
                                         {this.renderContentModel(content_model)}
@@ -314,9 +334,12 @@ export class Component extends React.PureComponent<Props> {
 
                             {tag_omission && (
                                 <>
-                                    <div className="mt-5 mt-sm-3 text-heading-4">
+                                    <h2
+                                        className="mt-5 mt-sm-3 text-heading-4"
+                                        tabIndex={ 0 }
+                                    >
                                         Пропуски
-                                    </div>
+                                    </h2>
 
                                     <div className="mt-3 mt-sm-2 text-body-2">
                                         {this.renderOmissions(tag_omission)}

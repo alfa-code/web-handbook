@@ -11,7 +11,11 @@ import styles from "./logo.module.scss";
 export class Logo extends Component<Props> {
     render() {
         return (
-            <Link to="/" className={ styles.logo }>
+            <Link
+                to="/"
+                className={ styles.logo }
+                tabIndex={ 0 }
+            >
                 <img className={ styles.logoDesktop } src={ LogoImage } alt="Logo"/>
                 <img className={ styles.logoMobile } src={ LogoImageMobile } alt="Logo"/>
             </Link>

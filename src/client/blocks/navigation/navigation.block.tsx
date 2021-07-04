@@ -113,6 +113,7 @@ export const Navigation = (props: Props) => {
                         className={styles.navigationCategoryCollapseItemName}
                         to={ `/html-list/${tag}` }
                         onClick={ closeMobileMenuCallback }
+                        tabIndex={ 0 }
                     >
                         { tag }
                     </Link>

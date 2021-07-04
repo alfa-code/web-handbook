@@ -9,11 +9,16 @@ export const PageTop = ({ title, description, img } : Props) => {
         <div className={ styles.pageTop }>
             <img src={ img } alt="" />
             <div className={ styles.pageTopContent }>
-                <div className="text-heading-2">
+                <h1
+                    className="text-heading-2"
+                    tabIndex={ 0 }
+                >
                     { title }
-                </div>
+                </h1>
                 <div className={["text-subheading", styles.pageTopContentText].join(' ')}>
-                    { description }
+                    <span>
+                        { description }
+                    </span>
                 </div>
             </div>
         </div>

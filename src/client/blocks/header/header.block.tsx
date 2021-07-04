@@ -41,6 +41,7 @@ export const Header = (props: Props) => {
                         exact
                         to="/"
                         className={styles.headerMenuLink}
+                        tabIndex={ 0 }
                     >
                         Главная
                     </NavLink>
@@ -51,6 +52,7 @@ export const Header = (props: Props) => {
                         exact
                         to="/html-list"
                         className={styles.headerMenuLink}
+                        tabIndex={ 0 }
                     >
                         HTML справочник
                     </NavLink>

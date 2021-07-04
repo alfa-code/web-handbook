@@ -8,11 +8,16 @@ import { Link } from 'react-router-dom';
 
 export const Breadcrumbs = ({ breadcrumbs } : Props) => {
     return (
-        <div className={ styles.breadcrumbs }>
+        <nav
+            tabIndex={ 0 }
+            className={ styles.breadcrumbs }
+            aria-label="хлебные крошки"
+        >
             <span>
                 <Link
                     className={ styles.breadcrumbsItem }
                     to="/"
+                    tabIndex={ 0 }
                 >
                     Главная
                 </Link>
@@ -25,11 +30,13 @@ export const Breadcrumbs = ({ breadcrumbs } : Props) => {
                     <Link
                         className={ styles.breadcrumbsItem }
                         to={ item.url }
+                        tabIndex={ 0 }
+                        accessKey=" "
                     >
                         { item.name }
                     </Link>
                 </span>
             )}
-        </div>
+        </nav>
     );
 }

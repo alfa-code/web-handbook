@@ -10,6 +10,8 @@ import { RootState } from 'Src/client/app/app';
 
 import { Link } from 'react-router-dom';
 
+import { DOCUMENT_TITLES } from 'Constants/document-titles';
+
 import PageTopImage from "Assets/images/html-instruments.svg";
 
 import { Props } from './props';
@@ -19,6 +21,10 @@ import linkStyles from 'Src/client/styles/links.module.scss';
 
 // import styles from './attribute.module.scss';
 class AttributeContainer extends Component<Props> {
+    componentDidMount = () => {
+        document.title = DOCUMENT_TITLES.htmlAttributesList;
+    }
+
     sortAttributesByGroups = () => {
         const { htmlAttributesList } = this.props;
 
@@ -51,6 +57,7 @@ class AttributeContainer extends Component<Props> {
                                         <Link
                                             to={ `/attribute-list/${item.name}` }
                                             className={ linkStyles.listLink }
+                                            tabIndex={ 0 }
                                         >
                                             { item.name }
                                         </Link>
@@ -69,7 +76,10 @@ class AttributeContainer extends Component<Props> {
                     key={ key }
                     className={ listStyles.listSection }
                 >
-                    <h2 className={ listStyles.listSectionHeader }>
+                    <h2
+                        className={ listStyles.listSectionHeader }
+                        tabIndex={ 0 }
+                    >
                         { this.mapHeaderName(key) }
                     </h2>
                     <div>

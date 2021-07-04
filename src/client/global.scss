@@ -122,7 +122,7 @@ html {
     --text-heading-5: 16px;
     --text-heading-6: 16px;
 
-    @include media("<desktop-3") {
+    @include media("<desktop-2") {
         --text-heading-1: 40px;
         --text-heading-2: 30px;
         --text-heading-3: 22px;
