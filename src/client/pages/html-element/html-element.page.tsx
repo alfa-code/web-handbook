@@ -34,13 +34,28 @@ import styles from './html-element.module.scss';
 
 export class Component extends React.PureComponent<Props> {
     componentDidMount = () => {
+        this.fetchHtmlData();
+    }
+
+    componentDidUpdate = () => {
+        const { tagInfo } = this.props;
+        console.log('tagInfo', tagInfo)
+
+        // Проверка на null излишняя, но я хочу показать следующее:
+        // - Если undefined - значит тег не загружался - стоит повторно вызвать загрузку данных тега
+        // - tagInfo если null - значит загружался но информации нет - значит повторно загружать не нужно.
+        if ((typeof tagInfo === 'undefined') && (tagInfo !== null)) {
+            this.fetchHtmlData();
+        }
+    }
+
+    fetchHtmlData = () => {
         const { match: { params: { htmlTag } } } = this.props;
         const { fetchHtmlTagInfoDA } = this.props;
-
         fetchHtmlTagInfoDA(htmlTag);
-
         document.title = DOCUMENT_TITLES.htmlElementInfoPage(htmlTag);
     }
+
 
     renderDescription(descriptions) {
         if (typeof descriptions === 'string') {
@@ -84,9 +99,10 @@ export class Component extends React.PureComponent<Props> {
     renderOmissions = (omissions: string[] = []) => {
         return omissions.map((omission, i) => {
             return (
-                <p key={i}>
-                    {omission}
-                </p>
+                <JsxParserWrapper
+                    content={ omission }
+                    key={ i } 
+                />
             )
         });
     }

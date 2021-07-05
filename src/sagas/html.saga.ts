@@ -9,8 +9,6 @@ import {
     fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
 
-import { v1 as uuidv1 } from 'uuid';
-
 // TODO: удалить после добавления всех тегов
 import Lockr from 'lockr';
 
@@ -43,7 +41,7 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 function fetchHtml(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json?${uuidv1()}`
+        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json?`
     });
 }
 
@@ -53,6 +51,7 @@ function* fetchHtmlTagInfo(action) {
     const htmlTag = action.payload;
     try {
         const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
+        console.log('response', response)
         const { data } = response;
 
         const mappedData = mapTagStructureToObject(data);
@@ -67,7 +66,7 @@ function* fetchHtmlTagInfo(action) {
             }
         }
     } catch (error) {
-        yield put(fetchHtmlTagInfoAsync.failure(error));
+        yield put(fetchHtmlTagInfoAsync.failure({ elementName: htmlTag, error }));
         yield put(toggleHtmlTagInfoLoadingAC(false));
     }
 }

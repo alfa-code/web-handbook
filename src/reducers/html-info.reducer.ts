@@ -22,6 +22,16 @@ const initialState: InitialState = {
 }
 
 export const htmlInfoReducer = createReducer(initialState)
+    .handleAction(fetchHtmlTagInfoAsync.failure, (state, action) => {
+        const { payload: { elementName, error } } = action;
+        return {
+            ...state,
+            list: {
+                ...state.list,
+                [elementName]: null // null говорит о том что информация загружалась но не была найдена
+            }
+        }
+    })
     .handleAction(fetchHtmlTagInfoAsync.success, (state, action) => {
         const { payload } = action;
         return {

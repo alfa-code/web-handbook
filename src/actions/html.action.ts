@@ -14,7 +14,7 @@ export const fetchHtmlTagInfoAsync = createAsyncAction(
     'FETCH_HTML_TAG_INFO_SUCCESS',
     'FETCH_HTML_TAG_INFO_ERROR',
     'FETCH_HTML_TAG_INFO_CANCEL',
-)<string, HtmlTagResponce, Error, string>();
+)<string, HtmlTagResponce, { elementName: string, error: Error }, string>();
 
 export const fetchFullHtmlElementDescriptionAsync = createAsyncAction(
     'FETCH_FULL_HTML_ELEMENT_DESCRIPTION_REQUEST',

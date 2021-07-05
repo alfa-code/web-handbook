@@ -54,8 +54,6 @@ class Component extends PureComponent<Props> {
             }
         } = this.props.htmlAttributeInfo;
 
-        console.log('values', values)
-
         const mappedValues = values.map(({ name, meaning }) => [name, meaning])
 
         return (
@@ -127,8 +125,6 @@ class Component extends PureComponent<Props> {
                     values
                 }
             } = htmlAttributeInfo;
-
-            console.log('htmlAttributeInfo:', htmlAttributeInfo)
 
             return (
                 <div className="page">
