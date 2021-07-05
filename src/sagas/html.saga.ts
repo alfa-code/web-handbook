@@ -4,7 +4,6 @@ import axios, { AxiosResponse } from 'axios';
 import { HtmlTagResponce } from 'Types/index';
 
 import {
-    toggleHtmlTagInfoLoadingAC,
     fetchHtmlTagInfoAsync,
     fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
@@ -46,8 +45,6 @@ function fetchHtml(htmlTag: string) {
 }
 
 function* fetchHtmlTagInfo(action) {
-    yield put(toggleHtmlTagInfoLoadingAC(true));
-
     const htmlTag = action.payload;
     try {
         const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
@@ -58,7 +55,6 @@ function* fetchHtmlTagInfo(action) {
         // Загружаем доп инфу по тегу если это необходимо
         if (mappedData) {
             yield put(fetchHtmlTagInfoAsync.success(mappedData));
-            yield put(toggleHtmlTagInfoLoadingAC(false));
 
             if (mappedData.fullDescription) {
                 yield put(fetchFullHtmlElementDescriptionAsync.request(mappedData.tagName))
@@ -66,11 +62,9 @@ function* fetchHtmlTagInfo(action) {
         }
     } catch (error) {
         yield put(fetchHtmlTagInfoAsync.failure({ elementName: htmlTag, error }));
-        yield put(toggleHtmlTagInfoLoadingAC(false));
     }
 }
 
 export function* htmlSaga() {
-    // yield takeLatest(HTML_ACTION_TYPES.FETCH_HTML_TAG_INFO, fetchHtmlTagInfo);
     yield takeLatest(fetchHtmlTagInfoAsync.request, fetchHtmlTagInfo);
 }

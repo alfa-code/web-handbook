@@ -1,11 +1,9 @@
 import { createReducer } from 'typesafe-actions';
 
 import {
-    HTML_ACTION_TYPES,
     fetchHtmlTagInfoAsync,
     fetchFullHtmlElementDescriptionAsync,
 } from 'Actions/index';
-
 
 type InitialState = {
     isLoading: boolean;
@@ -22,10 +20,17 @@ const initialState: InitialState = {
 }
 
 export const htmlInfoReducer = createReducer(initialState)
+    .handleAction(fetchHtmlTagInfoAsync.request, (state, action) => {
+        return {
+            ...state,
+            isLoading: true
+        }
+    })
     .handleAction(fetchHtmlTagInfoAsync.failure, (state, action) => {
         const { payload: { elementName, error } } = action;
         return {
             ...state,
+            isLoading: false,
             list: {
                 ...state.list,
                 [elementName]: null // null говорит о том что информация загружалась но не была найдена
@@ -36,6 +41,7 @@ export const htmlInfoReducer = createReducer(initialState)
         const { payload } = action;
         return {
             ...state,
+            isLoading: false,
             list: {
                 ...state.list,
                 [payload.tagName]: {
@@ -44,18 +50,12 @@ export const htmlInfoReducer = createReducer(initialState)
             }
         }
     })
-    .handleAction(HTML_ACTION_TYPES.TOGGLE_HTML_TAG_INFO_LOADING, (state, action) => {
-        const { loading } = action.payload;
-        return {
-            ...state,
-            isLoading: loading
-        }
-    }) // Загружаем доп инфу по тегу
     .handleAction(fetchFullHtmlElementDescriptionAsync.request, (state, action) => {
         const { payload: elementName } = action;
 
         return {
             ...state,
+            isLoading: true,
             list: {
                 ...state.list,
                 [elementName]: {
@@ -67,10 +67,17 @@ export const htmlInfoReducer = createReducer(initialState)
             }
         }
     })
+    .handleAction(fetchFullHtmlElementDescriptionAsync.failure, (state, action) => {
+        return {
+            ...state,
+            isLoading: false,
+        }
+    })
     .handleAction(fetchFullHtmlElementDescriptionAsync.success, (state, action) => {
         const { elementName, data } = action.payload;
         return {
             ...state,
+            isLoading: false,
             list: {
                 ...state.list,
                 [elementName]: {
