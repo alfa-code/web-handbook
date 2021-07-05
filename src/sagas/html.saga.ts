@@ -40,7 +40,7 @@ function mapTagStructureToObject(data: HtmlTagResponce) {
 function fetchHtml(htmlTag: string) {
     return axios({
         method: 'get',
-        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json?`
+        url: `https://raw.githubusercontent.com/${repo}/${branch}/materials/html/tags/${htmlTag}/main.json`
     });
 }
 
