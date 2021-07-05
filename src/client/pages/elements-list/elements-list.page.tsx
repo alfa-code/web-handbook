@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import { connect } from 'react-redux';
 
-// import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
+import { BreadcrumbsContainer } from 'Containers/breadcrumbs-container';
 
 import { PageTop, DirectoryList } from "Blocks/index";
 
@@ -39,7 +39,7 @@ class ElementsList extends PureComponent<Props> {
         return (
             <div className="page">
                 <div className="pageContent">
-                    {/* <BreadcrumbsContainer /> */}
+                    <BreadcrumbsContainer />
                     <PageTop
                         title={ 'HTML справочник' }
                         description={ 'Ознакомься с описанием HTML элементов' }

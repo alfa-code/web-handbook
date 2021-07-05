@@ -9,6 +9,8 @@
 }
 
 .breadcrumbsItem {
+    text-decoration: none;
+
     &:visited {
         color: $secondary;
     }
