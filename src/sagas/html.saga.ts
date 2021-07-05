@@ -51,7 +51,6 @@ function* fetchHtmlTagInfo(action) {
     const htmlTag = action.payload;
     try {
         const response: AxiosResponse<HtmlTagResponce> = yield call(fetchHtml, htmlTag);
-        console.log('response', response)
         const { data } = response;
 
         const mappedData = mapTagStructureToObject(data);

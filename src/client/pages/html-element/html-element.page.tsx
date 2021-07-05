@@ -39,7 +39,6 @@ export class Component extends React.PureComponent<Props> {
 
     componentDidUpdate = () => {
         const { tagInfo } = this.props;
-        console.log('tagInfo', tagInfo)
 
         // Проверка на null излишняя, но я хочу показать следующее:
         // - Если undefined - значит тег не загружался - стоит повторно вызвать загрузку данных тега
