@@ -5,6 +5,8 @@ import { App } from 'Src/client/app/app';
 import AppHtml from 'Components/app-html';
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 
+import { extractor } from './utils/сhunkExtractor';
+
 import fs from 'fs';
 
 // Рендерим JSX в HTML (строку)
@@ -52,8 +54,13 @@ export async function getContent(request: any) {
     // @ts-ignore
     const initialState = JSON.parse(rawData);
 
+    // @ts-ignore
+    global.__PRELOADED_STATE__ = initialState;
+
+    // console.log('initialState', initialState);
+
     try {
-        const stringContent = renderToString(
+        const jsx = extractor.collectChunks(
             <AppHtml
                 jsFiles={assets.js}
                 cssFiles={assets.css}
@@ -64,10 +71,13 @@ export async function getContent(request: any) {
                         pathname: request.url.pathname,
                         hash: request.url.pathname
                     }}
-                    context={context}
+                    context={ context }
+                    initialState={ initialState }
                 />
             </AppHtml>,
         );
+
+        const stringContent = renderToString(jsx);
 
         return stringContent;
     } catch (e) {

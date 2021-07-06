@@ -10,17 +10,21 @@ const AttributesListPage = loadable(() => import('Pages/attribute/attribute.page
     fallback: <Loading />,
 });
 
-const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'), {
-    fallback: <Loading />,
-});
+const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'));
+
+// const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'), {
+//     fallback: <Loading />,
+// });
 
 const AttributeInfoPage = loadable(() => import('Pages/attribute-info'), {
     fallback: <Loading />,
 });
 
-const HtmlElementPage = loadable(() => import('Pages/html-element'), {
-    fallback: <Loading />,
-});
+// const HtmlElementPage = loadable(() => import('Pages/html-element'), {
+//     fallback: <Loading />,
+// });
+
+const HtmlElementPage = loadable(() => import('Pages/html-element'));
 
 
 export class LoadablePage extends PureComponent<Props> {

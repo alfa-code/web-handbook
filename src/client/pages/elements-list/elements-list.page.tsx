@@ -45,7 +45,7 @@ class ElementsList extends PureComponent<Props> {
                         description={ 'Ознакомься с описанием HTML элементов' }
                         img={ htmlDirectoryImage }
                     />
-                    {lists.map((list, i) => {
+                    { lists.map((list, i) => {
                         const { items } = list;
                         const mappedItems = mapHtmlTagsListByAlphabet(items);
 
@@ -56,7 +56,7 @@ class ElementsList extends PureComponent<Props> {
                                 currentPath={ url }
                             />
                         );
-                    })}
+                    }) }
                 </div>
             </div>
         );
@@ -64,6 +64,7 @@ class ElementsList extends PureComponent<Props> {
 }
 
 const mapStateToProps = (state) => {
+    console.log('state 123', state)
     return {
         htmlTags: selectHtmlTagsList(state)
     }

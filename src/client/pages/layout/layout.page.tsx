@@ -51,11 +51,11 @@ export const Layout = () => {
                         )}
                     />
 
-                    <Route
+                    {/* <Route
                         exact
                         path='/html-list/recipes'
                         component={ () => <Recipes themes={ CONSTANTS.themes }  type="html" /> }
-                    />
+                    /> */}
                     <Route
                         exact
                         path='/html-list/:htmlTag'
