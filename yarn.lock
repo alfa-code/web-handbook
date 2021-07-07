@@ -23,11 +23,12 @@
     stylelint-config-primer "^9.3.0"
     typescript-eslint "^0.0.1-alpha.0"
 
-"@alfa-code/alfa-code-scripts@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.9.tgz#da47dc9b9312b876acfb6b2161a1ec2badee33d3"
-  integrity sha512-0KSxgZPowWndKoMozXQ1+yiowLcSKNF4zpmsN4FmSCusoWibtMlNKklkKfVipqFgXNiee3obQl45nGCnjOrlxA==
+"@alfa-code/alfa-code-scripts@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@alfa-code/alfa-code-scripts/-/alfa-code-scripts-1.0.10.tgz#0a70f2f5ab319b1d6a741b3f2b28c01480c2e0ea"
+  integrity sha512-lh14NEQuHWcm3XzncxSc7ZIBi2d2QP+LXU4LCXOp3lMxxX9/Kbzsab5TCUfjylJ+0QZmA7mjio38yp6NWAfciA==
   dependencies:
+    "@loadable/webpack-plugin" "^5.15.0"
     "@types/yargs" "^17.0.0"
     assets-webpack-plugin "^7.1.0"
     chalk "^4.1.1"
@@ -47,6 +48,7 @@
     ts-jest "^27.0.3"
     ts-loader "^9.2.3"
     typescript "^4.3.4"
+    typescript-loadable-components-plugin "^1.0.2"
     uglifyjs-webpack-plugin "^2.2.0"
     webpack "^5.40.0"
     webpack-build-notifier "^2.3.0"
@@ -1255,6 +1257,13 @@
   integrity sha512-1WaKLO+fS2fx9eCzj85zq6DeGtwY9YKKJ2nF7KFcmUXh4IaolcC5lalKKb2DQuE4ucu6gIINjhVU+EBFFlZN9g==
   dependencies:
     lodash "^4.17.15"
+
+"@loadable/webpack-plugin@^5.15.0":
+  version "5.15.0"
+  resolved "https://registry.yarnpkg.com/@loadable/webpack-plugin/-/webpack-plugin-5.15.0.tgz#2e8cb749faef79d958cb72761dbda6f3c25c6ff1"
+  integrity sha512-6eKaEqjGiMuMiazzVopbyMHrUflUkTOd29nUHaUmmbdo6FTGo+VqdBZ4Y1dvkEaa/b6NjkPTKbLdVmZvHVx2jg==
+  dependencies:
+    make-dir "^3.0.2"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -6692,7 +6701,7 @@ make-dir@^2.0.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
-make-dir@^3.0.0:
+make-dir@^3.0.0, make-dir@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
@@ -10003,7 +10012,7 @@ tslib@^1.10.0, tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.0.3:
+tslib@^2.0.3, tslib@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
@@ -10100,6 +10109,14 @@ typescript-eslint@^0.0.1-alpha.0:
   resolved "https://registry.yarnpkg.com/typescript-eslint/-/typescript-eslint-0.0.1-alpha.0.tgz#285d68a4e96588295cd436278801bcb6a6b916c1"
   integrity sha512-1hNKM37dAWML/2ltRXupOq2uqcdRQyDFphl+341NTPXFLLLiDhErXx8VtaSLh3xP7SyHZdcCgpt9boYYVb3fQg==
 
+typescript-loadable-components-plugin@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/typescript-loadable-components-plugin/-/typescript-loadable-components-plugin-1.0.2.tgz#6c0fd6e9f0976ba832dec2530be1c40b8340df3c"
+  integrity sha512-YdqC8syK0hV26fI1+3MT+TaxB6fsQKfE0IM8D4UUobGOK6WhdSXj4oNyAk8WuYXtw84mo0xqFEYOQ6AgA31WMA==
+  dependencies:
+    tslib "^2.1.0"
+    typescript "^4.2.3"
+
 typescript-logic@^0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/typescript-logic/-/typescript-logic-0.0.0.tgz#66ebd82a2548f2b444a43667bec120b496890196"
@@ -10111,6 +10128,11 @@ typescript-tuple@^2.2.1:
   integrity sha512-Zcr0lbt8z5ZdEzERHAMAniTiIKerFCMgd7yjq1fPnDJ43et/k9twIFQMUYff9k5oXcsQ0WpvFcgzK2ZKASoW6Q==
   dependencies:
     typescript-compare "^0.0.2"
+
+typescript@^4.2.3:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 typescript@^4.3.4:
   version "4.3.4"

@@ -97,12 +97,6 @@ type Props = {
 }
 
 export class App extends React.Component<Props> {
-    getMainContent() {
-        return (
-            <Layout />
-        );
-    }
-
     /**
      * В проекте используется серверный рендеринг. Для серверного роутинга должен использоваться StaticRouter.
      * В случае рендера в браузере используется ConnectedRouter (Роутинг подключен к redux store).
@@ -128,8 +122,8 @@ export class App extends React.Component<Props> {
                 composeEnhancers(middleware)
             );
             // @ts-ignore
-            console.log('initialState', initialState);
-            console.log('store.getState', store.getState());
+            // console.log('initialState', initialState);
+            // console.log('store.getState', store.getState());
             return (
                 <Provider store={ store }>
                     <StaticRouter location={ location } context={ context }>
@@ -148,7 +142,6 @@ export class App extends React.Component<Props> {
                 <Provider store={ store }>
                     <ConnectedRouter history={ history }>
                         <Layout />
-                        {/* <ToastContainer /> */}
                     </ConnectedRouter>
                 </Provider>
             )
