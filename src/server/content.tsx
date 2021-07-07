@@ -5,7 +5,9 @@ import { App } from 'Src/client/app/app';
 import AppHtml from 'Components/app-html';
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 
-import fs from 'fs';
+// import fs from 'fs';
+
+import { initialState } from './initStore';
 
 // Рендерим JSX в HTML (строку)
 export async function getContent(request: any) {
@@ -48,9 +50,11 @@ export async function getContent(request: any) {
     //     },
     // }
 
-    const rawData = fs.readFileSync('./initialState.json');
+    // const rawData = fs.readFileSync('./initialState.json');
     // @ts-ignore
-    const initialState = JSON.parse(rawData);
+    // const initialState = JSON.parse(rawData);
+
+    // const initialState = 
 
     try {
         const stringContent = renderToString(
