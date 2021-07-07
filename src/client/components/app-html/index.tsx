@@ -91,7 +91,7 @@ export default class AppHtml extends React.PureComponent<Props> {
                 <body>
                     <YandexMetrica />
                     <div id="react-app">
-                        {children}
+                        { children }
                     </div>
                     <script dangerouslySetInnerHTML={{ __html: this.getStoreScriptMarkup() }} />
                     {

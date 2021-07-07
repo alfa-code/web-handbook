@@ -64,7 +64,8 @@ export async function getContent(request: any) {
                         pathname: request.url.pathname,
                         hash: request.url.pathname
                     }}
-                    context={context}
+                    context={ context }
+                    initialReduxState={ initialState }
                 />
             </AppHtml>,
         );

@@ -1,26 +1,31 @@
 import React, { PureComponent } from 'react';
 
-import loadable from '@loadable/component';
+// import loadable from '@loadable/component';
 
-import { Loading } from 'Components/loading';
+// import { Loading } from 'Components/loading';
 
 import { Props } from './props';
 
-const AttributesListPage = loadable(() => import('Pages/attribute/attribute.page'), {
-    fallback: <Loading />,
-});
+// const AttributesListPage = loadable(() => import('Pages/attribute/attribute.page'), {
+//     fallback: <Loading />,
+// });
 
-const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'), {
-    fallback: <Loading />,
-});
+// const ElementsListPage = loadable(() => import('Pages/elements-list/elements-list.page'), {
+//     fallback: <Loading />,
+// });
 
-const AttributeInfoPage = loadable(() => import('Pages/attribute-info'), {
-    fallback: <Loading />,
-});
+// const AttributeInfoPage = loadable(() => import('Pages/attribute-info/attribute-info.page'), {
+//     fallback: <Loading />,
+// });
 
-const HtmlElementPage = loadable(() => import('Pages/html-element'), {
-    fallback: <Loading />,
-});
+// const HtmlElementPage = loadable(() => import('Pages/html-element/html-element.page'), {
+//     fallback: <Loading />,
+// });
+
+import AttributesListPage from 'Pages/attribute/attribute.page';
+import ElementsListPage from 'Pages/elements-list/elements-list.page';
+import AttributeInfoPage from 'Pages/attribute-info/attribute-info.page';
+import HtmlElementPage from 'Pages/html-element/html-element.page';
 
 
 export class LoadablePage extends PureComponent<Props> {
