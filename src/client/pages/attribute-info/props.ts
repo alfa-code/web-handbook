@@ -6,9 +6,7 @@ import {
     selectHtmlAttributeInfo,
 } from 'Selectors/index';
 
-type OwnProps = {
-
-}
+type OwnProps = any
 
 type MapStateToProps = {
     isHtmlAttributeInfoLoading: ReturnType<typeof selectIsHtmlAttributeInfoLoading>;
