@@ -3,7 +3,7 @@ import { Switch, Route, StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { createBrowserHistory, createMemoryHistory } from 'history';
@@ -34,11 +34,17 @@ declare global {
 }
 
 let initialState;
-try {
-    initialState = window.__PRELOADED_STATE__
-} catch {
-    initialState = {}
+if (typeof window !== 'undefined') {
+    // @ts-ignore
+    initialState = window.__PRELOADED_STATE__ || {};
+} else if (typeof global !== 'undefined') {
+    // @ts-ignore
+    initialState = global.__PRELOADED_STATE__ || {};
+} else {
+    initialState = {};
 }
+
+// console.log('initialState  222222222222', initialState); 
 
 let history;
 if (typeof window !== 'undefined') {
@@ -87,36 +93,55 @@ sagaMiddleware.run(rootSaga);
 type Props = {
     location?: any;
     context?: any;
+    initialState?: any;
 }
 
 export class App extends React.Component<Props> {
-    getMainContent() {
-        return (
-            <Layout />
-        );
-    }
-
     /**
      * В проекте используется серверный рендеринг. Для серверного роутинга должен использоваться StaticRouter.
      * В случае рендера в браузере используется ConnectedRouter (Роутинг подключен к redux store).
      */
     render(): any {
-        const { location, context } = this.props;
+        // console.log('store store 222 getState', store.getState())
+        // @ts-ignore
+        //console.log('global?.__PRELOADED_STATE__', global?.__PRELOADED_STATE__);
+        const { location, context, initialState } = this.props;
+
+        const store = createStore(
+            rootReducer,
+            // @ts-ignore
+            global?.__PRELOADED_STATE_,
+            composeEnhancers(middleware)
+        );
 
         if (typeof window === 'undefined') {
+            const store = createStore(
+                rootReducer,
+                // @ts-ignore
+                initialState,
+                composeEnhancers(middleware)
+            );
+            // @ts-ignore
+            // console.log('initialState', initialState);
+            // console.log('store.getState', store.getState());
             return (
                 <Provider store={ store }>
                     <StaticRouter location={ location } context={ context }>
-                        { this.getMainContent() }
+                        <Layout />
                     </StaticRouter>
                 </Provider>
             )
         } else {
+            const store = createStore(
+                rootReducer,
+                // @ts-ignore
+                window.__PRELOADED_STATE__,
+                composeEnhancers(middleware)
+            );
             return (
                 <Provider store={ store }>
                     <ConnectedRouter history={ history }>
-                        { this.getMainContent() }
-                        <ToastContainer />
+                        <Layout />
                     </ConnectedRouter>
                 </Provider>
             )

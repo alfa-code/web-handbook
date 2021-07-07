@@ -8,6 +8,7 @@ type Props = {
     jsFiles: string[];
     cssFiles: string[];
     initialReduxState: any;
+    scripts?: any;
 }
 
 /**
@@ -25,13 +26,14 @@ export default class AppHtml extends React.PureComponent<Props> {
         const {
             children,
             jsFiles = [],
-            cssFiles = []
+            cssFiles = [],
+            scripts
         } = this.props;
 
         return (
             <html lang="ru">
                 <head>
-                    <title>
+                    {/* <title>
                     Web Handbook - Cправочник по html, css и другим веб технологиям.
                     </title>
                     <meta name="yandex-verification" content="804113b97f5f6426" />
@@ -42,10 +44,10 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <meta httpEquiv="Cache-Control" content="no-store" />
                     <meta httpEquiv="Pragma" content="no-cache" />
                     <meta httpEquiv="Expires" content="0" />
-                    <meta content="width=device-width, initial-scale=1" name="viewport" />
+                    <meta content="width=device-width, initial-scale=1" name="viewport" /> */}
 
 
-                    <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-touch-icon-57x57.png"/>
+                    {/* <link rel="apple-touch-icon" sizes="57x57" href="/static/favicons/apple-touch-icon-57x57.png"/>
                     <link rel="apple-touch-icon" sizes="60x60" href="/static/favicons/apple-touch-icon-60x60.png"/>
                     <link rel="apple-touch-icon" sizes="72x72" href="/static/favicons/apple-touch-icon-72x72.png"/>
                     <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon-76x76.png"/>
@@ -55,7 +57,7 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <link rel="apple-touch-icon" sizes="152x152" href="/static/favicons/apple-touch-icon-152x152.png"/>
                     <link rel="apple-touch-icon" sizes="167x167" href="/static/favicons/apple-touch-icon-167x167.png"/>
                     <link rel="apple-touch-icon" sizes="180x180" href="/static/favicons/apple-touch-icon-180x180.png"/>
-                    <link rel="apple-touch-icon" sizes="1024x1024" href="/static/favicons/apple-touch-icon-1024x1024.png"/>
+                    <link rel="apple-touch-icon" sizes="1024x1024" href="/static/favicons/apple-touch-icon-1024x1024.png"/> */}
                     {/* <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="static/favicons/apple-touch-startup-image-320x460.png"/>
                     <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="static/favicons/apple-touch-startup-image-640x920.png"/>
                     <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="static/favicons/apple-touch-startup-image-640x1096.png"/>
@@ -66,7 +68,7 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="static/favicons/apple-touch-startup-image-1496x2048.png"/>
                     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="static/favicons/apple-touch-startup-image-768x1004.png"/>
                     <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="static/favicons/apple-touch-startup-image-1536x2008.png"/> */}
-                    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png"/>
+                    {/* <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png"/>
                     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png"/>
                     <link rel="icon" type="image/png" sizes="228x228" href="/static/favicons/coast-228x228.png"/>
                     <link rel="manifest" href="/static/favicons/manifest.json"/>
@@ -80,25 +82,30 @@ export default class AppHtml extends React.PureComponent<Props> {
                     <meta name="msapplication-TileColor" content="#fff"/>
                     <meta name="msapplication-TileImage" content="/static/favicons/mstile-144x144.png"/>
                     <meta name="msapplication-config" content="/static/favicons/browserconfig.xml"/>
-                    <meta name="theme-color" content="#fff"/>
+                    <meta name="theme-color" content="#fff"/> */}
 
-                    {
+                    {/* {
                         cssFiles.map(
                             (link) => <link rel='stylesheet' type='text/css' href={`${link}`} key={link} />
                         )
-                    }
+                    } */}
                 </head>
                 <body>
-                    <YandexMetrica />
+                    {/* <YandexMetrica /> */}
                     <div id="react-app">
-                        {children}
+                        { children }
                     </div>
-                    <script dangerouslySetInnerHTML={{ __html: this.getStoreScriptMarkup() }} />
-                    {
+                    {/* <script dangerouslySetInnerHTML={{ __html: this.getStoreScriptMarkup() }} /> */}
+                    {/* {
                         jsFiles.map(
-                            (link) => <script type="text/javascript" defer src={`${link}`} key={link} />,
+                            (link) => <script type="text/javascript" async src={`${link}`} key={link} />,
                         )
-                    }
+                    } */}
+                    <div dangerouslySetInnerHTML={{ __html: scripts }} />
+
+                    {/* { scripts } */}
+
+                    {/* <div dangerouslySetInnerHTML={{ __html: "<script id=\"__LOADABLE_REQUIRED_CHUNKS__\" type=\"application/json\">[\"Components-test-test-component\"]</script><script id=\"__LOADABLE_REQUIRED_CHUNKS___ext\" type=\"application/json\">{\"namedChunks\":[\"Components-test-test-component.app\"]}</script><script async data-chunk=\"app\" src=\"/static/app.js\"></script><script async data-chunk=\"Components-test-test-component\" src=\"/static/Components-test-test-component.app.js\"></script>" }} /> */}
                 </body>
             </html>
         );

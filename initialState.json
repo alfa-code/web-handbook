@@ -1,0 +1,1440 @@
+{
+    "app": {
+        "settings": {
+            "features": {
+                "htmlRules": false,
+                "cssRules": false
+            }
+        }
+    },
+    "data": {
+        "htmlTagsList": {
+            "list": [
+                {
+                    "name": "a"
+                },
+                {
+                    "name": "abbr"
+                },
+                {
+                    "name": "acronym",
+                    "obsolete": true
+                },
+                {
+                    "name": "address"
+                },
+                {
+                    "name": "applet",
+                    "obsolete": true
+                },
+                {
+                    "name": "area"
+                },
+                {
+                    "name": "article"
+                },
+                {
+                    "name": "aside"
+                },
+                {
+                    "name": "audio"
+                },
+                {
+                    "name": "b"
+                },
+                {
+                    "name": "base"
+                },
+                {
+                    "name": "basefont",
+                    "obsolete": true
+                },
+                {
+                    "name": "bdi"
+                },
+                {
+                    "name": "bdo"
+                },
+                {
+                    "name": "big",
+                    "obsolete": true
+                },
+                {
+                    "name": "blink",
+                    "obsolete": true
+                },
+                {
+                    "name": "blockquote"
+                },
+                {
+                    "name": "body"
+                },
+                {
+                    "name": "br"
+                },
+                {
+                    "name": "button"
+                },
+                {
+                    "name": "canvas"
+                },
+                {
+                    "name": "caption"
+                },
+                {
+                    "name": "center",
+                    "obsolete": true
+                },
+                {
+                    "name": "cite"
+                },
+                {
+                    "name": "code"
+                },
+                {
+                    "name": "col"
+                },
+                {
+                    "name": "colgroup"
+                },
+                {
+                    "name": "comment"
+                },
+                {
+                    "name": "data"
+                },
+                {
+                    "name": "datalist"
+                },
+                {
+                    "name": "dd"
+                },
+                {
+                    "name": "del"
+                },
+                {
+                    "name": "details"
+                },
+                {
+                    "name": "dfn"
+                },
+                {
+                    "name": "dialog"
+                },
+                {
+                    "name": "dir",
+                    "obsolete": true
+                },
+                {
+                    "name": "div"
+                },
+                {
+                    "name": "dl"
+                },
+                {
+                    "name": "dt"
+                },
+                {
+                    "name": "em"
+                },
+                {
+                    "name": "embed"
+                },
+                {
+                    "name": "fieldset"
+                },
+                {
+                    "name": "figcaption"
+                },
+                {
+                    "name": "figure"
+                },
+                {
+                    "name": "font",
+                    "obsolete": true
+                },
+                {
+                    "name": "footer"
+                },
+                {
+                    "name": "form"
+                },
+                {
+                    "name": "frame",
+                    "obsolete": true
+                },
+                {
+                    "name": "frameset",
+                    "obsolete": true
+                },
+                {
+                    "name": "h1"
+                },
+                {
+                    "name": "h2"
+                },
+                {
+                    "name": "h3"
+                },
+                {
+                    "name": "h4"
+                },
+                {
+                    "name": "h5"
+                },
+                {
+                    "name": "h6"
+                },
+                {
+                    "name": "head"
+                },
+                {
+                    "name": "header"
+                },
+                {
+                    "name": "hr"
+                },
+                {
+                    "name": "html"
+                },
+                {
+                    "name": "i"
+                },
+                {
+                    "name": "iframe"
+                },
+                {
+                    "name": "img"
+                },
+                {
+                    "name": "input"
+                },
+                {
+                    "name": "ins"
+                },
+                {
+                    "name": "kbd"
+                },
+                {
+                    "name": "keygen",
+                    "obsolete": true
+                },
+                {
+                    "name": "label"
+                },
+                {
+                    "name": "legend"
+                },
+                {
+                    "name": "li"
+                },
+                {
+                    "name": "link"
+                },
+                {
+                    "name": "main"
+                },
+                {
+                    "name": "map"
+                },
+                {
+                    "name": "mark"
+                },
+                {
+                    "name": "menu"
+                },
+                {
+                    "name": "menuitem",
+                    "obsolete": true
+                },
+                {
+                    "name": "meta"
+                },
+                {
+                    "name": "meter"
+                },
+                {
+                    "name": "nav"
+                },
+                {
+                    "name": "noframes",
+                    "obsolete": true
+                },
+                {
+                    "name": "noscript"
+                },
+                {
+                    "name": "object"
+                },
+                {
+                    "name": "ol"
+                },
+                {
+                    "name": "optgroup"
+                },
+                {
+                    "name": "option"
+                },
+                {
+                    "name": "output"
+                },
+                {
+                    "name": "p"
+                },
+                {
+                    "name": "param"
+                },
+                {
+                    "name": "pre"
+                },
+                {
+                    "name": "progress"
+                },
+                {
+                    "name": "q"
+                },
+                {
+                    "name": "rp"
+                },
+                {
+                    "name": "rt"
+                },
+                {
+                    "name": "ruby"
+                },
+                {
+                    "name": "s"
+                },
+                {
+                    "name": "samp"
+                },
+                {
+                    "name": "script"
+                },
+                {
+                    "name": "section"
+                },
+                {
+                    "name": "select"
+                },
+                {
+                    "name": "small"
+                },
+                {
+                    "name": "source"
+                },
+                {
+                    "name": "span"
+                },
+                {
+                    "name": "strike",
+                    "obsolete": true
+                },
+                {
+                    "name": "strong"
+                },
+                {
+                    "name": "style"
+                },
+                {
+                    "name": "sub"
+                },
+                {
+                    "name": "summary"
+                },
+                {
+                    "name": "sup"
+                },
+                {
+                    "name": "table"
+                },
+                {
+                    "name": "tbody"
+                },
+                {
+                    "name": "td"
+                },
+                {
+                    "name": "tfoot"
+                },
+                {
+                    "name": "th"
+                },
+                {
+                    "name": "thead"
+                },
+                {
+                    "name": "time"
+                },
+                {
+                    "name": "title"
+                },
+                {
+                    "name": "tr"
+                },
+                {
+                    "name": "track"
+                },
+                {
+                    "name": "tt",
+                    "obsolete": true
+                },
+                {
+                    "name": "u"
+                },
+                {
+                    "name": "ul"
+                },
+                {
+                    "name": "var"
+                },
+                {
+                    "name": "video"
+                },
+                {
+                    "name": "wbr"
+                }
+            ]
+        },
+        "htmlTagsInfo": {
+            "isLoading": false,
+            "list": {
+                "basefont": null,
+                "blink": null,
+                "audio": {
+                    "tagName": "audio",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "embedded content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент представляет звук или аудиопоток."
+                    ],
+                    "content_model": [
+                        "Если элемент имеет атрибут `src`: ноль или более элементов <Link to='/html-list/track'>track</Link>, то прозрачный (`transparent`), но без потомков медиа-элементов (`media element`).",
+                        "Если элемент не имеет атрибута `src`: ноль или более элементов `source`, то ноль или более <Link to=\"/html-list/track\">track</Link> элементов, то прозрачный (`transparent`), но без потомков медиа-элементов (`media element`)."
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "src",
+                                "description": "Адрес ресурса"
+                            },
+                            {
+                                "name": "crossorigin",
+                                "description": "Как элемент обрабатывает запросы перекрестного происхождения (crossorigin requests)"
+                            },
+                            {
+                                "name": "preload",
+                                "description": "Необходимо ли предзагрузжать медиа при старте страницы"
+                            },
+                            {
+                                "name": "autoplay",
+                                "description": "Стоит ли начать воспроизведение сразу после загрузки медиа"
+                            },
+                            {
+                                "name": "loop",
+                                "description": "Нузно ли зациклить воспроизведение"
+                            },
+                            {
+                                "name": "muted",
+                                "description": "Заглушен ли меадиаресурс по умолчанию"
+                            },
+                            {
+                                "name": "controls",
+                                "description": "Отображает элементы управления"
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "acronym": {
+                    "tagName": "acronym",
+                    "description": [
+                        "Элемент acronym служит для выделения в тексте акронима. Данный элемент устарел, используйте элемент <Link to=\"/html-list/abbr\">abbr</Link>"
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false,
+                    "obsolete": true
+                },
+                "abbr": {
+                    "tagName": "abbr",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент abbr представляет собой аббревиатуру или акроним, необязательно с его расшифровкой.",
+                        "Атрибут title может использоваться для расширения аббревиатуры. Атрибут, если он указан, должен содержать расшифровку аббревиатуры и ничего больше."
+                    ],
+                    "content_model": "---",
+                    "fullDescription": true,
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "title",
+                                "description": "Глобальный атрибут title имеет особую семантику"
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "area": {
+                    "tagName": "area",
+                    "categories": [
+                        "slow content",
+                        "phrasing content"
+                    ],
+                    "tag_omission": [
+                        "Закрывающий тег отсутствует."
+                    ],
+                    "description": [
+                        "Элемент 'area' представляет собой либо гиперссылку с некоторым текстом и соответствующей областью на карте изображения (image map), либо мертвую область на карте изображения (image map).",
+                        "Элемент 'area' должен иметь предка элемент 'map'."
+                    ],
+                    "content_model": "Отсутствует",
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "alt",
+                                "description": "Заменяющий текст для использования, когда изображения недоступны."
+                            },
+                            {
+                                "name": "coords",
+                                "description": "Координаты формы, которая будет создана на карте изображения."
+                            },
+                            {
+                                "name": "shape",
+                                "description": "Тип формы, создаваемой на карте изображения."
+                            },
+                            {
+                                "name": "href",
+                                "description": "Адрес гиперссылки"
+                            },
+                            {
+                                "name": "target",
+                                "description": "Контекст просмотра для навигации по гиперссылкам"
+                            },
+                            {
+                                "name": "download",
+                                "description": "Следует ли загружать ресурс вместо перехода к нему, и имя самого загружаемого файла."
+                            },
+                            {
+                                "name": "ping",
+                                "description": "URL-адреса для пинга."
+                            },
+                            {
+                                "name": "rel",
+                                "description": "Связь между местом в документе, содержащем гиперссылку, и целевым ресурсом."
+                            },
+                            {
+                                "name": "referrerpolicy",
+                                "description": "Политика реферера для выборок, инициированных элементо."
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "bdi": {
+                    "tagName": "bdi",
+                    "categories": [
+                        "flow content.",
+                        "phrasing content.",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент bdi представляет собой отрезок текста, который отделен от остального текста с целью двунаправленного форматирования текста."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "aside": {
+                    "tagName": "aside",
+                    "categories": [
+                        "flow content",
+                        "sectioning content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент aside представляет собой раздел страницы, состоящий из контента, который косвенно связан с контентом вокруг элемента aside, также его можно рассматривать как отдельный от контента.",
+                        "Такие разделы часто представлены в виде боковых панелей."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "flow content.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "applet": {
+                    "tagName": "applet",
+                    "description": [
+                        "Элемент applet служит для вставки специальных прогламм написанных на языке Java. Данный элемент устарел и не поддерживается современными браузерами."
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false,
+                    "obsolete": true
+                },
+                "blockquote": {
+                    "tagName": "blockquote",
+                    "categories": [
+                        "flow content.",
+                        "sectioning root.",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент blockquote представляет собой текст, цитируемый из другого источника."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "flow content.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "a": {
+                    "tagName": "a",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content",
+                        "interactive content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Если элемент <LE>a</LE> имеет атрибут <LA>href</LA>, он представляет собой гиперссылку, представленную ее содержимым.",
+                        "Это основной элемент html страницы, служит для связки страниц в единую сеть",
+                        "Если элемент <LE>a</LE> не имеет атрибута <LA>href</LA>, тогда элемент представляет собой заглушку, где в противном случае могла бы быть размещена ссылка, состоящая только из содержимого элемента.",
+                        "Атрибуты <LA>target</LA>, <LA>download</LA>, <LA>ping</LA>, <LA>rel</LA>, <LA>hreflang</LA>, <LA>type</LA> и <LA>referrerpolicy</LA> должны быть опущены, если атрибут <LA>href</LA> отсутствует."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "---",
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "href",
+                                "description": "Адрес гиперссылки"
+                            },
+                            {
+                                "name": "target",
+                                "description": "Контекст в котором будет происходить навигация по гиперссылкам"
+                            },
+                            {
+                                "name": "download",
+                                "description": "Стоит ли загрузить ресурс по ссылке и название файла если будет выполнена загрузка"
+                            },
+                            {
+                                "name": "ping",
+                                "description": "URL-адреса для выполнения уведомлений о переходе по ссылке"
+                            },
+                            {
+                                "name": "rel",
+                                "description": "Связь между местом в документе, содержащем гиперссылку, и целевым ресурсом"
+                            },
+                            {
+                                "name": "hreflang",
+                                "description": "Язык связанного ресурса"
+                            },
+                            {
+                                "name": "type",
+                                "description": "Подсказка для типа ссылочного ресурса"
+                            },
+                            {
+                                "name": "referrerpolicy",
+                                "description": "Установка политики реферрера"
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "base": {
+                    "tagName": "base",
+                    "categories": [
+                        "metadata content"
+                    ],
+                    "tag_omission": [
+                        "Нет закрывающего тега."
+                    ],
+                    "description": [
+                        "base элемент позволяет авторам указывать базовый URL-адрес документа для анализа URL-адресов и имя контекста по умолчанию для следующих гиперссылок.",
+                        "Данный элемент не содержит больше ничего, кроме этой информации."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Контент отсутсвует",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "bdo": {
+                    "tagName": "bdo",
+                    "categories": [
+                        "flow content.",
+                        "phrasing content.",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент bdo представляет собой элемент управления форматированием направления текста для своих дочерних элементов.",
+                        "Это позволяет авторам переопределить двунаправленный алгоритм Unicode, верно указав переадресацию направления."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "b": {
+                    "tagName": "b",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>b</LE> представляет собой отрезок текста, на который обращено внимание в утилитарных целях, без передачи какой-либо дополнительной важности и без указания альтернативного голоса или настроения, например, ключевые слова в аннотации документа, названия продуктов в обзоре, слова, требующие действий. в интерактивном текстовом программном обеспечении или в статье."
+                    ],
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false,
+                    "fullDescription": true
+                },
+                "address": {
+                    "tagName": "address",
+                    "categories": [
+                        "flow content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>address</LE> показывает контактную информацию и находится вблизи элементов <LE>article</LE> или <LE>body</LE>.",
+                        "Если это основной элемент, то контактная информация применяется ко всему документу."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Базовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "button": null,
+                "body": {
+                    "tagName": "body",
+                    "categories": [
+                        "sectioning root"
+                    ],
+                    "tag_omission": [
+                        "Начальный тег элемента body может быть опущен, если элемент пустой или если первое, что внутри элемента body не является пробелом ASCII или комментарием, кроме случаев, когда первое, что внутри элемента body - это теги meta, link, script, style, или template",
+                        "Конечный тег элемента body может быть опущен, если за элементом body сразу не следует комментарий."
+                    ],
+                    "description": [
+                        "Элемент body представляет содержимое веб страницы (документ / document).",
+                        "В документе может быть только один элемент body"
+                    ],
+                    "content_model": "Контент потока.",
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "onafterprint",
+                                "description": ""
+                            },
+                            {
+                                "name": "onbeforeprint",
+                                "description": ""
+                            },
+                            {
+                                "name": "onbeforeunload",
+                                "description": ""
+                            },
+                            {
+                                "name": "onhashchange",
+                                "description": ""
+                            },
+                            {
+                                "name": "onlanguagechange",
+                                "description": ""
+                            },
+                            {
+                                "name": "onmessage",
+                                "description": ""
+                            },
+                            {
+                                "name": "onmessageerror",
+                                "description": ""
+                            },
+                            {
+                                "name": "onoffline",
+                                "description": ""
+                            },
+                            {
+                                "name": "ononline",
+                                "description": ""
+                            },
+                            {
+                                "name": "onpagehide",
+                                "description": ""
+                            },
+                            {
+                                "name": "onpageshow",
+                                "description": ""
+                            },
+                            {
+                                "name": "onpopstate",
+                                "description": ""
+                            },
+                            {
+                                "name": "onrejectionhandled",
+                                "description": ""
+                            },
+                            {
+                                "name": "onstorage",
+                                "description": ""
+                            },
+                            {
+                                "name": "onunhandledrejection",
+                                "description": ""
+                            },
+                            {
+                                "name": "onunload",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "center": null,
+                "br": {
+                    "tagName": "br",
+                    "categories": [
+                        "flow content.",
+                        "phrasing content"
+                    ],
+                    "tag_omission": [
+                        "Нет закрывающего тега."
+                    ],
+                    "description": [
+                        "Элемент br представляет собой разрыв строки."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Отсутствует",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "canvas": null,
+                "caption": null,
+                "colgroup": null,
+                "cite": {
+                    "tagName": "cite",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>cite</LE> указывает на название чего-либо (книга, статья, эссе, стихотворение, песня, сценарий, фильм, телешоу, игра, скульптура, картина, постановка и т.д.)",
+                        "Этим элементом может быть выделена работа, на которую ссылаются или которая цитируется.",
+                        "Может выделяться и работа, о которой упоминают вскользь."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "comment": null,
+                "code": {
+                    "tagName": "code",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>code</LE> представляет собой фрагмент компьютерного кода.",
+                        "Это может быть:  XML элемент, имя файла, компьютерная программа или любая другая строка, которую компьютер распознает."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "col": {
+                    "tagName": "col",
+                    "categories": [
+                        "Отсутствуют"
+                    ],
+                    "tag_omission": [
+                        "Нет закрывающего тега."
+                    ],
+                    "description": [
+                        "Если у элемента col есть родительский элемент, и это элемент - colgroup, и он имеет родительский элемент,  в виде элемента table, то элемент col представляет один или несколько столбцов в группе, представленной colgroup."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Отсутствует",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "dd": null,
+                "data": {
+                    "tagName": "data",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>data</LE> считывается компьютером при помощи атрибута <LE>value</LE>"
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "del": null,
+                "details": null,
+                "dir": null,
+                "div": null,
+                "datalist": {
+                    "tagName": "datalist",
+                    "categories": [
+                        "flow content",
+                        "phrasing content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Данный html элемент, в связке с элементами <LE>option</LE> и <LE>input</LE>, позволяет показать выпадающий список при вводе значения в поле формы."
+                    ],
+                    "content_model": [
+                        "Либо фразовый контент, либо 0 и более елементов <LE>option</LE>",
+                        "Так же, контентом могут быть скриптовые элементы, такие как <LE>script</LE> и <LE>template</LE>."
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "fullDescription": true
+                },
+                "dialog": null,
+                "dl": null,
+                "dt": null,
+                "embed": null,
+                "em": {
+                    "tagName": "em",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>em</LE> акцентирует внимание на своем содержании.",
+                        "Масштаб акцента, который испытывает тот или иной фрагмент, определяеься количеством предыдущих <LE>em</LE> элементтов.",
+                        "Расположение акцента меняет смысл предложения. Таким образом, данный элемент составляет важную часть контента. Эффективный путь использования ударения зависит от языка."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "figcaption": null,
+                "figure": null,
+                "font": null,
+                "form": null,
+                "footer": null,
+                "fieldset": null,
+                "frame": null,
+                "article": {
+                    "tagName": "article",
+                    "categories": [
+                        "flow content",
+                        "sectioning content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент article представляет собой самостоятельную часть документа и может использоваться повторно.",
+                        "Это может быть блок сообщения на форуме, статья в журнале, запись в блоге, пользовательский комментарий и так далее.",
+                        "Чаще всего используется в прямом смысле, для обозначения блока содержащего статью."
+                    ],
+                    "content_model": "flow content",
+                    "fullDescription": true,
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": []
+                    },
+                    "example": false
+                },
+                "h1": null,
+                "frameset": null,
+                "h2": null,
+                "h3": null,
+                "h5": null,
+                "h6": null,
+                "h4": null,
+                "hr": null,
+                "header": null,
+                "head": null,
+                "iframe": null,
+                "i": null,
+                "img": null,
+                "input": null,
+                "kbd": null,
+                "ins": null,
+                "keygen": null,
+                "label": null,
+                "legend": null,
+                "link": null,
+                "main": null,
+                "li": null,
+                "mark": null,
+                "menuitem": null,
+                "map": null,
+                "dfn": {
+                    "tagName": "dfn",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>dfn</LE> представляет собой термин или аббревиатуру.",
+                        "Близлежащий абзац, список или раздел к элементу <LE>dfn</LE> должен содержать его расшифровку или описание."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "meter": null,
+                "menu": null,
+                "meta": null,
+                "noframes": null,
+                "noscript": null,
+                "nav": {
+                    "tagName": "nav",
+                    "categories": [
+                        "flow content",
+                        "sectioning content",
+                        "palpable content"
+                    ]
+                },
+                "ol": null,
+                "optgroup": null,
+                "object": null,
+                "output": null,
+                "p": null,
+                "option": {
+                    "tagName": "option",
+                    "categories": [
+                        "Отсутствуют"
+                    ],
+                    "tag_omission": [
+                        "Конечный тег элемента <LE>option</LE> может быть опущен, если за элементом <LE>option</LE> сразу же следует другой элемент <LE>option</LE>, или если за ним сразу следует элемент <LE>optgroup</LE>, или если в родительском элементе больше нет содержимого."
+                    ],
+                    "description": [
+                        "Элемент <LE>option</LE> отображает вариант из списка элемента <LE>select</LE> или как часть списка вариантов в элементе <LE>datalist</LE>."
+                    ],
+                    "content_model": [
+                        "Если у элемента есть атрибут <LA>label</LA> и атрибут <LA>value</LA> то внутри не должно быть ничего.",
+                        "Если у элемента есть атрибут <LA>label</LA>, но нет атрибута <LA>value</LA>, то внутри можно разместить обычный текст.",
+                        "Если элемент не имеет атрибута <LA>label</LA> и не является дочерним элементом элемента <LE>datalist</LE>, то внутри можно разместить обычный текст.",
+                        "Если элемент не имеет атрибута <LA>label</LA> и является дочерним элементом элемента  <LE>datalist</LE>, то внутри можно разместить обычный текст."
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "disabled",
+                                "description": "Отключен ли элемент управления формой"
+                            },
+                            {
+                                "name": "label",
+                                "description": "Ярлык, видимый пользователем"
+                            },
+                            {
+                                "name": "selected",
+                                "description": "Выбрана ли эта опция по умолчанию"
+                            },
+                            {
+                                "name": "value",
+                                "description": "Значение, которое будет использоваться для отправки формы"
+                            }
+                        ]
+                    }
+                },
+                "param": null,
+                "pre": null,
+                "progress": null,
+                "ruby": null,
+                "rp": {
+                    "tagName": "rp",
+                    "categories": [
+                        "Отсутствуют"
+                    ],
+                    "tag_omission": [
+                        "Тег в конце элемента <LE>rt</LE> не обязателен, если за <LE>rt</LE> сразу следует <LE>rt</LE> или <LE>rp</LE>, либо когда в родительском элементе больше нет содержимого."
+                    ],
+                    "description": [
+                        "Элемент <LE>rp</LE> может поставить  круглые скобки вокруг текстового компонента <LE>ruby</LE> в описании, будет отображаться пользовательскими агентами, не поддерживающими описание <LE>ruby</LE>."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Текст.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "rt": {
+                    "tagName": "rt",
+                    "categories": [
+                        "отсутствуют"
+                    ],
+                    "tag_omission": [
+                        "Тег в конце элемента <LE>rt</LE> не обязателен, если за <LE>rt</LE> сразу следует <LE>rt</LE> или <LE>rp</LE>, либо когда в родительском элементе больше нет содержимого."
+                    ],
+                    "description": [
+                        "Элемент <LE>rt</LE> выделяет текст элемента <LE>ruby</LE> в описании.",
+                        "Когда он является дочерним элементом <LE>ruby</LE>, сам по себе он ничего не представляет, но элемент <LE>ruby</LE> использует его для того, чтобы дать представлению пользователю о содержимом."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "script": null,
+                "s": {
+                    "tagName": "s",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>s</LE> показывает неточную или неактуальную информацию."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "select": null,
+                "q": {
+                    "tagName": "q",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>q</LE> показывает цитирование."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "samp": {
+                    "tagName": "samp",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>samp</LE> представляет собой знак или подпись авторства, принадлежащий другой программе или компьютерной системе."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "source": null,
+                "section": null,
+                "span": null,
+                "small": {
+                    "tagName": "small",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>small</LE> представляет собой комментарий, выполненный мелким шрифтом."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "strong": {
+                    "tagName": "strong",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>strong</LE> очень важен для содержимого."
+                    ],
+                    "fullDescription": true,
+                    "content_model": "Фразовый контент.",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "sub": null,
+                "strike": null,
+                "summary": null,
+                "style": null,
+                "table": null,
+                "sup": null,
+                "tbody": null,
+                "td": null,
+                "tfoot": null,
+                "th": null,
+                "thead": null,
+                "title": null,
+                "time": {
+                    "tagName": "time",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент <LE>time</LE> служит для выделения времени или даты в разметке страницы."
+                    ],
+                    "content_model": [
+                        "Если элемент имеет атрибут <LA>datetime</LA> то содержимое элемента является Фразовым (phrasing content). В противном случае контент является обычным тектстом."
+                    ],
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "datetime",
+                                "description": "Машиночитаемое значение (<a href='https://en.wikipedia.org/wiki/Machine-readable_data' target='_blank'>Machine-readable value</a>)"
+                            }
+                        ]
+                    },
+                    "fullDescription": true,
+                    "example": false
+                },
+                "tr": null,
+                "tt": null,
+                "ul": null,
+                "u": null,
+                "track": {
+                    "tagName": "track",
+                    "categories": [
+                        "Отсутствуют"
+                    ],
+                    "tag_omission": [
+                        "Закрывающий тег отсутствует."
+                    ],
+                    "description": [
+                        "Элемент `track` позволяет указывать явные внешние синхронизированные текстовые дорожки (`text tracks`) для мультимедийных элементов (`media elements`) <audio> и <video>. Сам по себе он ничего не представляет.",
+                        "Такая дорожка может содержать субтитры на разных языках, различные комментарии и заголовки"
+                    ],
+                    "content_model": "Контент отсутсвует",
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "kind",
+                                "description": "Тип дорожки"
+                            },
+                            {
+                                "name": "src",
+                                "description": "Путь к файлу"
+                            },
+                            {
+                                "name": "srclang",
+                                "description": "Язык дорожки."
+                            },
+                            {
+                                "name": "label",
+                                "description": "Название дорожки - отображается пользователю."
+                            },
+                            {
+                                "name": "default",
+                                "description": "Дорожка по умолчанию. Только одна дорожка может иметь атрибут default."
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "video": null,
+                "var": {
+                    "tagName": "var",
+                    "categories": [
+                        "flow content",
+                        "phrasing content",
+                        "palpable content"
+                    ],
+                    "tag_omission": [
+                        "Открывающий и закрывающий теги обязательны."
+                    ],
+                    "description": [
+                        "Элемент var представляет 'переменную'.",
+                        "Это может быть фактическая переменная в математическом выражении или контексте программирования, идентификатор, представляющий константу, символ, идентифицирующий физическую величину, параметр функции, или просто термин в тексте."
+                    ],
+                    "content_model": "phrasing content",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "wbr": {
+                    "tagName": "wbr",
+                    "categories": [
+                        "flow content",
+                        "phrasing content"
+                    ],
+                    "tag_omission": [
+                        "Закрывающий тег отсутствует."
+                    ],
+                    "description": [
+                        "Элемент wbr представляет собой возможность разрыва строки. Данным тегом можно определить где именно будут разрывы в слове при переносе на следующую строку."
+                    ],
+                    "content_model": "Не имеет",
+                    "content_attributes": {
+                        "global_attributes": true
+                    },
+                    "example": false
+                },
+                "html": {
+                    "tagName": "html",
+                    "categories": [
+                        "none"
+                    ],
+                    "tag_omission": [
+                        "Начальный тег элемента html может быть опущен, если первое, что находится внутри элемента html, не является комментарием.",
+                        "Конечный тег элемента html может быть опущен, если за элементом html сразу не следует комментарий."
+                    ],
+                    "description": [
+                        "Элемент html представляет собой корень HTML-документа.",
+                        "Разработчикам рекомендуется указывать атрибут lang в корневом элементе html, задавая язык документа. Это помогает инструментам синтеза речи определять, какое произношение использовать, инструментам перевода, чтобы определить, какие правила использовать, и так далее."
+                    ],
+                    "content_model": "Элемент head, за которым следует элемент body.",
+                    "content_attributes": {
+                        "global_attributes": true,
+                        "custom_attributes": [
+                            {
+                                "name": "manifest",
+                                "description": "Манифест кэша приложений"
+                            }
+                        ]
+                    },
+                    "example": false
+                },
+                "big": null
+            }
+        }
+    },
+    "UI": {
+        "mobileMenu": {
+            "isOpened": false
+        }
+    }
+}
