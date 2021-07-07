@@ -5,7 +5,7 @@ import { App } from 'Src/client/app/app';
 import AppHtml from 'Components/app-html';
 import readAssetsManifest from 'Src/server/utils/read-assets-manifest';
 
-import { extractor } from './utils/сhunkExtractor';
+import { webExtractor, nodeExtractor } from './utils/сhunkExtractor';
 
 import fs from 'fs';
 
@@ -59,12 +59,19 @@ export async function getContent(request: any) {
 
     // console.log('initialState', initialState);
 
+    // const x = webExtractor.getScriptTags();
+    // console.log(x);
+
     try {
-        const jsx = extractor.collectChunks(
+        const scripts = webExtractor.getScriptTags();
+        //const scripts = webExtractor.getScriptElements();
+        console.log('scripts', scripts, '----- /n');
+        const jsx = webExtractor.collectChunks(
             <AppHtml
                 jsFiles={assets.js}
                 cssFiles={assets.css}
                 initialReduxState={ initialState }
+                scripts={ scripts }
             >
                 <App
                     location={{
@@ -78,6 +85,8 @@ export async function getContent(request: any) {
         );
 
         const stringContent = renderToString(jsx);
+
+        // console.log('stringContent', stringContent)
 
         return stringContent;
     } catch (e) {
