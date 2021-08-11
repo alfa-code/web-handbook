@@ -44,7 +44,9 @@ const getAllHtmlTags = async () => {
                 url: 'https://web-handbook.ru/api/htmlElements/list',
             });
 
-            const htmlElementsList = response?.data?.list;
+            console.log('response', response)
+
+            const htmlElementsList = response.data.list;
 
             initialState.data.htmlTagsList.list = htmlElementsList;
 
@@ -189,9 +191,12 @@ async function loadAttribetesInfo(attributesList) {
 
         function mapStructure({ structure }) {
             const mapped = {};
-            structure.forEach((element) => {
-                mapped[element.type] = element.value;
-            });
+            console.log('structure', structure)
+            if (structure) {
+                structure.forEach((element) => {
+                    mapped[element.type] = element.value;
+                });
+            }
 
             return mapped;
         }
@@ -205,7 +210,7 @@ async function loadAttribetesInfo(attributesList) {
                 newPromises.push(new Promise(async (res, rej) => {
                     if (item && item.data) {
                         const mapped = mapStructure(item.data);
-        
+
                         if (mapped.fullDescription) {
                             try {
                                 const response = await axios({
@@ -217,12 +222,12 @@ async function loadAttribetesInfo(attributesList) {
                             } catch (e) {
                                 console.log('eeee', e);
                             }
-        
+
                             // mapped.additionalDescription = response.data;
                         }
-        
+
                         // console.log('mapped', mapped)
-        
+
                         targetValue[item.name] = mapped;
                         res();
                     } else {
