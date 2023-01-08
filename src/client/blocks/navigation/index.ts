@@ -1,1 +1,1 @@
-export { Navigation } from './navigation.block';
+export { Navigation } from './navigation';

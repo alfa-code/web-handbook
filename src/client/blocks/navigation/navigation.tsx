@@ -2,8 +2,22 @@ import React, { useState } from "react";
 
 import { Link } from 'react-router-dom';
 
-
-import { Props } from './props';
+type Props = {
+    tags: string[];
+    navigation?: {
+        categoryName?: string,
+        categoryIconUrl?: string,
+        categories?: {
+            name?: string,
+            url?: string,
+            childrens?: {
+                text?: string,
+                url?: string
+            }[]
+        }[],
+    }[],
+    closeMobileMenuCallback: any;
+}
 
 // import carretDown from "Assets/images/carret-down.png";
 import arrowDown from "Assets/images/arrow-down.svg";
@@ -29,6 +43,11 @@ export const Navigation = (props: Props) => {
     // const [activeCategory, setActiveCategory] = useState("");
 
     const { closeMobileMenuCallback } = props;
+
+
+    if (test) {
+        return 111
+    }
 
     const renderList1 = (directory) => {
         return (
